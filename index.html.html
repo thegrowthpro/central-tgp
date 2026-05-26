@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central TGP</title>
+<style>
+:root {
+  --azul: #1a3a6b;
+  --azul2: #2563eb;
+  --azul-pale: #eff6ff;
+  --negro: #0f172a;
+  --gris1: #1e293b;
+  --gris2: #475569;
+  --gris3: #94a3b8;
+  --gris4: #e2e8f0;
+  --gris5: #f8fafc;
+  --blanco: #ffffff;
+  --verde: #16a34a;
+  --verde-pale: #f0fdf4;
+  --naranja: #ea580c;
+  --naranja-pale: #fff7ed;
+  --morado: #7c3aed;
+  --morado-pale: #f5f3ff;
+  --rojo: #dc2626;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--gris5);color:var(--negro);min-height:100vh;font-size:15px}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--azul);color:#fff;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;gap:16px}
+.topbar-brand{font-weight:800;font-size:17px;letter-spacing:-.3px;white-space:nowrap}
+.topbar-tabs{display:flex;gap:4px}
+.topbar-tab{padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.7);background:none;border:none;transition:all .15s;white-space:nowrap}
+.topbar-tab:hover{color:#fff;background:rgba(255,255,255,.1)}
+.topbar-tab.active{color:#fff;background:rgba(255,255,255,.2)}
+.topbar-user{font-size:13px;color:rgba(255,255,255,.8);white-space:nowrap;display:flex;align-items:center;gap:8px}
+.topbar-avatar{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+
+/* ── SCREENS ── */
+.screen{display:none;min-height:calc(100vh - 56px)}
+.screen.active{display:block}
+
+/* ── WELCOME SCREEN ── */
+.welcome-wrap{max-width:460px;margin:0 auto;padding:60px 20px}
+.welcome-logo{font-size:48px;text-align:center;margin-bottom:16px}
+.welcome-title{font-size:28px;font-weight:800;color:var(--negro);text-align:center;margin-bottom:8px}
+.welcome-sub{font-size:16px;color:var(--gris2);text-align:center;margin-bottom:36px;line-height:1.6}
+.welcome-card{background:var(--blanco);border-radius:16px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06)}
+.field-label{font-size:13px;font-weight:700;color:var(--gris1);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.field-input{width:100%;padding:12px 14px;border:2px solid var(--gris4);border-radius:10px;font-size:15px;color:var(--negro);outline:none;transition:border-color .15s;font-family:inherit}
+.field-input:focus{border-color:var(--azul2)}
+.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.role-btn{padding:14px 10px;border-radius:10px;border:2px solid var(--gris4);background:var(--blanco);cursor:pointer;text-align:center;transition:all .15s;font-family:inherit}
+.role-btn:hover{border-color:var(--azul2)}
+.role-btn.selected{border-color:var(--azul);background:var(--azul-pale)}
+.role-btn .role-icon{font-size:24px;margin-bottom:6px}
+.role-btn .role-name{font-size:13px;font-weight:700;color:var(--negro)}
+.role-btn .role-desc{font-size:11px;color:var(--gris2);margin-top:3px;line-height:1.4}
+.btn-primary{width:100%;padding:14px;background:var(--azul);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;margin-top:20px;font-family:inherit;transition:background .15s}
+.btn-primary:hover{background:#243b6e}
+.btn-primary:disabled{background:var(--gris4);color:var(--gris3);cursor:not-allowed}
+
+/* ── ONBOARDING SCREEN ── */
+.onb-layout{display:grid;grid-template-columns:280px 1fr;min-height:calc(100vh - 56px)}
+
+/* Sidebar */
+.onb-sidebar{background:var(--blanco);border-right:1px solid var(--gris4);padding:24px 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto}
+.sidebar-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--gris3);padding:0 20px;margin-bottom:8px;margin-top:20px}
+.sidebar-section-title:first-child{margin-top:0}
+.sidebar-step{display:flex;align-items:center;gap:10px;padding:10px 20px;cursor:pointer;transition:background .12s;border-left:3px solid transparent;text-decoration:none}
+.sidebar-step:hover{background:var(--gris5)}
+.sidebar-step.active{background:var(--azul-pale);border-left-color:var(--azul2)}
+.sidebar-step.done{opacity:.6}
+.sidebar-step.locked{opacity:.35;cursor:default;pointer-events:none}
+.step-dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--gris4);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;color:var(--gris3)}
+.sidebar-step.active .step-dot{border-color:var(--azul2);background:var(--azul2);color:#fff}
+.sidebar-step.done .step-dot{border-color:var(--verde);background:var(--verde);color:#fff}
+.step-dot-inner{font-size:11px}
+.sidebar-step-title{font-size:13px;font-weight:600;color:var(--gris1);line-height:1.3}
+.sidebar-step.active .sidebar-step-title{color:var(--azul)}
+
+/* Progress bar in sidebar */
+.sidebar-progress{padding:16px 20px 20px;border-bottom:1px solid var(--gris4);margin-bottom:4px}
+.prog-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.prog-name{font-size:13px;font-weight:700;color:var(--negro)}
+.prog-pct{font-size:13px;font-weight:700;color:var(--azul2)}
+.prog-bar{height:8px;background:var(--gris4);border-radius:4px;overflow:hidden}
+.prog-fill{height:100%;background:var(--azul2);border-radius:4px;transition:width .4s ease}
+.prog-sub{font-size:11px;color:var(--gris3);margin-top:6px}
+
+/* Main content */
+.onb-main{padding:32px;max-width:720px}
+.step-card{background:var(--blanco);border-radius:16px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04);margin-bottom:24px}
+.step-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.step-badge{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:4px 10px;border-radius:20px;background:var(--azul-pale);color:var(--azul)}
+.step-icon-big{font-size:32px;margin-bottom:8px}
+.step-title-main{font-size:22px;font-weight:800;color:var(--negro);margin-bottom:8px;line-height:1.3}
+.step-desc{font-size:15px;color:var(--gris2);line-height:1.7;margin-bottom:20px}
+.step-divider{height:1px;background:var(--gris4);margin:20px 0}
+
+/* Content elements */
+h3.sh{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--gris2);margin:20px 0 10px}
+h3.sh:first-child{margin-top:0}
+p.pt{font-size:14px;color:var(--gris1);line-height:1.7;margin-bottom:10px}
+.info-list{list-style:none;padding:0;margin:8px 0 12px}
+.info-list li{padding:6px 0 6px 18px;font-size:14px;color:var(--gris1);position:relative;border-bottom:1px solid var(--gris5)}
+.info-list li:last-child{border-bottom:none}
+.info-list li::before{content:'•';position:absolute;left:4px;color:var(--azul2);font-weight:700}
+.steps-list{list-style:none;padding:0;counter-reset:sc;margin:8px 0 12px}
+.steps-list li{counter-increment:sc;display:flex;gap:12px;padding:8px 0;font-size:14px;color:var(--gris1);border-bottom:1px solid var(--gris5);align-items:flex-start}
+.steps-list li:last-child{border-bottom:none}
+.steps-list li::before{content:counter(sc);min-width:22px;height:22px;background:var(--azul);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px}
+.link-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.lbtn{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .12s;white-space:nowrap;cursor:pointer;border:none}
+.lbtn:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.lbtn-doc{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.lbtn-doc:hover{background:#dbeafe}
+.lbtn-vid{background:#f5f3ff;color:#6d28d9;border:1px solid #ddd6fe}
+.lbtn-vid:hover{background:#ede9fe}
+.lbtn-form{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+.lbtn-form:hover{background:#dcfce7}
+.lbtn-app{background:#0f172a;color:#fff;border:1px solid #0f172a}
+.lbtn-app:hover{background:#1e293b}
+.lbtn-drive{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa}
+.lbtn-drive:hover{background:#ffedd5}
+
+/* Callout */
+.callout{border-radius:10px;padding:14px 16px;margin:12px 0;font-size:14px;line-height:1.6;display:flex;gap:12px;align-items:flex-start}
+.callout-i{font-size:18px;flex-shrink:0;margin-top:1px}
+.callout b{display:block;margin-bottom:3px;font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+.c-info{background:#eff6ff;border-left:4px solid #3b82f6;color:#1e40af}
+.c-warn{background:#fff7ed;border-left:4px solid #f97316;color:#7c2d12}
+.c-ok{background:#f0fdf4;border-left:4px solid #22c55e;color:#14532d}
+.c-tip{background:#f5f3ff;border-left:4px solid #8b5cf6;color:#4c1d95}
+
+/* Checklist inline */
+.inline-check{margin:10px 0}
+.ic-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;background:var(--gris5);border:1px solid var(--gris4);margin-bottom:6px;cursor:pointer;transition:background .1s}
+.ic-item:hover{background:#eff6ff}
+.ic-item input{width:16px;height:16px;accent-color:var(--azul2);cursor:pointer;flex-shrink:0}
+.ic-item label{font-size:14px;color:var(--gris1);cursor:pointer;flex:1}
+.ic-item input:checked+label{text-decoration:line-through;color:var(--gris3)}
+
+/* Glosario */
+.gloss{border:1px solid var(--gris4);border-radius:10px;overflow:hidden;margin:10px 0}
+.gloss-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--gris4)}
+.gloss-row:last-child{border-bottom:none}
+.gloss-term{background:var(--azul-pale);padding:10px 14px;font-size:13px;font-weight:700;color:var(--azul)}
+.gloss-def{background:#fff;padding:10px 14px;font-size:13px;color:var(--gris1);line-height:1.5}
+
+/* Etiquetas */
+.etiq-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.etiq{border-radius:8px;padding:10px 12px;border:1px solid var(--gris4);background:#fff}
+.etiq-name{font-size:13px;font-weight:700;margin-bottom:3px}
+.etiq-desc{font-size:12px;color:var(--gris2)}
+
+/* Complete button */
+.complete-btn{width:100%;padding:16px;background:var(--azul);color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:10px}
+.complete-btn:hover{background:#243b6e;transform:translateY(-1px)}
+.complete-btn.done-style{background:var(--verde)}
+.nav-btns{display:flex;gap:10px;margin-top:16px}
+.btn-back{padding:12px 20px;background:var(--blanco);color:var(--gris1);border:2px solid var(--gris4);border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.btn-back:hover{border-color:var(--gris3)}
+
+/* Celebration / track unlock */
+.celebrate{background:linear-gradient(135deg,#1a3a6b 0%,#2563eb 100%);border-radius:16px;padding:32px;color:#fff;text-align:center;margin-bottom:24px}
+.celebrate h2{font-size:24px;font-weight:800;margin-bottom:8px}
+.celebrate p{font-size:15px;opacity:.85;margin-bottom:20px;line-height:1.6}
+.celebrate-icon{font-size:48px;margin-bottom:12px}
+.btn-start-sdr{padding:14px 28px;background:#fff;color:var(--azul);border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s}
+.btn-start-sdr:hover{background:#eff6ff}
+
+/* ── RECURSOS SCREEN ── */
+.res-wrap{max-width:800px;margin:0 auto;padding:32px 20px}
+.res-search{width:100%;padding:14px 16px 14px 44px;border-radius:12px;border:2px solid var(--gris4);font-size:15px;color:var(--negro);outline:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85.708-.707-3.85-3.85zm-5.242 1.156a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/svg%3E") no-repeat 14px center;transition:border-color .15s;font-family:inherit;margin-bottom:24px}
+.res-search:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.res-section{margin-bottom:10px}
+.res-header{width:100%;display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--blanco);border:1px solid var(--gris4);border-radius:10px;cursor:pointer;text-align:left;font-family:inherit;transition:background .12s}
+.res-header:hover{background:var(--gris5)}
+.res-header.ropen{background:var(--azul);color:#fff;border-color:var(--azul);border-bottom-left-radius:0;border-bottom-right-radius:0}
+.res-icon{font-size:18px;flex-shrink:0}
+.res-info{flex:1}
+.res-title{font-size:15px;font-weight:700;color:var(--negro)}
+.res-header.ropen .res-title{color:#fff}
+.res-sub{font-size:12px;color:var(--gris3);margin-top:1px}
+.res-header.ropen .res-sub{color:rgba(255,255,255,.7)}
+.res-chev{font-size:16px;color:var(--gris3);transition:transform .2s;flex-shrink:0}
+.res-header.ropen .res-chev{transform:rotate(180deg);color:#fff}
+.res-body{display:none;background:#fff;border:1px solid var(--azul);border-top:none;border-bottom-left-radius:10px;border-bottom-right-radius:10px;padding:20px 20px 24px}
+.res-body.ropen{display:block}
+.res-hidden{display:none!important}
+
+/* Tables */
+.vid-table{width:100%;border-collapse:collapse;border:1px solid var(--gris4);border-radius:8px;overflow:hidden;font-size:13px;margin:8px 0}
+.vid-table th{background:var(--azul);color:#fff;padding:9px 14px;text-align:left;font-weight:600}
+.vid-table td{padding:9px 14px;border-bottom:1px solid var(--gris5);color:var(--gris1)}
+.vid-table tr:last-child td{border-bottom:none}
+.vid-table tr:nth-child(even) td{background:#fafafa}
+.vid-table a{color:var(--azul2);font-weight:600;text-decoration:none}
+.vid-table a:hover{text-decoration:underline}
+
+/* Completion screen */
+.done-screen{max-width:480px;margin:0 auto;padding:60px 20px;text-align:center}
+.done-icon{font-size:64px;margin-bottom:16px}
+.done-title{font-size:28px;font-weight:800;color:var(--negro);margin-bottom:8px}
+.done-sub{font-size:16px;color:var(--gris2);line-height:1.6;margin-bottom:32px}
+.done-card{background:var(--blanco);border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.05);margin-bottom:16px;text-align:left}
+.done-card h3{font-size:15px;font-weight:700;color:var(--negro);margin-bottom:8px}
+.done-card p{font-size:14px;color:var(--gris2);line-height:1.6}
+
+/* PATH SELECTOR */
+.path-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.path-card{background:var(--blanco);border:2px solid var(--gris4);border-radius:16px;padding:28px 20px 24px;text-align:center;cursor:pointer;transition:all .18s;font-family:inherit;width:100%}
+.path-card:hover{border-color:var(--azul2);transform:translateY(-3px);box-shadow:0 6px 20px rgba(37,99,235,.12)}
+.path-card-icon{font-size:36px;margin-bottom:12px}
+.path-card-title{font-size:16px;font-weight:800;color:var(--negro);margin-bottom:6px}
+.path-card-desc{font-size:12px;color:var(--gris2);line-height:1.5}
+.path-card-arrow{margin-top:14px;font-size:18px;color:var(--azul2)}
+.path-back{font-size:13px;color:var(--azul2);cursor:pointer;margin-bottom:20px;display:inline-flex;align-items:center;gap:4px;background:none;border:none;font-family:inherit;padding:0}
+.path-back:hover{text-decoration:underline}
+
+/* REQUIRED LINKS */
+a[data-req]{position:relative;transition:all .15s}
+a[data-req].req-visited{opacity:.75}
+a[data-req].req-visited::after{content:'✓';position:absolute;top:-7px;right:-7px;background:var(--verde);color:#fff;border-radius:50%;width:17px;height:17px;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:800}
+.complete-btn:disabled,.complete-btn[disabled]{background:var(--gris4)!important;color:var(--gris3)!important;cursor:not-allowed!important;transform:none!important;box-shadow:none!important}
+.req-notice{text-align:center;font-size:13px;color:var(--gris2);margin-top:10px;padding:10px 14px;background:var(--naranja-pale);border-radius:8px;border:1px dashed #fed7aa}
+
+/* Mobile */
+@media(max-width:700px){
+  .onb-layout{grid-template-columns:1fr}
+  .onb-sidebar{display:none}
+  .onb-main{padding:20px}
+  .etiq-grid{grid-template-columns:1fr}
+  .gloss-row{grid-template-columns:1fr}
+  .gloss-term{border-bottom:1px solid var(--gris4)}
+  .topbar-tabs{gap:2px}
+  .topbar-tab{padding:5px 8px;font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar" id="topbar">
+  <div class="topbar-brand">Central TGP</div>
+  <div class="topbar-tabs" id="topbarTabs" style="display:none">
+    <button class="topbar-tab" id="tab-onboarding" onclick="showScreen('onboarding')">🗺 Mi Onboarding</button>
+    <button class="topbar-tab" id="tab-recursos" onclick="showScreen('recursos')">📚 Recursos</button>
+  </div>
+  <div class="topbar-user" id="topbarUser" style="display:none">
+    <div class="topbar-avatar" id="topbarAvatar">?</div>
+    <span id="topbarName"></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PANTALLA 1: BIENVENIDA / CONFIGURACIÓN INICIAL            -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="screen active" id="screen-welcome">
+
+  <!-- ── PATH SELECTOR ── -->
+  <div class="welcome-wrap" id="pathSelect">
+    <div class="welcome-logo">🏢</div>
+    <h1 class="welcome-title">Central TGP</h1>
+    <p class="welcome-sub">Tu centro de onboarding, recursos y herramientas. ¿Qué querés hacer?</p>
+    <div class="path-grid">
+      <button class="path-card" onclick="choosePath('onboarding')">
+        <div class="path-card-icon">🗺️</div>
+        <div class="path-card-title">Soy nuevo/a</div>
+        <div class="path-card-desc">Quiero hacer mi onboarding paso a paso y registrar mi avance</div>
+        <div class="path-card-arrow">→</div>
+      </button>
+      <button class="path-card" onclick="choosePath('recursos')">
+        <div class="path-card-icon">📚</div>
+        <div class="path-card-title">Ya soy colaborador/a</div>
+        <div class="path-card-desc">Quiero acceder a recursos, guías, links y herramientas</div>
+        <div class="path-card-arrow">→</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── ONBOARDING FORM ── -->
+  <div class="welcome-wrap" id="onbForm" style="display:none">
+    <button class="path-back" onclick="showPathSelect()">← Volver</button>
+    <div class="welcome-logo">👋</div>
+    <h1 class="welcome-title">¡Bienvenido/a a TGP!</h1>
+    <p class="welcome-sub">Ingresá tus datos para empezar — el sistema va a recordar tu avance.</p>
+    <div class="welcome-card">
+      <div class="field-label">Tu nombre</div>
+      <input class="field-input" id="inputName" type="text" placeholder="Ej: Camila, Mateo…" autocomplete="off" oninput="checkWelcomeReady()">
+      <div style="height:20px"></div>
+      <div class="field-label">Tu rol en TGP</div>
+      <div class="role-grid">
+        <button class="role-btn" id="role-general" onclick="selectRole('general')">
+          <div class="role-icon">🏢</div>
+          <div class="role-name">Colaborador/a</div>
+          <div class="role-desc">Área administrativa, ops, marketing u otro</div>
+        </button>
+        <button class="role-btn" id="role-sdr" onclick="selectRole('sdr')">
+          <div class="role-icon">📞</div>
+          <div class="role-name">SDR Junior</div>
+          <div class="role-desc">Sales Development Representative</div>
+        </button>
+      </div>
+      <button class="btn-primary" id="btnStart" disabled onclick="startOnboarding()">Empezar mi onboarding →</button>
+      <p style="font-size:12px;color:var(--gris3);text-align:center;margin-top:12px">Tu progreso se guarda automáticamente en este navegador</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PANTALLA 2: ONBOARDING GUIADO                             -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-onboarding">
+  <div class="onb-layout">
+    <!-- Sidebar -->
+    <div class="onb-sidebar" id="sidebar"></div>
+    <!-- Main -->
+    <div class="onb-main" id="stepContent"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PANTALLA 3: RECURSOS (POST-ONBOARDING)                    -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-recursos">
+  <div class="res-wrap">
+    <h2 style="font-size:22px;font-weight:800;color:var(--negro);margin-bottom:4px">📚 Guía de Referencia</h2>
+    <p style="font-size:14px;color:var(--gris2);margin-bottom:20px">Todo el contenido del onboarding, siempre disponible. Buscá por palabras clave o explorá por sección.</p>
+    <input class="res-search" id="resSearch" type="text" placeholder="Buscar… (ej: almuerzo, etiquetas, push, apollo)" oninput="filterResources(this.value)">
+    <div id="resSections"></div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// DATA: PASOS ADMINISTRATIVOS (todos los colaboradores)
+// ═══════════════════════════════════════════════════════════════
+const ADMIN_STEPS = [
+  {
+    id:'admin-bienvenida',
+    icon:'🎉',
+    badge:'Día 1',
+    title:'¡Bienvenido/a a TGP!',
+    keywords:'bienvenida inicio primer dia estructura',
+    content: () => `
+      <p class="pt">Este onboarding está dividido en pasos. Podés avanzar a tu propio ritmo — el sistema guarda tu progreso automáticamente.</p>
+      <div class="callout c-info"><span class="callout-i">ℹ️</span><div><b>Estructura del onboarding</b>Esta primera parte es para <strong>todos los colaboradores de TGP</strong>. Cubre la configuración inicial y los beneficios. ${STATE.role==='sdr' ? 'Una vez que la completes, se habilitará la parte específica de SDR Junior.' : ''}</div></div>
+      <h3 class="sh">¿Qué vas a hacer hoy?</h3>
+      <ul class="info-list">
+        <li>Completar tu formulario de datos personales</li>
+        <li>Configurar tus herramientas de trabajo (Slack, Calendar, Meet)</li>
+        <li>Actualizar tu LinkedIn</li>
+        <li>Conocer los beneficios (almuerzo, salas)</li>
+        <li>Guardar los links importantes en Chrome</li>
+      </ul>
+      <div class="callout c-ok"><span class="callout-i">✅</span><div>Cuando completés cada paso, presioná el botón de abajo para avanzar al siguiente. ¡Arrancamos!</div></div>
+    `
+  },
+  {
+    id:'admin-datos',
+    icon:'📋',
+    badge:'Paso 1',
+    title:'Datos Personales',
+    keywords:'datos personales formulario accesos',
+    content: () => `
+      <p class="pt">Antes de todo, debés completar el formulario de datos personales. Es necesario para generar tus accesos y tener tu información ante cualquier emergencia.</p>
+      <div class="link-row">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSep-5s9FTC7nvHsGhXBC-v3m6ymFHkBCuFiN8BfLdY9CF2sKg/viewform" target="_blank" class="lbtn lbtn-form">📋 Abrir formulario de datos personales</a>
+      </div>
+      <div class="callout c-warn" style="margin-top:12px"><span class="callout-i">⚠️</span><div>Completá el formulario <strong>antes de continuar</strong>. Es el primer paso administrativo obligatorio.</div></div>
+    `
+  },
+  {
+    id:'admin-slack',
+    icon:'💬',
+    badge:'Paso 2',
+    title:'Configurar Slack',
+    keywords:'slack comunicacion canales mensajes foto perfil celular app notificaciones',
+    content: () => `
+      <p class="pt">Slack es nuestra herramienta principal de comunicación — nuestra segunda oficina. Todo el trabajo, coordinación y comunicación del equipo pasa por Slack.</p>
+      <div class="callout c-warn"><span class="callout-i">⚠️</span><div><b>Regla de oro</b>Está prohibido mantener notificaciones, canales y chats sin abrir. Todo lo que se recibe es importante y se responde.</div></div>
+      <h3 class="sh">1 — Revisá estos recursos primero</h3>
+      <div class="link-row">
+        <a href="https://docs.google.com/document/u/1/d/1lt4TF3wu-3UgIQrk1h7xov20dzVlN6xp_b2IG_tsoo0/edit" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía de uso de Slack</a>
+        <a href="https://www.loom.com/share/f8e93b73c31040d8ad9c8c5ee0a23697" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Tour por Slack</a>
+      </div>
+      <h3 class="sh">2 — Ejecutá y marcá cada ítem</h3>
+      <div class="inline-check" id="slack-checks">
+        <div class="ic-item"><input type="checkbox" id="sc1"><label for="sc1">Descargar la app de Slack en mi celular e iniciar sesión con mi cuenta TGP</label></div>
+        <div class="ic-item"><input type="checkbox" id="sc2"><label for="sc2">Poner una foto de perfil profesional en Slack</label></div>
+        <div class="ic-item"><input type="checkbox" id="sc3"><label for="sc3">Revisar y unirme a los canales relevantes</label></div>
+      </div>
+    `
+  },
+  {
+    id:'admin-calendar',
+    icon:'📅',
+    badge:'Paso 3',
+    title:'Google Calendar',
+    keywords:'google calendar agenda disponibilidad reuniones app celular',
+    content: () => `
+      <p class="pt">El calendario dirige el día a día de todo el equipo. Cualquier persona puede ver tu disponibilidad para agendar reuniones — que son de asistencia obligatoria.</p>
+      <h3 class="sh">1 — Mirá el video primero</h3>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/72be9e9b20e043dfb833308be04216d7" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Uso de Google Calendar</a>
+      </div>
+      <h3 class="sh">2 — Ejecutá y marcá cada ítem</h3>
+      <div class="inline-check">
+        <div class="ic-item"><input type="checkbox" id="cal1"><label for="cal1">Descargar la app de Google Calendar en mi celular</label></div>
+        <div class="ic-item"><input type="checkbox" id="cal2"><label for="cal2">Iniciar sesión con mi mail TGP en la app</label></div>
+        <div class="ic-item"><input type="checkbox" id="cal3"><label for="cal3">Cargar mis actividades fijas (universidad, deporte, compromisos)</label></div>
+        <div class="ic-item"><input type="checkbox" id="cal4"><label for="cal4">Activar notificaciones para aceptar invitaciones al instante</label></div>
+      </div>
+    `
+  },
+  {
+    id:'admin-meet',
+    icon:'🎥',
+    badge:'Paso 4',
+    title:'Fondo Virtual — Google Meet',
+    keywords:'google meet fondo virtual fondo pantalla configurar reunion',
+    content: () => `
+      <p class="pt">Para las reuniones en Google Meet todos usamos el mismo fondo institucional de TGP. Configuralo una vez y queda guardado para siempre.</p>
+      <h3 class="sh">Paso a paso</h3>
+      <ol class="steps-list">
+        <li>Descargar el fondo virtual desde el link de abajo.</li>
+        <li>Abrir Google Meet desde las aplicaciones de tu correo TGP.</li>
+        <li>Clic en "nueva reunión" → "iniciar una reunión instantánea".</li>
+        <li>Clic en los tres puntos verticales (opciones) abajo a la derecha.</li>
+        <li>Seleccionar "Aplicar efectos visuales" o "efectos y fondos".</li>
+        <li>Clic en el ícono <strong>"+"</strong> para agregar imagen.</li>
+        <li>Seleccionar el archivo descargado. ¡Listo!</li>
+      </ol>
+      <div class="link-row">
+        <a href="https://drive.google.com/drive/folders/1VvRCIk5EGXVy1Slsz4m4Uh9UBFLML31R?usp=drive_link" target="_blank" class="lbtn lbtn-drive">⬇ Descargar fondo virtual TGP</a>
+      </div>
+    `
+  },
+  {
+    id:'admin-linkedin',
+    icon:'💼',
+    badge:'Paso 5',
+    title:'Actualizar LinkedIn',
+    keywords:'linkedin perfil profesional puesto cargo titulo experiencia portada foto',
+    content: () => `
+      <p class="pt">Tu LinkedIn tiene que reflejar que ahora estás en TGP. Seguí este paso a paso:</p>
+      <ol class="steps-list">
+        <li>Ingresar a LinkedIn.</li>
+        <li>Editar el titular del perfil: <strong>"${STATE.role==='sdr'?'SDR Junior':'[Tu cargo]'} en TGP"</strong></li>
+        <li>Eliminar la palabra "estudiante" del perfil si corresponde.</li>
+        <li>Descargar y subir la portada oficial de TGP.</li>
+        <li>En "Experiencia" → agregar puesto:<br>
+          <span style="font-size:13px;color:var(--gris2)">Cargo: ${STATE.role==='sdr'?'SDR Junior (Sales Development Representative Junior)':'[Tu cargo]'} | Empresa: TGP | Fecha: hoy | Ubicación: Las Condes, Santiago</span>
+        </li>
+        <li>Guardar.</li>
+      </ol>
+      <div class="link-row">
+        <a href="https://drive.google.com/file/d/1wjUMY7LnMlcDkTB3FWcy13VWJlg2EJS1/view?usp=drive_link" target="_blank" class="lbtn lbtn-drive">⬇ Portada oficial TGP</a>
+      </div>
+    `
+  },
+  {
+    id:'admin-almuerzo',
+    icon:'🍽️',
+    badge:'Beneficio',
+    title:'Servicio de Almuerzo',
+    keywords:'almuerzo creditos comida beneficio part time full time formulario canal slack',
+    content: () => `
+      <p class="pt">En TGP tenemos almuerzo incluido en la oficina. Funciona con créditos mensuales según tu modalidad.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0">
+        <div style="background:var(--gris5);border-radius:10px;padding:16px;text-align:center;border:1px solid var(--gris4)">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:4px">Part-time</div>
+          <div style="font-size:28px;font-weight:800;color:var(--azul)">4</div>
+          <div style="font-size:12px;color:var(--gris3)">créditos/mes</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:16px;text-align:center;border:1px solid var(--gris4)">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:4px">Full-time</div>
+          <div style="font-size:28px;font-weight:800;color:var(--azul)">8</div>
+          <div style="font-size:12px;color:var(--gris3)">créditos/mes</div>
+        </div>
+      </div>
+      <div class="callout c-info"><span class="callout-i">ℹ️</span><div>1 crédito = 1 almuerzo. Los créditos <strong>no se acumulan ni se transfieren</strong>. Si no los usás, al mes siguiente tenés los mismos. ¡Aprovechalos!</div></div>
+      <h3 class="sh">⭐ Platos favoritos del equipo</h3>
+      <ul class="info-list">
+        <li>Plateada de cerdo de cocción lenta con puré picante</li>
+        <li>Milanesa de carne con milhoja de papas</li>
+        <li>Ensalada de pollo o Timbal de atún</li>
+      </ul>
+      <div class="callout c-ok"><span class="callout-i">💬</span><div>El canal de Slack <strong>"almuerzos"</strong> tiene la lista diaria, créditos restantes y el link para pedir. El formulario cierra a las <strong>14:00 hrs del día anterior</strong>.</div></div>
+      <div class="link-row">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="lbtn lbtn-form">📋 Formulario de almuerzos</a>
+      </div>
+    `
+  },
+  {
+    id:'admin-salas',
+    icon:'🚪',
+    badge:'Beneficio',
+    title:'Salas de Reuniones',
+    keywords:'salas reuniones reserva calendario oficina privadas',
+    content: () => `
+      <p class="pt">En la oficina tenemos varias salas privadas de uso comunitario para reuniones, llamados o lo que necesites. Para usar una sala, tenés que reservarla en el calendario.</p>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Cómo reservar una sala</a>
+      </div>
+      <div class="callout c-info" style="margin-top:12px"><span class="callout-i">💡</span><div>Reservá siempre con anticipación — las salas son compartidas por todo el equipo.</div></div>
+    `
+  },
+  {
+    id:'admin-honorarios',
+    icon:'🧾',
+    badge:'Administrativo',
+    title:'Boleta de Honorarios',
+    keywords:'boleta honorarios sii factura pago mensual emitir',
+    content: () => `
+      <p class="pt">Como colaborador de TGP, debés emitir boleta de honorarios mensualmente. El SII tiene un portal gratuito para hacerlo en línea.</p>
+      <div class="link-row">
+        <a href="https://www.sii.cl" target="_blank" class="lbtn lbtn-doc">📄 Portal SII — boleta electrónica</a>
+      </div>
+      <div class="callout c-info" style="margin-top:12px"><span class="callout-i">💬</span><div>¿Tenés dudas sobre el monto o el proceso? Escribile a Belén (HR Lead) por Slack.</div></div>
+    `
+  },
+  {
+    id:'admin-chrome',
+    icon:'🔗',
+    badge:'Paso 6',
+    title:'Documentos en Favoritos',
+    keywords:'chrome favoritos links documentos guardar barra navegador kit colaborador',
+    content: () => `
+      <p class="pt">Guardá estos links en tus Favoritos de Chrome para tenerlos siempre a mano. Para cada uno: abrí el link → hacé clic en la ★ → poné un nombre corto → elegí la carpeta → Listo.</p>
+      <h3 class="sh">Carpeta "Onboarding"</h3>
+      <div class="link-row">
+        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive">📁 Kit del Colaborador</a>
+        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Proceso de agendamiento</a>
+        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Manejo de correos</a>
+      </div>
+      <h3 class="sh">Barra de Favoritos</h3>
+      <div class="link-row">
+        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive">📁 Kit de ventas clientes</a>
+        <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc">📊 Dashboard reuniones</a>
+        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ App TGP</a>
+      </div>
+    `
+  },
+  {
+    id:'admin-advertencias',
+    icon:'⚠️',
+    badge:'Importante',
+    title:'Sistema de Advertencias',
+    keywords:'advertencias sistema responsabilidades incumplimiento acuerdo reglas',
+    content: () => `
+      <p class="pt">En TGP tenemos un Sistema de Advertencias que se aplica cuando un colaborador no está cumpliendo sus responsabilidades correctamente. Es importante conocerlo para estar alineados desde el primer día.</p>
+      <div class="link-row">
+        <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Sistema de advertencias</a>
+      </div>
+      <div class="callout c-info" style="margin-top:12px"><span class="callout-i">ℹ️</span><div>Este sistema está adjunto en el acuerdo de trabajo que ya firmaste. Podés volver a revisarlo cuando quieras.</div></div>
+    `
+  }
+];
+
+// ═══════════════════════════════════════════════════════════════
+// DATA: PASOS SDR JUNIOR
+// ═══════════════════════════════════════════════════════════════
+const SDR_STEPS = [
+  {
+    id:'sdr-intro',
+    icon:'🎯',
+    badge:'Tu rol',
+    title:'¿Qué hace un SDR Junior?',
+    keywords:'sdr junior rol mision agendar reuniones prospectos',
+    content: () => `
+      <p class="pt">Como <strong>SDR Junior</strong>, tu misión es generar oportunidades de venta para los clientes de TGP: <strong>agendar reuniones comerciales calificadas</strong>.</p>
+      <h3 class="sh">El proceso en resumen</h3>
+      <ol class="steps-list">
+        <li>El Manager configura secuencias de correo automáticas que llegan a prospectos.</li>
+        <li>Cuando un prospecto responde, el SDR entra en acción: lee, etiqueta y responde buscando agendar la reunión.</li>
+        <li>Si el prospecto no responde, el SDR busca el número, llama en tibio y pushea hasta agendar.</li>
+      </ol>
+      <div class="callout c-tip"><span class="callout-i">🏆</span><div><b>El ejemplo de Benjamín Apt</b>Tiene el podio histórico de TGP con <strong>1.825 reuniones agendadas</strong>. Su secreto: apenas llega una respuesta, lee, etiqueta y responde. Si el prospecto no responde, lo llama. Si no contesta, le manda WhatsApp. No lo suelta hasta agendar.</div></div>
+      <h3 class="sh">Tus dos herramientas principales</h3>
+      <ul class="info-list">
+        <li><strong>Bandejas de correo:</strong> varias cuentas con nombres ficticios y dominios reales de los clientes. Vos respondés y agendás.</li>
+        <li><strong>Bases de datos telefónicas:</strong> listas de prospectos para llamar en frío o tibio.</li>
+      </ul>
+    `
+  },
+  {
+    id:'sdr-glosario',
+    icon:'📖',
+    badge:'Antes de empezar',
+    title:'Glosario — Conceptos Clave',
+    keywords:'glosario terminos cliente prospecto kdm icp b2b push no show weekly bandeja etiqueta',
+    content: () => `
+      <p class="pt">Tenés que dominar estos conceptos. Si no podés explicar alguno con tus propias palabras, volvé al glosario completo.</p>
+      <div class="link-row" style="margin-bottom:16px">
+        <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc">📄 Glosario completo TGP</a>
+      </div>
+      <div class="gloss">
+        <div class="gloss-row"><div class="gloss-term">Cliente</div><div class="gloss-def">Empresa que contrata TGP para que generemos reuniones comerciales con sus prospectos.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Prospecto</div><div class="gloss-def">Persona o empresa a la que contactamos con el objetivo de agendar una reunión con nuestro cliente.</div></div>
+        <div class="gloss-row"><div class="gloss-term">KDM</div><div class="gloss-def">Key Decision Maker — el tomador de decisiones de la empresa. Con quien vale la pena agendar.</div></div>
+        <div class="gloss-row"><div class="gloss-term">ICP</div><div class="gloss-def">Ideal Customer Profile — perfil ideal del prospecto (sector, tamaño de empresa, cargo, etc.).</div></div>
+        <div class="gloss-row"><div class="gloss-term">B2B</div><div class="gloss-def">Business to Business — empresa que vende a otra empresa. TGP trabaja exclusivamente B2B.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Push</div><div class="gloss-def">Correo o llamado de insistencia. Mínimo 2 veces por semana a cada prospecto.</div></div>
+        <div class="gloss-row"><div class="gloss-term">No Show</div><div class="gloss-def">Prospecto que no se presenta a la reunión. Hay que reagendarla inmediatamente — si no se realiza, no es válida y no genera comisión.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Weekly</div><div class="gloss-def">Reunión semanal del equipo donde se revisan métricas y avances.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Derivación</div><div class="gloss-def">El prospecto nos pasa el contacto del KDM real. Es una respuesta valiosa.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Llamado en tibio</div><div class="gloss-def">Llamada a un prospecto con el que ya hubo contacto previo. Más efectivo que el frío.</div></div>
+      </div>
+    `
+  },
+  {
+    id:'sdr-tarea1',
+    icon:'📚',
+    badge:'Tarea 1 — Día 1',
+    title:'Estudiar Clientes Asignados',
+    keywords:'tarea estudiar clientes kit ventas linkedin web onboarding secuencia',
+    content: () => `
+      <p class="pt">Antes de recibir tus bandejas, tenés que conocer bien los clientes con los que vas a trabajar: propuesta de valor, servicio, diferenciadores, países, etc.</p>
+      <p class="pt">Para <strong>cada cliente asignado</strong>, hacé esto en orden:</p>
+      <ol class="steps-list">
+        <li>Buscar y estudiar el perfil de LinkedIn de la empresa.</li>
+        <li>Buscar y estudiar la página web de la empresa.</li>
+        <li>Entrar al Kit de Ventas → carpeta de tu pod → carpeta del cliente.</li>
+        <li>Ver el video de reunión de onboarding del cliente.</li>
+        <li>Estudiar los PDF: one pager / brochure / presentación.</li>
+        <li>Estudiar notas de onboarding del equipo.</li>
+        <li>Estudiar la secuencia de correo del cliente.</li>
+        <li>Estudiar las respuestas tipo del cliente.</li>
+      </ol>
+      <div class="link-row">
+        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=drive_link" target="_blank" class="lbtn lbtn-drive">📁 Kit de Ventas Clientes</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-reunion-senior',
+    icon:'🤝',
+    badge:'Día 2',
+    title:'Reunión con SDR Senior',
+    keywords:'reunion senior capacitacion clientes bandejas correo',
+    content: () => `
+      <p class="pt">Si ya estudiaste todos los clientes asignados, estás listo para esta reunión. En ella vas a:</p>
+      <ul class="info-list">
+        <li>Resolver dudas sobre los clientes.</li>
+        <li>Profundizar el conocimiento de cada cliente.</li>
+        <li>Recibir tus primeras bandejas de correo.</li>
+      </ul>
+      <div class="callout c-info"><span class="callout-i">💬</span><div>Una vez que termines la reunión con tu Senior, marcá este paso como completado y continuá.</div></div>
+    `
+  },
+  {
+    id:'sdr-reunion-manager',
+    icon:'👔',
+    badge:'Día 2',
+    title:'Reunión con Manager',
+    keywords:'reunion manager induccion pod accesos documentos reglas agendamiento distribucion bandejas',
+    content: () => `
+      <p class="pt">La inducción oficial al equipo. Tu Manager te va a dar:</p>
+      <ul class="info-list">
+        <li>Toda la información del equipo y del pod.</li>
+        <li>Los accesos y documentos que faltan.</li>
+        <li>Las <strong>Reglas de Agendamiento</strong> de cada cliente (Google Sheets).</li>
+        <li>La <strong>Distribución de Bandejas</strong> con contraseñas de acceso (Google Sheets).</li>
+      </ul>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/b2264e12fcd94eaf9bc4090efe36c0f4" target="_blank" class="lbtn lbtn-vid">▶ Video: Reglas de agendamiento</a>
+        <a href="https://www.loom.com/share/fe5331f4c1b64911b558e57e48f4f9bc" target="_blank" class="lbtn lbtn-vid">▶ Video: Distribución de bandejas</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-bandejas',
+    icon:'📧',
+    badge:'Técnico',
+    title:'Bandejas y Secuencias',
+    keywords:'bandejas correo mail gmail secuencias dominio cliente ficticias prospecto',
+    content: () => `
+      <p class="pt">Cada SDR maneja varias bandejas de correo con nombres ficticios y dominios reales de los clientes. El Manager envía secuencias automáticas — cuando el prospecto responde, la secuencia se corta y el SDR toma el hilo.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 0">
+        <div class="callout c-info" style="margin:0"><div><b>¿Quién envía?</b>El Manager. El SDR solo actúa cuando hay respuesta.</div></div>
+        <div class="callout c-ok" style="margin:0"><div><b>Prospecto responde</b>La secuencia se corta. El SDR toma el hilo.</div></div>
+        <div class="callout c-tip" style="margin:0"><div><b>Sin respuesta</b>El Manager continúa. El SDR archiva esos correos.</div></div>
+      </div>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/99a9d029e8a6421dae5a7beac7882e1a" target="_blank" class="lbtn lbtn-vid" data-req="tour">▶ Tour por una bandeja</a>
+        <a href="https://www.loom.com/share/0ae18c83bb084ff89884a7c7fccd840c" target="_blank" class="lbtn lbtn-vid" data-req="movimiento">▶ Movimiento de correos</a>
+        <a href="https://docs.google.com/document/d/1dpwYb2PXCmTrLs7tklhjWIxubUvLekETOHbb9iu7m-4/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Guía: Secuencias</a>
+        <a href="https://docs.google.com/document/d/1ceNv1E0QNn5QKQcBi8ITaCirHAcTklv-V5RsNXN8ZTE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Ejemplo: Secuencias Esmax</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-etiquetas',
+    icon:'🏷️',
+    badge:'Técnico',
+    title:'Uso de Etiquetas',
+    keywords:'etiquetas estados correo proceso agendado no interesado no aplica reagendar',
+    content: () => `
+      <p class="pt">Cada correo recibido <strong>debe ser etiquetado antes de responder</strong>. Las etiquetas representan el estado de la conversación.</p>
+      <div class="etiq-grid">
+        <div class="etiq" style="border-left:4px solid #2563eb"><div class="etiq-name" style="color:#1d4ed8">Proceso</div><div class="etiq-desc">Conversación activa, se está trabajando para agendar.</div></div>
+        <div class="etiq" style="border-left:4px solid #16a34a"><div class="etiq-name" style="color:#15803d">Agendado</div><div class="etiq-desc">Reunión confirmada y agendada en la App TGP.</div></div>
+        <div class="etiq" style="border-left:4px solid #ea580c"><div class="etiq-name" style="color:#c2410c">No interesado</div><div class="etiq-desc">Prospecto rechazó. Se intenta dar vuelta.</div></div>
+        <div class="etiq" style="border-left:4px solid #94a3b8"><div class="etiq-name" style="color:#475569">No aplica</div><div class="etiq-desc">No cumple el perfil ICP o es irrelevante.</div></div>
+        <div class="etiq" style="border-left:4px solid #7c3aed"><div class="etiq-name" style="color:#6d28d9">Reagendar</div><div class="etiq-desc">La reunión no se realizó. Coordinar nueva fecha.</div></div>
+      </div>
+      <div class="callout c-warn"><span class="callout-i">⚠️</span><div>Solo se usan las 5 etiquetas TGP. No crear nuevas. 1 etiqueta por correo. No duplicar. No responder sin etiquetar primero.</div></div>
+      <div class="link-row">
+        <a href="https://docs.google.com/document/d/1MPv57sOJvw9k4xfuWxoGpaXgNHW4kIFrP_I6SHofJ1E/edit" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía de etiquetas</a>
+        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="esquema">📄 Esquema manejo de bandejas ⬇</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-objeciones',
+    icon:'🛡️',
+    badge:'Estrategia',
+    title:'Manejo de Objeciones',
+    keywords:'objeciones derivaciones referidos fuera oficina no interesado responder manejar vacaciones',
+    content: () => `
+      <h3 class="sh">Derivaciones / Referidos</h3>
+      <p class="pt">El contacto inicial nos deriva al KDM real. Es una respuesta <strong>valiosa</strong> — nos acerca al tomador de decisión.</p>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/9b6b9a1cbb564e5b905039537d7e00a7" target="_blank" class="lbtn lbtn-vid">▶ Video: Derivaciones y referidos</a>
+      </div>
+      <h3 class="sh">Fuera de la Oficina</h3>
+      <p class="pt">Correos automáticos de personas ausentes. Usamos plantillas del kit de ventas para responder.</p>
+      <div class="link-row">
+        <a href="https://docs.google.com/document/d/1N7I8ZGjMJfvu5muqzZ11GLUz-1OYdABOhWcnUq2eeso/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Respuestas tipo (Seba)</a>
+        <a href="https://www.loom.com/share/4b9e4ecae20143c2a21a6a26fb1987f3" target="_blank" class="lbtn lbtn-vid">▶ Video: Cómo responder</a>
+      </div>
+      <h3 class="sh">No Interesado</h3>
+      <p class="pt">El prospecto rechaza la propuesta. Como SDR hacemos lo posible para dar vuelta esa situación e igual agendar.</p>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/7d78d8afa42d478bbc6f9e0afb449644" target="_blank" class="lbtn lbtn-vid">▶ Video: "No interesado" — Tere, SDR Senior</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-push',
+    icon:'📲',
+    badge:'Estrategia clave',
+    title:'Push y Llamado en Tibio',
+    keywords:'push insistencia llamado tibio frio telefono seguimiento semanal frecuencia',
+    content: () => `
+      <p class="pt">El push es la estrategia más importante para agendar reuniones.</p>
+      <div class="callout c-warn"><span class="callout-i">📌</span><div><b>Obligatorio</b>Mínimo <strong>2 veces por semana</strong> a cada prospecto.</div></div>
+      <h3 class="sh">Tips del push</h3>
+      <ul class="info-list">
+        <li>Primer correo → buscás el número → llamás en tibio.</li>
+        <li>Si no contesta → push escrito en el mismo hilo.</li>
+        <li>Cada push personalizado según lo que dijo el prospecto.</li>
+        <li>Usás plantillas del kit de ventas de cada cliente.</li>
+      </ul>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/9b6b9a1cbb564e5b905034671d1db2a8" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Push — Tere, SDR Senior</a>
+        <a href="https://docs.google.com/document/d/1UzBrzY1Yrg5rNI8FkCasOeVe3X8GpV-gRf6smyf4Z7k/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía: Cómo hacer un push</a>
+      </div>
+      <h3 class="sh">Llamado en Tibio</h3>
+      <p class="pt">Los mejores SDRs de TGP no esperan respuestas — buscan el número, levantan el teléfono y llaman. <strong>Eso los diferencia.</strong></p>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/6863b17f349542e782f28b1d2ef81f14" target="_blank" class="lbtn lbtn-vid">▶ Llamada exitosa — Juan Aspillaga</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-agendamiento',
+    icon:'📆',
+    badge:'Proceso completo',
+    title:'Proceso de Agendamiento',
+    keywords:'agendamiento agendar reunion app tgp horario ejecutivo prospecto esquema proceso',
+    content: () => `
+      <h3 class="sh">Paso a paso</h3>
+      <ol class="steps-list">
+        <li>Revisar la disponibilidad del ejecutivo cliente en el calendario.</li>
+        <li>Proponer el horario al prospecto (correo o teléfono).</li>
+        <li>Prospecto confirma → agendar en la App TGP con todos los datos.</li>
+        <li>Esperar aprobación del Manager (emoji en Slack).</li>
+        <li>Mandar el detalle de la reunión al cliente.</li>
+        <li>Confirmar la reunión al prospecto por correo.</li>
+        <li>Programar los 2 correos recordatorios. <strong>Obligatorio.</strong></li>
+        <li>Actualizar la etiqueta del correo a "Agendado".</li>
+      </ol>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank" class="lbtn lbtn-vid">▶ Disponibilidad ejecutivos</a>
+        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Esquema agendamiento ⬇</a>
+        <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Instructivo App TGP</a>
+        <a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Agendamiento en vivo — Nahuel</a>
+        <a href="https://www.loom.com/share/96147c7ab3144299ab28f265798367a0" target="_blank" class="lbtn lbtn-vid">▶ Instructivo App TGP</a>
+        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ Ir a la App TGP</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-recordatorios',
+    icon:'🔔',
+    badge:'Obligatorio',
+    title:'Recordatorios y No Show',
+    keywords:'recordatorio no show whatsapp realizacion seguimiento programar correo alarma',
+    content: () => `
+      <p class="pt">Programar 2 correos recordatorios es <strong>obligatorio</strong>. Te va a ayudar a tener un buen % de realización y un % bajo de No Show.</p>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank" class="lbtn lbtn-vid">▶ Video: Programar recordatorios</a>
+      </div>
+      <h3 class="sh">🆕 WhatsApp automático</h3>
+      <div class="callout c-info"><span class="callout-i">📱</span><div><b>Nueva funcionalidad</b>TGP envía automáticamente un recordatorio por WhatsApp <strong>1 hora antes</strong> de la reunión. Si el prospecto responde, te llega notificación en el canal de No Show de tu pod en Slack — respondés directo desde Slack.</div></div>
+      <h3 class="sh">Lo que hacen los mejores SDRs</h3>
+      <ul class="info-list">
+        <li>Llamado preventivo 20 minutos antes para confirmar asistencia.</li>
+        <li>Alarma a la hora de la reunión + entrar a la sala de espera en Meet.</li>
+        <li>Si hay No Show: llamar inmediatamente y reagendar.</li>
+      </ul>
+      <div class="callout c-warn"><span class="callout-i">🔴</span><div>Si la reunión no se realiza = No Show = no es válida = no genera comisión. El SDR es responsable de que la reunión se haga.</div></div>
+    `
+  },
+  {
+    id:'sdr-herramientas',
+    icon:'🔧',
+    badge:'Herramientas',
+    title:'Apollo, Lusha y Gmail IA',
+    keywords:'snov wsn rebotes varita magica apollo lusha scraping empleados herramientas instalar extension',
+    content: () => `
+      <h3 class="sh">Correos Snov (wsn / snv / snw)</h3>
+      <p class="pt">Correos en inglés con "wsn" en el asunto. Son muchos — podés archivarlos o eliminarlos directamente.</p>
+      <div class="link-row"><a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid">▶ Video: Correos Snov</a></div>
+      <h3 class="sh">Correos que Rebotan</h3>
+      <p class="pt">Correos con mensajes de error — archivar directamente.</p>
+      <div class="link-row"><a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid">▶ Video: Correos rebote</a></div>
+      <h3 class="sh">✨ Varita Mágica (IA en Gmail)</h3>
+      <p class="pt">IA para redactar mejores correos. Siempre revisá el resultado antes de enviar.</p>
+      <div class="link-row"><a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid">▶ Video: Varita mágica</a></div>
+      <h3 class="sh">Apollo y Lusha — Scraping</h3>
+      <p class="pt">Para encontrar teléfonos y correos de prospectos. Instalá las extensiones mientras ves los videos.</p>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid">▶ Apollo — instalación</a>
+        <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid">▶ Lusha — instalación</a>
+        <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid">▶ Empleados de empresa</a>
+        <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid">▶ Empleados por país</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-tareas',
+    icon:'📝',
+    badge:'Tareas 2 y 3',
+    title:'Ordenar y Barrer las Bandejas',
+    keywords:'tarea ordenar bandejas barrido push correos limpiar archivar',
+    content: () => `
+      <h3 class="sh">Tarea 2 — Ordenar las Bandejas</h3>
+      <p class="pt">Las bandejas que recibiste tienen trayectoria previa. Ahora son tu responsabilidad.</p>
+      <ul class="info-list">
+        <li>Revisá cada correo en recibidos.</li>
+        <li>Aplicá la etiqueta que corresponde.</li>
+        <li>Mové, archivá o eliminá según el estado.</li>
+      </ul>
+      <div class="link-row">
+        <a href="https://docs.google.com/document/d/1CR322lgWchHj82KZvCQRCf5gnd8xEj4XsdWQ0vnpmhE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Guía: Ordenar las bandejas</a>
+      </div>
+      <h3 class="sh">Tarea 3 — Barrido de Bandejas</h3>
+      <p class="pt">Sacar de recibidos lo que no sirve <strong>Y</strong> hacerle push a cada correo.</p>
+      <ol class="steps-list">
+        <li>Ir al primer correo → leer la conversación completa.</li>
+        <li>Llamar en tibio y/o redactar mensaje personalizado en el mismo hilo.</li>
+        <li>Enviar (o programar si no es buen horario).</li>
+        <li>Repetir con el resto de correos y bandejas.</li>
+      </ol>
+    `
+  }
+];
+
+// ═══════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════
+const STATE = {
+  get name(){return localStorage.getItem('tgp_name')||''},
+  set name(v){localStorage.setItem('tgp_name',v)},
+  get role(){return localStorage.getItem('tgp_role')||''},
+  set role(v){localStorage.setItem('tgp_role',v)},
+  get adminStep(){return parseInt(localStorage.getItem('tgp_admin_step')||'0')},
+  set adminStep(v){localStorage.setItem('tgp_admin_step',v)},
+  get sdrStep(){return parseInt(localStorage.getItem('tgp_sdr_step')||'0')},
+  set sdrStep(v){localStorage.setItem('tgp_sdr_step',v)},
+  get adminDone(){return localStorage.getItem('tgp_admin_done')==='1'},
+  set adminDone(v){localStorage.setItem('tgp_admin_done',v?'1':'0')},
+  get sdrDone(){return localStorage.getItem('tgp_sdr_done')==='1'},
+  set sdrDone(v){localStorage.setItem('tgp_sdr_done',v?'1':'0')},
+  get track(){return localStorage.getItem('tgp_track')||'admin'},
+  set track(v){localStorage.setItem('tgp_track',v)},
+  get mode(){return localStorage.getItem('tgp_mode')||''},
+  set mode(v){localStorage.setItem('tgp_mode',v)},
+  get visitedLinks(){try{return JSON.parse(localStorage.getItem('tgp_links')||'{}')}catch(e){return{}}},
+  markLink(k){const v=this.visitedLinks;v[k]=1;localStorage.setItem('tgp_links',JSON.stringify(v))},
+  hasLink(k){return !!this.visitedLinks[k]},
+  reset(){['tgp_name','tgp_role','tgp_admin_step','tgp_sdr_step','tgp_admin_done','tgp_sdr_done','tgp_track','tgp_mode','tgp_links'].forEach(k=>localStorage.removeItem(k))}
+};
+
+let selectedRole = '';
+
+// ── Init ──────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  buildResources();
+  if (STATE.name && STATE.role) {
+    bootApp('onboarding');
+  } else if (STATE.mode === 'recursos') {
+    bootApp('recursos');
+  }
+});
+
+function choosePath(path) {
+  if (path === 'recursos') {
+    STATE.mode = 'recursos';
+    document.getElementById('topbarTabs').style.display = 'flex';
+    document.getElementById('topbarUser').style.display = 'none';
+    // Show only recursos tab
+    document.getElementById('tab-onboarding').style.display = 'none';
+    showScreen('recursos');
+  } else {
+    document.getElementById('pathSelect').style.display = 'none';
+    document.getElementById('onbForm').style.display = 'block';
+  }
+}
+
+function showPathSelect() {
+  document.getElementById('pathSelect').style.display = 'block';
+  document.getElementById('onbForm').style.display = 'none';
+}
+
+function selectRole(r) {
+  selectedRole = r;
+  document.querySelectorAll('.role-btn').forEach(b=>b.classList.remove('selected'));
+  document.getElementById('role-'+r).classList.add('selected');
+  checkWelcomeReady();
+}
+
+function checkWelcomeReady() {
+  const name = document.getElementById('inputName').value.trim();
+  document.getElementById('btnStart').disabled = !(name && selectedRole);
+}
+
+function startOnboarding() {
+  const name = document.getElementById('inputName').value.trim();
+  if (!name || !selectedRole) return;
+  STATE.name = name;
+  STATE.role = selectedRole;
+  STATE.mode = 'onboarding';
+  bootApp('onboarding');
+}
+
+function bootApp(mode) {
+  document.getElementById('topbarTabs').style.display='flex';
+  if (mode === 'recursos') {
+    document.getElementById('topbarUser').style.display='none';
+    document.getElementById('tab-onboarding').style.display='none';
+    showScreen('recursos');
+  } else {
+    document.getElementById('topbarUser').style.display='flex';
+    document.getElementById('tab-onboarding').style.display='';
+    document.getElementById('topbarName').textContent = STATE.name;
+    document.getElementById('topbarAvatar').textContent = STATE.name.charAt(0).toUpperCase();
+    showScreen('onboarding');
+    renderOnboarding();
+  }
+}
+
+// ── Screen switching ──────────────────────────────────────────
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+id).classList.add('active');
+  document.querySelectorAll('.topbar-tab').forEach(t=>t.classList.remove('active'));
+  const tab = document.getElementById('tab-'+id);
+  if (tab) tab.classList.add('active');
+}
+
+// ── Render onboarding ─────────────────────────────────────────
+function renderOnboarding() {
+  const isSDR = STATE.role === 'sdr';
+  const adminDone = STATE.adminDone;
+  const track = STATE.track;
+
+  // If admin done but showing sdr (or not sdr), determine what to show
+  const steps = (track === 'sdr' && isSDR) ? SDR_STEPS : ADMIN_STEPS;
+  const currentIdx = (track === 'sdr') ? STATE.sdrStep : STATE.adminStep;
+  const done = (track === 'sdr') ? STATE.sdrDone : STATE.adminDone;
+
+  renderSidebar(steps, currentIdx, done, track, isSDR, adminDone);
+
+  if (done) {
+    renderCompletion(track, isSDR);
+  } else if (track === 'admin' && adminDone && isSDR) {
+    // show unlock screen
+    renderUnlock();
+  } else {
+    renderStep(steps, currentIdx, track);
+  }
+}
+
+function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
+  const sb = document.getElementById('sidebar');
+  const total = steps.length;
+  const prog = done ? 100 : Math.round((currentIdx / total) * 100);
+  const stepsInTrack = (track==='sdr'?STATE.sdrStep:STATE.adminStep);
+
+  let html = `<div class="sidebar-progress">
+    <div class="prog-label"><span class="prog-name">${track==='sdr'?'SDR Junior':'Administrativo'}</span><span class="prog-pct">${prog}%</span></div>
+    <div class="prog-bar"><div class="prog-fill" style="width:${prog}%"></div></div>
+    <div class="prog-sub">${done ? '✅ Completado' : `${stepsInTrack} de ${total} pasos`}</div>
+  </div>`;
+
+  html += `<div class="sidebar-section-title">Parte 1 — Todos</div>`;
+  ADMIN_STEPS.forEach((s,i) => {
+    const isDone = track==='admin' ? i < STATE.adminStep : STATE.adminDone;
+    const isActive = track==='admin' && i === STATE.adminStep && !STATE.adminDone;
+    const cls = isDone ? 'done' : (isActive ? 'active' : '');
+    html += `<div class="sidebar-step ${cls}" onclick="jumpTo('admin',${i})">
+      <div class="step-dot">${isDone ? '✓' : (i+1)}</div>
+      <div class="sidebar-step-title">${s.title}</div>
+    </div>`;
+  });
+
+  if (isSDR) {
+    html += `<div class="sidebar-section-title" style="margin-top:12px">Parte 2 — SDR Junior</div>`;
+    SDR_STEPS.forEach((s,i) => {
+      const unlocked = STATE.adminDone;
+      const isDone = unlocked && i < STATE.sdrStep;
+      const isActive = unlocked && track==='sdr' && i === STATE.sdrStep && !STATE.sdrDone;
+      const locked = !unlocked;
+      const cls = locked ? 'locked' : (isDone ? 'done' : (isActive ? 'active' : ''));
+      html += `<div class="sidebar-step ${cls}" onclick="${locked?'':(`jumpTo('sdr',${i})`)}">
+        <div class="step-dot">${isDone ? '✓' : (locked ? '🔒' : (i+1))}</div>
+        <div class="sidebar-step-title">${s.title}</div>
+      </div>`;
+    });
+  }
+
+  sb.innerHTML = html;
+}
+
+function jumpTo(track, idx) {
+  const maxIdx = track==='admin' ? STATE.adminStep : STATE.sdrStep;
+  if (idx > maxIdx) return; // can't skip ahead
+  STATE.track = track;
+  if (track === 'sdr') STATE.sdrStep = idx;
+  else STATE.adminStep = idx;
+  renderOnboarding();
+}
+
+function renderStep(steps, idx, track) {
+  const step = steps[idx];
+  const total = steps.length;
+  const isLast = idx === total - 1;
+
+  document.getElementById('stepContent').innerHTML = `
+    <div class="step-card">
+      <div class="step-eyebrow">
+        <span class="step-badge">${step.badge}</span>
+        <span style="font-size:12px;color:var(--gris3)">${idx+1} de ${total}</span>
+      </div>
+      <div class="step-icon-big">${step.icon}</div>
+      <div class="step-title-main">${step.title}</div>
+      <div class="step-divider"></div>
+      ${step.content()}
+    </div>
+    <button class="complete-btn" id="completeBtn" onclick="completeStep('${track}',${idx},${isLast})">
+      ${isLast ? '✅ Completar esta sección' : '✅ Listo — siguiente paso →'}
+    </button>
+    <div id="req-notice" class="req-notice" style="display:none"></div>
+    ${idx > 0 ? `<div class="nav-btns"><button class="btn-back" onclick="jumpTo('${track}',${idx-1})">← Anterior</button></div>` : ''}
+  `;
+  setupRequiredLinks(track, idx);
+}
+
+function setupRequiredLinks(track, idx) {
+  const reqLinks = document.querySelectorAll('#stepContent [data-req]');
+  const checkboxes = document.querySelectorAll('#stepContent .inline-check input[type="checkbox"]');
+  if (reqLinks.length === 0 && checkboxes.length === 0) return;
+
+  function checkAll() {
+    const linksOk = Array.from(reqLinks).every(a => STATE.hasLink(`${track}_${idx}_${a.dataset.req}`));
+    const checksOk = checkboxes.length === 0 || Array.from(checkboxes).every(cb => cb.checked);
+    const allDone = linksOk && checksOk;
+
+    const btn = document.getElementById('completeBtn');
+    const notice = document.getElementById('req-notice');
+    if (btn) btn.disabled = !allDone;
+    if (notice) {
+      if (!allDone) {
+        const parts = [];
+        if (!linksOk) parts.push('abrí los recursos del paso (📄 guía y/o ▶ video)');
+        if (!checksOk) parts.push('marcá todos los ítems del checklist ✅');
+        notice.textContent = 'Para continuar: ' + parts.join(' y ');
+        notice.style.display = 'block';
+      } else {
+        notice.style.display = 'none';
+      }
+    }
+  }
+
+  reqLinks.forEach(a => {
+    const k = `${track}_${idx}_${a.dataset.req}`;
+    if (STATE.hasLink(k)) a.classList.add('req-visited');
+    a.addEventListener('click', () => {
+      setTimeout(() => { STATE.markLink(k); a.classList.add('req-visited'); checkAll(); }, 300);
+    });
+  });
+
+  checkboxes.forEach(cb => cb.addEventListener('change', checkAll));
+
+  checkAll();
+}
+
+function completeStep(track, idx, isLast) {
+  if (track === 'admin') {
+    if (isLast) {
+      STATE.adminDone = true;
+      STATE.adminStep = ADMIN_STEPS.length;
+      if (STATE.role === 'sdr') {
+        STATE.track = 'admin'; // show unlock screen
+      }
+    } else {
+      STATE.adminStep = idx + 1;
+    }
+  } else {
+    if (isLast) {
+      STATE.sdrDone = true;
+      STATE.sdrStep = SDR_STEPS.length;
+    } else {
+      STATE.sdrStep = idx + 1;
+    }
+  }
+  renderOnboarding();
+  document.getElementById('stepContent').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function renderUnlock() {
+  document.getElementById('stepContent').innerHTML = `
+    <div class="celebrate">
+      <div class="celebrate-icon">🎉</div>
+      <h2>¡Parte administrativa completada!</h2>
+      <p>Completaste todos los pasos generales de onboarding. Ahora comienza la parte específica de <strong>SDR Junior</strong> — donde vas a aprender todo el proceso técnico: bandejas, objeciones, push y agendamiento.</p>
+      <button class="btn-start-sdr" onclick="startSDR()">Empezar capacitación SDR Junior →</button>
+    </div>
+    <div class="step-card">
+      <div style="font-size:20px;margin-bottom:8px">📋</div>
+      <div class="step-title-main" style="font-size:17px">¿Qué viene ahora?</div>
+      <div class="step-divider"></div>
+      <ul class="info-list">
+        <li>Glosario de conceptos clave de TGP</li>
+        <li>Tu rol como SDR Junior</li>
+        <li>Tarea 1: estudiar clientes asignados</li>
+        <li>Reunión con SDR Senior (Día 2)</li>
+        <li>Reunión con Manager (Día 2)</li>
+        <li>Bandejas, secuencias y etiquetas</li>
+        <li>Objeciones, push y llamado en tibio</li>
+        <li>Proceso de agendamiento completo</li>
+        <li>Recordatorios, No Show y herramientas</li>
+      </ul>
+    </div>
+  `;
+}
+
+function startSDR() {
+  STATE.track = 'sdr';
+  renderOnboarding();
+}
+
+function renderCompletion(track, isSDR) {
+  const allDone = !isSDR || (STATE.adminDone && STATE.sdrDone);
+  const isSDRDone = track === 'sdr' && STATE.sdrDone;
+  const isAdminOnly = track === 'admin' && STATE.adminDone && !isSDR;
+
+  if (isSDRDone || isAdminOnly) {
+    document.getElementById('stepContent').innerHTML = `
+      <div class="done-screen">
+        <div class="done-icon">${isSDRDone ? '🚀' : '🎉'}</div>
+        <h2 class="done-title">${isSDRDone ? '¡Onboarding completado!' : '¡Configuración inicial lista!'}</h2>
+        <p class="done-sub">${isSDRDone ? `¡Excelente, ${STATE.name}! Completaste todo el proceso de onboarding SDR. Ya tenés todo lo que necesitás para arrancar y agendar reuniones.` : `¡Bien hecho, ${STATE.name}! Completaste la configuración inicial.`}</p>
+        <div class="done-card">
+          <h3>📚 Guía de referencia siempre disponible</h3>
+          <p>En la pestaña "Recursos" encontrás todo el contenido del onboarding con buscador. Podés volver cuando necesites consultar algo.</p>
+        </div>
+        ${isSDRDone ? `<div class="done-card"><h3>💬 ¿Dudas?</h3><p>Escribile a tu SDR Senior, Manager o a Belén (HR Lead) por Slack.</p></div>` : ''}
+        <button class="btn-primary" onclick="showScreen('recursos')">Ir a la guía de referencia →</button>
+        <button class="btn-back" style="width:100%;margin-top:10px;padding:12px" onclick="replayOnboarding()">Revisar pasos anteriores</button>
+      </div>
+    `;
+  } else {
+    renderUnlock();
+  }
+}
+
+function replayOnboarding() {
+  STATE.track = STATE.adminDone && STATE.role==='sdr' && STATE.sdrDone ? 'sdr' : 'admin';
+  const track = STATE.track;
+  if (track==='admin') STATE.adminStep = 0;
+  else STATE.sdrStep = 0;
+  renderOnboarding();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RECURSOS (sección de referencia)
+// ═══════════════════════════════════════════════════════════════
+const RES_DATA = [
+  {
+    icon:'✅', title:'Checklist General — Día 1', sub:'Para todos los colaboradores',
+    keywords:'checklist dia 1 configuracion inicial slack calendar linkedin almuerzo datos personales',
+    body:`
+      <ul class="info-list">
+        <li>Completar formulario de datos personales</li>
+        <li>Configurar Slack — foto de perfil + app en celular</li>
+        <li>Configurar Google Calendar — app en celular</li>
+        <li>Configurar fondo virtual Google Meet</li>
+        <li>Actualizar perfil de LinkedIn</li>
+        <li>Inscribirse al servicio de almuerzo</li>
+        <li>Guardar documentos clave en Chrome (Favoritos)</li>
+        <li>Revisar sistema de advertencias</li>
+      </ul>
+    `
+  },
+  {
+    icon:'💬', title:'Slack', sub:'Configuración y reglas',
+    keywords:'slack comunicacion canales notificaciones foto perfil regla oro app celular guia',
+    body:`
+      <div class="callout c-warn"><span class="callout-i">⚠️</span><div><b>Regla de oro</b>Prohibido mantener notificaciones, canales y chats sin abrir. Todo lo que se recibe es importante y se responde.</div></div>
+      <div class="link-row">
+        <a href="https://docs.google.com/document/u/1/d/1lt4TF3wu-3UgIQrk1h7xov20dzVlN6xp_b2IG_tsoo0/edit" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía de uso de Slack</a>
+        <a href="https://www.loom.com/share/f8e93b73c31040d8ad9c8c5ee0a23697" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Tour por Slack</a>
+      </div>`
+  },
+  {
+    icon:'🍽️', title:'Servicio de Almuerzo', sub:'Créditos, formulario y canal Slack',
+    keywords:'almuerzo creditos part time full time formulario canal platos beneficio',
+    body:`
+      <ul class="info-list"><li>Part-time: 4 créditos/mes | Full-time: 8 créditos/mes</li><li>1 crédito = 1 almuerzo. No se acumulan.</li><li>Formulario cierra a las 14:00 hrs del día anterior.</li><li>Canal de Slack "almuerzos" para ver lista diaria y créditos.</li></ul>
+      <div class="link-row"><a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="lbtn lbtn-form">📋 Formulario de almuerzos</a></div>`
+  },
+  {
+    icon:'📖', title:'Glosario TGP', sub:'Cliente, Prospecto, KDM, ICP, Push, No Show…',
+    keywords:'glosario cliente prospecto kdm icp b2b push no show weekly bandeja etiqueta derivacion llamado tibio',
+    body:`
+      <div class="link-row"><a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc">📄 Glosario completo TGP</a></div>
+      <div class="gloss">
+        <div class="gloss-row"><div class="gloss-term">Cliente</div><div class="gloss-def">Empresa que contrata TGP para generar reuniones con sus prospectos.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Prospecto</div><div class="gloss-def">Persona o empresa a contactar para agendar una reunión con el cliente.</div></div>
+        <div class="gloss-row"><div class="gloss-term">KDM</div><div class="gloss-def">Key Decision Maker — tomador de decisiones. Con quien vale la pena agendar.</div></div>
+        <div class="gloss-row"><div class="gloss-term">ICP</div><div class="gloss-def">Ideal Customer Profile — perfil ideal del prospecto.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Push</div><div class="gloss-def">Correo o llamado de insistencia. Mínimo 2x/semana.</div></div>
+        <div class="gloss-row"><div class="gloss-term">No Show</div><div class="gloss-def">Prospecto que no asiste a la reunión. Reagendar de inmediato.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Derivación</div><div class="gloss-def">El prospecto nos pasa el contacto del KDM real. Respuesta valiosa.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Llamado en tibio</div><div class="gloss-def">Llamada a prospecto con contacto previo. Más efectivo que el frío.</div></div>
+      </div>`
+  },
+  {
+    icon:'📧', title:'Bandejas de Correo', sub:'Secuencias, etiquetas y movimiento',
+    keywords:'bandejas correo secuencias etiquetas movimiento archivar eliminar dominio cliente gmail',
+    body:`
+      <ul class="info-list"><li>Cuentas con nombres ficticios y dominios reales de los clientes.</li><li>El Manager envía las secuencias. El SDR actúa solo cuando hay respuesta.</li><li>Si el prospecto responde: la secuencia se corta. El SDR toma el hilo.</li></ul>
+      <h3 class="sh">Las 5 etiquetas</h3>
+      <div class="etiq-grid">
+        <div class="etiq" style="border-left:4px solid #2563eb"><div class="etiq-name" style="color:#1d4ed8">Proceso</div><div class="etiq-desc">Conversación activa.</div></div>
+        <div class="etiq" style="border-left:4px solid #16a34a"><div class="etiq-name" style="color:#15803d">Agendado</div><div class="etiq-desc">Reunión confirmada.</div></div>
+        <div class="etiq" style="border-left:4px solid #ea580c"><div class="etiq-name" style="color:#c2410c">No interesado</div><div class="etiq-desc">Rechazó la propuesta.</div></div>
+        <div class="etiq" style="border-left:4px solid #94a3b8"><div class="etiq-name" style="color:#475569">No aplica</div><div class="etiq-desc">No cumple el ICP.</div></div>
+        <div class="etiq" style="border-left:4px solid #7c3aed"><div class="etiq-name" style="color:#6d28d9">Reagendar</div><div class="etiq-desc">No Show, nueva fecha.</div></div>
+      </div>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/99a9d029e8a6421dae5a7beac7882e1a" target="_blank" class="lbtn lbtn-vid">▶ Tour por bandeja</a>
+        <a href="https://www.loom.com/share/0ae18c83bb084ff89884a7c7fccd840c" target="_blank" class="lbtn lbtn-vid">▶ Movimiento de correos</a>
+        <a href="https://docs.google.com/document/d/1MPv57sOJvw9k4xfuWxoGpaXgNHW4kIFrP_I6SHofJ1E/edit" target="_blank" class="lbtn lbtn-doc">📄 Guía etiquetas</a>
+        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Esquema bandejas ⬇</a>
+      </div>`
+  },
+  {
+    icon:'🛡️', title:'Manejo de Objeciones', sub:'Derivaciones, fuera de oficina, no interesado',
+    keywords:'objeciones derivaciones referidos fuera oficina vacaciones no interesado responder manejar',
+    body:`
+      <h3 class="sh">Derivaciones</h3>
+      <div class="link-row"><a href="https://www.loom.com/share/9b6b9a1cbb564e5b905039537d7e00a7" target="_blank" class="lbtn lbtn-vid">▶ Video: Derivaciones</a></div>
+      <h3 class="sh">Fuera de Oficina</h3>
+      <div class="link-row">
+        <a href="https://docs.google.com/document/d/1N7I8ZGjMJfvu5muqzZ11GLUz-1OYdABOhWcnUq2eeso/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Respuestas tipo (Seba)</a>
+        <a href="https://www.loom.com/share/4b9e4ecae20143c2a21a6a26fb1987f3" target="_blank" class="lbtn lbtn-vid">▶ Video: Fuera de oficina</a>
+      </div>
+      <h3 class="sh">No Interesado</h3>
+      <div class="link-row"><a href="https://www.loom.com/share/7d78d8afa42d478bbc6f9e0afb449644" target="_blank" class="lbtn lbtn-vid">▶ Video: "No interesado" — Tere</a></div>`
+  },
+  {
+    icon:'📲', title:'Push y Llamado en Tibio', sub:'Estrategia más importante para agendar',
+    keywords:'push insistencia llamado tibio frio telefono seguimiento 2 veces semana frecuencia',
+    body:`
+      <div class="callout c-warn"><span class="callout-i">📌</span><div>Mínimo <strong>2 veces por semana</strong> a cada prospecto.</div></div>
+      <ul class="info-list"><li>Primer correo → buscar número → llamar en tibio.</li><li>Si no contesta → push escrito en el mismo hilo.</li><li>Cada push personalizado según la respuesta del prospecto.</li></ul>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/9b6b9a1cbb564e5b905034671d1db2a8" target="_blank" class="lbtn lbtn-vid">▶ Push — Tere</a>
+        <a href="https://docs.google.com/document/d/1UzBrzY1Yrg5rNI8FkCasOeVe3X8GpV-gRf6smyf4Z7k/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Guía: push</a>
+        <a href="https://www.loom.com/share/6863b17f349542e782f28b1d2ef81f14" target="_blank" class="lbtn lbtn-vid">▶ Llamada exitosa — Juan</a>
+      </div>`
+  },
+  {
+    icon:'📆', title:'Proceso de Agendamiento', sub:'Del match de horario a la reunión confirmada',
+    keywords:'agendamiento proceso agendar reunion app tgp horario ejecutivo prospecto esquema pasos',
+    body:`
+      <ol class="steps-list">
+        <li>Revisar disponibilidad del ejecutivo en el calendario.</li>
+        <li>Proponer horario al prospecto.</li>
+        <li>Prospecto confirma → agendar en App TGP.</li>
+        <li>Esperar aprobación del Manager (emoji en Slack).</li>
+        <li>Mandar detalle al cliente + confirmar al prospecto.</li>
+        <li>Programar 2 correos recordatorios.</li>
+        <li>Actualizar etiqueta a "Agendado".</li>
+      </ol>
+      <div class="link-row">
+        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Esquema agendamiento ⬇</a>
+        <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Instructivo App TGP</a>
+        <a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank" class="lbtn lbtn-vid">▶ Agendamiento en vivo</a>
+        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ App TGP</a>
+      </div>`
+  },
+  {
+    icon:'🔔', title:'Recordatorios y No Show', sub:'WhatsApp automático y estrategias de realización',
+    keywords:'recordatorio no show whatsapp realizacion seguimiento programar correo alarma canal pod',
+    body:`
+      <div class="callout c-info"><span class="callout-i">📱</span><div><b>🆕 WhatsApp automático</b>TGP envía recordatorio 1 hora antes. Si el prospecto responde → notificación en el canal de No Show del pod → respondés desde Slack.</div></div>
+      <ul class="info-list"><li>Programar 2 correos recordatorios — obligatorio.</li><li>Llamado preventivo 20 min antes para confirmar asistencia.</li><li>Si hay No Show: llamar inmediatamente y reagendar.</li></ul>
+      <div class="link-row"><a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank" class="lbtn lbtn-vid">▶ Video: Recordatorios</a></div>`
+  },
+  {
+    icon:'🔧', title:'Herramientas Adicionales', sub:'Apollo, Lusha, varita mágica, correos Snov',
+    keywords:'apollo lusha varita magica snov wsn rebotes scraping empleados extension instalar ia',
+    body:`
+      <div class="link-row">
+        <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid">▶ Apollo</a>
+        <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid">▶ Lusha</a>
+        <a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid">▶ Varita mágica Gmail</a>
+        <a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid">▶ Correos Snov</a>
+        <a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid">▶ Correos rebote</a>
+        <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid">▶ Empleados empresa</a>
+        <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid">▶ Empleados por país</a>
+      </div>`
+  },
+  {
+    icon:'🗂️', title:'Todos los Links y Recursos', sub:'Documentos, apps y videos de referencia',
+    keywords:'links recursos documentos videos todos referencias drive app dashboard glosario kit',
+    body:`
+      <h3 class="sh">Documentos</h3>
+      <div class="link-row">
+        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive">📁 Kit del Colaborador</a>
+        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive">📁 Kit de Ventas Clientes</a>
+        <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc">📄 Glosario TGP</a>
+        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Esquema bandejas</a>
+        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Esquema agendamiento</a>
+        <a href="https://docs.google.com/document/d/1MPv57sOJvw9k4xfuWxoGpaXgNHW4kIFrP_I6SHofJ1E/edit" target="_blank" class="lbtn lbtn-doc">📄 Guía etiquetas</a>
+        <a href="https://docs.google.com/document/d/1UzBrzY1Yrg5rNI8FkCasOeVe3X8GpV-gRf6smyf4Z7k/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Guía push</a>
+        <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Instructivo App TGP</a>
+        <a href="https://docs.google.com/document/d/1CR322lgWchHj82KZvCQRCf5gnd8xEj4XsdWQ0vnpmhE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Ordenar bandejas</a>
+        <a href="https://docs.google.com/document/d/1N7I8ZGjMJfvu5muqzZ11GLUz-1OYdABOhWcnUq2eeso/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Respuestas tipo</a>
+        <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Sistema advertencias</a>
+        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ App TGP</a>
+        <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc">📊 Dashboard</a>
+      </div>
+      <h3 class="sh">Videos</h3>
+      <table class="vid-table">
+        <thead><tr><th>Tema</th><th>Link</th></tr></thead>
+        <tbody>
+          <tr><td>Tour por Slack</td><td><a href="https://www.loom.com/share/f8e93b73c31040d8ad9c8c5ee0a23697" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Google Calendar</td><td><a href="https://www.loom.com/share/72be9e9b20e043dfb833308be04216d7" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Reserva de salas</td><td><a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Tour por bandeja</td><td><a href="https://www.loom.com/share/99a9d029e8a6421dae5a7beac7882e1a" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Movimiento de correos</td><td><a href="https://www.loom.com/share/0ae18c83bb084ff89884a7c7fccd840c" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Derivaciones</td><td><a href="https://www.loom.com/share/9b6b9a1cbb564e5b905039537d7e00a7" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Fuera de oficina</td><td><a href="https://www.loom.com/share/4b9e4ecae20143c2a21a6a26fb1987f3" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>"No interesado" — Tere</td><td><a href="https://www.loom.com/share/7d78d8afa42d478bbc6f9e0afb449644" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Push — Tere</td><td><a href="https://www.loom.com/share/9b6b9a1cbb564e5b905034671d1db2a8" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Llamada en tibio — Juan</td><td><a href="https://www.loom.com/share/6863b17f349542e782f28b1d2ef81f14" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Disponibilidad ejecutivos</td><td><a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Agendamiento en vivo</td><td><a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Recordatorios</td><td><a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Correos Snov</td><td><a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Correos rebote</td><td><a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Varita mágica Gmail</td><td><a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Apollo</td><td><a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank">Ver ▶</a></td></tr>
+          <tr><td>Lusha</td><td><a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank">Ver ▶</a></td></tr>
+        </tbody>
+      </table>`
+  }
+];
+
+function buildResources() {
+  const container = document.getElementById('resSections');
+  container.innerHTML = RES_DATA.map((r,i) => `
+    <div class="res-section" data-kw="${r.keywords} ${r.title} ${r.sub}">
+      <button class="res-header" onclick="toggleRes(this)">
+        <span class="res-icon">${r.icon}</span>
+        <div class="res-info">
+          <div class="res-title">${r.title}</div>
+          <div class="res-sub">${r.sub}</div>
+        </div>
+        <span class="res-chev">▾</span>
+      </button>
+      <div class="res-body">${r.body}</div>
+    </div>
+  `).join('');
+}
+
+function toggleRes(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('ropen');
+  document.querySelectorAll('.res-header.ropen').forEach(h=>{h.classList.remove('ropen');h.nextElementSibling.classList.remove('ropen');});
+  if (!isOpen) { btn.classList.add('ropen'); body.classList.add('ropen'); btn.scrollIntoView({behavior:'smooth',block:'start'}); }
+}
+
+function filterResources(q) {
+  const query = q.toLowerCase().trim();
+  document.querySelectorAll('.res-section').forEach(s => {
+    const kw = (s.dataset.kw||'').toLowerCase();
+    const txt = s.innerText.toLowerCase();
+    const match = !query || kw.includes(query) || txt.includes(query);
+    s.classList.toggle('res-hidden', !match);
+    if (match && query.length > 2) {
+      const btn = s.querySelector('.res-header');
+      const body = s.querySelector('.res-body');
+      if (!btn.classList.contains('ropen')) { btn.classList.add('ropen'); body.classList.add('ropen'); }
+    }
+  });
+}
+</script>
+</body>
+</html>
