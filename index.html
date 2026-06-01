@@ -69,7 +69,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 /* ── TOPBAR ── */
 .topbar{background:var(--brand);color:#fff;padding:0 28px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;gap:16px;border-bottom:1px solid rgba(255,255,255,.06)}
 .topbar-brand{font-weight:800;font-size:15px;letter-spacing:-.3px;white-space:nowrap;display:flex;align-items:center;gap:9px}
-.topbar-brand-icon{width:28px;height:28px;background:var(--azul);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.topbar-brand-icon{width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.topbar-brand-icon svg{width:26px;height:26px;fill:#ffffff}
 .topbar-tabs{display:flex;gap:2px}
 .topbar-tab{padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.5);background:none;border:none;transition:all .15s;white-space:nowrap;font-family:inherit}
 .topbar-tab:hover{color:#fff;background:rgba(255,255,255,.08)}
@@ -345,7 +346,12 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 <!-- TOPBAR -->
 <div class="topbar" id="topbar">
   <div class="topbar-brand" onclick="goHome()" style="cursor:pointer" title="Ir al inicio">
-    <div class="topbar-brand-icon">🚀</div>
+    <div class="topbar-brand-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+        <path d="M0 250 l0-250 250 0 250 0 0 250 0 250-250 0-250 0 0-250z m394.5 121c-0.1-14.2-0.6-25.3-1.4-30-2.2-12.3-9.7-34.8-15.7-47.1-15.9-32.4-35.1-57-63.8-81.8l-8.6-7.4 0-20.1c0-22.2-0.8-26.9-6.1-37.1-4-7.8-11.4-15.3-21.4-21.9-9.9-6.5-38.2-20.9-39.5-20.1-0.6 0.4-1 12.7-1 32.1l0 31.5-33.7 33.7-33.8 33.7-32.2 0.3c-17.8 0.1-32.3 0.5-32.3 0.7 0 0.3 2.9 6.3 6.5 13.4 3.6 7.2 6.5 13.2 6.5 13.4 0 0.3 1.9 3.7 4.3 7.6 8.8 14.5 18.9 24.3 29.6 28.7 6.4 2.7 7.4 2.8 30.3 3.3 13 0.3 23.8 0.8 24 1.1 6.5 9 29.9 32.9 41.3 42.1 10.1 8.2 23.3 17.2 31.7 21.6 4 2.2 8.9 4.8 10.8 5.9 1.9 1.1 5.1 2.6 7 3.4 1.9 0.7 6.2 2.6 9.5 4 7.3 3.3 13.7 5.4 23 7.6 14.4 3.5 22 4.2 43.5 4l21.5-0.1 0-22.5z m-219.7-195.9c8.9-8.7 16.2-16.5 16.2-17.3 0-3-20.6-20.8-24-20.8-0.7 0-2.4-0.8-3.8-1.9-1.5-1-5.6-2.8-9.2-3.9-8.7-2.9-28.1-7.4-28.8-6.7-1.1 1 2.1 15.1 6 26.4 4.4 12.7 5.3 14.7 10 21.8 3 4.6 15.7 18.3 16.9 18.3 0.3 0 7.9-7.1 16.7-15.9z"/>
+        <path d="M300.4 326c-6.7-1-12.7-5.9-16.3-13.5-6.1-13.1 3.2-28.6 18.7-31.1 4.8-0.8 12.8 2.6 17.9 7.5 8.2 8 8.1 22.2-0.3 30.6-5.7 5.7-11.6 7.6-20 6.5z"/>
+      </svg>
+    </div>
     Central TGP
   </div>
   <div class="topbar-tabs" id="topbarTabs" style="display:none">
@@ -366,7 +372,14 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 
   <!-- ── PATH SELECTOR ── -->
   <div class="welcome-wrap" id="pathSelect">
-    <div class="welcome-logo">🏢</div>
+    <div class="welcome-logo">
+      <div style="width:72px;height:72px;background:var(--brand);border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" style="width:48px;height:48px;fill:#fff">
+          <path d="M0 250 l0-250 250 0 250 0 0 250 0 250-250 0-250 0 0-250z m394.5 121c-0.1-14.2-0.6-25.3-1.4-30-2.2-12.3-9.7-34.8-15.7-47.1-15.9-32.4-35.1-57-63.8-81.8l-8.6-7.4 0-20.1c0-22.2-0.8-26.9-6.1-37.1-4-7.8-11.4-15.3-21.4-21.9-9.9-6.5-38.2-20.9-39.5-20.1-0.6 0.4-1 12.7-1 32.1l0 31.5-33.7 33.7-33.8 33.7-32.2 0.3c-17.8 0.1-32.3 0.5-32.3 0.7 0 0.3 2.9 6.3 6.5 13.4 3.6 7.2 6.5 13.2 6.5 13.4 0 0.3 1.9 3.7 4.3 7.6 8.8 14.5 18.9 24.3 29.6 28.7 6.4 2.7 7.4 2.8 30.3 3.3 13 0.3 23.8 0.8 24 1.1 6.5 9 29.9 32.9 41.3 42.1 10.1 8.2 23.3 17.2 31.7 21.6 4 2.2 8.9 4.8 10.8 5.9 1.9 1.1 5.1 2.6 7 3.4 1.9 0.7 6.2 2.6 9.5 4 7.3 3.3 13.7 5.4 23 7.6 14.4 3.5 22 4.2 43.5 4l21.5-0.1 0-22.5z m-219.7-195.9c8.9-8.7 16.2-16.5 16.2-17.3 0-3-20.6-20.8-24-20.8-0.7 0-2.4-0.8-3.8-1.9-1.5-1-5.6-2.8-9.2-3.9-8.7-2.9-28.1-7.4-28.8-6.7-1.1 1 2.1 15.1 6 26.4 4.4 12.7 5.3 14.7 10 21.8 3 4.6 15.7 18.3 16.9 18.3 0.3 0 7.9-7.1 16.7-15.9z"/>
+          <path d="M300.4 326c-6.7-1-12.7-5.9-16.3-13.5-6.1-13.1 3.2-28.6 18.7-31.1 4.8-0.8 12.8 2.6 17.9 7.5 8.2 8 8.1 22.2-0.3 30.6-5.7 5.7-11.6 7.6-20 6.5z"/>
+        </svg>
+      </div>
+    </div>
     <h1 class="welcome-title">Central TGP</h1>
     <p class="welcome-sub">Tu centro de onboarding, recursos y herramientas. ¿Qué querés hacer?</p>
     <div class="path-grid">
