@@ -39,38 +39,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Central TGP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --azul: #1a3a6b;
-  --azul2: #2563eb;
-  --azul-pale: #eff6ff;
-  --negro: #0f172a;
-  --gris1: #1e293b;
-  --gris2: #475569;
-  --gris3: #94a3b8;
-  --gris4: #e2e8f0;
-  --gris5: #f8fafc;
-  --blanco: #ffffff;
-  --verde: #16a34a;
-  --verde-pale: #f0fdf4;
-  --naranja: #ea580c;
-  --naranja-pale: #fff7ed;
-  --morado: #7c3aed;
+  --brand:       #0a0a0a;
+  --brand2:      #111827;
+  --azul:        #2563eb;
+  --azul2:       #1d4ed8;
+  --azul-pale:   #eff6ff;
+  --negro:       #111827;
+  --gris1:       #1f2937;
+  --gris2:       #6b7280;
+  --gris3:       #9ca3af;
+  --gris4:       #e5e7eb;
+  --gris5:       #f9fafb;
+  --blanco:      #ffffff;
+  --verde:       #16a34a;
+  --verde-pale:  #f0fdf4;
+  --naranja:     #ea580c;
+  --naranja-pale:#fff7ed;
+  --morado:      #7c3aed;
   --morado-pale: #f5f3ff;
-  --rojo: #dc2626;
+  --rojo:        #dc2626;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--gris5);color:var(--negro);min-height:100vh;font-size:15px}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--gris5);color:var(--negro);min-height:100vh;font-size:15px;-webkit-font-smoothing:antialiased}
 
 /* ── TOPBAR ── */
-.topbar{background:var(--azul);color:#fff;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;gap:16px}
-.topbar-brand{font-weight:800;font-size:17px;letter-spacing:-.3px;white-space:nowrap}
-.topbar-tabs{display:flex;gap:4px}
-.topbar-tab{padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.7);background:none;border:none;transition:all .15s;white-space:nowrap}
-.topbar-tab:hover{color:#fff;background:rgba(255,255,255,.1)}
-.topbar-tab.active{color:#fff;background:rgba(255,255,255,.2)}
-.topbar-user{font-size:13px;color:rgba(255,255,255,.8);white-space:nowrap;display:flex;align-items:center;gap:8px}
-.topbar-avatar{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+.topbar{background:var(--brand);color:#fff;padding:0 28px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;gap:16px;border-bottom:1px solid rgba(255,255,255,.06)}
+.topbar-brand{font-weight:800;font-size:15px;letter-spacing:-.3px;white-space:nowrap;display:flex;align-items:center;gap:9px}
+.topbar-brand-icon{width:28px;height:28px;background:var(--azul);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.topbar-tabs{display:flex;gap:2px}
+.topbar-tab{padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.5);background:none;border:none;transition:all .15s;white-space:nowrap;font-family:inherit}
+.topbar-tab:hover{color:#fff;background:rgba(255,255,255,.08)}
+.topbar-tab.active{color:#fff;background:rgba(255,255,255,.12)}
+.topbar-user{font-size:13px;color:rgba(255,255,255,.7);white-space:nowrap;display:flex;align-items:center;gap:8px}
+.topbar-avatar{width:28px;height:28px;border-radius:50%;background:var(--azul);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
 
 /* ── SCREENS ── */
 .screen{display:none;min-height:calc(100vh - 56px)}
@@ -92,8 +97,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .role-btn .role-icon{font-size:24px;margin-bottom:6px}
 .role-btn .role-name{font-size:13px;font-weight:700;color:var(--negro)}
 .role-btn .role-desc{font-size:11px;color:var(--gris2);margin-top:3px;line-height:1.4}
-.btn-primary{width:100%;padding:14px;background:var(--azul);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;margin-top:20px;font-family:inherit;transition:background .15s}
-.btn-primary:hover{background:#243b6e}
+.btn-primary{width:100%;padding:13px;background:var(--brand);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;margin-top:20px;font-family:inherit;transition:background .15s;letter-spacing:-.1px}
+.btn-primary:hover{background:var(--brand2)}
 .btn-primary:disabled{background:var(--gris4);color:var(--gris3);cursor:not-allowed}
 
 /* ── ONBOARDING SCREEN ── */
@@ -128,7 +133,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
 .onb-main{padding:32px;max-width:720px}
 .step-card{background:var(--blanco);border-radius:16px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04);margin-bottom:24px}
 .step-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:16px}
-.step-badge{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:4px 10px;border-radius:20px;background:var(--azul-pale);color:var(--azul)}
+.step-badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:4px 10px;border-radius:20px;background:var(--gris5);color:var(--gris2);border:1px solid var(--gris4)}
 .step-icon-big{font-size:32px;margin-bottom:8px}
 .step-title-main{font-size:22px;font-weight:800;color:var(--negro);margin-bottom:8px;line-height:1.3}
 .step-desc{font-size:15px;color:var(--gris2);line-height:1.7;margin-bottom:20px}
@@ -145,7 +150,7 @@ p.pt{font-size:14px;color:var(--gris1);line-height:1.7;margin-bottom:10px}
 .steps-list{list-style:none;padding:0;counter-reset:sc;margin:8px 0 12px}
 .steps-list li{counter-increment:sc;display:flex;gap:12px;padding:8px 0;font-size:14px;color:var(--gris1);border-bottom:1px solid var(--gris5);align-items:flex-start}
 .steps-list li:last-child{border-bottom:none}
-.steps-list li::before{content:counter(sc);min-width:22px;height:22px;background:var(--azul);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px}
+.steps-list li::before{content:counter(sc);min-width:22px;height:22px;background:var(--brand);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px}
 .link-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
 .lbtn{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .12s;white-space:nowrap;cursor:pointer;border:none}
 .lbtn:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.1)}
@@ -191,15 +196,15 @@ p.pt{font-size:14px;color:var(--gris1);line-height:1.7;margin-bottom:10px}
 .etiq-desc{font-size:12px;color:var(--gris2)}
 
 /* Complete button */
-.complete-btn{width:100%;padding:16px;background:var(--azul);color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:10px}
-.complete-btn:hover{background:#243b6e;transform:translateY(-1px)}
+.complete-btn{width:100%;padding:14px;background:var(--brand);color:#fff;border:none;border-radius:11px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:-.1px}
+.complete-btn:hover{background:var(--brand2);transform:translateY(-1px)}
 .complete-btn.done-style{background:var(--verde)}
 .nav-btns{display:flex;gap:10px;margin-top:16px}
 .btn-back{padding:12px 20px;background:var(--blanco);color:var(--gris1);border:2px solid var(--gris4);border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
 .btn-back:hover{border-color:var(--gris3)}
 
 /* Celebration / track unlock */
-.celebrate{background:linear-gradient(135deg,#1a3a6b 0%,#2563eb 100%);border-radius:16px;padding:32px;color:#fff;text-align:center;margin-bottom:24px}
+.celebrate{background:var(--brand);border-radius:14px;padding:32px;color:#fff;text-align:center;margin-bottom:20px}
 .celebrate h2{font-size:24px;font-weight:800;margin-bottom:8px}
 .celebrate p{font-size:15px;opacity:.85;margin-bottom:20px;line-height:1.6}
 .celebrate-icon{font-size:48px;margin-bottom:12px}
@@ -207,23 +212,40 @@ p.pt{font-size:14px;color:var(--gris1);line-height:1.7;margin-bottom:10px}
 .btn-start-sdr:hover{background:#eff6ff}
 
 /* ── RECURSOS SCREEN ── */
-.res-wrap{max-width:800px;margin:0 auto;padding:32px 20px}
-.res-search{width:100%;padding:14px 16px 14px 44px;border-radius:12px;border:2px solid var(--gris4);font-size:15px;color:var(--negro);outline:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85.708-.707-3.85-3.85zm-5.242 1.156a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/svg%3E") no-repeat 14px center;transition:border-color .15s;font-family:inherit;margin-bottom:24px}
-.res-search:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
-.res-section{margin-bottom:10px}
-.res-header{width:100%;display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--blanco);border:1px solid var(--gris4);border-radius:10px;cursor:pointer;text-align:left;font-family:inherit;transition:background .12s}
-.res-header:hover{background:var(--gris5)}
-.res-header.ropen{background:var(--azul);color:#fff;border-color:var(--azul);border-bottom-left-radius:0;border-bottom-right-radius:0}
-.res-icon{font-size:18px;flex-shrink:0}
-.res-info{flex:1}
-.res-title{font-size:15px;font-weight:700;color:var(--negro)}
-.res-header.ropen .res-title{color:#fff}
-.res-sub{font-size:12px;color:var(--gris3);margin-top:1px}
-.res-header.ropen .res-sub{color:rgba(255,255,255,.7)}
-.res-chev{font-size:16px;color:var(--gris3);transition:transform .2s;flex-shrink:0}
-.res-header.ropen .res-chev{transform:rotate(180deg);color:#fff}
-.res-body{display:none;background:#fff;border:1px solid var(--azul);border-top:none;border-bottom-left-radius:10px;border-bottom-right-radius:10px;padding:20px 20px 24px}
-.res-body.ropen{display:block}
+.res-wrap{max-width:900px;margin:0 auto;padding:36px 24px}
+.res-search{width:100%;padding:13px 16px 13px 44px;border-radius:11px;border:1.5px solid var(--gris4);font-size:15px;color:var(--negro);outline:none;background:var(--blanco);transition:border-color .15s,box-shadow .15s;font-family:inherit;margin-bottom:32px}
+.res-search:focus{border-color:var(--azul);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
+
+/* Card grid */
+.res-cat-section{margin-bottom:36px}
+.res-cat-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--gris3);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--gris4)}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.res-card{background:var(--blanco);border:1.5px solid var(--gris4);border-radius:12px;padding:20px 16px 32px;cursor:pointer;transition:all .18s;position:relative;min-height:130px;display:flex;flex-direction:column}
+.res-card:hover{border-color:var(--azul);transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.1)}
+.res-card.open{border-color:var(--brand);background:var(--brand);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.res-card.open .res-card-title{color:#fff}
+.res-card.open .res-card-sub{color:rgba(255,255,255,.55)}
+.res-card.open .res-card-arr{color:rgba(255,255,255,.35)}
+.res-card-icon{font-size:26px;margin-bottom:10px}
+.res-card-title{font-size:13px;font-weight:700;color:var(--negro);line-height:1.3;margin-bottom:4px;flex:1}
+.res-card-sub{font-size:11px;color:var(--gris3);line-height:1.4}
+.res-card-arr{position:absolute;bottom:12px;right:14px;font-size:13px;color:var(--gris4);transition:color .15s}
+.res-card:hover .res-card-arr{color:var(--azul)}
+.res-card-hidden{display:none!important}
+
+/* Detail panel */
+.res-detail{display:none;background:var(--blanco);border:1.5px solid var(--gris4);border-radius:12px;padding:24px;margin-top:12px;margin-bottom:8px}
+.res-detail.open{display:block;animation:slideDown .18s ease}
+.res-detail-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--gris4)}
+.res-detail-title{font-size:17px;font-weight:800;color:var(--negro);letter-spacing:-.2px}
+.res-detail-close{width:28px;height:28px;border-radius:7px;background:var(--gris5);border:1px solid var(--gris4);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--gris2);font-family:inherit;flex-shrink:0}
+.res-detail-close:hover{background:var(--gris4);color:var(--negro)}
+@keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.res-cat-section.cat-hidden{display:none}
+.res-no-results{text-align:center;padding:48px 20px;color:var(--gris3);font-size:15px;display:none}
+.res-no-results.visible{display:block}
+
+/* Legacy (unused but kept for admin compat) */
 .res-hidden{display:none!important}
 
 /* Tables */
@@ -322,7 +344,10 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 
 <!-- TOPBAR -->
 <div class="topbar" id="topbar">
-  <div class="topbar-brand" onclick="goHome()" style="cursor:pointer" title="Ir al inicio">🏠 Central TGP</div>
+  <div class="topbar-brand" onclick="goHome()" style="cursor:pointer" title="Ir al inicio">
+    <div class="topbar-brand-icon">🚀</div>
+    Central TGP
+  </div>
   <div class="topbar-tabs" id="topbarTabs" style="display:none">
     <button class="topbar-tab" id="tab-onboarding" onclick="showScreen('onboarding')">🗺 Mi Onboarding</button>
     <button class="topbar-tab" id="tab-recursos" onclick="showScreen('recursos')">📚 Recursos</button>
@@ -407,10 +432,16 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 <!-- ═══════════════════════════════════════════════════════════ -->
 <div class="screen" id="screen-recursos">
   <div class="res-wrap">
-    <h2 style="font-size:22px;font-weight:800;color:var(--negro);margin-bottom:4px">📚 Guía de Referencia</h2>
-    <p style="font-size:14px;color:var(--gris2);margin-bottom:20px">Todo el contenido del onboarding, siempre disponible. Buscá por palabras clave o explorá por sección.</p>
-    <input class="res-search" id="resSearch" type="text" placeholder="Buscar… (ej: almuerzo, etiquetas, push, apollo)" oninput="filterResources(this.value)">
+    <div style="margin-bottom:24px">
+      <h2 style="font-size:22px;font-weight:900;color:var(--negro);margin-bottom:4px;letter-spacing:-.4px">📚 Guía de Referencia</h2>
+      <p style="font-size:14px;color:var(--gris2)">Todo el contenido del onboarding, organizado por categoría. Buscá por palabras clave.</p>
+    </div>
+    <div style="position:relative;margin-bottom:8px">
+      <span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--gris3);pointer-events:none">🔍</span>
+      <input class="res-search" id="resSearch" type="text" placeholder="Buscar… (ej: almuerzo, etiquetas, push, apollo)" oninput="filterResources(this.value)">
+    </div>
     <div id="resSections"></div>
+    <div class="res-no-results" id="resNoResults">No se encontraron resultados. Probá con otra palabra clave.</div>
   </div>
 </div>
 
@@ -1410,8 +1441,17 @@ function replayOnboarding() {
 // Para editar: buscá el título de la sección con Ctrl+F
 // Podés cambiar: icon, title, sub (subtítulo), y el contenido en body
 // ════════════════════════════════════════════════════════════════
+const RES_CATEGORIES = [
+  { id:'inicio',       label:'🚀 Primeros Pasos' },
+  { id:'herramientas', label:'🔧 Herramientas de Trabajo' },
+  { id:'beneficios',   label:'🍽️ Beneficios' },
+  { id:'sdr',          label:'📧 Proceso SDR' },
+  { id:'referencia',   label:'🗂️ Referencia' },
+];
+
 const RES_DATA = [
   {
+    category:'inicio',
     icon:'✅', title:'Checklist General — Día 1', sub:'Para todos los colaboradores',
     keywords:'checklist dia 1 configuracion inicial slack calendar linkedin almuerzo datos personales',
     body:`
@@ -1428,6 +1468,7 @@ const RES_DATA = [
     `
   },
   {
+    category:'herramientas',
     icon:'💬', title:'Slack', sub:'Configuración y reglas',
     keywords:'slack comunicacion canales notificaciones foto perfil regla oro app celular guia',
     body:`
@@ -1438,6 +1479,7 @@ const RES_DATA = [
       </div>`
   },
   {
+    category:'beneficios',
     icon:'🍽️', title:'Servicio de Almuerzo', sub:'Créditos, formulario y canal Slack',
     keywords:'almuerzo creditos part time full time formulario canal platos beneficio',
     body:`
@@ -1445,6 +1487,7 @@ const RES_DATA = [
       <div class="link-row"><a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="lbtn lbtn-form">📋 Formulario de almuerzos</a></div>`
   },
   {
+    category:'referencia',
     icon:'📖', title:'Glosario TGP', sub:'Cliente, Prospecto, KDM, ICP, Push, No Show…',
     keywords:'glosario cliente prospecto kdm icp b2b push no show weekly bandeja etiqueta derivacion llamado tibio',
     body:`
@@ -1461,6 +1504,7 @@ const RES_DATA = [
       </div>`
   },
   {
+    category:'sdr',
     icon:'📧', title:'Bandejas de Correo', sub:'Secuencias, etiquetas y movimiento',
     keywords:'bandejas correo secuencias etiquetas movimiento archivar eliminar dominio cliente gmail',
     body:`
@@ -1481,6 +1525,7 @@ const RES_DATA = [
       </div>`
   },
   {
+    category:'sdr',
     icon:'🛡️', title:'Manejo de Objeciones', sub:'Derivaciones, fuera de oficina, no interesado',
     keywords:'objeciones derivaciones referidos fuera oficina vacaciones no interesado responder manejar',
     body:`
@@ -1495,6 +1540,7 @@ const RES_DATA = [
       <div class="link-row"><a href="https://www.loom.com/share/7d78d8afa42d478bbc6f9e0afb449644" target="_blank" class="lbtn lbtn-vid">▶ Video: "No interesado" — Tere</a></div>`
   },
   {
+    category:'sdr',
     icon:'📲', title:'Push y Llamado en Tibio', sub:'Estrategia más importante para agendar',
     keywords:'push insistencia llamado tibio frio telefono seguimiento 2 veces semana frecuencia',
     body:`
@@ -1507,6 +1553,7 @@ const RES_DATA = [
       </div>`
   },
   {
+    category:'sdr',
     icon:'📆', title:'Proceso de Agendamiento', sub:'Del match de horario a la reunión confirmada',
     keywords:'agendamiento proceso agendar reunion app tgp horario ejecutivo prospecto esquema pasos',
     body:`
@@ -1527,6 +1574,7 @@ const RES_DATA = [
       </div>`
   },
   {
+    category:'sdr',
     icon:'🔔', title:'Recordatorios y No Show', sub:'WhatsApp automático y estrategias de realización',
     keywords:'recordatorio no show whatsapp realizacion seguimiento programar correo alarma canal pod',
     body:`
@@ -1535,6 +1583,7 @@ const RES_DATA = [
       <div class="link-row"><a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank" class="lbtn lbtn-vid">▶ Video: Recordatorios</a></div>`
   },
   {
+    category:'herramientas',
     icon:'🔧', title:'Herramientas Adicionales', sub:'Apollo, Lusha, varita mágica, correos Snov',
     keywords:'apollo lusha varita magica snov wsn rebotes scraping empleados extension instalar ia',
     body:`
@@ -1549,6 +1598,7 @@ const RES_DATA = [
       </div>`
   },
   {
+    category:'referencia',
     icon:'🗂️', title:'Todos los Links y Recursos', sub:'Documentos, apps y videos de referencia',
     keywords:'links recursos documentos videos todos referencias drive app dashboard glosario kit',
     body:`
@@ -1789,41 +1839,76 @@ function downloadUpdatedHTML() {
 
 function buildResources() {
   const container = document.getElementById('resSections');
-  container.innerHTML = RES_DATA.map((r,i) => `
-    <div class="res-section" data-kw="${r.keywords} ${r.title} ${r.sub}">
-      <button class="res-header" onclick="toggleRes(this)">
-        <span class="res-icon">${r.icon}</span>
-        <div class="res-info">
-          <div class="res-title">${r.title}</div>
-          <div class="res-sub">${r.sub}</div>
+  let html = '';
+  RES_CATEGORIES.forEach(cat => {
+    const items = RES_DATA.map((r,i) => ({...r, idx:i})).filter(r => r.category === cat.id);
+    if (!items.length) return;
+    html += `<div class="res-cat-section" data-cat="${cat.id}">`;
+    html += `<div class="res-cat-title">${cat.label}</div>`;
+    html += `<div class="res-grid">`;
+    items.forEach(r => {
+      html += `<div class="res-card" id="res-card-${r.idx}" onclick="openResCard(${r.idx})">
+        <div class="res-card-icon">${r.icon}</div>
+        <div class="res-card-title">${r.title}</div>
+        <div class="res-card-sub">${r.sub}</div>
+        <div class="res-card-arr">→</div>
+      </div>`;
+    });
+    html += `</div>`;
+    items.forEach(r => {
+      html += `<div class="res-detail" id="res-detail-${r.idx}">
+        <div class="res-detail-header">
+          <div class="res-detail-title">${r.icon} ${r.title}</div>
+          <button class="res-detail-close" onclick="closeResCard(${r.idx})">✕</button>
         </div>
-        <span class="res-chev">▾</span>
-      </button>
-      <div class="res-body">${r.body}</div>
-    </div>
-  `).join('');
+        ${r.body}
+      </div>`;
+    });
+    html += `</div>`;
+  });
+  container.innerHTML = html;
 }
 
-function toggleRes(btn) {
-  const body = btn.nextElementSibling;
-  const isOpen = btn.classList.contains('ropen');
-  document.querySelectorAll('.res-header.ropen').forEach(h=>{h.classList.remove('ropen');h.nextElementSibling.classList.remove('ropen');});
-  if (!isOpen) { btn.classList.add('ropen'); body.classList.add('ropen'); btn.scrollIntoView({behavior:'smooth',block:'start'}); }
+function openResCard(i) {
+  document.querySelectorAll('.res-card.open').forEach(c => c.classList.remove('open'));
+  document.querySelectorAll('.res-detail.open').forEach(d => d.classList.remove('open'));
+  const card = document.getElementById('res-card-'+i);
+  const detail = document.getElementById('res-detail-'+i);
+  if (!card || !detail) return;
+  card.classList.add('open');
+  detail.classList.add('open');
+  setTimeout(() => detail.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+}
+
+function closeResCard(i) {
+  const card = document.getElementById('res-card-'+i);
+  const detail = document.getElementById('res-detail-'+i);
+  if (card) card.classList.remove('open');
+  if (detail) detail.classList.remove('open');
 }
 
 function filterResources(q) {
   const query = q.toLowerCase().trim();
-  document.querySelectorAll('.res-section').forEach(s => {
-    const kw = (s.dataset.kw||'').toLowerCase();
-    const txt = s.innerText.toLowerCase();
-    const match = !query || kw.includes(query) || txt.includes(query);
-    s.classList.toggle('res-hidden', !match);
-    if (match && query.length > 2) {
-      const btn = s.querySelector('.res-header');
-      const body = s.querySelector('.res-body');
-      if (!btn.classList.contains('ropen')) { btn.classList.add('ropen'); body.classList.add('ropen'); }
-    }
+  let anyVisible = false;
+  document.querySelectorAll('.res-card.open').forEach(c=>c.classList.remove('open'));
+  document.querySelectorAll('.res-detail.open').forEach(d=>d.classList.remove('open'));
+  RES_CATEGORIES.forEach(cat => {
+    const section = document.querySelector(`.res-cat-section[data-cat="${cat.id}"]`);
+    if (!section) return;
+    const items = RES_DATA.map((r,i)=>({...r,idx:i})).filter(r=>r.category===cat.id);
+    let catVisible = false;
+    items.forEach(r => {
+      const card = document.getElementById('res-card-'+r.idx);
+      if (!card) return;
+      const searchText = (r.title+' '+r.sub+' '+(r.keywords||'')).toLowerCase();
+      const matches = !query || searchText.includes(query);
+      card.classList.toggle('res-card-hidden', !matches);
+      if (matches) { catVisible = true; anyVisible = true; }
+    });
+    section.classList.toggle('cat-hidden', !catVisible);
   });
+  const noResults = document.getElementById('resNoResults');
+  if (noResults) noResults.classList.toggle('visible', !anyVisible && !!query);
 }
 </script>
 </body>
