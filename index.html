@@ -2482,10 +2482,14 @@ function saveBoletinItem() {
     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
   };
   if (btn) { btn.disabled = true; btn.textContent = 'Publicando…'; }
-  const ref = id ? db.collection('boletin').doc(id) : db.collection('boletin').doc();
-  ref.set(data, {merge: true})
+  // Refrescar token antes de escribir
+  firebase.auth().currentUser.getIdToken(true).then(() => {
+    const ref = id ? db.collection('boletin').doc(id) : db.collection('boletin');
+    const promise = id ? ref.set(data) : ref.add(data);
+    return promise;
+  })
     .then(() => { closeBoletinModal(); })
-    .catch(err => { alert('Error al publicar: ' + err.message); })
+    .catch(err => { alert('Error al publicar: ' + err.code + ' — ' + err.message); })
     .finally(() => { if (btn) { btn.disabled = false; btn.textContent = 'Publicar →'; } });
 }
 
