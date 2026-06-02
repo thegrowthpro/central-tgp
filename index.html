@@ -1968,7 +1968,7 @@ const RES_CATEGORIES = [
   { id:'herramientas', label:'🔧 Herramientas de Trabajo' },
   { id:'oficina',      label:'🏢 Oficina' },
   { id:'sdr',          label:'📧 Proceso SDR' },
-  { id:'links',        label:'🔗 Links y Recursos' },
+  { id:'links',        label:'🔗 Links y Recursos', fullrow: true },
 ];
 
 const RES_DATA = [
@@ -2482,7 +2482,8 @@ function buildResources() {
   RES_CATEGORIES.forEach(cat => {
     const items = RES_DATA.map((r,i) => ({...r, idx:i})).filter(r => r.category === cat.id);
     if (!items.length) return;
-    html += `<div class="rrhh-card res-cat-section" data-cat="${cat.id}">`;
+    const spanStyle = cat.fullrow ? 'grid-column:1/-1' : '';
+    html += `<div class="rrhh-card res-cat-section" data-cat="${cat.id}" style="${spanStyle}">`;
     html += `<div class="rrhh-card-title">${cat.label}</div>`;
     items.forEach(r => {
       if (r.direct) {
