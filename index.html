@@ -741,6 +741,20 @@ body.admin-mode .res-wrap{padding-bottom:72px}
         </a>
       </div>
 
+      <!-- Pagos y Boletas -->
+      <div class="rrhh-card">
+        <div class="rrhh-card-title">💰 Pagos y Boletas</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+          <div style="background:var(--gris5);border-radius:8px;padding:10px;border:1px solid var(--gris4)"><div style="font-size:10px;font-weight:700;color:var(--gris2);margin-bottom:2px">Razón Social</div><div style="font-size:13px;font-weight:700;color:var(--negro)">TGP SpA</div></div>
+          <div style="background:var(--gris5);border-radius:8px;padding:10px;border:1px solid var(--gris4)"><div style="font-size:10px;font-weight:700;color:var(--gris2);margin-bottom:2px">RUT</div><div style="font-size:13px;font-weight:700;color:var(--negro)">77.628.885-3</div></div>
+          <div style="background:var(--gris5);border-radius:8px;padding:10px;border:1px solid var(--gris4);grid-column:span 2"><div style="font-size:10px;font-weight:700;color:var(--gris2);margin-bottom:2px">Dirección fiscal</div><div style="font-size:13px;font-weight:600;color:var(--negro)">Hermanos Cabot 6777, depto 87</div></div>
+        </div>
+        <div class="callout c-info" style="font-size:12px;margin-bottom:10px"><span class="callout-i">💬</span><div>Montos, comisiones o plazos: <strong>finanzas@thegrowth.pro</strong></div></div>
+        <a href="https://www.sii.cl" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">🧾</span><span class="solicitud-text">Portal SII — emitir boleta</span><span class="solicitud-arr">↗</span>
+        </a>
+      </div>
+
       <!-- Reunión Ampliada -->
       <div class="rrhh-card">
         <div class="rrhh-card-title">📅 Reunión Ampliada</div>
@@ -1954,8 +1968,7 @@ const RES_CATEGORIES = [
   { id:'herramientas', label:'🔧 Herramientas de Trabajo' },
   { id:'oficina',      label:'🏢 Oficina' },
   { id:'sdr',          label:'📧 Proceso SDR' },
-  { id:'referencia',   label:'🗂️ Referencia' },
-  { id:'pagos',        label:'💰 Pagos y Boletas' },
+  { id:'links',        label:'🔗 Links y Recursos' },
 ];
 
 const RES_DATA = [
@@ -2047,7 +2060,7 @@ const RES_DATA = [
       </div>`
   },
   {
-    category:'referencia',
+    category:'inicio',
     icon:'📖', title:'Glosario TGP', sub:'Cliente, Prospecto, KDM, ICP, Push, No Show…',
     keywords:'glosario cliente prospecto kdm icp b2b push no show weekly bandeja etiqueta derivacion llamado tibio',
     body:`
@@ -2193,9 +2206,9 @@ const RES_DATA = [
       </div>`
   },
   {
-    category:'referencia',
-    fullwidth: true,
-    icon:'🗂️', title:'Todos los Links y Recursos', sub:'Documentos, apps y videos de referencia',
+    category:'links',
+    direct: true,
+    icon:'🔗', title:'Todos los Links y Recursos', sub:'',
     keywords:'links recursos documentos videos todos referencias drive app dashboard glosario kit',
     body:`
       <div style="display:flex;flex-direction:column;gap:18px">
@@ -2268,22 +2281,6 @@ const RES_DATA = [
 
       </div>`
   },
-  {
-    category:'pagos',
-    icon:'💰', title:'Pagos y Boletas', sub:'Datos TGP SpA, SII, proceso de cobro',
-    keywords:'pagos boleta honorarios sii razon social rut tgp spa finanzas comisiones cobro',
-    body:`
-      <h3 class="sh">Datos TGP SpA para tu boleta</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
-        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:11px;font-weight:700;color:var(--gris2);margin-bottom:3px">Razón Social</div><div style="font-size:14px;font-weight:700;color:var(--negro)">TGP SpA</div></div>
-        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:11px;font-weight:700;color:var(--gris2);margin-bottom:3px">RUT</div><div style="font-size:14px;font-weight:700;color:var(--negro)">77.628.885-3</div></div>
-        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4);grid-column:span 2"><div style="font-size:11px;font-weight:700;color:var(--gris2);margin-bottom:3px">Dirección fiscal</div><div style="font-size:13px;font-weight:600;color:var(--negro)">Hermanos Cabot 6777, depto 87</div></div>
-      </div>
-      <div class="callout c-info"><span class="callout-i">💬</span><div>Dudas sobre montos, comisiones, pagos o plazos: <strong>finanzas@thegrowth.pro</strong></div></div>
-      <div class="link-row" style="margin-top:12px">
-        <a href="https://www.sii.cl" target="_blank" class="lbtn lbtn-doc">🧾 Portal SII — emitir boleta</a>
-      </div>`
-  }
 ];
 
 // ═══════════════════════════════════════════════════════════════
@@ -2488,17 +2485,21 @@ function buildResources() {
     html += `<div class="rrhh-card res-cat-section" data-cat="${cat.id}">`;
     html += `<div class="rrhh-card-title">${cat.label}</div>`;
     items.forEach(r => {
-      const fw = r.fullwidth ? 'grid-column:span 2' : '';
-      html += `<div class="solicitud-item" id="res-card-${r.idx}" onclick="openResCard(${r.idx})" style="flex-direction:column;align-items:flex-start;gap:0;${fw}">
-        <div style="display:flex;align-items:center;gap:10px;width:100%">
-          <span class="solicitud-icon">${r.icon}</span>
-          <span class="solicitud-text" style="flex:1">${r.title}</span>
-          <span class="solicitud-arr" id="res-arr-${r.idx}">↓</span>
-        </div>
-        <div class="res-detail" id="res-detail-${r.idx}" style="margin-top:10px;width:100%;border:none;padding:0;background:transparent">
-          ${r.body}
-        </div>
-      </div>`;
+      if (r.direct) {
+        // Siempre expandido, sin click
+        html += `<div style="width:100%">${r.body}</div>`;
+      } else {
+        html += `<div class="solicitud-item" id="res-card-${r.idx}" onclick="openResCard(${r.idx})" style="flex-direction:column;align-items:flex-start;gap:0">
+          <div style="display:flex;align-items:center;gap:10px;width:100%">
+            <span class="solicitud-icon">${r.icon}</span>
+            <span class="solicitud-text" style="flex:1">${r.title}</span>
+            <span class="solicitud-arr" id="res-arr-${r.idx}">↓</span>
+          </div>
+          <div class="res-detail" id="res-detail-${r.idx}" style="margin-top:10px;width:100%;border:none;padding:0;background:transparent">
+            ${r.body}
+          </div>
+        </div>`;
+      }
     });
     html += `</div>`;
   });
