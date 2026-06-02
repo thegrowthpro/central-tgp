@@ -2487,7 +2487,7 @@ function saveBoletinItem() {
     desc:  document.getElementById('boletinDesc').value.trim(),
     fecha: document.getElementById('boletinFecha').value,
     link:  document.getElementById('boletinLink').value.trim(),
-    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    createdAt: firebase.database.ServerValue.TIMESTAMP,
   };
   if (btn) { btn.disabled = true; btn.textContent = 'Publicando…'; }
   const ref = id ? db.ref('boletin/' + id) : db.ref('boletin').push();
