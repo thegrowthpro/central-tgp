@@ -43,6 +43,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <style>
 :root {
   --brand:       #0a0a0a;
@@ -371,6 +372,44 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .role-modal-btn .ricon{font-size:28px;margin-bottom:8px}
 .role-modal-btn .rname{font-size:14px;font-weight:700;color:var(--negro)}
 
+/* ── BOLETÍN ── */
+.boletin-wrap{margin-top:32px}
+.boletin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.boletin-title{font-size:16px;font-weight:800;color:var(--negro);letter-spacing:-.2px}
+.boletin-add-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;background:var(--brand);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s}
+.boletin-add-btn:hover{background:var(--brand2)}
+.boletin-empty{text-align:center;padding:32px;color:var(--gris3);font-size:14px;background:var(--blanco);border:1.5px dashed var(--gris4);border-radius:12px}
+.boletin-grid{display:flex;flex-direction:column;gap:10px}
+.boletin-card{background:var(--blanco);border:1.5px solid var(--gris4);border-radius:12px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;transition:box-shadow .15s}
+.boletin-card:hover{box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.boletin-type-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.boletin-card-body{flex:1;min-width:0}
+.boletin-card-top{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.boletin-badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.boletin-date{font-size:11px;color:var(--gris3)}
+.boletin-card-title{font-size:14px;font-weight:700;color:var(--negro);margin-bottom:3px;line-height:1.4}
+.boletin-card-desc{font-size:13px;color:var(--gris2);line-height:1.6}
+.boletin-card-link{display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-size:12px;font-weight:600;color:var(--azul);text-decoration:none}
+.boletin-card-link:hover{text-decoration:underline}
+.boletin-card-actions{display:flex;gap:6px;flex-shrink:0}
+.boletin-action-btn{background:none;border:none;cursor:pointer;color:var(--gris3);font-size:14px;padding:4px;border-radius:5px;transition:color .12s}
+.boletin-action-btn:hover{color:var(--negro);background:var(--gris5)}
+
+/* Modal boletín */
+.boletin-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:800;display:flex;align-items:center;justify-content:center}
+.boletin-modal-overlay.hidden{display:none}
+.boletin-modal{background:#fff;border-radius:16px;padding:32px;max-width:460px;width:92%;box-shadow:0 24px 64px rgba(0,0,0,.25)}
+.boletin-modal-title{font-size:18px;font-weight:800;color:var(--negro);margin-bottom:20px;letter-spacing:-.2px}
+.boletin-field{margin-bottom:14px}
+.boletin-field label{display:block;font-size:11px;font-weight:700;color:var(--gris1);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.boletin-field input,.boletin-field textarea,.boletin-field select{width:100%;padding:10px 12px;border:1.5px solid var(--gris4);border-radius:8px;font-size:14px;font-family:inherit;color:var(--negro);outline:none;transition:border-color .15s}
+.boletin-field input:focus,.boletin-field textarea:focus,.boletin-field select:focus{border-color:var(--azul)}
+.boletin-field textarea{resize:vertical;min-height:72px}
+.boletin-modal-btns{display:flex;gap:10px;margin-top:20px}
+.boletin-modal-save{flex:1;padding:11px;background:var(--brand);color:#fff;border:none;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+.boletin-modal-save:hover{background:var(--brand2)}
+.boletin-modal-cancel{padding:11px 18px;background:var(--gris5);color:var(--gris1);border:1.5px solid var(--gris4);border-radius:9px;font-size:14px;cursor:pointer;font-family:inherit}
+
 /* ── RESOURCE LINK BLOCKS ── */
 .res-link-block{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 8px;border-radius:9px;text-decoration:none;gap:5px;transition:all .15s;text-align:center;min-height:72px}
 .res-link-block span:first-child{font-size:18px}
@@ -481,6 +520,17 @@ body.admin-mode .res-wrap{padding-bottom:72px}
   <div class="home-wrap">
     <div class="home-greeting" id="homeGreeting">Hola 👋</div>
     <div class="home-sub">¿Qué querés hacer hoy?</div>
+    <!-- BOLETÍN -->
+    <div class="boletin-wrap">
+      <div class="boletin-header">
+        <div class="boletin-title">📋 Novedades</div>
+        <button class="boletin-add-btn" id="boletinAddBtn" style="display:none" onclick="openBoletinModal()">+ Publicar aviso</button>
+      </div>
+      <div id="boletinList"><div class="boletin-empty">No hay novedades por ahora.</div></div>
+    </div>
+
+    <div style="height:28px"></div>
+    <div style="font-size:13px;font-weight:700;color:var(--gris3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px">¿Qué querés hacer?</div>
     <div class="home-grid">
       <button class="home-card" onclick="showScreen('onboarding');renderOnboarding()">
         <div class="home-card-icon">🗺️</div>
@@ -822,6 +872,47 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
+<!-- BOLETÍN: MODAL AGREGAR/EDITAR                             -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="boletin-modal-overlay hidden" id="boletinModalOverlay" onclick="if(event.target===this)closeBoletinModal()">
+  <div class="boletin-modal">
+    <div class="boletin-modal-title" id="boletinModalTitle">📋 Publicar aviso</div>
+    <input type="hidden" id="boletinEditId">
+    <div class="boletin-field">
+      <label>Tipo</label>
+      <select id="boletinTipo">
+        <option value="aviso">📣 Aviso general</option>
+        <option value="evento">📅 Evento próximo</option>
+        <option value="accion">✅ Acción requerida</option>
+        <option value="logro">🏆 Reconocimiento / logro</option>
+      </select>
+    </div>
+    <div class="boletin-field">
+      <label>Título</label>
+      <input type="text" id="boletinTitulo" placeholder="Ej: Reunión Ampliada este viernes">
+    </div>
+    <div class="boletin-field">
+      <label>Descripción</label>
+      <textarea id="boletinDesc" placeholder="Detalle del aviso..."></textarea>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div class="boletin-field">
+        <label>Fecha (opcional)</label>
+        <input type="date" id="boletinFecha">
+      </div>
+      <div class="boletin-field">
+        <label>Link (opcional)</label>
+        <input type="url" id="boletinLink" placeholder="https://...">
+      </div>
+    </div>
+    <div class="boletin-modal-btns">
+      <button class="boletin-modal-save" onclick="saveBoletinItem()">Publicar →</button>
+      <button class="boletin-modal-cancel" onclick="closeBoletinModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
 <!-- ADMIN: PASSWORD MODAL                                     -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <div id="adminPassOverlay" class="admin-pass-overlay" style="display:none" onclick="if(event.target===this)closeAdminPass()">
@@ -906,6 +997,8 @@ auth.onAuthStateChanged(user => {
     document.getElementById('topbarName').textContent = firstName;
     document.getElementById('topbarAvatar').textContent = firstName.charAt(0).toUpperCase();
     document.getElementById('homeGreeting').textContent = '¡Hola, ' + firstName + '! 👋';
+    if (isBoletinAdmin()) document.getElementById('boletinAddBtn').style.display = 'flex';
+    loadBoletin();
     showScreen('home');
   } else {
     currentUser = null;
@@ -2287,6 +2380,122 @@ const RES_DATA = [
 // ═══════════════════════════════════════════════════════════════
 // ADMIN MODE — funciones de edición
 // ═══════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════
+// BOLETÍN — Firebase Firestore
+// ════════════════════════════════════════════════════════════════
+let db = null;
+try { db = firebase.firestore(); } catch(e) {}
+
+const BOLETIN_TYPES = {
+  aviso:  { label:'📣 Aviso general',         color:'#2563eb', bg:'#eff6ff', text:'#1d4ed8' },
+  evento: { label:'📅 Evento próximo',         color:'#7c3aed', bg:'#f5f3ff', text:'#6d28d9' },
+  accion: { label:'✅ Acción requerida',        color:'#16a34a', bg:'#f0fdf4', text:'#15803d' },
+  logro:  { label:'🏆 Reconocimiento / logro', color:'#d97706', bg:'#fffbeb', text:'#92400e' },
+};
+
+const ADMIN_EMAIL = 'belen.forti@thegrowth.pro';
+
+function isBoletinAdmin() {
+  return currentUser && currentUser.email === ADMIN_EMAIL;
+}
+
+function loadBoletin() {
+  if (!db) return;
+  db.collection('boletin').orderBy('createdAt','desc').onSnapshot(snap => {
+    const list = document.getElementById('boletinList');
+    if (!list) return;
+    if (snap.empty) {
+      list.innerHTML = '<div class="boletin-empty">No hay novedades por ahora.</div>';
+      return;
+    }
+    list.innerHTML = '<div class="boletin-grid">' + snap.docs.map(doc => {
+      const d = doc.data();
+      const t = BOLETIN_TYPES[d.tipo] || BOLETIN_TYPES.aviso;
+      const fecha = d.fecha ? `<span class="boletin-date">${formatBoletinDate(d.fecha)}</span>` : '';
+      const link = d.link ? `<a href="${d.link}" target="_blank" class="boletin-card-link">Ver más ↗</a>` : '';
+      const actions = isBoletinAdmin() ? `
+        <div class="boletin-card-actions">
+          <button class="boletin-action-btn" onclick="editBoletinItem('${doc.id}')" title="Editar">✏️</button>
+          <button class="boletin-action-btn" onclick="deleteBoletinItem('${doc.id}')" title="Eliminar">🗑️</button>
+        </div>` : '';
+      return `<div class="boletin-card">
+        <div class="boletin-type-dot" style="background:${t.color}"></div>
+        <div class="boletin-card-body">
+          <div class="boletin-card-top">
+            <span class="boletin-badge" style="background:${t.bg};color:${t.text}">${t.label}</span>
+            ${fecha}
+          </div>
+          <div class="boletin-card-title">${d.titulo}</div>
+          ${d.desc ? `<div class="boletin-card-desc">${d.desc}</div>` : ''}
+          ${link}
+        </div>
+        ${actions}
+      </div>`;
+    }).join('') + '</div>';
+  });
+}
+
+function formatBoletinDate(dateStr) {
+  if (!dateStr) return '';
+  const [y,m,d] = dateStr.split('-');
+  const months = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  return `${parseInt(d)} ${months[parseInt(m)-1]} ${y}`;
+}
+
+function openBoletinModal(prefill) {
+  document.getElementById('boletinModalOverlay').classList.remove('hidden');
+  document.getElementById('boletinEditId').value = '';
+  document.getElementById('boletinTipo').value = 'aviso';
+  document.getElementById('boletinTitulo').value = '';
+  document.getElementById('boletinDesc').value = '';
+  document.getElementById('boletinFecha').value = '';
+  document.getElementById('boletinLink').value = '';
+  document.getElementById('boletinModalTitle').textContent = '📋 Publicar aviso';
+  if (prefill) {
+    document.getElementById('boletinEditId').value = prefill.id || '';
+    document.getElementById('boletinTipo').value = prefill.tipo || 'aviso';
+    document.getElementById('boletinTitulo').value = prefill.titulo || '';
+    document.getElementById('boletinDesc').value = prefill.desc || '';
+    document.getElementById('boletinFecha').value = prefill.fecha || '';
+    document.getElementById('boletinLink').value = prefill.link || '';
+    document.getElementById('boletinModalTitle').textContent = '✏️ Editar aviso';
+  }
+}
+
+function closeBoletinModal() {
+  document.getElementById('boletinModalOverlay').classList.add('hidden');
+}
+
+function saveBoletinItem() {
+  if (!db || !isBoletinAdmin()) return;
+  const id = document.getElementById('boletinEditId').value;
+  const data = {
+    tipo:  document.getElementById('boletinTipo').value,
+    titulo: document.getElementById('boletinTitulo').value.trim(),
+    desc:  document.getElementById('boletinDesc').value.trim(),
+    fecha: document.getElementById('boletinFecha').value,
+    link:  document.getElementById('boletinLink').value.trim(),
+    createdAt: id ? firebase.firestore.FieldValue.serverTimestamp() : firebase.firestore.FieldValue.serverTimestamp(),
+  };
+  if (!data.titulo) return;
+  const ref = id ? db.collection('boletin').doc(id) : db.collection('boletin').doc();
+  ref.set(data, {merge: true}).then(() => closeBoletinModal());
+}
+
+function editBoletinItem(id) {
+  if (!db) return;
+  db.collection('boletin').doc(id).get().then(doc => {
+    if (doc.exists) openBoletinModal({id, ...doc.data()});
+  });
+}
+
+function deleteBoletinItem(id) {
+  if (!db || !isBoletinAdmin()) return;
+  if (confirm('¿Eliminar este aviso?')) {
+    db.collection('boletin').doc(id).delete();
+  }
+}
+
 const ADMIN_PWD = 'tgp2025'; // ← cambiá esta contraseña si querés
 let adminMode = false;
 let _editingLink = null;
