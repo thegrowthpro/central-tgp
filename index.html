@@ -555,9 +555,9 @@ body.admin-mode .res-wrap{padding-bottom:72px}
           </div>
         </div>
         <div class="contact-row">
-          <div class="contact-avatar">AM</div>
+          <div class="contact-avatar">AH</div>
           <div>
-            <div class="contact-name">Amalia Mac Donald</div>
+            <div class="contact-name">Amelia Honorato</div>
             <div class="contact-role">Talent Acquisition — selección y reclutamiento</div>
           </div>
         </div>
@@ -572,23 +572,17 @@ body.admin-mode .res-wrap{padding-bottom:72px}
       <!-- Solicitudes -->
       <div class="rrhh-card">
         <div class="rrhh-card-title">📋 Solicitudes</div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSep-5s9FTC7nvHsGhXBC-v3m6ymFHkBCuFiN8BfLdY9CF2sKg/viewform" target="_blank" class="solicitud-item">
-          <span class="solicitud-icon">📝</span>
-          <span class="solicitud-text">Formulario de datos personales</span>
-          <span class="solicitud-arr">↗</span>
-        </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="solicitud-item">
-          <span class="solicitud-icon">🍽️</span>
-          <span class="solicitud-text">Pedido de almuerzo</span>
-          <span class="solicitud-arr">↗</span>
-        </a>
-        <div class="solicitud-item" onclick="" style="opacity:.5;cursor:default">
+        <div class="solicitud-item" style="opacity:.5;cursor:default">
           <span class="solicitud-icon">📄</span>
-          <span class="solicitud-text">Solicitud de certificado laboral <span style="font-size:11px;color:var(--gris3)">(próximamente)</span></span>
+          <span class="solicitud-text">Certificado laboral <span style="font-size:11px;color:var(--gris3)">(próximamente)</span></span>
         </div>
-        <div class="solicitud-item" onclick="" style="opacity:.5;cursor:default">
+        <div class="solicitud-item" style="opacity:.5;cursor:default">
           <span class="solicitud-icon">🏖️</span>
-          <span class="solicitud-text">Solicitud de vacaciones <span style="font-size:11px;color:var(--gris3)">(próximamente)</span></span>
+          <span class="solicitud-text">Vacaciones <span style="font-size:11px;color:var(--gris3)">(próximamente)</span></span>
+        </div>
+        <div class="solicitud-item" style="opacity:.5;cursor:default">
+          <span class="solicitud-icon">💬</span>
+          <span class="solicitud-text">Consulta a RRHH <span style="font-size:11px;color:var(--gris3)">(próximamente)</span></span>
         </div>
       </div>
       <!-- Info útil -->
@@ -610,22 +604,34 @@ body.admin-mode .res-wrap{padding-bottom:72px}
           <span class="solicitud-arr">↗</span>
         </a>
       </div>
-      <!-- Beneficios -->
+      <!-- Almuerzos -->
       <div class="rrhh-card">
-        <div class="rrhh-card-title">🎁 Beneficios</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+        <div class="rrhh-card-title">🍽️ Almuerzos</div>
+        <div class="contact-row" style="margin-bottom:4px">
+          <div class="contact-avatar" style="background:#ea580c">JG</div>
+          <div>
+            <div class="contact-name">Jackie Guiloff</div>
+            <div class="contact-role">Gestión del servicio de almuerzo</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0">
           <div style="background:var(--gris5);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--gris4)">
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:4px">Part-time</div>
             <div style="font-size:26px;font-weight:900;color:var(--negro)">4</div>
-            <div style="font-size:11px;color:var(--gris3)">almuerzos/mes</div>
+            <div style="font-size:11px;color:var(--gris3)">créditos/mes</div>
           </div>
           <div style="background:var(--gris5);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--gris4)">
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:4px">Full-time</div>
             <div style="font-size:26px;font-weight:900;color:var(--negro)">8</div>
-            <div style="font-size:11px;color:var(--gris3)">almuerzos/mes</div>
+            <div style="font-size:11px;color:var(--gris3)">créditos/mes</div>
           </div>
         </div>
-        <p style="font-size:13px;color:var(--gris2);line-height:1.6">Salas de reuniones disponibles en la oficina — reservá por Google Calendar. Los créditos de almuerzo no se acumulan entre meses.</p>
+        <p style="font-size:12px;color:var(--gris2);margin-bottom:12px">1 crédito = 1 almuerzo. No se acumulan entre meses. Formulario cierra a las 14:00 hrs del día anterior.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">🍽️</span>
+          <span class="solicitud-text">Pedir almuerzo</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
       </div>
     </div>
   </div>
@@ -1465,7 +1471,11 @@ function showScreen(id) {
   document.querySelectorAll('.topbar-tab').forEach(t=>t.classList.remove('active'));
   const tab = document.getElementById('tab-'+id);
   if (tab) tab.classList.add('active');
-  if (id === 'recursos') buildResources();
+  if (id === 'recursos') {
+    const c = document.getElementById('resSections');
+    if (c) c._built = false;
+    buildResources();
+  }
 }
 
 // ── Render onboarding ─────────────────────────────────────────
@@ -1715,7 +1725,7 @@ function replayOnboarding() {
 const RES_CATEGORIES = [
   { id:'inicio',       label:'🚀 Primeros Pasos' },
   { id:'herramientas', label:'🔧 Herramientas de Trabajo' },
-  { id:'beneficios',   label:'🍽️ Beneficios' },
+  { id:'oficina',      label:'🏢 Oficina' },
   { id:'sdr',          label:'📧 Proceso SDR' },
   { id:'referencia',   label:'🗂️ Referencia' },
 ];
@@ -1750,12 +1760,22 @@ const RES_DATA = [
       </div>`
   },
   {
-    category:'beneficios',
+    category:'oficina',
     icon:'🍽️', title:'Servicio de Almuerzo', sub:'Créditos, formulario y canal Slack',
     keywords:'almuerzo creditos part time full time formulario canal platos beneficio',
     body:`
       <ul class="info-list"><li>Part-time: 4 créditos/mes | Full-time: 8 créditos/mes</li><li>1 crédito = 1 almuerzo. No se acumulan.</li><li>Formulario cierra a las 14:00 hrs del día anterior.</li><li>Canal de Slack "almuerzos" para ver lista diaria y créditos.</li></ul>
       <div class="link-row"><a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="lbtn lbtn-form">📋 Formulario de almuerzos</a></div>`
+  },
+  {
+    category:'oficina',
+    icon:'🚪', title:'Salas de Reuniones', sub:'Cómo reservar una sala',
+    keywords:'salas reuniones reserva calendario oficina privadas',
+    body:`
+      <p class="pt">Salas privadas de uso comunitario. Reservalas por Google Calendar con anticipación.</p>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank" class="lbtn lbtn-vid">▶ Video: Cómo reservar una sala</a>
+      </div>`
   },
   {
     category:'referencia',
@@ -2110,59 +2130,62 @@ function downloadUpdatedHTML() {
 
 function buildResources() {
   const container = document.getElementById('resSections');
-  let html = '';
+  if (container._built) return; // evitar rebuild innecesario
+  let html = '<div class="rrhh-grid">';
   RES_CATEGORIES.forEach(cat => {
     const items = RES_DATA.map((r,i) => ({...r, idx:i})).filter(r => r.category === cat.id);
     if (!items.length) return;
-    html += `<div class="res-cat-section" data-cat="${cat.id}">`;
-    html += `<div class="res-cat-title">${cat.label}</div>`;
-    html += `<div class="res-grid">`;
+    html += `<div class="rrhh-card res-cat-section" data-cat="${cat.id}">`;
+    html += `<div class="rrhh-card-title">${cat.label}</div>`;
     items.forEach(r => {
-      html += `<div class="res-card" id="res-card-${r.idx}" onclick="openResCard(${r.idx})">
-        <div class="res-card-icon">${r.icon}</div>
-        <div class="res-card-title">${r.title}</div>
-        <div class="res-card-sub">${r.sub}</div>
-        <div class="res-card-arr">→</div>
-      </div>`;
-    });
-    html += `</div>`;
-    items.forEach(r => {
-      html += `<div class="res-detail" id="res-detail-${r.idx}">
-        <div class="res-detail-header">
-          <div class="res-detail-title">${r.icon} ${r.title}</div>
-          <button class="res-detail-close" onclick="closeResCard(${r.idx})">✕</button>
+      html += `<div class="solicitud-item" id="res-card-${r.idx}" onclick="openResCard(${r.idx})" style="flex-direction:column;align-items:flex-start;gap:0">
+        <div style="display:flex;align-items:center;gap:10px;width:100%">
+          <span class="solicitud-icon">${r.icon}</span>
+          <span class="solicitud-text" style="flex:1">${r.title}</span>
+          <span class="solicitud-arr" id="res-arr-${r.idx}">↓</span>
         </div>
-        ${r.body}
+        <div class="res-detail" id="res-detail-${r.idx}" style="margin-top:10px;width:100%;border:none;padding:0;background:transparent">
+          ${r.body}
+        </div>
       </div>`;
     });
     html += `</div>`;
   });
+  html += '</div>';
   container.innerHTML = html;
+  container._built = true;
 }
 
 function openResCard(i) {
-  document.querySelectorAll('.res-card.open').forEach(c => c.classList.remove('open'));
-  document.querySelectorAll('.res-detail.open').forEach(d => d.classList.remove('open'));
-  const card = document.getElementById('res-card-'+i);
   const detail = document.getElementById('res-detail-'+i);
-  if (!card || !detail) return;
-  card.classList.add('open');
-  detail.classList.add('open');
-  setTimeout(() => detail.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  const arr = document.getElementById('res-arr-'+i);
+  const card = document.getElementById('res-card-'+i);
+  if (!detail) return;
+  const isOpen = detail.classList.contains('open');
+  // cerrar todos
+  document.querySelectorAll('.res-detail.open').forEach(d => {
+    d.classList.remove('open');
+    const idx = d.id.replace('res-detail-','');
+    const a = document.getElementById('res-arr-'+idx);
+    if (a) a.textContent = '↓';
+  });
+  if (!isOpen) {
+    detail.classList.add('open');
+    if (arr) arr.textContent = '↑';
+    setTimeout(() => card.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  }
 }
 
 function closeResCard(i) {
-  const card = document.getElementById('res-card-'+i);
   const detail = document.getElementById('res-detail-'+i);
-  if (card) card.classList.remove('open');
+  const arr = document.getElementById('res-arr-'+i);
   if (detail) detail.classList.remove('open');
+  if (arr) arr.textContent = '↓';
 }
 
 function filterResources(q) {
   const query = q.toLowerCase().trim();
   let anyVisible = false;
-  document.querySelectorAll('.res-card.open').forEach(c=>c.classList.remove('open'));
-  document.querySelectorAll('.res-detail.open').forEach(d=>d.classList.remove('open'));
   RES_CATEGORIES.forEach(cat => {
     const section = document.querySelector(`.res-cat-section[data-cat="${cat.id}"]`);
     if (!section) return;
@@ -2173,7 +2196,7 @@ function filterResources(q) {
       if (!card) return;
       const searchText = (r.title+' '+r.sub+' '+(r.keywords||'')).toLowerCase();
       const matches = !query || searchText.includes(query);
-      card.classList.toggle('res-card-hidden', !matches);
+      card.style.display = matches ? '' : 'none';
       if (matches) { catVisible = true; anyVisible = true; }
     });
     section.classList.toggle('cat-hidden', !catVisible);
