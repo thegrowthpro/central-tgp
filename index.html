@@ -330,6 +330,47 @@ body.admin-mode a.lbtn:hover{box-shadow:0 0 0 2px #fbbf24!important}
 body.admin-mode .onb-main{padding-bottom:72px}
 body.admin-mode .res-wrap{padding-bottom:72px}
 
+/* ── HOME SCREEN ── */
+.home-wrap{max-width:760px;margin:0 auto;padding:48px 24px}
+.home-greeting{font-size:28px;font-weight:900;color:var(--negro);letter-spacing:-.5px;margin-bottom:6px}
+.home-sub{font-size:15px;color:var(--gris2);margin-bottom:36px}
+.home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.home-card{background:var(--blanco);border:1.5px solid var(--gris4);border-radius:16px;padding:28px 24px 24px;cursor:pointer;transition:all .18s;text-align:left;font-family:inherit;width:100%}
+.home-card:hover{border-color:var(--azul);transform:translateY(-3px);box-shadow:0 8px 24px rgba(37,99,235,.1)}
+.home-card-icon{font-size:32px;margin-bottom:14px}
+.home-card-title{font-size:17px;font-weight:800;color:var(--negro);margin-bottom:6px;letter-spacing:-.2px}
+.home-card-desc{font-size:13px;color:var(--gris2);line-height:1.6}
+.home-card-arr{font-size:18px;color:var(--azul);font-weight:700;margin-top:16px;display:block}
+
+/* ── RRHH SCREEN ── */
+.rrhh-wrap{max-width:840px;margin:0 auto;padding:36px 24px}
+.rrhh-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}
+.rrhh-card{background:var(--blanco);border:1.5px solid var(--gris4);border-radius:14px;padding:24px}
+.rrhh-card-title{font-size:15px;font-weight:800;color:var(--negro);margin-bottom:16px;letter-spacing:-.2px;display:flex;align-items:center;gap:8px}
+.contact-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--gris5)}
+.contact-row:last-child{border-bottom:none}
+.contact-avatar{width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+.contact-name{font-size:14px;font-weight:700;color:var(--negro)}
+.contact-role{font-size:12px;color:var(--gris2)}
+.solicitud-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;background:var(--gris5);border:1px solid var(--gris4);margin-bottom:8px;text-decoration:none;transition:all .12s;cursor:pointer}
+.solicitud-item:hover{background:var(--azul-pale);border-color:var(--azul)}
+.solicitud-icon{font-size:18px;flex-shrink:0}
+.solicitud-text{font-size:13px;font-weight:600;color:var(--negro)}
+.solicitud-arr{margin-left:auto;color:var(--gris3);font-size:13px}
+
+/* ── ROLE SELECTION MODAL ── */
+.role-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:400;display:flex;align-items:center;justify-content:center}
+.role-modal-overlay.hidden{display:none}
+.role-modal{background:#fff;border-radius:20px;padding:40px 36px;max-width:440px;width:92%;box-shadow:0 24px 64px rgba(0,0,0,.25);text-align:center}
+.role-modal-icon{font-size:40px;margin-bottom:14px}
+.role-modal-title{font-size:22px;font-weight:900;color:var(--negro);margin-bottom:8px;letter-spacing:-.4px}
+.role-modal-sub{font-size:14px;color:var(--gris2);margin-bottom:28px;line-height:1.6}
+.role-modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.role-modal-btn{padding:20px 14px;border-radius:12px;border:1.5px solid var(--gris4);background:var(--blanco);cursor:pointer;font-family:inherit;transition:all .15s;text-align:center}
+.role-modal-btn:hover{border-color:var(--azul);background:var(--azul-pale)}
+.role-modal-btn .ricon{font-size:28px;margin-bottom:8px}
+.role-modal-btn .rname{font-size:14px;font-weight:700;color:var(--negro)}
+
 /* ── LOGIN SCREEN ── */
 .login-screen{position:fixed;inset:0;background:var(--brand);display:flex;align-items:center;justify-content:center;z-index:1000;flex-direction:column;gap:0}
 .login-screen.hidden{display:none}
@@ -399,8 +440,10 @@ body.admin-mode .res-wrap{padding-bottom:72px}
     Central TGP
   </div>
   <div class="topbar-tabs" id="topbarTabs" style="display:none">
-    <button class="topbar-tab" id="tab-onboarding" onclick="showScreen('onboarding')">🗺 Mi Onboarding</button>
-    <button class="topbar-tab" id="tab-recursos" onclick="showScreen('recursos')">📚 Recursos</button>
+    <button class="topbar-tab" id="tab-home" onclick="showScreen('home')">Inicio</button>
+    <button class="topbar-tab" id="tab-onboarding" onclick="showScreen('onboarding')">Onboarding</button>
+    <button class="topbar-tab" id="tab-rrhh" onclick="showScreen('rrhh')">RRHH</button>
+    <button class="topbar-tab" id="tab-recursos" onclick="showScreen('recursos')">Recursos</button>
   </div>
   <button class="topbar-signout" id="btnSignOut" onclick="signOut()" style="display:none" title="Cerrar sesión">Salir</button>
   <button class="admin-topbar-btn" id="adminBtn" onclick="openAdminPass()" title="Modo edición">⚙️</button>
@@ -411,68 +454,54 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
-<!-- PANTALLA 1: BIENVENIDA / CONFIGURACIÓN INICIAL            -->
+<!-- PANTALLA: HOME                                            -->
 <!-- ═══════════════════════════════════════════════════════════ -->
-<div class="screen active" id="screen-welcome">
-
-  <!-- ── PATH SELECTOR ── -->
-  <div class="welcome-wrap" id="pathSelect">
-    <div class="welcome-logo">
-      <div style="width:72px;height:72px;background:var(--brand);border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" style="width:48px;height:48px">
-          <g transform="translate(0,500) scale(0.1,-0.1)" fill="#ffffff">
-            <path d="M3945 3710 c-1 -142 -6 -253 -14 -300 -22 -123 -97 -348 -157 -471 -159 -324 -351 -570 -638 -818 l-86 -74 0 -201 c0 -222 -8 -269 -61 -371 -40 -78 -114 -153 -214 -219 -99 -65 -382 -209 -395 -201 -6 4 -10 127 -10 321 l0 315 -337 337 -338 337 -322 3 c-178 1 -323 5 -323 7 0 3 29 63 65 134 36 72 65 132 65 134 0 3 19 37 43 76 88 145 189 243 296 287 64 27 74 28 303 33 130 3 238 8 240 11 65 90 299 329 413 421 101 82 233 172 317 216 40 22 89 48 108 59 19 11 51 26 70 34 19 7 62 26 95 40 73 33 137 54 230 76 144 35 220 42 435 40 l215 -1 0 -225z m-2197 -1959 c89 -87 162 -165 162 -173 0 -30 -206 -208 -240 -208 -7 0 -24 -8 -38 -19 -15 -10 -56 -28 -92 -39 -87 -29 -281 -74 -288 -67 -11 10 21 151 60 264 44 127 53 147 100 218 30 46 157 183 169 183 3 0 79 -71 167 -159z"/>
-            <path d="M3004 3260 c-67 -10 -127 -59 -163 -135 -61 -131 32 -286 187 -311 48 -8 128 26 179 75 82 80 81 222 -3 306 -57 57 -116 76 -200 65z"/>
-          </g>
-        </svg>
-      </div>
-    </div>
-    <h1 class="welcome-title">Central TGP</h1>
-    <p class="welcome-sub">Tu centro de onboarding, recursos y herramientas. ¿Qué querés hacer?</p>
-    <div class="path-grid">
-      <button class="path-card" onclick="choosePath('onboarding')">
-        <div class="path-card-icon">🗺️</div>
-        <div class="path-card-title">Soy nuevo/a</div>
-        <div class="path-card-desc">Quiero hacer mi onboarding paso a paso y registrar mi avance</div>
-        <div class="path-card-arrow">→</div>
+<div class="screen active" id="screen-home">
+  <div class="home-wrap">
+    <div class="home-greeting" id="homeGreeting">Hola 👋</div>
+    <div class="home-sub">¿Qué querés hacer hoy?</div>
+    <div class="home-grid">
+      <button class="home-card" onclick="showScreen('onboarding');renderOnboarding()">
+        <div class="home-card-icon">🗺️</div>
+        <div class="home-card-title">Onboarding</div>
+        <div class="home-card-desc">Completá tu proceso de incorporación paso a paso. Accesos, herramientas y capacitación.</div>
+        <span class="home-card-arr">→</span>
       </button>
-      <button class="path-card" onclick="choosePath('recursos')">
-        <div class="path-card-icon">📚</div>
-        <div class="path-card-title">Ya soy colaborador/a</div>
-        <div class="path-card-desc">Quiero acceder a recursos, guías, links y herramientas</div>
-        <div class="path-card-arrow">→</div>
+      <button class="home-card" onclick="showScreen('rrhh')">
+        <div class="home-card-icon">👥</div>
+        <div class="home-card-title">RRHH</div>
+        <div class="home-card-desc">Contactos del equipo, solicitudes y todo lo que necesitás de Recursos Humanos.</div>
+        <span class="home-card-arr">→</span>
+      </button>
+      <button class="home-card" onclick="showScreen('recursos');buildResources()">
+        <div class="home-card-icon">📚</div>
+        <div class="home-card-title">Recursos</div>
+        <div class="home-card-desc">Guías, documentos, videos y herramientas organizados por categoría.</div>
+        <span class="home-card-arr">→</span>
       </button>
     </div>
   </div>
+</div>
 
-  <!-- ── ONBOARDING FORM ── -->
-  <div class="welcome-wrap" id="onbForm" style="display:none">
-    <button class="path-back" onclick="showPathSelect()">← Volver</button>
-    <div class="welcome-logo">👋</div>
-    <h1 class="welcome-title">¡Bienvenido/a a TGP!</h1>
-    <p class="welcome-sub">Ingresá tus datos para empezar — el sistema va a recordar tu avance.</p>
-    <div class="welcome-card">
-      <div class="field-label">Tu nombre</div>
-      <input class="field-input" id="inputName" type="text" placeholder="Ej: Camila, Mateo…" autocomplete="off" oninput="checkWelcomeReady()">
-      <div style="height:20px"></div>
-      <div class="field-label">Tu rol en TGP</div>
-      <div class="role-grid">
-        <button class="role-btn" id="role-general" onclick="selectRole('general')">
-          <div class="role-icon">🏢</div>
-          <div class="role-name">Colaborador/a</div>
-          <div class="role-desc">Área administrativa, ops, marketing u otro</div>
-        </button>
-        <button class="role-btn" id="role-sdr" onclick="selectRole('sdr')">
-          <div class="role-icon">📞</div>
-          <div class="role-name">SDR Junior</div>
-          <div class="role-desc">Sales Development Representative</div>
-        </button>
-      </div>
-      <button class="btn-primary" id="btnStart" disabled onclick="startOnboarding()">Empezar mi onboarding →</button>
-      <p style="font-size:12px;color:var(--gris3);text-align:center;margin-top:12px">Tu progreso se guarda automáticamente en este navegador</p>
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MODAL: SELECCIÓN DE ROL (aparece al terminar admin onb)   -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="role-modal-overlay hidden" id="roleModalOverlay">
+  <div class="role-modal">
+    <div class="role-modal-icon">🎉</div>
+    <div class="role-modal-title">¡Parte general completada!</div>
+    <div class="role-modal-sub">Completaste la configuración inicial. ¿Cuál es tu cargo en TGP?</div>
+    <div class="role-modal-grid">
+      <button class="role-modal-btn" onclick="selectRoleAndContinue('sdr')">
+        <div class="ricon">📞</div>
+        <div class="rname">SDR Junior</div>
+      </button>
+      <button class="role-modal-btn" onclick="selectRoleAndContinue('general')">
+        <div class="ricon">🏢</div>
+        <div class="rname">Otro cargo</div>
+      </button>
     </div>
   </div>
-
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -502,6 +531,103 @@ body.admin-mode .res-wrap{padding-bottom:72px}
     </div>
     <div id="resSections"></div>
     <div class="res-no-results" id="resNoResults">No se encontraron resultados. Probá con otra palabra clave.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PANTALLA: RRHH                                            -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-rrhh">
+  <div class="rrhh-wrap">
+    <div style="margin-bottom:28px">
+      <h2 style="font-size:22px;font-weight:900;color:var(--negro);margin-bottom:4px;letter-spacing:-.4px">👥 Recursos Humanos</h2>
+      <p style="font-size:14px;color:var(--gris2)">Todo lo que necesitás saber sobre RRHH en TGP.</p>
+    </div>
+    <div class="rrhh-grid">
+      <!-- Equipo RRHH -->
+      <div class="rrhh-card">
+        <div class="rrhh-card-title">🧑‍💼 Equipo RRHH</div>
+        <div class="contact-row">
+          <div class="contact-avatar">BF</div>
+          <div>
+            <div class="contact-name">Belén Forti</div>
+            <div class="contact-role">HR Lead — gestión de equipos, ascensos, rendimiento</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-avatar">AM</div>
+          <div>
+            <div class="contact-name">Amalia Mac Donald</div>
+            <div class="contact-role">Talent Acquisition — selección y reclutamiento</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-avatar">LC</div>
+          <div>
+            <div class="contact-name">Laly Campos</div>
+            <div class="contact-role">Asistente Administrativa — cultura y administración</div>
+          </div>
+        </div>
+      </div>
+      <!-- Solicitudes -->
+      <div class="rrhh-card">
+        <div class="rrhh-card-title">📋 Solicitudes</div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSep-5s9FTC7nvHsGhXBC-v3m6ymFHkBCuFiN8BfLdY9CF2sKg/viewform" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">📝</span>
+          <span class="solicitud-text">Formulario de datos personales</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">🍽️</span>
+          <span class="solicitud-text">Pedido de almuerzo</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
+        <div class="solicitud-item" onclick="" style="opacity:.5;cursor:default">
+          <span class="solicitud-icon">📄</span>
+          <span class="solicitud-text">Solicitud de certificado laboral <span style="font-size:11px;color:var(--gris3)">(próximamente)</span></span>
+        </div>
+        <div class="solicitud-item" onclick="" style="opacity:.5;cursor:default">
+          <span class="solicitud-icon">🏖️</span>
+          <span class="solicitud-text">Solicitud de vacaciones <span style="font-size:11px;color:var(--gris3)">(próximamente)</span></span>
+        </div>
+      </div>
+      <!-- Info útil -->
+      <div class="rrhh-card">
+        <div class="rrhh-card-title">💡 Info útil</div>
+        <a href="https://www.sii.cl" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">🧾</span>
+          <span class="solicitud-text">Portal SII — boleta de honorarios</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
+        <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">⚠️</span>
+          <span class="solicitud-text">Sistema de advertencias</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">📁</span>
+          <span class="solicitud-text">Kit del colaborador</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
+      </div>
+      <!-- Beneficios -->
+      <div class="rrhh-card">
+        <div class="rrhh-card-title">🎁 Beneficios</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <div style="background:var(--gris5);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--gris4)">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:4px">Part-time</div>
+            <div style="font-size:26px;font-weight:900;color:var(--negro)">4</div>
+            <div style="font-size:11px;color:var(--gris3)">almuerzos/mes</div>
+          </div>
+          <div style="background:var(--gris5);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--gris4)">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:4px">Full-time</div>
+            <div style="font-size:26px;font-weight:900;color:var(--negro)">8</div>
+            <div style="font-size:11px;color:var(--gris3)">almuerzos/mes</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--gris2);line-height:1.6">Salas de reuniones disponibles en la oficina — reservá por Google Calendar. Los créditos de almuerzo no se acumulan entre meses.</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -575,21 +701,28 @@ let currentUser = null;
 auth.onAuthStateChanged(user => {
   if (user) {
     if (!user.email.endsWith('@thegrowth.pro')) {
-      // dominio no permitido
       auth.signOut();
       showLoginError('Acceso solo para cuentas @thegrowth.pro');
       return;
     }
     currentUser = user;
+    // Nombre del usuario desde Google (primer nombre)
+    const firstName = user.displayName ? user.displayName.split(' ')[0] : user.email.split('@')[0];
+    STATE.name = firstName;
     document.getElementById('loginScreen').classList.add('hidden');
     document.getElementById('btnSignOut').style.display = 'block';
-    // Si hay nombre guardado del onboarding previo, mostrarlo
-    if (STATE.name && STATE.role) bootApp('onboarding');
-    else if (STATE.mode === 'recursos') bootApp('recursos');
+    document.getElementById('topbarTabs').style.display = 'flex';
+    document.getElementById('topbarUser').style.display = 'flex';
+    document.getElementById('topbarName').textContent = firstName;
+    document.getElementById('topbarAvatar').textContent = firstName.charAt(0).toUpperCase();
+    document.getElementById('homeGreeting').textContent = '¡Hola, ' + firstName + '! 👋';
+    showScreen('home');
   } else {
     currentUser = null;
     document.getElementById('loginScreen').classList.remove('hidden');
     document.getElementById('btnSignOut').style.display = 'none';
+    document.getElementById('topbarTabs').style.display = 'none';
+    document.getElementById('topbarUser').style.display = 'none';
   }
 });
 
@@ -1253,16 +1386,23 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function goHome() {
-  // Vuelve al selector de caminos sin borrar ningún dato
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('screen-welcome').classList.add('active');
-  document.getElementById('topbarTabs').style.display = 'none';
-  document.getElementById('topbarUser').style.display = 'none';
-  document.getElementById('tab-onboarding').style.display = '';
-  // Mostrar selector de caminos (no el formulario)
-  document.getElementById('pathSelect').style.display = 'block';
-  document.getElementById('onbForm').style.display = 'none';
-  document.querySelectorAll('.topbar-tab').forEach(t => t.classList.remove('active'));
+  showScreen('home');
+}
+
+function selectRoleAndContinue(role) {
+  STATE.role = role;
+  document.getElementById('roleModalOverlay').classList.add('hidden');
+  if (role === 'sdr') {
+    STATE.track = 'sdr';
+    STATE.adminDone = true;
+    STATE.adminStep = ADMIN_STEPS.length;
+    renderOnboarding();
+  } else {
+    // Otro cargo — mostrar mensaje de cierre
+    STATE.adminDone = true;
+    STATE.adminStep = ADMIN_STEPS.length;
+    renderOnboarding();
+  }
 }
 
 function choosePath(path) {
@@ -1309,14 +1449,9 @@ function startOnboarding() {
 function bootApp(mode) {
   document.getElementById('topbarTabs').style.display='flex';
   if (mode === 'recursos') {
-    document.getElementById('topbarUser').style.display='none';
-    document.getElementById('tab-onboarding').style.display='none';
     showScreen('recursos');
+    buildResources();
   } else {
-    document.getElementById('topbarUser').style.display='flex';
-    document.getElementById('tab-onboarding').style.display='';
-    document.getElementById('topbarName').textContent = STATE.name;
-    document.getElementById('topbarAvatar').textContent = STATE.name.charAt(0).toUpperCase();
     showScreen('onboarding');
     renderOnboarding();
   }
@@ -1325,10 +1460,12 @@ function bootApp(mode) {
 // ── Screen switching ──────────────────────────────────────────
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById('screen-'+id).classList.add('active');
+  const screen = document.getElementById('screen-'+id);
+  if (screen) screen.classList.add('active');
   document.querySelectorAll('.topbar-tab').forEach(t=>t.classList.remove('active'));
   const tab = document.getElementById('tab-'+id);
   if (tab) tab.classList.add('active');
+  if (id === 'recursos') buildResources();
 }
 
 // ── Render onboarding ─────────────────────────────────────────
@@ -1483,10 +1620,10 @@ function completeStep(track, idx, isLast) {
 
   if (track === 'admin') {
     if (isLast) {
-      STATE.adminDone = true;
-      STATE.adminStep = ADMIN_STEPS.length;
-      if (STATE.role === 'sdr') STATE.track = 'admin';
+      // Mostrar modal de selección de rol (no marcamos adminDone todavía)
       logProgress('Completó Admin — ' + stepTitle);
+      document.getElementById('roleModalOverlay').classList.remove('hidden');
+      return;
     } else {
       STATE.adminStep = idx + 1;
       logProgress('Completó paso — ' + stepTitle);
