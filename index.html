@@ -1257,24 +1257,34 @@ const SDR_STEPS = [
     title:'Proceso de Agendamiento',
     keywords:'agendamiento agendar reunion app tgp horario ejecutivo prospecto esquema proceso',
     content: () => `
-      <h3 class="sh">Paso a paso</h3>
       <ol class="steps-list">
-        <li>Revisar la disponibilidad del ejecutivo cliente en el calendario.</li>
-        <li>Proponer el horario al prospecto (correo o teléfono).</li>
-        <li>Prospecto confirma → agendar en la App TGP con todos los datos.</li>
-        <li>Esperar aprobación del Manager (emoji en Slack).</li>
-        <li>Mandar el detalle de la reunión al cliente.</li>
-        <li>Confirmar la reunión al prospecto por correo.</li>
-        <li>Programar los 2 correos recordatorios. <strong>Obligatorio.</strong></li>
-        <li>Actualizar la etiqueta del correo a "Agendado".</li>
+        <li>Encontrar horario disponible entre el ejecutivo y el prospecto — revisá el calendario del cliente y la hora local del prospecto.</li>
+        <li><strong>Verificar que el prospecto y la empresa cumplen los criterios de validación</strong> — revisá los parámetros en el Excel de Reglas de Agendamiento antes de continuar.</li>
+        <li>Prospecto confirma → agendar en la App TGP. La app manda automáticamente el mensaje resumen al canal de Slack del pod.</li>
+        <li>Esperar aprobación del Manager — emoji en el canal <em>pod-nombre-reuniones</em> de Slack.</li>
+        <li>Mandar detalle y contexto de la reunión al cliente — copiar el mensaje resumen y enviarlo por el grupo con el cliente.</li>
+        <li>Responder al prospecto confirmando la reunión agendada con fecha, hora y link.</li>
+        <li>Programar <strong>2 recordatorios</strong> (día antes y hora antes) para evitar No Show. <strong>Obligatorio.</strong></li>
+        <li>Actualizar etiqueta del correo en la bandeja → cambiar de "Proceso" a "Agendado" y dejar en recibidos.</li>
+        <li>Estar pendiente a la realización de la reunión.</li>
       </ol>
+      <div class="callout c-tip"><span class="callout-i">💡</span><div><b>Tip</b>Llamá al prospecto esa mañana para confirmar asistencia — reduce el No Show significativamente.</div></div>
+      <h3 class="sh">Después de la reunión</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0">
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px">
+          <div style="font-size:12px;font-weight:700;color:#15803d;margin-bottom:6px">✅ YES SHOW</div>
+          <p style="font-size:13px;color:#166534;line-height:1.5">Mover correo y link a etiqueta <strong>"Agendado"</strong> → esperar validación y revisar comentarios en App TGP.</p>
+        </div>
+        <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:12px">
+          <div style="font-size:12px;font-weight:700;color:#b91c1c;margin-bottom:6px">❌ NO SHOW</div>
+          <p style="font-size:13px;color:#991b1b;line-height:1.5">Agregar etiqueta <strong>"Reagendar"</strong> → llamar y pushear al prospecto → avisar al cliente y reagendar en App TGP.</p>
+        </div>
+      </div>
       <div class="link-row">
         <a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank" class="lbtn lbtn-vid">▶ Disponibilidad ejecutivos</a>
-        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Esquema agendamiento ⬇</a>
         <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Instructivo App TGP</a>
         <a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Agendamiento en vivo — Nahuel</a>
-        <a href="https://www.loom.com/share/96147c7ab3144299ab28f265798367a0" target="_blank" class="lbtn lbtn-vid">▶ Instructivo App TGP</a>
-        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ Ir a la App TGP</a>
+        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ App TGP</a>
       </div>
     `
   },
@@ -1892,16 +1902,29 @@ const RES_DATA = [
     keywords:'agendamiento proceso agendar reunion app tgp horario ejecutivo prospecto esquema pasos',
     body:`
       <ol class="steps-list">
-        <li>Revisar disponibilidad del ejecutivo en el calendario.</li>
-        <li>Proponer horario al prospecto.</li>
-        <li>Prospecto confirma → agendar en App TGP.</li>
-        <li>Esperar aprobación del Manager (emoji en Slack).</li>
-        <li>Mandar detalle al cliente + confirmar al prospecto.</li>
-        <li>Programar 2 correos recordatorios.</li>
-        <li>Actualizar etiqueta a "Agendado".</li>
+        <li>Encontrar horario disponible entre el ejecutivo y el prospecto — revisá el calendario del cliente y la hora local del prospecto.</li>
+        <li><strong>Verificar que el prospecto y la empresa cumplen los criterios de validación</strong> — revisá los parámetros en el Excel de Reglas de Agendamiento.</li>
+        <li>Prospecto confirma → agendar en App TGP. La app manda automáticamente el mensaje resumen al canal de Slack del pod.</li>
+        <li>Esperar aprobación del Manager — emoji en el canal <em>pod-nombre-reuniones</em> de Slack.</li>
+        <li>Mandar detalle y contexto de la reunión al cliente — copiar mensaje resumen y enviar por grupo con el cliente.</li>
+        <li>Responder al prospecto confirmando la reunión con fecha, hora y link.</li>
+        <li>Programar <strong>2 recordatorios</strong> (día antes y hora antes). <strong>Obligatorio.</strong></li>
+        <li>Actualizar etiqueta del correo → "Proceso" a "Agendado", dejar en recibidos.</li>
+        <li>Estar pendiente a la realización de la reunión.</li>
       </ol>
+      <div class="callout c-tip"><span class="callout-i">💡</span><div>Llamá al prospecto esa mañana para confirmar — reduce el No Show.</div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0">
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px">
+          <div style="font-size:12px;font-weight:700;color:#15803d;margin-bottom:4px">✅ YES SHOW</div>
+          <p style="font-size:12px;color:#166534;line-height:1.5">Mover correo a "Agendado" → esperar validación en App TGP.</p>
+        </div>
+        <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:12px">
+          <div style="font-size:12px;font-weight:700;color:#b91c1c;margin-bottom:4px">❌ NO SHOW</div>
+          <p style="font-size:12px;color:#991b1b;line-height:1.5">Etiqueta "Reagendar" → llamar al prospecto → avisar al cliente y reagendar en App TGP.</p>
+        </div>
+      </div>
       <div class="link-row">
-        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Esquema agendamiento ⬇</a>
+        <a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank" class="lbtn lbtn-vid">▶ Disponibilidad ejecutivos</a>
         <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Instructivo App TGP</a>
         <a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank" class="lbtn lbtn-vid">▶ Agendamiento en vivo</a>
         <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ App TGP</a>
