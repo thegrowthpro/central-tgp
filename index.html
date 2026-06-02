@@ -371,6 +371,11 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .role-modal-btn .ricon{font-size:28px;margin-bottom:8px}
 .role-modal-btn .rname{font-size:14px;font-weight:700;color:var(--negro)}
 
+/* ── RESOURCE LINK BLOCKS ── */
+.res-link-block{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 10px;border-radius:10px;text-decoration:none;gap:7px;transition:all .15s;text-align:center;min-height:88px}
+.res-link-block span:last-child{font-size:12px;font-weight:600;line-height:1.3}
+.res-link-block:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1);filter:brightness(.95)}
+
 /* ── AGENDAMIENTO STEPS ── */
 .agend-steps{display:flex;flex-direction:column;gap:6px;margin:8px 0}
 .agend-step{border:1.5px solid var(--gris4);border-radius:10px;overflow:hidden;cursor:pointer;transition:border-color .15s}
@@ -2191,46 +2196,75 @@ const RES_DATA = [
     icon:'🗂️', title:'Todos los Links y Recursos', sub:'Documentos, apps y videos de referencia',
     keywords:'links recursos documentos videos todos referencias drive app dashboard glosario kit',
     body:`
-      <h3 class="sh">Documentos</h3>
-      <div class="link-row">
-        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive">📁 Kit del Colaborador</a>
-        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive">📁 Kit de Ventas Clientes</a>
-        <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc">📄 Glosario TGP</a>
-        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Esquema bandejas</a>
-        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Esquema agendamiento</a>
-        <a href="https://docs.google.com/document/d/1MPv57sOJvw9k4xfuWxoGpaXgNHW4kIFrP_I6SHofJ1E/edit" target="_blank" class="lbtn lbtn-doc">📄 Guía etiquetas</a>
-        <a href="https://docs.google.com/document/d/1UzBrzY1Yrg5rNI8FkCasOeVe3X8GpV-gRf6smyf4Z7k/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Guía push</a>
-        <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Instructivo App TGP</a>
-        <a href="https://docs.google.com/document/d/1CR322lgWchHj82KZvCQRCf5gnd8xEj4XsdWQ0vnpmhE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Ordenar bandejas</a>
-        <a href="https://docs.google.com/document/d/1N7I8ZGjMJfvu5muqzZ11GLUz-1OYdABOhWcnUq2eeso/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Respuestas tipo</a>
-        <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Sistema advertencias</a>
-        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ App TGP</a>
-        <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc">📊 Dashboard</a>
-      </div>
-      <h3 class="sh">Videos</h3>
-      <table class="vid-table">
-        <thead><tr><th>Tema</th><th>Link</th></tr></thead>
-        <tbody>
-          <tr><td>Tour por Slack</td><td><a href="https://www.loom.com/share/f8e93b73c31040d8ad9c8c5ee0a23697" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Google Calendar</td><td><a href="https://www.loom.com/share/72be9e9b20e043dfb833308be04216d7" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Reserva de salas</td><td><a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Tour por bandeja</td><td><a href="https://www.loom.com/share/99a9d029e8a6421dae5a7beac7882e1a" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Movimiento de correos</td><td><a href="https://www.loom.com/share/0ae18c83bb084ff89884a7c7fccd840c" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Derivaciones</td><td><a href="https://www.loom.com/share/9b6b9a1cbb564e5b905039537d7e00a7" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Fuera de oficina</td><td><a href="https://www.loom.com/share/4b9e4ecae20143c2a21a6a26fb1987f3" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>"No interesado" — Tere</td><td><a href="https://www.loom.com/share/7d78d8afa42d478bbc6f9e0afb449644" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Push — Tere</td><td><a href="https://www.loom.com/share/9b6b9a1cbb564e5b905034671d1db2a8" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Llamada en tibio — Juan</td><td><a href="https://www.loom.com/share/6863b17f349542e782f28b1d2ef81f14" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Disponibilidad ejecutivos</td><td><a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Agendamiento en vivo</td><td><a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Recordatorios</td><td><a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Correos Snov</td><td><a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Correos rebote</td><td><a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Varita mágica Gmail</td><td><a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Apollo</td><td><a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank">Ver ▶</a></td></tr>
-          <tr><td>Lusha</td><td><a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank">Ver ▶</a></td></tr>
-        </tbody>
-      </table>`
+      <div style="display:flex;flex-direction:column;gap:18px">
+
+        <div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--gris3);margin-bottom:10px">⚡ Herramientas</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px">
+            <a href="https://app.tgp.cl/" target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;background:var(--brand);color:#fff;border-radius:12px;text-decoration:none;gap:8px;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+              <span style="font-size:24px">⚡</span><span style="font-size:13px;font-weight:700;text-align:center">App TGP</span>
+            </a>
+            <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;background:var(--azul);color:#fff;border-radius:12px;text-decoration:none;gap:8px;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+              <span style="font-size:24px">📊</span><span style="font-size:13px;font-weight:700;text-align:center">Dashboard</span>
+            </a>
+            <a href="https://liga-tgp.vercel.app/" target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;background:#7c3aed;color:#fff;border-radius:12px;text-decoration:none;gap:8px;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+              <span style="font-size:24px">🏆</span><span style="font-size:13px;font-weight:700;text-align:center">Liga TGP</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--gris3);margin-bottom:10px">📁 Kits y Carpetas</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px">
+            <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="res-link-block" style="background:#fff7ed;border:1.5px solid #fed7aa;color:#c2410c">
+              <span style="font-size:22px">📁</span><span>Kit del Colaborador</span>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="res-link-block" style="background:#fff7ed;border:1.5px solid #fed7aa;color:#c2410c">
+              <span style="font-size:22px">📁</span><span>Kit de Ventas Clientes</span>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1eZ57P0NsnZrLVZsrDbCHQaZuJnzQeNrX" target="_blank" class="res-link-block" style="background:#fff7ed;border:1.5px solid #fed7aa;color:#c2410c">
+              <span style="font-size:22px">📦</span><span>Kit del SDR</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--gris3);margin-bottom:10px">📄 Guías y Documentos</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px">
+            <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">📖</span><span>Glosario TGP</span></a>
+            <a href="https://docs.google.com/document/d/1MPv57sOJvw9k4xfuWxoGpaXgNHW4kIFrP_I6SHofJ1E/edit" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">🏷️</span><span>Guía etiquetas</span></a>
+            <a href="https://docs.google.com/document/d/1UzBrzY1Yrg5rNI8FkCasOeVe3X8GpV-gRf6smyf4Z7k/edit?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">📲</span><span>Guía push</span></a>
+            <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">⚡</span><span>Instructivo App TGP</span></a>
+            <a href="https://docs.google.com/document/d/1CR322lgWchHj82KZvCQRCf5gnd8xEj4XsdWQ0vnpmhE/edit?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">📧</span><span>Ordenar bandejas</span></a>
+            <a href="https://docs.google.com/document/d/1N7I8ZGjMJfvu5muqzZ11GLUz-1OYdABOhWcnUq2eeso/edit?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">💬</span><span>Respuestas tipo</span></a>
+            <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">📐</span><span>Esquema bandejas</span></a>
+            <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">📆</span><span>Esquema agendamiento</span></a>
+            <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">⚠️</span><span>Sistema advertencias</span></a>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--gris3);margin-bottom:10px">▶ Videos</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px">
+            <a href="https://www.loom.com/share/f8e93b73c31040d8ad9c8c5ee0a23697" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">💬</span><span>Tour Slack</span></a>
+            <a href="https://www.loom.com/share/72be9e9b20e043dfb833308be04216d7" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">📅</span><span>Google Calendar</span></a>
+            <a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🚪</span><span>Reserva de salas</span></a>
+            <a href="https://www.loom.com/share/99a9d029e8a6421dae5a7beac7882e1a" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">📧</span><span>Tour bandeja</span></a>
+            <a href="https://www.loom.com/share/0ae18c83bb084ff89884a7c7fccd840c" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">↕️</span><span>Movimiento correos</span></a>
+            <a href="https://www.loom.com/share/9b6b9a1cbb564e5b905039537d7e00a7" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">↗️</span><span>Derivaciones</span></a>
+            <a href="https://www.loom.com/share/7d78d8afa42d478bbc6f9e0afb449644" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🛡️</span><span>No interesado</span></a>
+            <a href="https://www.loom.com/share/9b6b9a1cbb564e5b905034671d1db2a8" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">📲</span><span>Push</span></a>
+            <a href="https://www.loom.com/share/6863b17f349542e782f28b1d2ef81f14" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">📞</span><span>Llamada en tibio</span></a>
+            <a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">📅</span><span>Disponibilidad ejecutivos</span></a>
+            <a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🤝</span><span>Agendamiento en vivo</span></a>
+            <a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🔔</span><span>Recordatorios</span></a>
+            <a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">✨</span><span>Varita mágica Gmail</span></a>
+            <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🔍</span><span>Apollo</span></a>
+            <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🔍</span><span>Lusha</span></a>
+          </div>
+        </div>
+
+      </div>`
   },
   {
     category:'pagos',
