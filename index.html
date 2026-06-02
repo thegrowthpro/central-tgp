@@ -410,6 +410,19 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .boletin-modal-save:hover{background:var(--brand2)}
 .boletin-modal-cancel{padding:11px 18px;background:var(--gris5);color:var(--gris1);border:1.5px solid var(--gris4);border-radius:9px;font-size:14px;cursor:pointer;font-family:inherit}
 
+/* Completado tracking */
+.boletin-completar-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:7px 14px;background:var(--verde-pale);color:var(--verde);border:1.5px solid #bbf7d0;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.boletin-completar-btn:hover{background:#dcfce7}
+.boletin-completar-btn.done{background:var(--verde);color:#fff;border-color:var(--verde);cursor:default}
+.boletin-progress-wrap{margin-top:12px;padding-top:12px;border-top:1px solid var(--gris4)}
+.boletin-progress-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:12px}
+.boletin-progress-count{font-weight:700;color:var(--negro)}
+.boletin-progress-pct{color:var(--gris3)}
+.boletin-progress-bar{height:6px;background:var(--gris4);border-radius:3px;overflow:hidden}
+.boletin-progress-fill{height:100%;background:var(--verde);border-radius:3px;transition:width .4s ease}
+.boletin-who-btn{font-size:11px;color:var(--azul);background:none;border:none;cursor:pointer;font-family:inherit;padding:0;margin-top:4px}
+.boletin-who-btn:hover{text-decoration:underline}
+
 /* ── RESOURCE LINK BLOCKS ── */
 .res-link-block{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 8px;border-radius:9px;text-decoration:none;gap:5px;transition:all .15s;text-align:center;min-height:72px}
 .res-link-block span:first-child{font-size:18px}
@@ -2399,22 +2412,50 @@ const BOLETIN_TYPES = {
 };
 
 const ADMIN_EMAIL = 'belen@thegrowth.pro';
+const TEAM_TOTAL = 99;
 
 function isBoletinAdmin() {
   return currentUser && currentUser.email === ADMIN_EMAIL;
 }
 
-function renderBoletinCard(id, d) {
+function renderBoletinCard(id, d, completados) {
   const t = BOLETIN_TYPES[d.tipo] || BOLETIN_TYPES.aviso;
   const fecha = d.fecha ? `<span class="boletin-date">${formatBoletinDate(d.fecha)}</span>` : '';
   const linkLabel = d.linkLabel || 'Ver más';
   const link = d.link ? `<a href="${d.link}" target="_blank" class="lbtn lbtn-app" style="margin-top:10px;display:inline-flex;font-size:12px;padding:7px 14px">${linkLabel} ↗</a>` : '';
-  const actions = isBoletinAdmin() ? `
+  const adminActions = isBoletinAdmin() ? `
     <div class="boletin-card-actions">
       <button class="boletin-action-btn" onclick="editBoletinItem('${id}')" title="Editar">✏️</button>
       <button class="boletin-action-btn" onclick="deleteBoletinItem('${id}')" title="Eliminar">🗑️</button>
     </div>` : '';
-  return `<div class="boletin-card">
+
+  // Tracking solo para tipo "accion"
+  let trackingHtml = '';
+  if (d.tipo === 'accion') {
+    const count = completados ? Object.keys(completados).length : 0;
+    const pct = Math.round((count / TEAM_TOTAL) * 100);
+    const userKey = currentUser ? currentUser.email.replace(/\./g,'_') : null;
+    const yaCompletó = completados && userKey && completados[userKey];
+
+    if (!isBoletinAdmin()) {
+      // Botón para usuarios
+      trackingHtml = yaCompletó
+        ? `<button class="boletin-completar-btn done" disabled>✅ Completado</button>`
+        : `<button class="boletin-completar-btn" onclick="marcarCompletado('${id}')">✅ Marcar como completado</button>`;
+    } else {
+      // Vista admin: barra + contador + lista
+      trackingHtml = `<div class="boletin-progress-wrap">
+        <div class="boletin-progress-label">
+          <span class="boletin-progress-count">✅ ${count} completaron</span>
+          <span class="boletin-progress-pct">${pct}% del equipo</span>
+        </div>
+        <div class="boletin-progress-bar"><div class="boletin-progress-fill" style="width:${pct}%"></div></div>
+        ${count > 0 ? `<button class="boletin-who-btn" onclick="verQuienCompletó('${id}')">Ver quiénes →</button>` : ''}
+      </div>`;
+    }
+  }
+
+  return `<div class="boletin-card" id="bcard-${id}">
     <div class="boletin-type-dot" style="background:${t.color}"></div>
     <div class="boletin-card-body">
       <div class="boletin-card-top">
@@ -2424,9 +2465,29 @@ function renderBoletinCard(id, d) {
       <div class="boletin-card-title">${d.titulo}</div>
       ${d.desc ? `<div class="boletin-card-desc">${d.desc.replace(/\n/g,'<br>')}</div>` : ''}
       ${link}
+      ${trackingHtml}
     </div>
-    ${actions}
+    ${adminActions}
   </div>`;
+}
+
+function marcarCompletado(boletinId) {
+  if (!db || !currentUser) return;
+  const userKey = currentUser.email.replace(/\./g,'_');
+  db.ref(`boletin/${boletinId}/completados/${userKey}`).set({
+    nombre: currentUser.displayName || currentUser.email,
+    email: currentUser.email,
+    fecha: new Date().toISOString()
+  });
+}
+
+function verQuienCompletó(boletinId) {
+  if (!db) return;
+  db.ref(`boletin/${boletinId}/completados`).get().then(snap => {
+    if (!snap.exists()) return;
+    const lista = Object.values(snap.val()).map(u => `• ${u.nombre || u.email}`).join('\n');
+    alert('Completaron:\n\n' + lista);
+  });
 }
 
 function loadBoletin() {
@@ -2444,7 +2505,7 @@ function loadBoletin() {
       list.innerHTML = '<div class="boletin-empty">No hay novedades por ahora.</div>';
       return;
     }
-    list.innerHTML = '<div class="boletin-grid">' + items.map(item => renderBoletinCard(item.id, item)).join('') + '</div>';
+    list.innerHTML = '<div class="boletin-grid">' + items.map(item => renderBoletinCard(item.id, item, item.completados || null)).join('') + '</div>';
   });
 }
 
