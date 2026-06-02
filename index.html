@@ -1377,22 +1377,13 @@ const SDR_STEPS = [
     id:'sdr-intro',
     icon:'🎯',
     badge:'Tu rol',
-    title:'¿Qué hace un SDR Junior?',
-    keywords:'sdr junior rol mision agendar reuniones prospectos',
+    title:'Introducción a tu rol como SDR Junior',
+    keywords:'sdr junior rol mision agendar reuniones introduccion',
     content: () => `
-      <p class="pt">Como <strong>SDR Junior</strong>, tu misión es generar oportunidades de venta para los clientes de TGP: <strong>agendar reuniones comerciales calificadas</strong>.</p>
-      <h3 class="sh">El proceso en resumen</h3>
-      <ol class="steps-list">
-        <li>El Manager configura secuencias de correo automáticas que llegan a prospectos.</li>
-        <li>Cuando un prospecto responde, el SDR entra en acción: lee, etiqueta y responde buscando agendar la reunión.</li>
-        <li>Si el prospecto no responde, el SDR busca el número, llama en tibio y pushea hasta agendar.</li>
-      </ol>
-      <div class="callout c-tip"><span class="callout-i">🏆</span><div><b>El ejemplo de Benjamín Apt</b>Tiene el podio histórico de TGP con <strong>1.825 reuniones agendadas</strong>. Su secreto: apenas llega una respuesta, lee, etiqueta y responde. Si el prospecto no responde, lo llama. Si no contesta, le manda WhatsApp. No lo suelta hasta agendar.</div></div>
-      <h3 class="sh">Tus dos herramientas principales</h3>
-      <ul class="info-list">
-        <li><strong>Bandejas de correo:</strong> varias cuentas con nombres ficticios y dominios reales de los clientes. Tú respondes y agendas.</li>
-        <li><strong>Bases de datos telefónicas:</strong> listas de prospectos para llamar en frío o tibio.</li>
-      </ul>
+      <p class="pt">¿Todavía no tienes muy claro en qué consiste tu rol? Normal, es mucha información nueva. Vamos a ir explicándolo parte por parte para que puedas entenderlo e integrarlo a tu ritmo.</p>
+      <p class="pt">Como <strong>SDR Junior</strong>, tu misión principal es generar oportunidades de venta para los clientes de TGP — es decir, <strong>agendar reuniones comerciales</strong>.</p>
+      <div class="callout c-info"><span class="callout-i">🤔</span><div>¿Cómo agendo las reuniones? ¿Cómo consigo a los prospectos?<br><br>Antes de responder esas preguntas, tienes que estudiar el <strong>Glosario de TGP</strong> — el diccionario de la empresa. Hay conceptos clave que vas a usar todos los días y necesitas manejarlos bien desde el principio.</div></div>
+      <p class="pt" style="color:var(--gris2);font-size:13px">En los siguientes pasos iremos respondiendo cada una de esas preguntas, paso a paso. No te preocupes si al principio suena complicado — es más simple de lo que parece.</p>
     `
   },
   {
@@ -1421,83 +1412,52 @@ const SDR_STEPS = [
     `
   },
   {
-    id:'sdr-tarea1',
-    icon:'📚',
-    badge:'Tarea 1 — Día 1',
-    title:'Estudiar Clientes Asignados',
-    keywords:'tarea estudiar clientes kit ventas linkedin web onboarding secuencia',
+    id:'sdr-proceso',
+    icon:'⚙️',
+    badge:'El proceso',
+    title:'¿Cómo es el proceso de prospección?',
+    keywords:'proceso prospeccion herramientas bandejas telefono benjamin apt esmax sofia miranda ejemplo',
     content: () => `
-      <p class="pt">Antes de recibir tus bandejas, tienes que conocer bien los clientes con los que vas a trabajar: propuesta de valor, servicio, diferenciadores, países, etc.</p>
-      <p class="pt">Para <strong>cada cliente asignado</strong>, haz esto en orden:</p>
-      <ol class="steps-list">
-        <li>Buscar y estudiar el perfil de LinkedIn de la empresa.</li>
-        <li>Buscar y estudiar la página web de la empresa.</li>
-        <li>Entrar al Kit de Ventas → carpeta de tu pod → carpeta del cliente.</li>
-        <li>Ver el video de reunión de onboarding del cliente.</li>
-        <li>Estudiar los PDF: one pager / brochure / presentación.</li>
-        <li>Estudiar notas de onboarding del equipo.</li>
-        <li>Estudiar la secuencia de correo del cliente.</li>
-        <li>Estudiar las respuestas tipo del cliente.</li>
-      </ol>
-      <div class="link-row">
-        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit de Ventas Clientes</a>
+      <p class="pt">Ahora que conoces los conceptos principales, podemos empezar a entender cómo funciona el proceso. Al principio suena complicado, pero es más simple de lo que crees.</p>
+      <h3 class="sh">Tus dos herramientas de trabajo</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 16px">
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:6px">1️⃣ Bandejas de correo electrónico</div>
+          <p style="font-size:13px;color:var(--gris2);line-height:1.5">Varias cuentas de mail de diferentes clientes de TGP, desde las que llegan respuestas de prospectos. Tu trabajo: responder y agendar reuniones.</p>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:6px">2️⃣ Bases de datos telefónicas</div>
+          <p style="font-size:13px;color:var(--gris2);line-height:1.5">Listas con nombres, cargos, empresas y números de teléfono de miles de prospectos. Tu trabajo: llamar y agendar reuniones.</p>
+        </div>
       </div>
-    `
-  },
-  {
-    id:'sdr-reunion-senior',
-    icon:'🤝',
-    badge:'Día 2',
-    title:'Reunión con SDR Senior',
-    keywords:'reunion senior capacitacion clientes bandejas correo',
-    content: () => `
-      <p class="pt">Si ya estudiaste todos los clientes asignados, estás listo para esta reunión. En ella vas a:</p>
-      <ul class="info-list">
-        <li>Resolver dudas sobre los clientes.</li>
-        <li>Profundizar el conocimiento de cada cliente.</li>
-        <li>Recibir tus primeras bandejas de correo.</li>
-      </ul>
-      <div class="callout c-info"><span class="callout-i">💬</span><div>Una vez que termines la reunión con tu Senior, marca este paso como completado y continúa.</div></div>
-    `
-  },
-  {
-    id:'sdr-reunion-manager',
-    icon:'👔',
-    badge:'Día 2',
-    title:'Reunión con Manager',
-    keywords:'reunion manager induccion pod accesos documentos reglas agendamiento distribucion bandejas',
-    content: () => `
-      <p class="pt">La inducción oficial al equipo. Tu Manager te va a dar:</p>
-      <ul class="info-list">
-        <li>Toda la información del equipo y del pod.</li>
-        <li>Los accesos y documentos que faltan.</li>
-        <li>Las <strong>Reglas de Agendamiento</strong> de cada cliente (Google Sheets).</li>
-        <li>La <strong>Distribución de Bandejas</strong> con contraseñas de acceso (Google Sheets).</li>
-      </ul>
-      <div class="link-row">
-        <a href="https://www.loom.com/share/b2264e12fcd94eaf9bc4090efe36c0f4" target="_blank" class="lbtn lbtn-vid">▶ Video: Reglas de agendamiento</a>
-        <a href="https://www.loom.com/share/fe5331f4c1b64911b558e57e48f4f9bc" target="_blank" class="lbtn lbtn-vid">▶ Video: Distribución de bandejas</a>
-      </div>
+      <p class="pt">Día a día trabajas con ambas herramientas al mismo tiempo — respondes correos y llamas por teléfono. Trabajas para varios clientes de distintas industrias y países.</p>
+      <h3 class="sh">Un ejemplo concreto — Benjamín Apt y Esmax</h3>
+      <div class="callout c-tip"><span class="callout-i">💡</span><div>
+        Benjamín Apt es uno de los más antiguos de TGP. Hoy lidera el canal de correos (Strategy Lead), pero en su momento fue SDR y tiene el podio histórico de TGP: <strong>1.825 reuniones agendadas</strong>.<br><br>
+        A Benjamín se le asigna una bandeja de correo de <strong>Esmax</strong>, uno de los clientes de TGP. La bandeja está a nombre de <em>Sofía Miranda</em>, con dominio <em>@esmax.cl</em>. Sofía Miranda no trabaja en Esmax ni en TGP — quizás ni existe — pero Benjamín trabaja desde esa bandeja a nombre de ella, como ejecutiva comercial de Esmax.<br><br>
+        El Manager programa correos automáticos que salen a miles de prospectos a nombre de Sofía. Benjamín solo se encarga de responder cuando llega una respuesta y de agendar la reunión. Apenas llega una respuesta, lee, etiqueta y responde. Si el prospecto no vuelve a escribir, lo llama. Si no contesta, le manda WhatsApp. No lo suelta hasta agendar.
+      </div></div>
     `
   },
   {
     id:'sdr-bandejas',
     icon:'📧',
-    badge:'Técnico',
-    title:'Bandejas y Secuencias',
+    badge:'Bandejas y secuencias',
+    title:'Cómo funcionan las bandejas y las secuencias',
     keywords:'bandejas correo mail gmail secuencias dominio cliente ficticias prospecto',
     content: () => `
-      <p class="pt">Cada SDR maneja varias bandejas de correo con nombres ficticios y dominios reales de los clientes. El Manager envía secuencias automáticas — cuando el prospecto responde, la secuencia se corta y el SDR toma el hilo.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 0">
-        <div class="callout c-info" style="margin:0"><div><b>¿Quién envía?</b>El Manager. El SDR solo actúa cuando hay respuesta.</div></div>
-        <div class="callout c-ok" style="margin:0"><div><b>Prospecto responde</b>La secuencia se corta. El SDR toma el hilo.</div></div>
-        <div class="callout c-tip" style="margin:0"><div><b>Sin respuesta</b>El Manager continúa. El SDR archiva esos correos.</div></div>
-      </div>
+      <p class="pt">El Manager programa <strong>secuencias de correo automáticas</strong> que salen a miles de prospectos desde las bandejas. Estas secuencias se envían solas, en diferentes horarios, todos los días — tú no las tocas.</p>
+      <h3 class="sh">¿Qué haces tú cuando llega una respuesta?</h3>
+      <p class="pt">Cuando un prospecto responde, la secuencia se corta automáticamente. Desde ese momento, el correo es tuyo: debes leerlo, etiquetarlo y responder buscando agendar la reunión.</p>
+      <h3 class="sh">¿Y si el prospecto no responde?</h3>
+      <p class="pt">Si no hay respuesta, el Manager sigue enviando el resto de la secuencia — no es tu responsabilidad. Lo que debes hacer es <strong>archivar esos correos</strong> para mantener la bandeja limpia y enfocarte en los que sí respondieron.</p>
+      <div class="callout c-info"><span class="callout-i">💬</span><div><b>¿Quién envía las secuencias?</b> El Manager. El SDR solo trabaja en las conversaciones con los prospectos, siempre a partir de una respuesta.</div></div>
+      <h3 class="sh">Revisa estos recursos en orden</h3>
       <div class="link-row">
+        <a href="https://docs.google.com/document/d/1dpwYb2PXCmTrLs7tklhjWIxubUvLekETOHbb9iu7m-4/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="secuencias">📄 Qué son las secuencias de correo</a>
+        <a href="https://docs.google.com/document/d/1ceNv1E0QNn5QKQcBi8ITaCirHAcTklv-V5RsNXN8ZTE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="ejemplo">📄 Ejemplo de secuencia (Esmax)</a>
         <a href="https://www.loom.com/share/99a9d029e8a6421dae5a7beac7882e1a" target="_blank" class="lbtn lbtn-vid" data-req="tour">▶ Tour por una bandeja</a>
         <a href="https://www.loom.com/share/0ae18c83bb084ff89884a7c7fccd840c" target="_blank" class="lbtn lbtn-vid" data-req="movimiento">▶ Movimiento de correos</a>
-        <a href="https://docs.google.com/document/d/1dpwYb2PXCmTrLs7tklhjWIxubUvLekETOHbb9iu7m-4/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Guía: Secuencias</a>
-        <a href="https://docs.google.com/document/d/1ceNv1E0QNn5QKQcBi8ITaCirHAcTklv-V5RsNXN8ZTE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Ejemplo: Secuencias Esmax</a>
       </div>
     `
   },
@@ -1676,12 +1636,90 @@ const SDR_STEPS = [
       <p class="pt">IA para redactar mejores correos. Siempre revisa el resultado antes de enviar.</p>
       <div class="link-row"><a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid">▶ Video: Varita mágica</a></div>
       <h3 class="sh">Apollo y Lusha — Scraping</h3>
-      <p class="pt">Para encontrar teléfonos y correos de prospectos. Instalá las extensiones mientras ves los videos.</p>
+      <p class="pt">Para encontrar teléfonos y correos de prospectos. Instala las extensiones mientras ves los videos.</p>
       <div class="link-row">
         <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid" data-req="apollo">▶ Apollo — instalación</a>
         <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid" data-req="lusha">▶ Lusha — instalación</a>
         <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid">▶ Empleados de empresa</a>
         <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid">▶ Empleados por país</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-dia2',
+    icon:'🌅',
+    badge:'Día 2',
+    title:'Bienvenido/a al segundo día',
+    keywords:'segundo dia onboarding dia 2 clientes bandejas tarea estudiar',
+    content: () => `
+      <p class="pt">¡Bien hecho! Terminaste la parte teórica del onboarding — ya conoces el proceso completo, las herramientas, las etiquetas, el agendamiento y los recordatorios.</p>
+      <p class="pt">Hoy empezamos el trabajo real. Antes de recibir tus bandejas, tienes que conocer bien los clientes con los que vas a trabajar. El proceso del segundo día es:</p>
+      <ol class="steps-list">
+        <li><strong>Tarea 1:</strong> Estudiar los clientes asignados.</li>
+        <li><strong>Reunión con tu SDR Senior:</strong> resolver dudas y recibir tus primeras bandejas.</li>
+        <li><strong>Reunión con tu Manager:</strong> inducción oficial al pod, accesos y documentos.</li>
+        <li><strong>Tarea 2:</strong> Ordenar las bandejas que recibiste.</li>
+        <li><strong>Tarea 3:</strong> Primer barrido de bandejas — llamar y hacer push.</li>
+      </ol>
+    `
+  },
+  {
+    id:'sdr-tarea1',
+    icon:'📚',
+    badge:'Tarea 1 — Día 2',
+    title:'Estudiar los Clientes Asignados',
+    keywords:'tarea estudiar clientes kit ventas linkedin web onboarding secuencia',
+    content: () => `
+      <p class="pt">Antes de tener tu reunión con el Senior y recibir tus bandejas, tienes que conocer bien los clientes con los que vas a trabajar: propuesta de valor, servicio, diferenciadores, países, etc.</p>
+      <p class="pt">Para <strong>cada cliente asignado</strong>, haz esto en orden:</p>
+      <ol class="steps-list">
+        <li>Buscar y estudiar el perfil de LinkedIn de la empresa.</li>
+        <li>Buscar y estudiar la página web de la empresa.</li>
+        <li>Entrar al Kit de Ventas → carpeta de tu pod → carpeta del cliente.</li>
+        <li>Ver el video de reunión de onboarding del cliente.</li>
+        <li>Estudiar los PDF: one pager / brochure / presentación.</li>
+        <li>Estudiar notas de onboarding del equipo.</li>
+        <li>Estudiar la secuencia de correo del cliente.</li>
+        <li>Estudiar las respuestas tipo del cliente.</li>
+      </ol>
+      <div class="link-row">
+        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit de Ventas Clientes</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-reunion-senior',
+    icon:'🤝',
+    badge:'Día 2',
+    title:'Reunión con tu SDR Senior',
+    keywords:'reunion senior capacitacion clientes bandejas correo',
+    content: () => `
+      <p class="pt">Si ya estudiaste todos los clientes asignados, estás listo para esta reunión. Tu SDR Senior te va a:</p>
+      <ul class="info-list">
+        <li>Resolver dudas sobre los clientes.</li>
+        <li>Profundizar el conocimiento de cada cliente.</li>
+        <li>Entregar tus primeras bandejas de correo.</li>
+      </ul>
+      <div class="callout c-info"><span class="callout-i">💬</span><div>Una vez que termines la reunión con tu Senior, marca este paso como completado y continúa.</div></div>
+    `
+  },
+  {
+    id:'sdr-reunion-manager',
+    icon:'👔',
+    badge:'Día 2',
+    title:'Reunión con tu Manager',
+    keywords:'reunion manager induccion pod accesos documentos reglas agendamiento distribucion bandejas',
+    content: () => `
+      <p class="pt">La inducción oficial al equipo. Tu Manager te va a dar:</p>
+      <ul class="info-list">
+        <li>Toda la información del equipo y del pod.</li>
+        <li>Los accesos y documentos que faltan.</li>
+        <li>Las <strong>Reglas de Agendamiento</strong> de cada cliente (Google Sheets): parámetros de validación e información del ejecutivo.</li>
+        <li>La <strong>Distribución de Bandejas</strong> con contraseñas de acceso (Google Sheets).</li>
+      </ul>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/b2264e12fcd94eaf9bc4090efe36c0f4" target="_blank" class="lbtn lbtn-vid" data-req="reglas">▶ Video: Reglas de agendamiento</a>
+        <a href="https://www.loom.com/share/fe5331f4c1b64911b558e57e48f4f9bc" target="_blank" class="lbtn lbtn-vid" data-req="bandejas">▶ Video: Distribución de bandejas</a>
       </div>
     `
   },
