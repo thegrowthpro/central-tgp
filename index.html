@@ -1588,7 +1588,11 @@ const SDR_STEPS = [
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">4</span><span class="agend-title">Esperar aprobación del Manager</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">El Manager revisa la reunión agendada y aprueba con un emoji en el canal <strong>pod-nombre-reuniones</strong> de Slack. No avances al paso 5 sin esa aprobación.</div>
+          <div class="agend-detail">
+            <p style="margin-bottom:8px">Cuando agendas en la App TGP, el bot <strong>"Avisos Reuniones"</strong> envía automáticamente un mensaje al canal <strong>pod-nombre-reuniones</strong> de Slack con todos los detalles: empresa, contacto, cargo, teléfono, fecha, hora, SDR responsable y contexto de la reunión.</p>
+            <p style="margin-bottom:8px">El Manager revisa ese mensaje. Cuando lo aprueba, <strong>reacciona al mensaje con un emoji</strong> — esa reacción es la señal de que todo está correcto y puedes continuar con los siguientes pasos.</p>
+            <div class="callout c-warn"><span class="callout-i">⚠️</span><div>No avances al paso 5 hasta que el Manager haya reaccionado al mensaje del bot. La reunión no es válida sin esa aprobación.</div></div>
+          </div>
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">5</span><span class="agend-title">Mandar detalle al cliente</span><span class="agend-arr">+</span></div>
