@@ -1040,7 +1040,7 @@ function signInWithGoogle() {
       }
     })
     .catch(err => {
-      showLoginError('No se pudo iniciar sesión. Intentá de nuevo.');
+      showLoginError('No se pudo iniciar sesión. Intenta de nuevo.');
     })
     .finally(() => {
       btn.disabled = false;
@@ -1164,7 +1164,7 @@ const ADMIN_STEPS = [
     title:'Datos Personales',
     keywords:'datos personales formulario accesos',
     content: () => `
-      <p class="pt">Antes de todo, debés completar el formulario de datos personales. Es necesario para generar tus accesos y tener tu información ante cualquier emergencia.</p>
+      <p class="pt">Antes de todo, debes completar el formulario de datos personales. Es necesario para generar tus accesos y tener tu información ante cualquier emergencia.</p>
       <div class="link-row">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSep-5s9FTC7nvHsGhXBC-v3m6ymFHkBCuFiN8BfLdY9CF2sKg/viewform" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Abrir formulario de datos personales</a>
       </div>
@@ -1180,12 +1180,12 @@ const ADMIN_STEPS = [
     content: () => `
       <p class="pt">Slack es nuestra herramienta principal de comunicación — nuestra segunda oficina. Todo el trabajo, coordinación y comunicación del equipo pasa por Slack.</p>
       <div class="callout c-warn"><span class="callout-i">⚠️</span><div><b>Regla de oro</b>Está prohibido mantener notificaciones, canales y chats sin abrir. Todo lo que se recibe es importante y se responde.</div></div>
-      <h3 class="sh">1 — Revisá estos recursos primero</h3>
+      <h3 class="sh">1 — Revisa estos recursos primero</h3>
       <div class="link-row">
         <a href="https://docs.google.com/document/u/1/d/1lt4TF3wu-3UgIQrk1h7xov20dzVlN6xp_b2IG_tsoo0/edit" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía de uso de Slack</a>
         <a href="https://www.loom.com/share/f8e93b73c31040d8ad9c8c5ee0a23697" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Tour por Slack</a>
       </div>
-      <h3 class="sh">2 — Ejecutá y marcá cada ítem</h3>
+      <h3 class="sh">2 — Ejecuta y marca cada ítem</h3>
       <div class="inline-check" id="slack-checks">
         <div class="ic-item"><input type="checkbox" id="sc1"><label for="sc1">Descargar la app de Slack en mi celular e iniciar sesión con mi cuenta TGP</label></div>
         <div class="ic-item"><input type="checkbox" id="sc2"><label for="sc2">Poner una foto de perfil profesional en Slack</label></div>
@@ -1205,7 +1205,7 @@ const ADMIN_STEPS = [
       <div class="link-row">
         <a href="https://www.loom.com/share/72be9e9b20e043dfb833308be04216d7" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Uso de Google Calendar</a>
       </div>
-      <h3 class="sh">2 — Ejecutá y marcá cada ítem</h3>
+      <h3 class="sh">2 — Ejecuta y marca cada ítem</h3>
       <div class="inline-check">
         <div class="ic-item"><input type="checkbox" id="cal1"><label for="cal1">Descargar la app de Google Calendar en mi celular</label></div>
         <div class="ic-item"><input type="checkbox" id="cal2"><label for="cal2">Iniciar sesión con mi mail TGP en la app</label></div>
@@ -1314,7 +1314,7 @@ const ADMIN_STEPS = [
     title:'Boleta de Honorarios',
     keywords:'boleta honorarios sii factura pago mensual emitir',
     content: () => `
-      <p class="pt">Como colaborador de TGP, debés emitir boleta de honorarios mensualmente. El SII tiene un portal gratuito para hacerlo en línea.</p>
+      <p class="pt">Como colaborador de TGP, debes emitir boleta de honorarios mensualmente. El SII tiene un portal gratuito para hacerlo en línea.</p>
       <div class="link-row">
         <a href="https://www.sii.cl" target="_blank" class="lbtn lbtn-doc">📄 Portal SII — boleta electrónica</a>
       </div>
@@ -1449,7 +1449,7 @@ const SDR_STEPS = [
         <li>Profundizar el conocimiento de cada cliente.</li>
         <li>Recibir tus primeras bandejas de correo.</li>
       </ul>
-      <div class="callout c-info"><span class="callout-i">💬</span><div>Una vez que termines la reunión con tu Senior, marcá este paso como completado y continuá.</div></div>
+      <div class="callout c-info"><span class="callout-i">💬</span><div>Una vez que termines la reunión con tu Senior, marca este paso como completado y continúa.</div></div>
     `
   },
   {
@@ -1687,9 +1687,9 @@ const SDR_STEPS = [
       <h3 class="sh">Tarea 2 — Ordenar las Bandejas</h3>
       <p class="pt">Las bandejas que recibiste tienen trayectoria previa. Ahora son tu responsabilidad.</p>
       <ul class="info-list">
-        <li>Revisá cada correo en recibidos.</li>
-        <li>Aplicá la etiqueta que corresponde.</li>
-        <li>Mové, archivá o eliminá según el estado.</li>
+        <li>Revisa cada correo en recibidos.</li>
+        <li>Aplica la etiqueta que corresponde.</li>
+        <li>Mueve, archiva o elimina según el estado.</li>
       </ul>
       <div class="link-row">
         <a href="https://docs.google.com/document/d/1CR322lgWchHj82KZvCQRCf5gnd8xEj4XsdWQ0vnpmhE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía: Ordenar las bandejas</a>
@@ -1955,7 +1955,7 @@ function setupRequiredLinks(track, idx) {
       if (!allDone) {
         const parts = [];
         if (!linksOk) parts.push('abre los recursos del paso (📄 guía y/o ▶ video)');
-        if (!checksOk) parts.push('marcá todos los ítems del checklist ✅');
+        if (!checksOk) parts.push('marca todos los ítems del checklist ✅');
         notice.textContent = 'Para continuar: ' + parts.join(' y ');
         notice.style.display = 'block';
       } else {
@@ -2010,7 +2010,7 @@ function renderUnlock() {
     <div class="celebrate">
       <div class="celebrate-icon">🎉</div>
       <h2>¡Parte administrativa completada!</h2>
-      <p>Completaste todos los pasos generales de onboarding. Ahora comienza la parte específica de <strong>SDR Junior</strong> — donde vas a aprender todo el proceso técnico: bandejas, objeciones, push y agendamiento.</p>
+      <p>Completaste todos los pasos generales de onboarding. Ahora comienza la parte específica de <strong>SDR Junior</strong> — donde aprenderás todo el proceso técnico: bandejas, objeciones, push y agendamiento.</p>
       <button class="btn-start-sdr" onclick="startSDR()">Empezar capacitación SDR Junior →</button>
     </div>
     <div class="step-card">
@@ -2549,7 +2549,7 @@ function closeBoletinModal() {
 
 function saveBoletinItem() {
   const btn = document.querySelector('.boletin-modal-save');
-  if (!db) { alert('Error: base de datos no conectada. Recargá la página.'); return; }
+  if (!db) { alert('Error: base de datos no conectada. Recarga la página.'); return; }
   if (!isBoletinAdmin()) { alert('Sin permisos de admin.'); return; }
   const id = document.getElementById('boletinEditId').value;
   const titulo = document.getElementById('boletinTitulo').value.trim();
