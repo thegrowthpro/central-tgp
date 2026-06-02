@@ -1797,7 +1797,25 @@ const RES_DATA = [
     icon:'🚪', title:'Salas de Reuniones', sub:'Cómo reservar una sala',
     keywords:'salas reuniones reserva calendario oficina privadas',
     body:`
-      <p class="pt">Salas privadas de uso comunitario. Reservalas por Google Calendar con anticipación.</p>
+      <div class="callout c-warn"><span class="callout-i">⚠️</span><div>Toda sala debe ser reservada antes de usarla. Si no la vas a usar, <strong>eliminá la reserva</strong>.</div></div>
+      <h3 class="sh">Distribución — 5 salas, máx. 2 horas</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0">
+        <div style="background:var(--brand);color:#fff;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;opacity:.7;margin-bottom:6px">Salas Impares</div>
+          <div style="font-size:15px;font-weight:800;margin-bottom:6px">1, 3 y 5</div>
+          <div style="font-size:12px;opacity:.8;line-height:1.5">Llamados<br>Cowork<br>Uso libre</div>
+        </div>
+        <div style="background:var(--brand);color:#fff;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;opacity:.7;margin-bottom:6px">Salas Pares</div>
+          <div style="font-size:15px;font-weight:800;margin-bottom:6px">2 y 4</div>
+          <div style="font-size:12px;opacity:.8;line-height:1.5">Reuniones 1:1<br>Entrevistas<br>Coachings</div>
+        </div>
+        <div style="background:var(--azul);color:#fff;border-radius:10px;padding:14px;text-align:center">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;opacity:.7;margin-bottom:6px">Sala Grande</div>
+          <div style="font-size:15px;font-weight:800;margin-bottom:6px">0</div>
+          <div style="font-size:12px;opacity:.8;line-height:1.5">Weeklys<br>ONB<br>Clientes</div>
+        </div>
+      </div>
       <div class="link-row">
         <a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank" class="lbtn lbtn-vid">▶ Video: Cómo reservar una sala</a>
       </div>`
