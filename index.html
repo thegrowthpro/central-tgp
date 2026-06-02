@@ -445,11 +445,13 @@ body.admin-mode .res-wrap{padding-bottom:72px}
     <button class="topbar-tab" id="tab-rrhh" onclick="showScreen('rrhh')">RRHH</button>
     <button class="topbar-tab" id="tab-recursos" onclick="showScreen('recursos')">Recursos</button>
   </div>
-  <button class="topbar-signout" id="btnSignOut" onclick="signOut()" style="display:none" title="Cerrar sesión">Salir</button>
-  <button class="admin-topbar-btn" id="adminBtn" onclick="openAdminPass()" title="Modo edición">⚙️</button>
-  <div class="topbar-user" id="topbarUser" style="display:none">
-    <div class="topbar-avatar" id="topbarAvatar">?</div>
-    <span id="topbarName"></span>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:8px">
+    <button class="topbar-signout" id="btnSignOut" onclick="signOut()" style="display:none" title="Cerrar sesión">Salir</button>
+    <button class="admin-topbar-btn" id="adminBtn" onclick="openAdminPass()" title="Modo edición">⚙️</button>
+    <div class="topbar-user" id="topbarUser" style="display:none">
+      <div class="topbar-avatar" id="topbarAvatar">?</div>
+      <span id="topbarName"></span>
+    </div>
   </div>
 </div>
 
