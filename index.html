@@ -1596,7 +1596,15 @@ const SDR_STEPS = [
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">5</span><span class="agend-title">Mandar detalle al cliente</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Copia el mensaje resumen que generó la App y envíalo por el grupo de WhatsApp o canal del cliente, incluyendo el contexto de la reunión (prospecto, empresa, cargo, fecha y hora).</div>
+          <div class="agend-detail">
+            <p style="margin-bottom:8px">Una vez aprobada la reunión, avisa al cliente por el grupo de WhatsApp o canal correspondiente. El mensaje debe tener 3 partes:</p>
+            <ol class="steps-list" style="margin-bottom:10px">
+              <li><strong>Saluda al cliente por su nombre</strong> — siempre personalizado, nunca genérico.</li>
+              <li><strong>Da contexto de la reunión</strong> — cómo llegaste al prospecto, qué dijo, por qué es una buena oportunidad. Esto ayuda al ejecutivo a prepararse.</li>
+              <li><strong>Copia y pega el detalle del bot</strong> — el mensaje completo del bot "Avisos Reuniones" para que el cliente tenga toda la información: empresa, contacto, cargo, teléfono, fecha, hora y link de Meet.</li>
+            </ol>
+            <div class="callout c-tip"><span class="callout-i">💡</span><div>El contexto es lo que más valoran los clientes — les ahorra tiempo en la reunión. No te limites a copiar el bot, agrega lo que sabes del prospecto.</div></div>
+          </div>
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">6</span><span class="agend-title">Confirmar reunión al prospecto</span><span class="agend-arr">+</span></div>
