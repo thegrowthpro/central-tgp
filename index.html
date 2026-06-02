@@ -1589,9 +1589,30 @@ const SDR_STEPS = [
         <div class="agend-step" onclick="this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">4</span><span class="agend-title">Esperar aprobación del Manager</span><span class="agend-arr">+</span></div>
           <div class="agend-detail">
-            <p style="margin-bottom:8px">Cuando agendas en la App TGP, el bot <strong>"Avisos Reuniones"</strong> envía automáticamente un mensaje al canal <strong>pod-nombre-reuniones</strong> de Slack con todos los detalles: empresa, contacto, cargo, teléfono, fecha, hora, SDR responsable y contexto de la reunión.</p>
-            <p style="margin-bottom:8px">El Manager revisa ese mensaje. Cuando lo aprueba, <strong>reacciona al mensaje con un emoji</strong> — esa reacción es la señal de que todo está correcto y puedes continuar con los siguientes pasos.</p>
-            <div class="callout c-warn"><span class="callout-i">⚠️</span><div>No avances al paso 5 hasta que el Manager haya reaccionado al mensaje del bot. La reunión no es válida sin esa aprobación.</div></div>
+            <p style="margin-bottom:8px">Cuando agendas en la App TGP, el bot <strong>"Avisos Reuniones"</strong> envía automáticamente un mensaje al canal <strong>pod-nombre-reuniones</strong> de Slack con todos los detalles de la reunión.</p>
+            <p style="margin-bottom:10px">El Manager revisa ese mensaje y <strong>reacciona con un emoji</strong> para aprobarla. Esa reacción es la señal para continuar. Así se ve ese mensaje en Slack:</p>
+            <div style="background:#1a1d21;border-radius:10px;padding:14px 16px;margin-bottom:12px;font-family:monospace">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+                <div style="width:28px;height:28px;border-radius:50%;background:#f59e0b;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#000">AR</div>
+                <span style="color:#fff;font-size:13px;font-weight:700">Avisos Reuniones</span>
+                <span style="color:#6b7280;font-size:11px">APP  12:46</span>
+              </div>
+              <p style="color:#d1d5db;font-size:12px;line-height:1.7;margin:0">
+                <span style="color:#fff;font-weight:600">Reunión Afex AV Chile</span><br>
+                Desde qué mail salió: juan.saavedra@afexav.cl<br>
+                Empresa: BioLife Improving You<br>
+                Nombre Contacto: Loreto Escobar<br>
+                Cargo: Encargada de Comercio Exterior<br>
+                Teléfono: +56944115492<br>
+                Día y Hora: 2026-06-02 15:00:00<br>
+                Agendado para: isidora.elissetche@afexav.cl<br>
+                Canal: CALL<br>
+                SDR: Tomas Landerer<br><br>
+                Contexto: Prospecto interesado en reunión. Sus transferencias internacionales superan los 5000 USD mensuales.
+              </p>
+              <div style="margin-top:8px;padding-top:8px;border-top:1px solid #374151;font-size:12px;color:#9ca3af">👍 1</div>
+            </div>
+            <div class="callout c-warn"><span class="callout-i">⚠️</span><div>No avances al paso 5 hasta que el Manager haya reaccionado al mensaje. La reunión no es válida sin esa aprobación.</div></div>
           </div>
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
@@ -1604,6 +1625,25 @@ const SDR_STEPS = [
               <li><strong>Copia y pega el detalle del bot</strong> — el mensaje completo del bot "Avisos Reuniones" para que el cliente tenga toda la información: empresa, contacto, cargo, teléfono, fecha, hora y link de Meet.</li>
             </ol>
             <div class="callout c-tip"><span class="callout-i">💡</span><div>El contexto es lo que más valoran los clientes — les ahorra tiempo en la reunión. No te limites a copiar el bot, agrega lo que sabes del prospecto.</div></div>
+            <p style="font-size:12px;font-weight:700;color:var(--gris2);text-transform:uppercase;letter-spacing:.4px;margin:12px 0 8px">Ejemplo de mensaje al cliente:</p>
+            <div style="background:#e9fbe9;border-radius:10px;padding:14px 16px;border:1px solid #bbf7d0;max-width:420px">
+              <div style="font-size:12px;font-weight:700;color:#15803d;margin-bottom:6px">Agustín Rodríguez</div>
+              <p style="font-size:13px;color:#1f2937;line-height:1.7;margin:0">
+                Hola Fran! ¿Cómo estás? Te dejo una reunión con el Raddison de Curicó. Estaba muy interesado en ver los productos y me comentó que están constantemente en busca de regalos corporativos.<br><br>
+                <strong>Reunión Xclusive Chile</strong><br>
+                Desde qué mail salió: Gabriela.Palma@xclusiveb2b.cl<br>
+                Empresa: Radisson Curicó<br>
+                Nombre Contacto: Ariel Naranjo<br>
+                Correo: rrhh@radissoncurico.cl<br>
+                Cargo: Human Resources Manager<br>
+                Teléfono: +56993887473<br>
+                Día y Hora: 2025-08-08 13:00:00<br>
+                Agendado para: francisca@xclusive.cl<br>
+                Canal: HOT_CALL<br>
+                SDR: Agustín Rodríguez
+              </p>
+              <div style="text-align:right;font-size:11px;color:#6b7280;margin-top:6px">4:19 p.m.</div>
+            </div>
           </div>
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
