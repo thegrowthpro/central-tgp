@@ -1201,16 +1201,23 @@ const ADMIN_STEPS = [
     keywords:'google calendar agenda disponibilidad reuniones app celular',
     content: () => `
       <p class="pt">El calendario dirige el día a día de todo el equipo. Cualquier persona puede ver tu disponibilidad para agendar reuniones — que son de asistencia obligatoria.</p>
-      <h3 class="sh">1 — Mirá el video primero</h3>
+      <h3 class="sh">1 — Mira el video primero</h3>
       <div class="link-row">
         <a href="https://www.loom.com/share/72be9e9b20e043dfb833308be04216d7" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Uso de Google Calendar</a>
       </div>
-      <h3 class="sh">2 — Ejecuta y marca cada ítem</h3>
+      <h3 class="sh">2 — Cómo cargar tus actividades correctamente</h3>
+      <div class="callout c-warn"><span class="callout-i">⚠️</span><div><b>Importante</b>Cada bloque de actividad debe cargarse <strong>por módulo separado</strong>, no como un bloque general. Ejemplo correcto:<br><br>
+        ✅ Clases Cálculo — 08:00 a 09:30<br>
+        ✅ Clases Economía — 09:30 a 10:15<br>
+        ✅ Deporte — 18:00 a 19:30<br><br>
+        ❌ <s>Clases — 08:00 a 14:00</s> (no usar bloques generales)
+      </div></div>
+      <div class="callout c-info"><span class="callout-i">📌</span><div><b>Formato: "Fuera de oficina"</b>Al crear el evento elige el tipo <strong>"Fuera de oficina"</strong>, no "Evento". Así el equipo ve automáticamente que no estás disponible en ese horario.</div></div>
+      <h3 class="sh">3 — Ejecuta y marca cada ítem</h3>
       <div class="inline-check">
-        <div class="ic-item"><input type="checkbox" id="cal1"><label for="cal1">Descargar la app de Google Calendar en mi celular</label></div>
-        <div class="ic-item"><input type="checkbox" id="cal2"><label for="cal2">Iniciar sesión con mi mail TGP en la app</label></div>
-        <div class="ic-item"><input type="checkbox" id="cal3"><label for="cal3">Cargar mis actividades fijas (universidad, deporte, compromisos)</label></div>
-        <div class="ic-item"><input type="checkbox" id="cal4"><label for="cal4">Activar notificaciones para aceptar invitaciones al instante</label></div>
+        <div class="ic-item"><input type="checkbox" id="cal1"><label for="cal1">Descargar la app de Google Calendar en mi celular e iniciar sesión con mi mail TGP</label></div>
+        <div class="ic-item"><input type="checkbox" id="cal2"><label for="cal2">Cargar todas mis actividades fijas por módulo separado en formato "Fuera de oficina"</label></div>
+        <div class="ic-item"><input type="checkbox" id="cal3"><label for="cal3">Activar notificaciones para aceptar invitaciones al instante</label></div>
       </div>
     `
   },
