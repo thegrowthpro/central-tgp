@@ -6,8 +6,8 @@
 ║                                                                  ║
 ║  Para editar contenido sin tocar código:                         ║
 ║                                                                  ║
-║  1. Buscá el paso que querés editar usando Ctrl+F (o Cmd+F)     ║
-║     y escribí el TÍTULO del paso, ej: "Configurar Slack"        ║
+║  1. Busca el paso que quieres editar usando Ctrl+F (o Cmd+F)     ║
+║     y escribe el TÍTULO del paso, ej: "Configurar Slack"        ║
 ║                                                                  ║
 ║  2. Cada paso tiene esta estructura:                             ║
 ║     title: 'Título del paso',                                    ║
@@ -17,7 +17,7 @@
 ║     `                                                            ║
 ║                                                                  ║
 ║  3. Para cambiar un LINK:                                        ║
-║     href="https://..." ← cambiá solo la URL entre comillas      ║
+║     href="https://..." ← cambia solo la URL entre comillas      ║
 ║                                                                  ║
 ║  4. Para cambiar TEXTO dentro de un párrafo:                     ║
 ║     <p class="pt">Acá va el texto</p>                           ║
@@ -487,7 +487,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
       </svg>
     </div>
     <div class="login-title">Central TGP</div>
-    <div class="login-sub">Ingresá con tu cuenta de Google de la empresa para acceder.</div>
+    <div class="login-sub">Ingresa con tu cuenta de Google de la empresa para acceder.</div>
     <button class="btn-google" id="btnGoogle" onclick="signInWithGoogle()">
       <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.707A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.961L3.964 6.293C4.672 4.166 6.656 3.58 9 3.58z"/></svg>
       Ingresar con Google
@@ -532,7 +532,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 <div class="screen active" id="screen-home">
   <div class="home-wrap">
     <div class="home-greeting" id="homeGreeting">Hola 👋</div>
-    <div class="home-sub">¿Qué querés hacer hoy?</div>
+    <div class="home-sub">¿Qué quieres hacer hoy?</div>
     <!-- BOLETÍN -->
     <div class="boletin-wrap">
       <div class="boletin-header">
@@ -543,7 +543,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
     </div>
 
     <div style="height:28px"></div>
-    <div style="font-size:13px;font-weight:700;color:var(--gris3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px">¿Qué querés hacer?</div>
+    <div style="font-size:13px;font-weight:700;color:var(--gris3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px">¿Qué quieres hacer?</div>
     <div class="home-grid">
       <button class="home-card" onclick="showScreen('onboarding');renderOnboarding()">
         <div class="home-card-icon">🗺️</div>
@@ -935,7 +935,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 <div id="adminPassOverlay" class="admin-pass-overlay" style="display:none" onclick="if(event.target===this)closeAdminPass()">
   <div class="admin-pass-modal">
     <div class="admin-pass-title">🔐 Modo Edición</div>
-    <div class="admin-pass-sub">Ingresá la contraseña para editar el contenido directamente en la página.</div>
+    <div class="admin-pass-sub">Ingresa la contraseña para editar el contenido directamente en la página.</div>
     <div class="field-label">Contraseña</div>
     <input class="field-input" id="adminPassInput" type="password" placeholder="••••••••"
            onkeydown="if(event.key==='Enter')checkAdminPass()" autocomplete="off">
@@ -951,7 +951,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 <!-- ADMIN: BOTTOM BAR                                         -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <div id="adminBar" class="admin-bar" style="display:none">
-  <span class="admin-bar-label">✏️ Modo edición — hacé clic en cualquier texto o link para editar</span>
+  <span class="admin-bar-label">✏️ Modo edición — haz clic en cualquier texto o link para editar</span>
   <button class="admin-bar-btn admin-bar-dl" onclick="downloadUpdatedHTML()">⬇ Descargar HTML actualizado</button>
   <button class="admin-bar-btn admin-bar-exit" onclick="exitAdmin()">✕ Salir</button>
 </div>
@@ -1066,7 +1066,7 @@ function showLoginError(msg) {
 // GOOGLE SHEETS — URL del web app de Apps Script
 // Reemplazá esta URL con la tuya después de configurar el script
 // ════════════════════════════════════════════════════════════════
-const SHEETS_URL = ''; // ← pegá acá tu URL de Apps Script
+const SHEETS_URL = ''; // ← pega acá tu URL de Apps Script
 
 function logProgress(evento) {
   if (!SHEETS_URL) return; // Si no hay URL configurada, no hace nada
@@ -1109,8 +1109,8 @@ const CONTENT_OVERRIDES = {};
 
 // ════════════════════════════════════════════════════════════════
 // ══ PASOS ADMIN ══ (para todos los colaboradores)
-// Para editar: buscá el título del paso con Ctrl+F
-// Podés cambiar: title, badge, y todo el texto dentro de content()
+// Para editar: busca el título del paso con Ctrl+F
+// Puedes cambiar: title, badge, y todo el texto dentro de content()
 // ════════════════════════════════════════════════════════════════
 const ADMIN_STEPS = [
   {
@@ -1154,7 +1154,7 @@ const ADMIN_STEPS = [
         <li>Conocer los beneficios (almuerzo, salas)</li>
         <li>Guardar los links importantes en Chrome</li>
       </ul>
-      <div class="callout c-ok"><span class="callout-i">✅</span><div>Cuando completés cada paso, presioná el botón de abajo para avanzar al siguiente. ¡Arrancamos!</div></div>
+      <div class="callout c-ok"><span class="callout-i">✅</span><div>Cuando completes cada paso, presiona el botón de abajo para avanzar al siguiente. ¡Empecemos!</div></div>
     `
   },
   {
@@ -1280,7 +1280,7 @@ const ADMIN_STEPS = [
           <div style="font-size:12px;color:var(--gris3)">créditos/mes</div>
         </div>
       </div>
-      <div class="callout c-info"><span class="callout-i">ℹ️</span><div>1 crédito = 1 almuerzo. Los créditos <strong>no se acumulan ni se transfieren</strong>. Si no los usás, al mes siguiente tenés los mismos. ¡Aprovechalos!</div></div>
+      <div class="callout c-info"><span class="callout-i">ℹ️</span><div>1 crédito = 1 almuerzo. Los créditos <strong>no se acumulan ni se transfieren</strong>. Si no los usas, al mes siguiente tienes los mismos. ¡Aprovéchalos!</div></div>
       <h3 class="sh">⭐ Platos favoritos del equipo</h3>
       <ul class="info-list">
         <li>Plateada de cerdo de cocción lenta con puré picante</li>
@@ -1300,7 +1300,7 @@ const ADMIN_STEPS = [
     title:'Salas de Reuniones',
     keywords:'salas reuniones reserva calendario oficina privadas',
     content: () => `
-      <p class="pt">En la oficina tenemos varias salas privadas de uso comunitario para reuniones, llamados o lo que necesites. Para usar una sala, tenés que reservarla en el calendario.</p>
+      <p class="pt">En la oficina tenemos varias salas privadas de uso comunitario para reuniones, llamados o lo que necesites. Para usar una sala, tienes que reservarla en el calendario.</p>
       <div class="link-row">
         <a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Cómo reservar una sala</a>
       </div>
@@ -1328,7 +1328,7 @@ const ADMIN_STEPS = [
     title:'Documentos en Favoritos',
     keywords:'chrome favoritos links documentos guardar barra navegador kit colaborador',
     content: () => `
-      <p class="pt">Guardá estos links en tus Favoritos de Chrome para tenerlos siempre a mano. Para cada uno: abrí el link → hacé clic en la ★ → poné un nombre corto → elegí la carpeta → Listo.</p>
+      <p class="pt">Guarda estos links en tus Favoritos de Chrome para tenerlos siempre a mano. Para cada uno: abre el link → haz clic en la ★ → pon un nombre corto → elige la carpeta → Listo.</p>
       <h3 class="sh">Carpeta "Onboarding"</h3>
       <div class="link-row">
         <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive">📁 Kit del Colaborador</a>
@@ -1361,8 +1361,8 @@ const ADMIN_STEPS = [
 
 // ════════════════════════════════════════════════════════════════
 // ══ PASOS SDR ══ (solo para SDR Junior, se desbloquean después del admin)
-// Para editar: buscá el título del paso con Ctrl+F
-// Podés cambiar: title, badge, y todo el texto dentro de content()
+// Para editar: busca el título del paso con Ctrl+F
+// Puedes cambiar: title, badge, y todo el texto dentro de content()
 // ════════════════════════════════════════════════════════════════
 const SDR_STEPS = [
   {
@@ -1382,7 +1382,7 @@ const SDR_STEPS = [
       <div class="callout c-tip"><span class="callout-i">🏆</span><div><b>El ejemplo de Benjamín Apt</b>Tiene el podio histórico de TGP con <strong>1.825 reuniones agendadas</strong>. Su secreto: apenas llega una respuesta, lee, etiqueta y responde. Si el prospecto no responde, lo llama. Si no contesta, le manda WhatsApp. No lo suelta hasta agendar.</div></div>
       <h3 class="sh">Tus dos herramientas principales</h3>
       <ul class="info-list">
-        <li><strong>Bandejas de correo:</strong> varias cuentas con nombres ficticios y dominios reales de los clientes. Vos respondés y agendás.</li>
+        <li><strong>Bandejas de correo:</strong> varias cuentas con nombres ficticios y dominios reales de los clientes. Tú respondes y agendas.</li>
         <li><strong>Bases de datos telefónicas:</strong> listas de prospectos para llamar en frío o tibio.</li>
       </ul>
     `
@@ -1394,7 +1394,7 @@ const SDR_STEPS = [
     title:'Glosario — Conceptos Clave',
     keywords:'glosario terminos cliente prospecto kdm icp b2b push no show weekly bandeja etiqueta',
     content: () => `
-      <p class="pt">Tenés que dominar estos conceptos. Si no podés explicar alguno con tus propias palabras, volvé al glosario completo.</p>
+      <p class="pt">Tienes que dominar estos conceptos. Si no puedes explicar alguno con tus propias palabras, vuelve al glosario completo.</p>
       <div class="link-row" style="margin-bottom:16px">
         <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc">📄 Glosario completo TGP</a>
       </div>
@@ -1419,8 +1419,8 @@ const SDR_STEPS = [
     title:'Estudiar Clientes Asignados',
     keywords:'tarea estudiar clientes kit ventas linkedin web onboarding secuencia',
     content: () => `
-      <p class="pt">Antes de recibir tus bandejas, tenés que conocer bien los clientes con los que vas a trabajar: propuesta de valor, servicio, diferenciadores, países, etc.</p>
-      <p class="pt">Para <strong>cada cliente asignado</strong>, hacé esto en orden:</p>
+      <p class="pt">Antes de recibir tus bandejas, tienes que conocer bien los clientes con los que vas a trabajar: propuesta de valor, servicio, diferenciadores, países, etc.</p>
+      <p class="pt">Para <strong>cada cliente asignado</strong>, haz esto en orden:</p>
       <ol class="steps-list">
         <li>Buscar y estudiar el perfil de LinkedIn de la empresa.</li>
         <li>Buscar y estudiar la página web de la empresa.</li>
@@ -1551,10 +1551,10 @@ const SDR_STEPS = [
       <div class="callout c-warn"><span class="callout-i">📌</span><div><b>Obligatorio</b>Mínimo <strong>2 veces por semana</strong> a cada prospecto.</div></div>
       <h3 class="sh">Tips del push</h3>
       <ul class="info-list">
-        <li>Primer correo → buscás el número → llamás en tibio.</li>
+        <li>Primer correo → buscas el número → llamas en tibio.</li>
         <li>Si no contesta → push escrito en el mismo hilo.</li>
         <li>Cada push personalizado según lo que dijo el prospecto.</li>
-        <li>Usás plantillas del kit de ventas de cada cliente.</li>
+        <li>Usas plantillas del kit de ventas de cada cliente.</li>
       </ul>
       <div class="link-row">
         <a href="https://www.loom.com/share/9b6b9a1cbb564e5b905034671d1db2a8" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Push — Tere, SDR Senior</a>
@@ -1641,7 +1641,7 @@ const SDR_STEPS = [
       </div>
       <h3 class="sh">Sistema automático — Bot TestNoShow</h3>
       <div class="callout c-info"><span class="callout-i">🤖</span><div><b>Bot TestNoShow</b>Monitorea cada reunión automáticamente. A los +4, +8 y +15 minutos verifica quién está conectado en Google Meet y reporta en el canal <strong>pod-[nombre]-noshow</strong> de Slack: estado (YesShow / No-Show), presentes y ausentes. Si se confirma el No-Show, registra el veredicto en la base de datos.</div></div>
-      <div class="callout c-ok"><span class="callout-i">📱</span><div><b>WhatsApp automático</b>TGP envía recordatorio por WhatsApp <strong>1 hora antes</strong> de la reunión. Si el prospecto responde, recibís notificación en tu canal de no-show y podés responderle directo desde Slack.</div></div>
+      <div class="callout c-ok"><span class="callout-i">📱</span><div><b>WhatsApp automático</b>TGP envía recordatorio por WhatsApp <strong>1 hora antes</strong> de la reunión. Si el prospecto responde, recibes notificación en tu canal de no-show y puedes responderle directo desde Slack.</div></div>
       <h3 class="sh">Tu responsabilidad ante un No-Show</h3>
       <ul class="info-list">
         <li>Revisar tu canal <strong>pod-[nombre]-noshow</strong> en Slack.</li>
@@ -1659,13 +1659,13 @@ const SDR_STEPS = [
     keywords:'snov wsn rebotes varita magica apollo lusha scraping empleados herramientas instalar extension',
     content: () => `
       <h3 class="sh">Correos Snov (wsn / snv / snw)</h3>
-      <p class="pt">Correos en inglés con "wsn" en el asunto. Son muchos — podés archivarlos o eliminarlos directamente.</p>
+      <p class="pt">Correos en inglés con "wsn" en el asunto. Son muchos — puedes archivarlos o eliminarlos directamente.</p>
       <div class="link-row"><a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid">▶ Video: Correos Snov</a></div>
       <h3 class="sh">Correos que Rebotan</h3>
       <p class="pt">Correos con mensajes de error — archivar directamente.</p>
       <div class="link-row"><a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid">▶ Video: Correos rebote</a></div>
       <h3 class="sh">✨ Varita Mágica (IA en Gmail)</h3>
-      <p class="pt">IA para redactar mejores correos. Siempre revisá el resultado antes de enviar.</p>
+      <p class="pt">IA para redactar mejores correos. Siempre revisa el resultado antes de enviar.</p>
       <div class="link-row"><a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid">▶ Video: Varita mágica</a></div>
       <h3 class="sh">Apollo y Lusha — Scraping</h3>
       <p class="pt">Para encontrar teléfonos y correos de prospectos. Instalá las extensiones mientras ves los videos.</p>
@@ -1954,7 +1954,7 @@ function setupRequiredLinks(track, idx) {
     if (notice) {
       if (!allDone) {
         const parts = [];
-        if (!linksOk) parts.push('abrí los recursos del paso (📄 guía y/o ▶ video)');
+        if (!linksOk) parts.push('abre los recursos del paso (📄 guía y/o ▶ video)');
         if (!checksOk) parts.push('marcá todos los ítems del checklist ✅');
         notice.textContent = 'Para continuar: ' + parts.join(' y ');
         notice.style.display = 'block';
@@ -2047,10 +2047,10 @@ function renderCompletion(track, isSDR) {
       <div class="done-screen">
         <div class="done-icon">${isSDRDone ? '🚀' : '🎉'}</div>
         <h2 class="done-title">${isSDRDone ? '¡Onboarding completado!' : '¡Configuración inicial lista!'}</h2>
-        <p class="done-sub">${isSDRDone ? `¡Excelente, ${STATE.name}! Completaste todo el proceso de onboarding SDR. Ya tenés todo lo que necesitás para arrancar y agendar reuniones.` : `¡Bien hecho, ${STATE.name}! Completaste la configuración inicial.`}</p>
+        <p class="done-sub">${isSDRDone ? `¡Excelente, ${STATE.name}! Completaste todo el proceso de onboarding SDR. Ya tienes todo lo que necesitas para empezar y agendar reuniones.` : `¡Bien hecho, ${STATE.name}! Completaste la configuración inicial.`}</p>
         <div class="done-card">
           <h3>📚 Guía de referencia siempre disponible</h3>
-          <p>En la pestaña "Recursos" encontrás todo el contenido del onboarding con buscador. Podés volver cuando necesites consultar algo.</p>
+          <p>En la pestaña "Recursos" encuentras todo el contenido del onboarding con buscador. Puedes volver cuando necesites consultar algo.</p>
         </div>
         ${isSDRDone ? `<div class="done-card"><h3>💬 ¿Dudas?</h3><p>Escribile a tu SDR Senior, Manager o a Belén (HR Lead) por Slack.</p></div>` : ''}
         <button class="btn-primary" onclick="showScreen('recursos')">Ir a la guía de referencia →</button>
@@ -2072,8 +2072,8 @@ function replayOnboarding() {
 
 // ════════════════════════════════════════════════════════════════
 // ══ RECURSOS ══ (sección de referencia, visible para todos)
-// Para editar: buscá el título de la sección con Ctrl+F
-// Podés cambiar: icon, title, sub (subtítulo), y el contenido en body
+// Para editar: busca el título de la sección con Ctrl+F
+// Puedes cambiar: icon, title, sub (subtítulo), y el contenido en body
 // ════════════════════════════════════════════════════════════════
 const RES_CATEGORIES = [
   { id:'inicio',       label:'🚀 Primeros Pasos' },
@@ -2585,7 +2585,7 @@ function deleteBoletinItem(id) {
   }
 }
 
-const ADMIN_PWD = 'tgp2025'; // ← cambiá esta contraseña si querés
+const ADMIN_PWD = 'tgp2025'; // ← cambia esta contraseña si quieres
 let adminMode = false;
 let _editingLink = null;
 
@@ -2769,7 +2769,7 @@ function downloadUpdatedHTML() {
       a.download = 'index.html';
       a.click();
       URL.revokeObjectURL(a.href);
-      setTimeout(() => alert('✅ ¡Descargado! Subí el archivo index.html a GitHub para publicar los cambios.\n\nEn GitHub: Add file → Upload files → elegí el archivo → Commit changes.'), 300);
+      setTimeout(() => alert('✅ ¡Descargado! Sube el archivo index.html a GitHub para publicar los cambios.\n\nEn GitHub: Add file → Upload files → elige el archivo → Commit changes.'), 300);
     })
     .catch(() => alert('❌ Error al generar el archivo. Asegurate de estar en la URL de GitHub Pages (no en un archivo local).'));
 }
