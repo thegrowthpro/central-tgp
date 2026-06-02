@@ -2384,7 +2384,9 @@ const RES_DATA = [
 // BOLETÍN — Firebase Firestore
 // ════════════════════════════════════════════════════════════════
 let db = null;
-try { db = firebase.firestore(); } catch(e) {}
+window.addEventListener('DOMContentLoaded', () => {
+  try { db = firebase.firestore(); } catch(e) { console.warn('Firestore no disponible:', e); }
+});
 
 const BOLETIN_TYPES = {
   aviso:  { label:'📣 Aviso general',         color:'#2563eb', bg:'#eff6ff', text:'#1d4ed8' },
@@ -2467,19 +2469,26 @@ function closeBoletinModal() {
 }
 
 function saveBoletinItem() {
-  if (!db || !isBoletinAdmin()) return;
+  const btn = document.querySelector('.boletin-modal-save');
+  if (!db) { alert('Error: base de datos no conectada. Recargá la página.'); return; }
+  if (!isBoletinAdmin()) { alert('Sin permisos de admin.'); return; }
   const id = document.getElementById('boletinEditId').value;
+  const titulo = document.getElementById('boletinTitulo').value.trim();
+  if (!titulo) { alert('El título es obligatorio.'); return; }
   const data = {
     tipo:  document.getElementById('boletinTipo').value,
-    titulo: document.getElementById('boletinTitulo').value.trim(),
+    titulo,
     desc:  document.getElementById('boletinDesc').value.trim(),
     fecha: document.getElementById('boletinFecha').value,
     link:  document.getElementById('boletinLink').value.trim(),
-    createdAt: id ? firebase.firestore.FieldValue.serverTimestamp() : firebase.firestore.FieldValue.serverTimestamp(),
+    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
   };
-  if (!data.titulo) return;
+  if (btn) { btn.disabled = true; btn.textContent = 'Publicando…'; }
   const ref = id ? db.collection('boletin').doc(id) : db.collection('boletin').doc();
-  ref.set(data, {merge: true}).then(() => closeBoletinModal());
+  ref.set(data, {merge: true})
+    .then(() => { closeBoletinModal(); })
+    .catch(err => { alert('Error al publicar: ' + err.message); })
+    .finally(() => { if (btn) { btn.disabled = false; btn.textContent = 'Publicar →'; } });
 }
 
 function editBoletinItem(id) {
