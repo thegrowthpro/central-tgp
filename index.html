@@ -553,53 +553,138 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 <!-- PANTALLA: RRHH                                            -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <div class="screen" id="screen-rrhh">
-  <div class="rrhh-wrap">
+  <div class="rrhh-wrap" style="max-width:960px">
     <div style="margin-bottom:28px">
       <h2 style="font-size:22px;font-weight:900;color:var(--negro);margin-bottom:4px;letter-spacing:-.4px">👥 Recursos Humanos</h2>
       <p style="font-size:14px;color:var(--gris2)">Todo lo que necesitás saber sobre RRHH en TGP.</p>
     </div>
+
+    <!-- ── QUIÉNES SOMOS (full width) ── -->
+    <div class="rrhh-card" style="margin-bottom:16px;grid-column:span 2">
+      <div class="rrhh-card-title">🚀 Quiénes somos</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px">
+        <div style="background:var(--brand);color:#fff;border-radius:10px;padding:16px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;opacity:.6;margin-bottom:6px">Propósito</div>
+          <div style="font-size:14px;font-weight:700;line-height:1.4">Que los clientes vendan más.</div>
+        </div>
+        <div style="background:var(--brand);color:#fff;border-radius:10px;padding:16px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;opacity:.6;margin-bottom:6px">Misión</div>
+          <div style="font-size:13px;font-weight:600;line-height:1.5">Prospección comercial B2B de alta calidad que convierte contactos en oportunidades reales y calificadas.</div>
+        </div>
+        <div style="background:var(--brand);color:#fff;border-radius:10px;padding:16px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;opacity:.6;margin-bottom:6px">Visión</div>
+          <div style="font-size:13px;font-weight:600;line-height:1.5">Ser la empresa de ventas B2B líder en el mundo.</div>
+        </div>
+      </div>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--gris3);margin-bottom:12px">Cofundadores</div>
+      <div style="display:flex;gap:10px;margin-bottom:20px">
+        <div class="contact-row" style="border:none;padding:0;flex:1">
+          <div class="contact-avatar">SW</div>
+          <div><div class="contact-name">Samuel Weinstein</div><div class="contact-role">Cofundador</div></div>
+        </div>
+        <div class="contact-row" style="border:none;padding:0;flex:1">
+          <div class="contact-avatar">AK</div>
+          <div><div class="contact-name">Ariel Kauderer</div><div class="contact-role">Cofundador</div></div>
+        </div>
+      </div>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--gris3);margin-bottom:10px">7 Valores TGP</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:3px">Autonomía</div>
+          <div style="font-size:12px;color:var(--gris2);line-height:1.5">Trabajo de forma independiente. Pido ayuda solo después de agotar los recursos propios.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:3px">Accountability</div>
+          <div style="font-size:12px;color:var(--gris2);line-height:1.5">Rindo cuentas de forma proactiva y me hago responsable de lo que hago y no hago.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:3px">Excelencia</div>
+          <div style="font-size:12px;color:var(--gris2);line-height:1.5">Busco siempre la perfección en lo que hago. Estudio al prospecto antes de agendar.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:3px">Diligencia</div>
+          <div style="font-size:12px;color:var(--gris2);line-height:1.5">Actúo con agilidad y sentido de urgencia. Lo que se acuerda se pone en marcha de inmediato.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:3px">Calidez</div>
+          <div style="font-size:12px;color:var(--gris2);line-height:1.5">Me relaciono desde la cercanía y el respeto. Saludo y doy la bienvenida a los nuevos.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:3px">Trabajo en equipo</div>
+          <div style="font-size:12px;color:var(--gris2);line-height:1.5">Hago visible lo que está bien hecho. Reconozco el esfuerzo y los resultados del equipo.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4);grid-column:span 2">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:3px">Aprendizaje continuo</div>
+          <div style="font-size:12px;color:var(--gris2);line-height:1.5">Me formo y formo a otros de manera continua. Aplico el feedback como herramienta de desarrollo.</div>
+        </div>
+      </div>
+    </div>
+
     <div class="rrhh-grid">
       <!-- Equipo RRHH -->
       <div class="rrhh-card">
         <div class="rrhh-card-title">🧑‍💼 Equipo RRHH</div>
         <div class="contact-row">
           <div class="contact-avatar">BF</div>
-          <div>
-            <div class="contact-name">Belén Forti</div>
-            <div class="contact-role">HR Lead — gestión de equipos, ascensos, rendimiento</div>
-          </div>
+          <div><div class="contact-name">Belén Forti</div><div class="contact-role">HR Lead — gestión de equipos, ascensos, rendimiento</div></div>
         </div>
         <div class="contact-row">
           <div class="contact-avatar">AH</div>
-          <div>
-            <div class="contact-name">Amelia Honorato</div>
-            <div class="contact-role">Talent Acquisition — selección y reclutamiento</div>
-          </div>
+          <div><div class="contact-name">Amelia Honorato</div><div class="contact-role">Talent Acquisition — selección y reclutamiento</div></div>
         </div>
         <div class="contact-row">
           <div class="contact-avatar">LC</div>
-          <div>
-            <div class="contact-name">Laly Campos</div>
-            <div class="contact-role">Asistente Administrativa — cultura y administración</div>
+          <div><div class="contact-name">Laly Campos</div><div class="contact-role">Asistente Administrativa — cultura y administración</div></div>
+        </div>
+      </div>
+
+      <!-- Ausencias y Solicitudes -->
+      <div class="rrhh-card">
+        <div class="rrhh-card-title">📋 Ausencias y Solicitudes</div>
+        <a href="https://forms.gle/bZBzgsD8L8KeezXWA" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">🏖️</span>
+          <span class="solicitud-text">Solicitar ausencia (vacaciones, día libre, remoto, médico)</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
+        <a href="https://forms.gle/R4jzRvM8FhdTHaUQ9" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">💬</span>
+          <span class="solicitud-text">Reclamos / sugerencias (confidencial)</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
+        <a href="https://forms.gle/dpicEbkV9vDhjjHA7" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">📄</span>
+          <span class="solicitud-text">Presentar renuncia</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
+        <a href="https://www.thegrowth.pro/copia-de-portal-de-empleos" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">🔍</span>
+          <span class="solicitud-text">Portal de postulaciones (internas y externas)</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
+        <div class="callout c-info" style="margin-top:10px;font-size:12px"><span class="callout-i">💰</span><div>Dudas de pagos, comisiones o montos: <strong>finanzas@thegrowth.pro</strong></div></div>
+      </div>
+
+      <!-- BUK -->
+      <div class="rrhh-card">
+        <div class="rrhh-card-title">🖥️ BUK — Plataforma de personas</div>
+        <a href="https://tgp.buk.cl/" target="_blank" class="solicitud-item" style="margin-bottom:12px">
+          <span class="solicitud-icon">🔗</span>
+          <span class="solicitud-text">Ingresar a BUK</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gris2);margin-bottom:6px">Part-time</div>
+            <div style="font-size:12px;color:var(--gris1);line-height:1.5">Firma de documentos, registro y evaluaciones de desempeño. <strong>No usar para vacaciones ni montos.</strong></div>
+          </div>
+          <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gris2);margin-bottom:6px">Full-time</div>
+            <div style="font-size:12px;color:var(--gris1);line-height:1.5">Contratos, liquidaciones, vacaciones, solicitudes, firma de documentos y evaluaciones.</div>
           </div>
         </div>
+        <div class="callout c-warn" style="margin-top:10px;font-size:12px"><span class="callout-i">⚠️</span><div>Licencias médicas (full-time): gestioná en BUK <strong>y</strong> avisá a RRHH por Slack.</div></div>
       </div>
-      <!-- Solicitudes -->
-      <div class="rrhh-card">
-        <div class="rrhh-card-title">📋 Solicitudes</div>
-        <div class="solicitud-item" style="opacity:.5;cursor:default">
-          <span class="solicitud-icon">📄</span>
-          <span class="solicitud-text">Certificado laboral <span style="font-size:11px;color:var(--gris3)">(próximamente)</span></span>
-        </div>
-        <div class="solicitud-item" style="opacity:.5;cursor:default">
-          <span class="solicitud-icon">🏖️</span>
-          <span class="solicitud-text">Vacaciones <span style="font-size:11px;color:var(--gris3)">(próximamente)</span></span>
-        </div>
-        <div class="solicitud-item" style="opacity:.5;cursor:default">
-          <span class="solicitud-icon">💬</span>
-          <span class="solicitud-text">Consulta a RRHH <span style="font-size:11px;color:var(--gris3)">(próximamente)</span></span>
-        </div>
-      </div>
+
       <!-- Info útil -->
       <div class="rrhh-card">
         <div class="rrhh-card-title">💡 Info útil</div>
@@ -618,16 +703,19 @@ body.admin-mode .res-wrap{padding-bottom:72px}
           <span class="solicitud-text">Kit del colaborador</span>
           <span class="solicitud-arr">↗</span>
         </a>
+        <a href="https://drive.google.com/drive/folders/1eZ57P0NsnZrLVZsrDbCHQaZuJnzQeNrX" target="_blank" class="solicitud-item">
+          <span class="solicitud-icon">📦</span>
+          <span class="solicitud-text">Kit del SDR</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
       </div>
+
       <!-- Almuerzos -->
       <div class="rrhh-card">
         <div class="rrhh-card-title">🍽️ Almuerzos</div>
         <div class="contact-row" style="margin-bottom:4px">
           <div class="contact-avatar" style="background:#ea580c">JG</div>
-          <div>
-            <div class="contact-name">Jackie Guiloff</div>
-            <div class="contact-role">Gestión del servicio de almuerzo</div>
-          </div>
+          <div><div class="contact-name">Jackie Guiloff</div><div class="contact-role">Gestión del servicio de almuerzo</div></div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0">
           <div style="background:var(--gris5);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--gris4)">
@@ -641,12 +729,72 @@ body.admin-mode .res-wrap{padding-bottom:72px}
             <div style="font-size:11px;color:var(--gris3)">créditos/mes</div>
           </div>
         </div>
-        <p style="font-size:12px;color:var(--gris2);margin-bottom:12px">1 crédito = 1 almuerzo. No se acumulan entre meses. Formulario cierra a las 14:00 hrs del día anterior.</p>
+        <p style="font-size:12px;color:var(--gris2);margin-bottom:12px">Créditos por modalidad, no por cargo. No se acumulan ni transfieren. Pedido hasta 14:00 hrs del día anterior.</p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="solicitud-item">
-          <span class="solicitud-icon">🍽️</span>
-          <span class="solicitud-text">Pedir almuerzo</span>
-          <span class="solicitud-arr">↗</span>
+          <span class="solicitud-icon">🍽️</span><span class="solicitud-text">Pedir almuerzo</span><span class="solicitud-arr">↗</span>
         </a>
+      </div>
+
+      <!-- Reunión Ampliada -->
+      <div class="rrhh-card">
+        <div class="rrhh-card-title">📅 Reunión Ampliada</div>
+        <div class="callout c-info" style="font-size:12px;margin-bottom:12px"><span class="callout-i">📌</span><div><b>Último viernes de cada mes — presencial, obligatoria para toda la empresa</b><br>La lidera Samuel Weinstein.</div></div>
+        <p style="font-size:12px;font-weight:700;color:var(--gris2);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px">Contenido de cada edición</p>
+        <ul class="info-list" style="font-size:13px">
+          <li>Bienvenida a nuevos colaboradores</li>
+          <li>Anuncio de ascensos del mes</li>
+          <li>Nómina del Club de Llamadores</li>
+          <li>Resultados y metas del mes anterior</li>
+          <li>Nuevos clientes que entran el siguiente mes</li>
+          <li>Actualización Liga TGP (puntos y clasificación)</li>
+          <li>Premios del mes anterior</li>
+          <li>Entrega de Cohetes (reconocimiento por valor)</li>
+        </ul>
+      </div>
+
+      <!-- Liga TGP + Reconocimiento (full width) -->
+      <div class="rrhh-card" style="grid-column:span 2">
+        <div class="rrhh-card-title">🏆 Reconocimiento — Liga TGP</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris3);margin-bottom:10px">Sistema de puntos</div>
+            <p style="font-size:13px;color:var(--gris1);line-height:1.6;margin-bottom:10px">La Liga TGP acumula puntos a lo largo del tiempo. Suma puntos por: 1° en podio semanal, ganar premios mensuales, cohetes, actividades y más.</p>
+            <a href="https://liga-tgp.vercel.app/" target="_blank" class="solicitud-item">
+              <span class="solicitud-icon">🏅</span><span class="solicitud-text">Ver mi posición en la Liga</span><span class="solicitud-arr">↗</span>
+            </a>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris3);margin-bottom:10px">Premios mensuales</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--gris5);border-radius:7px;font-size:12px"><span>🏆 SDR del Mes</span><span style="font-weight:700;color:var(--azul)">+5 pts</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--gris5);border-radius:7px;font-size:12px"><span>📞 Llamador del Mes</span><span style="font-weight:700;color:var(--azul)">+4 pts</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--gris5);border-radius:7px;font-size:12px"><span>✅ Rey de las Validaciones</span><span style="font-weight:700;color:var(--azul)">+4 pts</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--gris5);border-radius:7px;font-size:12px"><span>🚫 No Show Killer</span><span style="font-weight:700;color:var(--azul)">+4 pts</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--gris5);border-radius:7px;font-size:12px"><span>🤌 Salvatore</span><span style="font-weight:700;color:var(--azul)">+4 pts</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--gris5);border-radius:7px;font-size:12px"><span>🎙️ Mejor llamada</span><span style="font-weight:700;color:var(--azul)">+3 pts</span></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris3);margin-bottom:10px">Cohetes 🚀</div>
+            <p style="font-size:13px;color:var(--gris1);line-height:1.6;margin-bottom:8px">Reconocimiento especial por demostrar un valor TGP. Se entrega en la Reunión Ampliada con mención pública.</p>
+            <div class="callout c-ok" style="font-size:12px"><span class="callout-i">✨</span><div>Cada cohete está asociado a uno de los 7 valores TGP y suma puntos a la Liga.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Directorio (full width) -->
+      <div class="rrhh-card" style="grid-column:span 2">
+        <div class="rrhh-card-title">📞 ¿A quién le escribo?</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">💰 Pagos, comisiones, montos</div><div style="font-size:12px;color:var(--gris2)">finanzas@thegrowth.pro</div></div>
+          <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">🏖️ Ausencias, vacaciones, remoto</div><div style="font-size:12px;color:var(--gris2)">Formulario "Solicitar ausencia" (arriba)</div></div>
+          <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">🤒 Licencias médicas (FT)</div><div style="font-size:12px;color:var(--gris2)">BUK + avisar a RRHH por Slack</div></div>
+          <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">🔑 Acceso a oficina / huella</div><div style="font-size:12px;color:var(--gris2)">RRHH (Belén) por Slack</div></div>
+          <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">📧 Dudas de bandejas, clientes, rol</div><div style="font-size:12px;color:var(--gris2)">Manager o SDR Senior del pod</div></div>
+          <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">🖥️ Acceso a plataformas (App, Drive, BUK)</div><div style="font-size:12px;color:var(--gris2)">Manager del pod</div></div>
+          <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">💬 Feedback, sugerencias, reclamos</div><div style="font-size:12px;color:var(--gris2)">Formulario confidencial (arriba)</div></div>
+          <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">❓ Dudas generales de RRHH</div><div style="font-size:12px;color:var(--gris2)">RRHH (Belén) por Slack</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -833,6 +981,30 @@ const CONTENT_OVERRIDES = {};
 // Podés cambiar: title, badge, y todo el texto dentro de content()
 // ════════════════════════════════════════════════════════════════
 const ADMIN_STEPS = [
+  {
+    id:'admin-quienes',
+    icon:'🚀',
+    badge:'Antes de empezar',
+    title:'¿Qué es TGP?',
+    keywords:'tgp empresa mision vision valores fundadores quienes somos proposito autonomia accountability excelencia',
+    content: () => `
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px">
+        <div style="background:var(--brand);color:#fff;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;opacity:.6;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">Propósito</div><div style="font-size:14px;font-weight:700">Que los clientes vendan más.</div></div>
+        <div style="background:var(--brand);color:#fff;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;opacity:.6;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">Misión</div><div style="font-size:12px;font-weight:600;line-height:1.5">Prospección comercial B2B de alta calidad que convierte contactos en oportunidades reales y calificadas.</div></div>
+        <div style="background:var(--brand);color:#fff;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;opacity:.6;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">Visión</div><div style="font-size:12px;font-weight:600;line-height:1.5">Ser la empresa de ventas B2B líder en el mundo.</div></div>
+      </div>
+      <h3 class="sh">7 Valores TGP</h3>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)"><span style="font-size:13px;font-weight:700;color:var(--negro)">Autonomía — </span><span style="font-size:13px;color:var(--gris1)">Trabajo de forma independiente. Pido ayuda solo después de agotar los recursos propios.</span></div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)"><span style="font-size:13px;font-weight:700;color:var(--negro)">Accountability — </span><span style="font-size:13px;color:var(--gris1)">Rindo cuentas de forma proactiva y me hago responsable de lo que hago y no hago.</span></div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)"><span style="font-size:13px;font-weight:700;color:var(--negro)">Excelencia — </span><span style="font-size:13px;color:var(--gris1)">Busco siempre la perfección. Estudio al prospecto y su empresa antes de agendar.</span></div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)"><span style="font-size:13px;font-weight:700;color:var(--negro)">Diligencia — </span><span style="font-size:13px;color:var(--gris1)">Actúo con agilidad y sentido de urgencia. Lo acordado se registra y se pone en marcha de inmediato.</span></div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)"><span style="font-size:13px;font-weight:700;color:var(--negro)">Calidez — </span><span style="font-size:13px;color:var(--gris1)">Me relaciono desde la cercanía y el respeto. Saludo y doy la bienvenida a los nuevos.</span></div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)"><span style="font-size:13px;font-weight:700;color:var(--negro)">Trabajo en equipo — </span><span style="font-size:13px;color:var(--gris1)">Hago visible lo que está bien hecho. Reconozco el esfuerzo y los resultados del equipo.</span></div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)"><span style="font-size:13px;font-weight:700;color:var(--negro)">Aprendizaje continuo — </span><span style="font-size:13px;color:var(--gris1)">Me formo y formo a otros de forma continua. Aplico el feedback como herramienta de desarrollo.</span></div>
+      </div>
+    `
+  },
   {
     id:'admin-bienvenida',
     icon:'🎉',
@@ -1327,21 +1499,24 @@ const SDR_STEPS = [
     icon:'🔔',
     badge:'Obligatorio',
     title:'Recordatorios y No Show',
-    keywords:'recordatorio no show whatsapp realizacion seguimiento programar correo alarma',
+    keywords:'recordatorio no show whatsapp realizacion seguimiento programar correo alarma bot testnoshow canal pod',
     content: () => `
-      <p class="pt">Programar 2 correos recordatorios es <strong>obligatorio</strong>. Te va a ayudar a tener un buen % de realización y un % bajo de No Show.</p>
+      <div class="callout c-warn"><span class="callout-i">🔴</span><div>Si la reunión no se realiza = No Show = no es válida = no genera comisión. El SDR es responsable de que la reunión se haga.</div></div>
+      <h3 class="sh">Recordatorios — obligatorio</h3>
+      <p class="pt">Programar <strong>2 correos recordatorios</strong> (día antes y hora antes) es obligatorio para toda reunión agendada.</p>
       <div class="link-row">
         <a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank" class="lbtn lbtn-vid">▶ Video: Programar recordatorios</a>
       </div>
-      <h3 class="sh">🆕 WhatsApp automático</h3>
-      <div class="callout c-info"><span class="callout-i">📱</span><div><b>Nueva funcionalidad</b>TGP envía automáticamente un recordatorio por WhatsApp <strong>1 hora antes</strong> de la reunión. Si el prospecto responde, te llega notificación en el canal de No Show de tu pod en Slack — respondés directo desde Slack.</div></div>
-      <h3 class="sh">Lo que hacen los mejores SDRs</h3>
+      <h3 class="sh">Sistema automático — Bot TestNoShow</h3>
+      <div class="callout c-info"><span class="callout-i">🤖</span><div><b>Bot TestNoShow</b>Monitorea cada reunión automáticamente. A los +4, +8 y +15 minutos verifica quién está conectado en Google Meet y reporta en el canal <strong>pod-[nombre]-noshow</strong> de Slack: estado (YesShow / No-Show), presentes y ausentes. Si se confirma el No-Show, registra el veredicto en la base de datos.</div></div>
+      <div class="callout c-ok"><span class="callout-i">📱</span><div><b>WhatsApp automático</b>TGP envía recordatorio por WhatsApp <strong>1 hora antes</strong> de la reunión. Si el prospecto responde, recibís notificación en tu canal de no-show y podés responderle directo desde Slack.</div></div>
+      <h3 class="sh">Tu responsabilidad ante un No-Show</h3>
       <ul class="info-list">
-        <li>Llamado preventivo 20 minutos antes para confirmar asistencia.</li>
-        <li>Alarma a la hora de la reunión + entrar a la sala de espera en Meet.</li>
-        <li>Si hay No Show: llamar inmediatamente y reagendar.</li>
+        <li>Revisar tu canal <strong>pod-[nombre]-noshow</strong> en Slack.</li>
+        <li>Contactar al prospecto inmediatamente (llamado, WhatsApp, correo).</li>
+        <li>Reagendar la reunión en la App TGP y avisar al cliente.</li>
       </ul>
-      <div class="callout c-warn"><span class="callout-i">🔴</span><div>Si la reunión no se realiza = No Show = no es válida = no genera comisión. El SDR es responsable de que la reunión se haga.</div></div>
+      <div class="callout c-tip"><span class="callout-i">💡</span><div><b>Tip preventivo</b>Llamá al prospecto <strong>20 minutos antes</strong> de cada reunión para confirmar asistencia.</div></div>
     `
   },
   {
@@ -1774,6 +1949,7 @@ const RES_CATEGORIES = [
   { id:'oficina',      label:'🏢 Oficina' },
   { id:'sdr',          label:'📧 Proceso SDR' },
   { id:'referencia',   label:'🗂️ Referencia' },
+  { id:'pagos',        label:'💰 Pagos y Boletas' },
 ];
 
 const RES_DATA = [
@@ -2055,6 +2231,22 @@ const RES_DATA = [
           <tr><td>Lusha</td><td><a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank">Ver ▶</a></td></tr>
         </tbody>
       </table>`
+  },
+  {
+    category:'pagos',
+    icon:'💰', title:'Pagos y Boletas', sub:'Datos TGP SpA, SII, proceso de cobro',
+    keywords:'pagos boleta honorarios sii razon social rut tgp spa finanzas comisiones cobro',
+    body:`
+      <h3 class="sh">Datos TGP SpA para tu boleta</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:11px;font-weight:700;color:var(--gris2);margin-bottom:3px">Razón Social</div><div style="font-size:14px;font-weight:700;color:var(--negro)">TGP SpA</div></div>
+        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:11px;font-weight:700;color:var(--gris2);margin-bottom:3px">RUT</div><div style="font-size:14px;font-weight:700;color:var(--negro)">77.628.885-3</div></div>
+        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4);grid-column:span 2"><div style="font-size:11px;font-weight:700;color:var(--gris2);margin-bottom:3px">Dirección fiscal</div><div style="font-size:13px;font-weight:600;color:var(--negro)">Hermanos Cabot 6777, depto 87</div></div>
+      </div>
+      <div class="callout c-info"><span class="callout-i">💬</span><div>Dudas sobre montos, comisiones, pagos o plazos: <strong>finanzas@thegrowth.pro</strong></div></div>
+      <div class="link-row" style="margin-top:12px">
+        <a href="https://www.sii.cl" target="_blank" class="lbtn lbtn-doc">🧾 Portal SII — emitir boleta</a>
+      </div>`
   }
 ];
 
