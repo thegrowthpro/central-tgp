@@ -905,6 +905,10 @@ body.admin-mode .res-wrap{padding-bottom:72px}
         <input type="url" id="boletinLink" placeholder="https://...">
       </div>
     </div>
+    <div class="boletin-field" id="boletinLinkLabelWrap" style="display:none">
+      <label>Texto del botón del link</label>
+      <input type="text" id="boletinLinkLabel" placeholder="Ej: Postular, Ver formulario, Abrir documento">
+    </div>
     <div class="boletin-modal-btns">
       <button class="boletin-modal-save" onclick="saveBoletinItem()">Publicar →</button>
       <button class="boletin-modal-cancel" onclick="closeBoletinModal()">Cancelar</button>
@@ -2403,7 +2407,8 @@ function isBoletinAdmin() {
 function renderBoletinCard(id, d) {
   const t = BOLETIN_TYPES[d.tipo] || BOLETIN_TYPES.aviso;
   const fecha = d.fecha ? `<span class="boletin-date">${formatBoletinDate(d.fecha)}</span>` : '';
-  const link = d.link ? `<a href="${d.link}" target="_blank" class="boletin-card-link">Ver más ↗</a>` : '';
+  const linkLabel = d.linkLabel || 'Ver más';
+  const link = d.link ? `<a href="${d.link}" target="_blank" class="lbtn lbtn-app" style="margin-top:10px;display:inline-flex;font-size:12px;padding:7px 14px">${linkLabel} ↗</a>` : '';
   const actions = isBoletinAdmin() ? `
     <div class="boletin-card-actions">
       <button class="boletin-action-btn" onclick="editBoletinItem('${id}')" title="Editar">✏️</button>
@@ -2417,7 +2422,7 @@ function renderBoletinCard(id, d) {
         ${fecha}
       </div>
       <div class="boletin-card-title">${d.titulo}</div>
-      ${d.desc ? `<div class="boletin-card-desc">${d.desc}</div>` : ''}
+      ${d.desc ? `<div class="boletin-card-desc">${d.desc.replace(/\n/g,'<br>')}</div>` : ''}
       ${link}
     </div>
     ${actions}
@@ -2458,7 +2463,12 @@ function openBoletinModal(prefill) {
   document.getElementById('boletinDesc').value = '';
   document.getElementById('boletinFecha').value = '';
   document.getElementById('boletinLink').value = '';
+  document.getElementById('boletinLinkLabel').value = '';
+  document.getElementById('boletinLinkLabelWrap').style.display = 'none';
   document.getElementById('boletinModalTitle').textContent = '📋 Publicar aviso';
+  document.getElementById('boletinLink').oninput = function() {
+    document.getElementById('boletinLinkLabelWrap').style.display = this.value ? 'block' : 'none';
+  };
   if (prefill) {
     document.getElementById('boletinEditId').value = prefill.id || '';
     document.getElementById('boletinTipo').value = prefill.tipo || 'aviso';
@@ -2466,6 +2476,8 @@ function openBoletinModal(prefill) {
     document.getElementById('boletinDesc').value = prefill.desc || '';
     document.getElementById('boletinFecha').value = prefill.fecha || '';
     document.getElementById('boletinLink').value = prefill.link || '';
+    document.getElementById('boletinLinkLabel').value = prefill.linkLabel || '';
+    if (prefill.link) document.getElementById('boletinLinkLabelWrap').style.display = 'block';
     document.getElementById('boletinModalTitle').textContent = '✏️ Editar aviso';
   }
 }
@@ -2487,6 +2499,7 @@ function saveBoletinItem() {
     desc:  document.getElementById('boletinDesc').value.trim(),
     fecha: document.getElementById('boletinFecha').value,
     link:  document.getElementById('boletinLink').value.trim(),
+    linkLabel: document.getElementById('boletinLinkLabel').value.trim(),
     createdAt: firebase.database.ServerValue.TIMESTAMP,
   };
   if (btn) { btn.disabled = true; btn.textContent = 'Publicando…'; }
