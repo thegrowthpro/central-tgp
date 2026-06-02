@@ -1144,17 +1144,17 @@ const ADMIN_STEPS = [
     title:'¡Bienvenido/a a TGP!',
     keywords:'bienvenida inicio primer dia estructura',
     content: () => `
-      <p class="pt">Este onboarding está dividido en pasos. Podés avanzar a tu propio ritmo — el sistema guarda tu progreso automáticamente.</p>
-      <div class="callout c-info"><span class="callout-i">ℹ️</span><div><b>Estructura del onboarding</b>Esta primera parte es para <strong>todos los colaboradores de TGP</strong>. Cubre la configuración inicial y los beneficios. ${STATE.role==='sdr' ? 'Una vez que la completes, se habilitará la parte específica de SDR Junior.' : ''}</div></div>
-      <h3 class="sh">¿Qué vas a hacer hoy?</h3>
-      <ul class="info-list">
-        <li>Completar tu formulario de datos personales</li>
-        <li>Configurar tus herramientas de trabajo (Slack, Calendar, Meet)</li>
-        <li>Actualizar tu LinkedIn</li>
-        <li>Conocer los beneficios (almuerzo, salas)</li>
-        <li>Guardar los links importantes en Chrome</li>
-      </ul>
-      <div class="callout c-ok"><span class="callout-i">✅</span><div>Cuando completes cada paso, presiona el botón de abajo para avanzar al siguiente. ¡Empecemos!</div></div>
+      <p class="pt">Este onboarding está dividido en pasos — cada uno te guía por una tarea concreta. Puedes avanzar a tu propio ritmo y el sistema guarda tu progreso automáticamente.</p>
+      <h3 class="sh">Lo que vas a cubrir en los siguientes pasos</h3>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">📋</span> Datos personales</div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">💬</span> Configurar Slack</div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">📅</span> Google Calendar y Meet</div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">💼</span> Actualizar LinkedIn</div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">🍽️</span> Beneficios (almuerzo y salas)</div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">🔗</span> Documentos clave en Chrome</div>
+      </div>
+      <div class="callout c-ok"><span class="callout-i">👇</span><div>Cada paso te indica exactamente qué hacer. Cuando termines, presiona el botón para continuar al siguiente.</div></div>
     `
   },
   {
