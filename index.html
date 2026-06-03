@@ -380,7 +380,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .boletin-add-btn:hover{background:var(--brand2)}
 .boletin-empty{text-align:center;padding:32px;color:var(--gris3);font-size:14px;background:var(--blanco);border:1.5px dashed var(--gris4);border-radius:12px}
 .boletin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;align-items:start}
-.boletin-card{background:var(--blanco);border:1.5px solid var(--gris4);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;transition:box-shadow .15s;min-height:160px}
+.boletin-card{background:var(--blanco);border:1.5px solid var(--gris4);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;transition:box-shadow .15s}
 .boletin-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
 .boletin-type-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px}
 .boletin-card-body{flex:1;min-width:0}
@@ -2635,7 +2635,10 @@ function loadBoletin() {
       list.innerHTML = '<div class="boletin-empty">No hay novedades por ahora.</div>';
       return;
     }
-    list.innerHTML = '<div class="boletin-grid">' + items.map(item => renderBoletinCard(item.id, item, item.completados || null)).join('') + '</div>';
+    const gridStyle = items.length === 1
+      ? 'display:flex;flex-direction:column;gap:14px'
+      : 'display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;align-items:start';
+    list.innerHTML = `<div class="boletin-grid" style="${gridStyle}">` + items.map(item => renderBoletinCard(item.id, item, item.completados || null)).join('') + '</div>';
   });
 }
 
