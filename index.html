@@ -536,10 +536,10 @@ body.admin-mode .res-wrap{padding-bottom:72px}
     <!-- BOLETÍN -->
     <div class="boletin-wrap">
       <div class="boletin-header">
-        <div class="boletin-title">📋 Novedades</div>
+        <div class="boletin-title">📋 Avisos importantes</div>
         <button class="boletin-add-btn" id="boletinAddBtn" style="display:none" onclick="openBoletinModal()">+ Publicar aviso</button>
       </div>
-      <div id="boletinList"><div class="boletin-empty">No hay novedades por ahora.</div></div>
+      <div id="boletinList"><div class="boletin-empty">No hay avisos por ahora.</div></div>
     </div>
 
     <div style="height:28px"></div>
@@ -2626,13 +2626,13 @@ function loadBoletin() {
     const list = document.getElementById('boletinList');
     if (!list) return;
     if (!snap.exists()) {
-      list.innerHTML = '<div class="boletin-empty">No hay novedades por ahora.</div>';
+      list.innerHTML = '<div class="boletin-empty">No hay avisos por ahora.</div>';
       return;
     }
     const items = [];
     snap.forEach(child => items.unshift({id: child.key, ...child.val()}));
     if (!items.length) {
-      list.innerHTML = '<div class="boletin-empty">No hay novedades por ahora.</div>';
+      list.innerHTML = '<div class="boletin-empty">No hay avisos por ahora.</div>';
       return;
     }
     const gridStyle = items.length === 1
