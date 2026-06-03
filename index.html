@@ -2642,6 +2642,25 @@ function loadBoletin() {
   });
 }
 
+function refreshBoletin() {
+  if (!db) return;
+  db.ref('boletin').orderByChild('createdAt').once('value', snap => {
+    const list = document.getElementById('boletinList');
+    if (!list) return;
+    if (!snap.exists()) {
+      list.innerHTML = '<div class="boletin-empty">No hay avisos por ahora.</div>';
+      return;
+    }
+    const items = [];
+    snap.forEach(child => items.unshift({id: child.key, ...child.val()}));
+    if (!items.length) { list.innerHTML = '<div class="boletin-empty">No hay avisos por ahora.</div>'; return; }
+    const gridStyle = items.length === 1
+      ? 'display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;align-items:start'
+      : 'display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,240px));gap:14px;align-items:start';
+    list.innerHTML = `<div class="boletin-grid" style="${gridStyle}">` + items.map(item => renderBoletinCard(item.id, item, item.completados || null)).join('') + '</div>';
+  });
+}
+
 function formatBoletinDate(dateStr) {
   if (!dateStr) return '';
   const [y,m,d] = dateStr.split('-');
@@ -2708,8 +2727,8 @@ function saveBoletinItem() {
   }
   writeRef.set(data)
     .then(() => {
-      alert('✅ Aviso publicado correctamente');
       closeBoletinModal();
+      refreshBoletin();
     })
     .catch(err => {
       alert('❌ Error: ' + (err.message || err.code || JSON.stringify(err)));
