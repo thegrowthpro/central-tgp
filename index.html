@@ -2696,14 +2696,27 @@ function saveBoletinItem() {
     fecha: document.getElementById('boletinFecha').value,
     link:  document.getElementById('boletinLink').value.trim(),
     linkLabel: document.getElementById('boletinLinkLabel').value.trim(),
-    createdAt: firebase.database.ServerValue.TIMESTAMP,
+    createdAt: Date.now(),
   };
   if (btn) { btn.disabled = true; btn.textContent = 'Publicando…'; }
-  const ref = id ? db.ref('boletin/' + id) : db.ref('boletin').push();
-  ref.set(data)
-    .then(() => { closeBoletinModal(); })
-    .catch(err => { alert('Error al publicar: ' + err.code + ' — ' + err.message); })
-    .finally(() => { if (btn) { btn.disabled = false; btn.textContent = 'Publicar →'; } });
+  let writeRef;
+  if (id) {
+    writeRef = db.ref('boletin/' + id);
+  } else {
+    const newKey = db.ref('boletin').push().key;
+    writeRef = db.ref('boletin/' + newKey);
+  }
+  writeRef.set(data)
+    .then(() => {
+      closeBoletinModal();
+    })
+    .catch(err => {
+      alert('Error al publicar: ' + (err.message || err.code || 'Error desconocido'));
+      if (btn) { btn.disabled = false; btn.textContent = 'Publicar →'; }
+    })
+    .finally(() => {
+      if (btn) { btn.disabled = false; btn.textContent = 'Publicar →'; }
+    });
 }
 
 function editBoletinItem(id) {
