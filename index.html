@@ -2708,10 +2708,11 @@ function saveBoletinItem() {
   }
   writeRef.set(data)
     .then(() => {
+      alert('✅ Aviso publicado correctamente');
       closeBoletinModal();
     })
     .catch(err => {
-      alert('Error al publicar: ' + (err.message || err.code || 'Error desconocido'));
+      alert('❌ Error: ' + (err.message || err.code || JSON.stringify(err)));
       if (btn) { btn.disabled = false; btn.textContent = 'Publicar →'; }
     })
     .finally(() => {
