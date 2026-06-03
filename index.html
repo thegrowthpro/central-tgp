@@ -379,9 +379,9 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .boletin-add-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;background:var(--brand);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s}
 .boletin-add-btn:hover{background:var(--brand2)}
 .boletin-empty{text-align:center;padding:32px;color:var(--gris3);font-size:14px;background:var(--blanco);border:1.5px dashed var(--gris4);border-radius:12px}
-.boletin-grid{display:flex;flex-direction:column;gap:10px}
-.boletin-card{background:var(--blanco);border:1.5px solid var(--gris4);border-radius:12px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;transition:box-shadow .15s}
-.boletin-card:hover{box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.boletin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;align-items:start}
+.boletin-card{background:var(--blanco);border:1.5px solid var(--gris4);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;transition:box-shadow .15s;min-height:160px}
+.boletin-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
 .boletin-type-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px}
 .boletin-card-body{flex:1;min-width:0}
 .boletin-card-top{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}
@@ -2586,19 +2586,18 @@ function renderBoletinCard(id, d, completados) {
     }
   }
 
-  return `<div class="boletin-card" id="bcard-${id}">
-    <div class="boletin-type-dot" style="background:${t.color}"></div>
-    <div class="boletin-card-body">
-      <div class="boletin-card-top">
-        <span class="boletin-badge" style="background:${t.bg};color:${t.text}">${t.label}</span>
-        ${fecha}
-      </div>
-      <div class="boletin-card-title">${d.titulo}</div>
-      ${d.desc ? `<div class="boletin-card-desc">${d.desc.replace(/\n/g,'<br>')}</div>` : ''}
-      ${link}
-      ${trackingHtml}
+  return `<div class="boletin-card" id="bcard-${id}" style="border-top:3px solid ${t.color}">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+      <span class="boletin-badge" style="background:${t.bg};color:${t.text}">${t.label}</span>
+      ${adminActions}
     </div>
-    ${adminActions}
+    <div class="boletin-card-title" style="font-size:15px;margin-top:2px">${d.titulo}</div>
+    ${d.desc ? `<div class="boletin-card-desc">${d.desc.replace(/\n/g,'<br>')}</div>` : ''}
+    ${trackingHtml}
+    <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--gris4)">
+      ${fecha ? `<span class="boletin-date">📅 ${fecha}</span>` : '<span></span>'}
+      ${link}
+    </div>
   </div>`;
 }
 
@@ -2649,6 +2648,8 @@ function formatBoletinDate(dateStr) {
 
 function openBoletinModal(prefill) {
   document.getElementById('boletinModalOverlay').classList.remove('hidden');
+  const btn = document.querySelector('.boletin-modal-save');
+  if (btn) { btn.disabled = false; btn.textContent = 'Publicar →'; }
   document.getElementById('boletinEditId').value = '';
   document.getElementById('boletinTipo').value = 'aviso';
   document.getElementById('boletinTitulo').value = '';
