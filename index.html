@@ -2644,21 +2644,19 @@ function loadBoletin() {
 
 function refreshBoletin() {
   if (!db) return;
-  db.ref('boletin').orderByChild('createdAt').once('value', snap => {
+  db.ref('boletin').once('value').then(snap => {
     const list = document.getElementById('boletinList');
     if (!list) return;
-    if (!snap.exists()) {
-      list.innerHTML = '<div class="boletin-empty">No hay avisos por ahora.</div>';
-      return;
-    }
+    if (!snap.exists()) { list.innerHTML = '<div class="boletin-empty">No hay avisos por ahora.</div>'; return; }
     const items = [];
-    snap.forEach(child => items.unshift({id: child.key, ...child.val()}));
+    snap.forEach(child => { items.push({id: child.key, ...child.val()}); });
+    items.sort((a,b) => (b.createdAt||0) - (a.createdAt||0));
     if (!items.length) { list.innerHTML = '<div class="boletin-empty">No hay avisos por ahora.</div>'; return; }
     const gridStyle = items.length === 1
       ? 'display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;align-items:start'
       : 'display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,240px));gap:14px;align-items:start';
-    list.innerHTML = `<div class="boletin-grid" style="${gridStyle}">` + items.map(item => renderBoletinCard(item.id, item, item.completados || null)).join('') + '</div>';
-  });
+    list.innerHTML = '<div class="boletin-grid" style="' + gridStyle + '">' + items.map(item => renderBoletinCard(item.id, item, item.completados||null)).join('') + '</div>';
+  }).catch(err => { console.warn('refreshBoletin error:', err); });
 }
 
 function formatBoletinDate(dateStr) {
@@ -2702,34 +2700,28 @@ function closeBoletinModal() {
 }
 
 function saveBoletinItem() {
-  try {
-    const btn = document.querySelector('.boletin-modal-save');
-    if (!db) { alert('db es null'); return; }
-    if (!currentUser) { alert('no hay usuario'); return; }
-    alert('usuario: ' + currentUser.email + ' | isAdmin: ' + isBoletinAdmin());
-    if (!isBoletinAdmin()) { alert('Sin permisos de admin.'); return; }
-    const id = document.getElementById('boletinEditId').value;
-    const titulo = document.getElementById('boletinTitulo').value.trim();
-    if (!titulo) { alert('El título es obligatorio.'); return; }
-    const data = {
-      tipo:  document.getElementById('boletinTipo').value,
-      titulo,
-      desc:  document.getElementById('boletinDesc').value.trim(),
-      fecha: document.getElementById('boletinFecha').value,
-      link:  document.getElementById('boletinLink').value.trim(),
-      linkLabel: document.getElementById('boletinLinkLabel').value.trim(),
-      createdAt: Date.now(),
-    };
-    if (btn) { btn.disabled = true; btn.textContent = 'Publicando…'; }
-    const newKey = id || db.ref('boletin').push().key;
-    const writeRef = db.ref('boletin/' + newKey);
-    writeRef.set(data)
-      .then(() => { closeBoletinModal(); refreshBoletin(); })
-      .catch(err => { alert('❌ Firebase error: ' + (err.message || err.code)); if (btn) { btn.disabled = false; btn.textContent = 'Publicar →'; } })
-      .finally(() => { if (btn) { btn.disabled = false; btn.textContent = 'Publicar →'; } });
-  } catch(e) {
-    alert('❌ JS Error: ' + e.message);
-  }
+  const btn = document.querySelector('.boletin-modal-save');
+  if (!db || !isBoletinAdmin()) return;
+  const id = document.getElementById('boletinEditId').value;
+  const titulo = document.getElementById('boletinTitulo').value.trim();
+  if (!titulo) { alert('El título es obligatorio.'); return; }
+  const data = {
+    tipo: document.getElementById('boletinTipo').value,
+    titulo,
+    desc: document.getElementById('boletinDesc').value.trim(),
+    fecha: document.getElementById('boletinFecha').value,
+    link: document.getElementById('boletinLink').value.trim(),
+    linkLabel: document.getElementById('boletinLinkLabel').value.trim(),
+    createdAt: Date.now(),
+  };
+  if (btn) { btn.disabled = true; btn.textContent = 'Publicando…'; }
+  const promise = id
+    ? db.ref('boletin/' + id).set(data)
+    : db.ref('boletin').push(data);
+  promise
+    .then(() => { closeBoletinModal(); refreshBoletin(); })
+    .catch(err => { alert('Error: ' + err.message); })
+    .finally(() => { if (btn) { btn.disabled = false; btn.textContent = 'Publicar →'; } });
 }
 
 function editBoletinItem(id) {
