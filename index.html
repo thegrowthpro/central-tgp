@@ -2939,9 +2939,14 @@ function renderOrg(){
     (ORG_CENTRAL.find(c=>c.nombre==='Benjamin Apt')?.subs||[]).map(s=>subCard(s)).join(''),'Specialists');
 
   el.innerHTML=`
-    <div class="org-row" style="margin-bottom:20px">
-      ${orgCard({nombre:'Samuel Weinstein',cargo:'Cofundador',email:''})}
-      ${orgCard({nombre:'Ariel Kauderer',cargo:'Cofundador',email:''})}
+    <!-- Fundadores alineados con la columna central -->
+    <div class="org-3col" style="margin-bottom:12px">
+      <div></div>
+      <div style="display:flex;justify-content:center;gap:8px">
+        ${orgCard({nombre:'Samuel Weinstein',cargo:'Cofundador',email:''})}
+        ${orgCard({nombre:'Ariel Kauderer',cargo:'Cofundador',email:''})}
+      </div>
+      <div></div>
     </div>
 
     <div class="org-3col">
