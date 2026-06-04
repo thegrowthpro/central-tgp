@@ -423,6 +423,25 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .boletin-who-btn{font-size:11px;color:var(--azul);background:none;border:none;cursor:pointer;font-family:inherit;padding:0;margin-top:4px}
 .boletin-who-btn:hover{text-decoration:underline}
 
+/* ── SUGERENCIAS ── */
+.sug-fab{position:fixed;bottom:24px;right:24px;z-index:700;background:var(--brand);color:#fff;border:none;border-radius:50px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:all .18s}
+.sug-fab:hover{background:var(--brand2);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.sug-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:800;display:flex;align-items:center;justify-content:center}
+.sug-overlay.hidden{display:none}
+.sug-modal{background:#fff;border-radius:16px;padding:28px;max-width:420px;width:92%;box-shadow:0 24px 64px rgba(0,0,0,.25)}
+.sug-title{font-size:18px;font-weight:800;color:var(--negro);margin-bottom:6px;letter-spacing:-.2px}
+.sug-sub{font-size:13px;color:var(--gris2);margin-bottom:18px;line-height:1.5}
+.sug-textarea{width:100%;padding:12px;border:1.5px solid var(--gris4);border-radius:10px;font-size:14px;font-family:inherit;resize:vertical;min-height:100px;outline:none;color:var(--negro);transition:border-color .15s}
+.sug-textarea:focus{border-color:var(--azul)}
+.sug-btns{display:flex;gap:10px;margin-top:14px}
+.sug-send{flex:1;padding:11px;background:var(--brand);color:#fff;border:none;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+.sug-send:hover{background:var(--brand2)}
+.sug-cancel{padding:11px 18px;background:var(--gris5);color:var(--gris1);border:1.5px solid var(--gris4);border-radius:9px;font-size:14px;cursor:pointer;font-family:inherit}
+/* Panel admin sugerencias */
+.sug-admin-item{background:var(--gris5);border:1px solid var(--gris4);border-radius:8px;padding:12px;margin-bottom:8px}
+.sug-admin-meta{font-size:11px;color:var(--gris3);margin-bottom:4px}
+.sug-admin-text{font-size:13px;color:var(--negro);line-height:1.5}
+
 /* ── RESOURCE LINK BLOCKS ── */
 .res-link-block{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 8px;border-radius:9px;text-decoration:none;gap:5px;transition:all .15s;text-align:center;min-height:72px}
 .res-link-block span:first-child{font-size:18px}
@@ -1056,6 +1075,22 @@ body.admin-mode .res-wrap{padding-bottom:72px}
   </div>
 </div>
 
+<!-- Botón flotante sugerencias -->
+<button class="sug-fab" id="sugFab" onclick="openSug()" style="display:none">💬 ¿Falta algo?</button>
+
+<!-- Modal sugerencias -->
+<div class="sug-overlay hidden" id="sugOverlay" onclick="if(event.target===this)closeSug()">
+  <div class="sug-modal">
+    <div class="sug-title">💬 ¿No encontraste algo?</div>
+    <div class="sug-sub">Dejanos tu sugerencia, consulta o cualquier cosa que te gustaría ver en la Central. Lo revisamos y lo agregamos.</div>
+    <textarea class="sug-textarea" id="sugText" placeholder="Ej: No encontré cómo pedir certificado laboral, falta info sobre..."></textarea>
+    <div class="sug-btns">
+      <button class="sug-send" onclick="sendSug()">Enviar →</button>
+      <button class="sug-cancel" onclick="closeSug()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- BOLETÍN: MODAL AGREGAR/EDITAR                             -->
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -1188,6 +1223,7 @@ auth.onAuthStateChanged(user => {
     document.getElementById('topbarAvatar').textContent = firstName.charAt(0).toUpperCase();
     document.getElementById('homeGreeting').textContent = '¡Hola, ' + firstName + '! 👋';
     if (isBoletinAdmin()) document.getElementById('boletinAddBtn').style.display = 'flex';
+    document.getElementById('sugFab').style.display = 'flex';
     loadBoletin();
     showScreen('home');
   } else {
@@ -3028,6 +3064,33 @@ function openOrgModal(data){
   document.getElementById('orgModalOverlay').classList.remove('hidden');
 }
 function closeOrgModal(){document.getElementById('orgModalOverlay').classList.add('hidden');}
+
+// ════════════════════════════════════════════════════════════════
+// SUGERENCIAS
+// ════════════════════════════════════════════════════════════════
+function openSug(){
+  document.getElementById('sugText').value='';
+  document.getElementById('sugOverlay').classList.remove('hidden');
+  setTimeout(()=>document.getElementById('sugText').focus(),80);
+}
+function closeSug(){document.getElementById('sugOverlay').classList.add('hidden');}
+function sendSug(){
+  if(!db||!currentUser)return;
+  const texto=document.getElementById('sugText').value.trim();
+  if(!texto){alert('Escribe tu sugerencia antes de enviar.');return;}
+  const btn=document.querySelector('.sug-send');
+  if(btn){btn.disabled=true;btn.textContent='Enviando…';}
+  db.ref('sugerencias').push({
+    texto,
+    nombre:currentUser.displayName||currentUser.email,
+    email:currentUser.email,
+    fecha:Date.now()
+  }).then(()=>{
+    closeSug();
+    alert('¡Gracias! Tu sugerencia fue enviada. La revisaremos pronto 🙌');
+  }).catch(err=>alert('Error: '+err.message))
+  .finally(()=>{if(btn){btn.disabled=false;btn.textContent='Enviar →';}});
+}
 
 // ════════════════════════════════════════════════════════════════
 // BOLETÍN — Firebase Firestore
