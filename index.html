@@ -501,6 +501,27 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .org-pod-member-info{flex:1;min-width:0}
 .org-pod-member-name{font-size:10px;font-weight:600;color:var(--negro);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .org-pod-member-role{font-size:8px;color:var(--gris3)}
+/* Círculos de pods */
+.org-pods-circles{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:100%}
+.org-pod-circle{width:90px;height:90px;border-radius:50%;border:2px solid var(--gris4);background:var(--blanco);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;text-align:center;padding:8px;box-sizing:border-box;flex-shrink:0}
+.org-pod-circle:hover{border-color:var(--azul);transform:scale(1.06);box-shadow:0 4px 16px rgba(37,99,235,.15)}
+.org-pod-circle-name{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--negro)}
+.org-pod-circle-manager{font-size:8px;color:var(--gris2);margin-top:2px;line-height:1.3}
+/* Modal de pod */
+.org-pod-modal{background:#fff;border-radius:16px;padding:24px;max-width:460px;width:94%;box-shadow:0 24px 64px rgba(0,0,0,.25);max-height:80vh;overflow-y:auto}
+.org-pod-modal-title{font-size:20px;font-weight:900;color:var(--negro);margin-bottom:4px;letter-spacing:-.3px}
+.org-pod-modal-tribu{font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:16px;display:inline-block}
+.org-pod-modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.org-pod-modal-card{background:var(--gris5);border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:background .12s;border:1px solid var(--gris4)}
+.org-pod-modal-card:hover{background:var(--azul-pale);border-color:var(--azul)}
+.org-pod-modal-card.vacante{border:1.5px dashed #fbbf24;background:#fffbeb;cursor:default}
+.org-pod-modal-card.vacante:hover{background:#fffbeb;border-color:#fbbf24}
+.org-pod-modal-card.encap{border-color:#a78bfa;background:#f5f3ff}
+.org-pod-modal-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+.org-pod-modal-name{font-size:12px;font-weight:700;color:var(--negro);line-height:1.3}
+.org-pod-modal-role{font-size:10px;color:var(--gris2)}
+.org-pod-modal-badge{font-size:8px;font-weight:700;padding:2px 6px;border-radius:8px;margin-top:2px;display:inline-block}
+
 /* Modal */
 .org-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:800;display:flex;align-items:center;justify-content:center}
 .org-modal-overlay.hidden{display:none}
@@ -982,6 +1003,20 @@ body.admin-mode .res-wrap{padding-bottom:72px}
       <p style="font-size:14px;color:var(--gris2)">Haz clic en cualquier persona para ver su información.</p>
     </div>
     <div id="orgContent"></div>
+  </div>
+</div>
+
+<!-- Modal Pod -->
+<div class="org-modal-overlay hidden" id="orgPodModalOverlay" onclick="if(event.target===this)closePodModal()">
+  <div class="org-pod-modal">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
+      <div>
+        <div class="org-pod-modal-title" id="podModalTitle"></div>
+        <span class="org-pod-modal-tribu" id="podModalTribu"></span>
+      </div>
+      <button class="org-modal-close" onclick="closePodModal()">✕</button>
+    </div>
+    <div id="podModalContent"></div>
   </div>
 </div>
 
@@ -2697,18 +2732,46 @@ const ORG_HR = [
   {nombre:'Amelia Honorato',cargo:'Talent Acquisition',email:''},
 ];
 const ORG_PODS = [
-  {nombre:'Alpha',tribu:'Tributon',manager:'Manuel Saroka',managerEmail:'manuel.saroka@thegrowth.pro',apoyo:[],juniors:[]},
-  {nombre:'Epsilon',tribu:'Tributon',manager:'Manuel Chadwick',managerEmail:'manuel@thegrowth.pro',apoyo:[],juniors:[]},
-  {nombre:'Delta',tribu:'Tributon',manager:'Cristian Balaguer',managerEmail:'cristianb@thegrowth.pro',apoyo:[],juniors:[]},
-  {nombre:'Gamma',tribu:'Tributon',manager:'Antonela Parzianello',managerEmail:'antonela@thegrowth.pro',apoyo:[],juniors:[]},
-  {nombre:'Rho',tribu:'Tributon',manager:'Sebastián Fantuzzi',managerEmail:'sebastian@thegrowth.pro',apoyo:[
-    {nombre:'Álvaro Levi',cargo:'SDR Senior',email:'',nota:'Senior Coordinator — supervisa y apoya a todos los Seniors de TGP',esCoordinador:true},
-  ],juniors:[]},
-  {nombre:'Omega',tribu:'Tributen',manager:'Tomás Pinedo',managerEmail:'tomasp@thegrowth.pro',apoyo:[],juniors:[]},
-  {nombre:'Sigma',tribu:'Tributen',manager:'Franco Dall\'Olio',managerEmail:'franco@thegrowth.pro',apoyo:[],juniors:[]},
-  {nombre:'Beta',tribu:'Tributen',manager:'Vicente De Aguirre',managerEmail:'vicenteda@thegrowth.pro',apoyo:[],juniors:[]},
-  {nombre:'Zeta',tribu:'Tributen',manager:'Agustín Moraga',managerEmail:'agustin@thegrowth.pro',apoyo:[],juniors:[]},
-  {nombre:'Kappa',tribu:'Tributen',manager:'Rosario Soto',managerEmail:'rosario@thegrowth.pro',apoyo:[],juniors:[]},
+  {nombre:'Alpha',  tribu:'Tributon',manager:'Manuel Saroka',     managerEmail:'manuel.saroka@thegrowth.pro',
+    equipo:[{nombre:'Gonzalo Pizarro',    cargo:'SDR Senior',  email:''},
+            {nombre:'VACANTE',            cargo:'CSR',         email:'',vacante:true},
+            {nombre:'VACANTE',            cargo:'Specialist',  email:'',vacante:true}],juniors:[]},
+  {nombre:'Epsilon',tribu:'Tributon',manager:'Manuel Chadwick',   managerEmail:'manuel@thegrowth.pro',
+    equipo:[{nombre:'Jose Pedro Silva',   cargo:'SDR Senior',  email:''},
+            {nombre:'Ilan Waintrub',      cargo:'CSR',         email:''},
+            {nombre:'VACANTE',            cargo:'Specialist',  email:'',vacante:true}],juniors:[]},
+  {nombre:'Delta',  tribu:'Tributon',manager:'Cristian Balaguer', managerEmail:'cristianb@thegrowth.pro',
+    equipo:[{nombre:'VACANTE',            cargo:'SDR Senior',  email:'',vacante:true},
+            {nombre:'Pedro Bustos',       cargo:'CSR',         email:''},
+            {nombre:'VACANTE',            cargo:'Specialist',  email:'',vacante:true}],juniors:[]},
+  {nombre:'Gamma',  tribu:'Tributon',manager:'Antonela Parzianello',managerEmail:'antonela@thegrowth.pro',
+    equipo:[{nombre:'Santiago Marty',     cargo:'SDR Senior',  email:'',enCapacitacion:true},
+            {nombre:'VACANTE',            cargo:'CSR',         email:'',vacante:true},
+            {nombre:'Manuel Morande',     cargo:'Specialist',  email:''}],juniors:[]},
+  {nombre:'Rho',    tribu:'Tributon',manager:'Sebastián Fantuzzi',managerEmail:'sebastian@thegrowth.pro',
+    equipo:[{nombre:'Álvaro Levi',        cargo:'SDR Senior',  email:'',nota:'Senior Coordinator — supervisa y apoya a todos los Seniors de TGP',esCoordinador:true},
+            {nombre:'Bartolomé Miranda',  cargo:'CSR',         email:''},
+            {nombre:'Franco Casanova',    cargo:'Specialist',  email:''}],juniors:[]},
+  {nombre:'Omega',  tribu:'Tributen',manager:'Tomás Pinedo',      managerEmail:'tomasp@thegrowth.pro',
+    equipo:[{nombre:'Diego Croxatto',     cargo:'SDR Senior',  email:''},
+            {nombre:'Juan Pablo Burgos',  cargo:'CSR',         email:''},
+            {nombre:'Diego Schueftan',    cargo:'Specialist',  email:''}],juniors:[]},
+  {nombre:'Sigma',  tribu:'Tributen',manager:'Franco Dall\'Olio', managerEmail:'franco@thegrowth.pro',
+    equipo:[{nombre:'Dana Cohen',         cargo:'SDR Senior',  email:'',enCapacitacion:true},
+            {nombre:'Matías Fosk',        cargo:'CSR',         email:''},
+            {nombre:'Juan Pablo Cabrera', cargo:'Specialist',  email:''}],juniors:[]},
+  {nombre:'Beta',   tribu:'Tributen',manager:'Vicente De Aguirre',managerEmail:'vicenteda@thegrowth.pro',
+    equipo:[{nombre:'Lucas de la Fuente', cargo:'SDR Senior',  email:'',enCapacitacion:true},
+            {nombre:'Diego Carvajal',     cargo:'CSR',         email:''},
+            {nombre:'VACANTE',            cargo:'Specialist',  email:'',vacante:true}],juniors:[]},
+  {nombre:'Zeta',   tribu:'Tributen',manager:'Agustín Moraga',    managerEmail:'agustin@thegrowth.pro',
+    equipo:[{nombre:'Sebastian Loi',      cargo:'SDR Senior',  email:''},
+            {nombre:'Francisco Rozas',    cargo:'CSR',         email:''},
+            {nombre:'Martín Peredo',      cargo:'Specialist',  email:''}],juniors:[]},
+  {nombre:'Kappa',  tribu:'Tributen',manager:'Rosario Soto',      managerEmail:'rosario@thegrowth.pro',
+    equipo:[{nombre:'Ismael Rodríguez',   cargo:'SDR Senior',  email:''},
+            {nombre:'Agustín Rodríguez',  cargo:'CSR',         email:''},
+            {nombre:'Vicente Rodríguez',  cargo:'Specialist',  email:''}],juniors:[]},
 ];
 function getInitials(n){return n.split(' ').slice(0,2).map(x=>x[0]).join('').toUpperCase();}
 function getColor(c){return ROLE_COLORS[c]||'#6b7280';}
@@ -2718,42 +2781,47 @@ function orgCard(p,extra){
   const badge=p.tribu&&p.tribu!=='Ambas'?`<span class="org-card-badge" style="background:${p.tribu==='Tributon'?'#eff6ff':'#f0fdf4'};color:${p.tribu==='Tributon'?'#1d4ed8':'#15803d'}">${p.tribu}</span>`:'';
   return `<div class="org-card" style="${extra||''}" onclick="openOrgModal(${d})"><div class="org-card-avatar" style="background:${color}">${ini}</div><div class="org-card-name">${p.nombre}</div><div class="org-card-role">${p.cargo}</div>${badge}</div>`;
 }
-function podMemberRow(m, podNombre){
-  const color=getColor(m.cargo),d=encodeURIComponent(JSON.stringify({...m,pod:podNombre}));
-  const badge=m.esCoordinador?`<div class="org-coordinador-badge">★ Senior Coordinator</div>`:'';
-  return `<div class="org-pod-member" onclick="openOrgModal(${d})">
-    <div class="org-pod-member-avatar" style="background:${color}">${getInitials(m.nombre)}</div>
-    <div class="org-pod-member-info">
-      <div class="org-pod-member-name">${m.nombre}</div>
-      <div class="org-pod-member-role">${m.cargo}</div>
-      ${badge}
-    </div>
+function renderPod(pod){
+  const d=encodeURIComponent(JSON.stringify(pod));
+  const tColor=pod.tribu==='Tributon'?'#1d4ed8':'#15803d';
+  return `<div class="org-pod-circle" style="border-color:${tColor}20;border-width:2px" onclick="openPodModal(${d})">
+    <div class="org-pod-circle-name" style="color:${tColor}">${pod.nombre}</div>
+    <div class="org-pod-circle-manager">${pod.manager.split(' ')[0]}</div>
   </div>`;
 }
 
-function renderPod(pod){
-  const mid='pod-'+pod.nombre.toLowerCase();
-  const md=encodeURIComponent(JSON.stringify({nombre:pod.manager,cargo:'Manager',email:pod.managerEmail,pod:pod.nombre}));
-  const apoyo=(pod.apoyo||[]).map(m=>podMemberRow(m,pod.nombre)).join('');
-  const apoyoSection=apoyo?`<div class="org-pod-apoyo">${apoyo}</div>`:'';
-  const jrs=(pod.juniors||[]);
-  const jrRows=jrs.length?jrs.map(m=>podMemberRow(m,pod.nombre)).join(''):'<div style="font-size:10px;color:var(--gris3);text-align:center;padding:4px">Sin Juniors cargados aún</div>';
-  return `<div class="org-pod-card" id="${mid}">
-    <div class="org-pod-header" style="cursor:default">
-      <div class="org-pod-name">${pod.nombre}</div>
-      <div class="org-pod-member" style="border:none;padding:4px 0;cursor:pointer" onclick="openOrgModal(${md})">
-        <div class="org-pod-member-avatar" style="background:${getColor('Manager')}">${getInitials(pod.manager)}</div>
-        <div class="org-pod-member-info">
-          <div class="org-pod-member-name">${pod.manager}</div>
-          <div class="org-pod-member-role">Manager</div>
-        </div>
-      </div>
-    </div>
-    ${apoyoSection}
-    <button class="org-pod-juniors-btn" onclick="toggleJuniors('${mid}')">▼ Ver SDR Juniors</button>
-    <div class="org-pod-juniors" id="${mid}-juniors">${jrRows}</div>
+function openPodModal(data){
+  const pod=typeof data==='string'?JSON.parse(decodeURIComponent(data)):data;
+  const trib=pod.tribu==='Tributon';
+  document.getElementById('podModalTitle').textContent='Pod '+pod.nombre;
+  const te=document.getElementById('podModalTribu');
+  te.textContent=pod.tribu; te.style.background=trib?'#eff6ff':'#f0fdf4'; te.style.color=trib?'#1d4ed8':'#15803d';
+
+  const manCard=`<div class="org-pod-modal-card" style="grid-column:span 2" onclick="openOrgModal(${encodeURIComponent(JSON.stringify({nombre:pod.manager,cargo:'Manager',email:pod.managerEmail,pod:pod.nombre}))})">
+    <div class="org-pod-modal-avatar" style="background:${getColor('Manager')}">${getInitials(pod.manager)}</div>
+    <div><div class="org-pod-modal-name">${pod.manager}</div><div class="org-pod-modal-role">Manager</div></div>
   </div>`;
+
+  const equipoCards=(pod.equipo||[]).map(m=>{
+    const isVac=m.vacante; const isCap=m.enCapacitacion;
+    const color=isVac?'#d97706':getColor(m.cargo);
+    const cls=isVac?'vacante':isCap?'encap':'';
+    const badge=m.esCoordinador?`<span class="org-pod-modal-badge" style="background:#f1f5f9;color:#374151">★ Senior Coord.</span>`:
+                isCap?`<span class="org-pod-modal-badge" style="background:#ede9fe;color:#6d28d9">En capacitación</span>`:'';
+    const d2=isVac?'':encodeURIComponent(JSON.stringify({...m,pod:pod.nombre}));
+    return `<div class="org-pod-modal-card ${cls}" ${isVac?'':'onclick="openOrgModal('+d2+')"'}>
+      <div class="org-pod-modal-avatar" style="background:${color}">${isVac?'?':getInitials(m.nombre)}</div>
+      <div><div class="org-pod-modal-name" style="${isVac?'color:#d97706':''}">${isVac?'Vacante':m.nombre}</div><div class="org-pod-modal-role">${m.cargo}</div>${badge}</div>
+    </div>`;
+  }).join('');
+
+  const jrSection=pod.juniors&&pod.juniors.length?`<div style="margin-top:12px"><div class="org-section-title">SDR Juniors</div><div class="org-pod-modal-grid">${pod.juniors.map(m=>{const d2=encodeURIComponent(JSON.stringify({...m,pod:pod.nombre}));return `<div class="org-pod-modal-card" onclick="openOrgModal(${d2})"><div class="org-pod-modal-avatar" style="background:${getColor(m.cargo)}">${getInitials(m.nombre)}</div><div><div class="org-pod-modal-name">${m.nombre}</div><div class="org-pod-modal-role">${m.cargo}</div></div></div>`;}).join('')}</div></div>`:'';
+
+  document.getElementById('podModalContent').innerHTML=`<div class="org-pod-modal-grid">${manCard}${equipoCards}</div>${jrSection}`;
+  document.getElementById('orgPodModalOverlay').classList.remove('hidden');
 }
+
+function closePodModal(){document.getElementById('orgPodModalOverlay').classList.add('hidden');}
 
 function toggleJuniors(id){
   const j=document.getElementById(id+'-juniors');
@@ -2825,7 +2893,7 @@ function renderOrg(){
         </div>
         ${orgCard(tomasso)}
         <div class="org-section-title" style="margin-top:10px;width:100%">Células</div>
-        <div class="org-pods-grid2">${tributonPods.map(p=>renderPod(p)).join('')}</div>
+        <div class="org-pods-circles">${tributonPods.map(p=>renderPod(p)).join('')}</div>
       </div>
 
       <!-- CENTRAL — 2x2 simétrico -->
@@ -2843,7 +2911,7 @@ function renderOrg(){
         </div>
         ${orgCard(mariajose)}
         <div class="org-section-title" style="margin-top:10px;width:100%">Células</div>
-        <div class="org-pods-grid2">${tributenPods.map(p=>renderPod(p)).join('')}</div>
+        <div class="org-pods-circles">${tributenPods.map(p=>renderPod(p)).join('')}</div>
       </div>
     </div>
   `;
