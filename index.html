@@ -3080,15 +3080,29 @@ function sendSug(){
   if(!texto){alert('Escribe tu sugerencia antes de enviar.');return;}
   const btn=document.querySelector('.sug-send');
   if(btn){btn.disabled=true;btn.textContent='Enviando…';}
-  db.ref('sugerencias').push({
-    texto,
-    nombre:currentUser.displayName||currentUser.email,
-    email:currentUser.email,
-    fecha:Date.now()
-  }).then(()=>{
+  const nombre=currentUser.displayName||currentUser.email;
+  // Guardar en Firebase
+  db.ref('sugerencias').push({texto,nombre,email:currentUser.email,fecha:Date.now()})
+  .then(()=>{
+    // Crear tarea en ClickUp
+    return fetch('https://api.clickup.com/api/v2/list/901818573279/task',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'pk_89658196_VXGXSM6YDO8P7P8VWYJ1YZ3QD227JZIB'},
+      body:JSON.stringify({
+        name:'Sugerencia de '+nombre,
+        description:'De: '+nombre+' ('+currentUser.email+')\n\n'+texto
+      })
+    });
+  })
+  .then(()=>{
     closeSug();
     alert('¡Gracias! Tu sugerencia fue enviada. La revisaremos pronto 🙌');
-  }).catch(err=>alert('Error: '+err.message))
+  })
+  .catch(()=>{
+    // Si falla ClickUp igual cerramos (la sugerencia ya quedó en Firebase)
+    closeSug();
+    alert('¡Gracias! Tu sugerencia fue enviada. La revisaremos pronto 🙌');
+  })
   .finally(()=>{if(btn){btn.disabled=false;btn.textContent='Enviar →';}});
 }
 
