@@ -2965,8 +2965,10 @@ function renderOrg(){
 
       <!-- CENTRAL fila 3: Martin + Belén + Benjamin -->
       <div class="org-central-col">
-        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;align-items:flex-start">
-          ${martin}${belen}${benja}
+        <div style="display:flex;flex-direction:row;gap:8px;justify-content:center;align-items:flex-start;flex-wrap:nowrap">
+          <div style="width:110px;flex-shrink:0">${martin}</div>
+          <div style="width:110px;flex-shrink:0">${belen}</div>
+          <div style="width:110px;flex-shrink:0">${benja}</div>
         </div>
       </div>
 
