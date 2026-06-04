@@ -2939,43 +2939,39 @@ function renderOrg(){
     (ORG_CENTRAL.find(c=>c.nombre==='Benjamin Apt')?.subs||[]).map(s=>subCard(s)).join(''),'Specialists');
 
   el.innerHTML=`
-    <div class="org-row">
+    <div class="org-row" style="margin-bottom:20px">
       ${orgCard({nombre:'Samuel Weinstein',cargo:'Cofundador',email:''})}
       ${orgCard({nombre:'Ariel Kauderer',cargo:'Cofundador',email:''})}
     </div>
-    <div class="org-connector"><div class="org-connector-line"></div></div>
-    <div style="display:flex;justify-content:center">
-      ${cardWithExpander(franc,'exp-franc',fantSub,'S. Fantuzzi')}
-    </div>
-    <div class="org-connector"><div class="org-connector-line"></div></div>
 
     <div class="org-3col">
-      <!-- TRIBUTON -->
+      <!-- TRIBUTON: KAM → BP → CS Lead (afuera → adentro) -->
       <div class="org-tribu-col">
         <div class="org-tribu-header" style="background:#eff6ff;color:#1d4ed8">TRIBUTON</div>
-        <div style="display:flex;align-items:center;gap:6px;justify-content:center;flex-wrap:wrap">
-          ${orgCard(tomasso)}
-          ${orgCard(samuel)}
-          <span style="font-size:14px;color:var(--gris3)">→</span>
+        <div style="display:flex;align-items:center;gap:6px;justify-content:flex-end;flex-wrap:nowrap">
           <div style="transform:scale(.88);transform-origin:center">${orgCard(koljchen)}</div>
+          <span style="font-size:14px;color:var(--gris3)">←</span>
+          ${orgCard(samuel)}
+          ${orgCard(tomasso)}
         </div>
         <div class="org-section-title" style="margin-top:10px;width:100%">Células</div>
         <div class="org-pods-row">${tributonPods.map(p=>renderPod(p)).join('')}</div>
       </div>
 
-      <!-- CENTRAL fila 3: Martin + Belén + Benjamin -->
+      <!-- CENTRAL: 2x2 con Francesco+Martin / Belén+Benjamin -->
       <div class="org-central-col">
-        <div style="display:flex;flex-direction:row;gap:8px;justify-content:center;align-items:flex-start;flex-wrap:nowrap">
-          <div style="width:110px;flex-shrink:0">${martin}</div>
-          <div style="width:110px;flex-shrink:0">${belen}</div>
-          <div style="width:110px;flex-shrink:0">${benja}</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;justify-items:center">
+          <div style="width:110px">${cardWithExpander(franc,'exp-franc',fantSub,'S. Fantuzzi')}</div>
+          <div style="width:110px">${martin}</div>
+          <div style="width:110px">${belen}</div>
+          <div style="width:110px">${benja}</div>
         </div>
       </div>
 
-      <!-- TRIBUTEN -->
+      <!-- TRIBUTEN: CS Lead → BP → KAM (adentro → afuera) -->
       <div class="org-tribu-col">
         <div class="org-tribu-header" style="background:#f0fdf4;color:#15803d">TRIBUTEN</div>
-        <div style="display:flex;align-items:center;gap:6px;justify-content:center;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:6px;justify-content:flex-start;flex-wrap:nowrap">
           ${orgCard(mariajose)}
           ${orgCard(maxi)}
           <span style="font-size:14px;color:var(--gris3)">→</span>
