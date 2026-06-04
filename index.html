@@ -953,6 +953,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
     <div class="org-modal-role" id="orgModalRole"></div>
     <span class="org-modal-tribu" id="orgModalTribu" style="display:none"></span>
     <a class="org-modal-email" id="orgModalEmail" href="#"></a>
+    <div id="orgModalNota" style="font-size:12px;color:var(--gris2);background:var(--gris5);border-radius:8px;padding:10px;margin-bottom:14px;text-align:left;line-height:1.5;display:none"></div>
     <button class="org-modal-close" onclick="closeOrgModal()">Cerrar</button>
   </div>
 </div>
@@ -2601,12 +2602,33 @@ const RES_DATA = [
 // ORGANIGRAMA — Datos y Render
 // ════════════════════════════════════════════════════════════════
 const ROLE_COLORS = {
-  'Cofundador':'#6366f1','Operations Lead':'#2563eb','Business Partner':'#0891b2',
-  'KAM':'#0e7490','Customer Success Lead':'#059669','Strategy Lead Correos':'#7c3aed',
-  'Strategy Lead Llamados':'#9333ea','Strategy Specialist':'#a855f7',
-  'HR Lead':'#db2777','Talent Acquisition':'#ec4899','Asistente Administrativo':'#f472b6',
-  'Manager':'#0f172a','SDR Senior':'#374151','CSR':'#2563eb',
-  'Specialist':'#ea580c','SDR Junior':'#9ca3af',
+  // Fundadores
+  'Cofundador':              '#6366f1',
+  // Operaciones — Francesco + todos los Managers
+  'Operations Lead':         '#0f172a',
+  'Manager':                 '#0f172a',
+  'Senior SDR Manager':      '#0f172a',
+  // BP + KAM — mismo grupo
+  'Business Partner':        '#0891b2',
+  'KAM':                     '#0891b2',
+  // Customer Success — Tomasso + María José + todos los CSR
+  'Customer Success Lead':   '#059669',
+  'CSR':                     '#059669',
+  // Strategy Llamados — Martin + todos los Specialists
+  'Strategy Lead Llamados':  '#ea580c',
+  'Specialist':              '#ea580c',
+  // Strategy Correos — Benjamin Apt + Aníbal + Diego
+  'Strategy Lead Correos':   '#7c3aed',
+  'Strategy Specialist':     '#7c3aed',
+  // RRHH — Belén + Laly + Amelia
+  'HR Lead':                 '#db2777',
+  'Talent Acquisition':      '#db2777',
+  'Asistente Administrativo':'#db2777',
+  // Seniors — Álvaro (Senior Coordinator) + todos los Seniors
+  'Senior Coordinator':      '#374151',
+  'SDR Senior':              '#374151',
+  // Juniors
+  'SDR Junior':              '#9ca3af',
 };
 const ORG_LIDERAZGO = [
   {nombre:'Samuel Weinstein',cargo:'Business Partner',tribu:'Tributon',email:''},
@@ -2616,6 +2638,8 @@ const ORG_LIDERAZGO = [
   {nombre:'Belén Forti',cargo:'HR Lead',tribu:'Ambas',email:'belen@thegrowth.pro'},
   {nombre:'Benjamin Apt',cargo:'Strategy Lead Correos',tribu:'Ambas',email:''},
   {nombre:'Aníbal del Río',cargo:'Strategy Specialist',tribu:'Tributon',email:''},
+  {nombre:'Sebastián Fantuzzi',cargo:'Senior SDR Manager',tribu:'Ambas',email:'sebastian@thegrowth.pro',nota:'Manager del pod Rho + apoya a todos los Managers en liderazgo y rendimiento'},
+  {nombre:'Álvaro Levi',cargo:'Senior Coordinator',tribu:'Ambas',email:'',nota:'Senior del pod Rho + supervisa y apoya a todos los Seniors de TGP'},
   {nombre:'Maximiliano Frey',cargo:'Business Partner',tribu:'Tributen',email:''},
   {nombre:'Pablo Saralegui',cargo:'KAM',tribu:'Tributen',email:''},
   {nombre:'María José Sainz',cargo:'Customer Success Lead',tribu:'Tributen',email:''},
@@ -2630,7 +2654,9 @@ const ORG_PODS = [
   {nombre:'Epsilon',tribu:'Tributon',manager:'Manuel Chadwick',managerEmail:'manuel@thegrowth.pro',miembros:[]},
   {nombre:'Delta',tribu:'Tributon',manager:'Cristian Balaguer',managerEmail:'cristianb@thegrowth.pro',miembros:[]},
   {nombre:'Gamma',tribu:'Tributon',manager:'Antonela Parzianello',managerEmail:'antonela@thegrowth.pro',miembros:[]},
-  {nombre:'Rho',tribu:'Tributon',manager:'Sebastián Fantuzzi',managerEmail:'sebastian@thegrowth.pro',miembros:[]},
+  {nombre:'Rho',tribu:'Tributon',manager:'Sebastián Fantuzzi',managerEmail:'sebastian@thegrowth.pro',miembros:[
+    {nombre:'Álvaro Levi',cargo:'SDR Senior',email:'',nota:'Senior Coordinator — supervisa y apoya a todos los Seniors de TGP'},
+  ]},
   {nombre:'Omega',tribu:'Tributen',manager:'Tomás Pinedo',managerEmail:'tomasp@thegrowth.pro',miembros:[]},
   {nombre:'Sigma',tribu:'Tributen',manager:'Franco Dall\'Olio',managerEmail:'franco@thegrowth.pro',miembros:[]},
   {nombre:'Beta',tribu:'Tributen',manager:'Vicente De Aguirre',managerEmail:'vicenteda@thegrowth.pro',miembros:[]},
@@ -2656,8 +2682,8 @@ function renderPod(pod){
 }
 function renderOrg(){
   const el=document.getElementById('orgContent');
-  if(!el||el._built)return;
-  el._built=true;
+  if(!el)return;
+  el._built=false;
   const tl=ORG_LIDERAZGO.filter(p=>p.tribu==='Tributon');
   const bl=ORG_LIDERAZGO.filter(p=>p.tribu==='Tributen');
   const al=ORG_LIDERAZGO.filter(p=>p.tribu==='Ambas');
@@ -2699,6 +2725,8 @@ function openOrgModal(data){
   if(p.tribu&&p.tribu!=='Ambas'){te.textContent=p.tribu;te.style.display='inline-block';}else te.style.display='none';
   const ee=document.getElementById('orgModalEmail');
   if(p.email){ee.textContent=p.email;ee.href='mailto:'+p.email;ee.style.display='block';}else ee.style.display='none';
+  const ne=document.getElementById('orgModalNota');
+  if(ne){if(p.nota){ne.textContent=p.nota;ne.style.display='block';}else ne.style.display='none';}
   document.getElementById('orgModalOverlay').classList.remove('hidden');
 }
 function closeOrgModal(){document.getElementById('orgModalOverlay').classList.add('hidden');}
