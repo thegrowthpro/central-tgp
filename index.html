@@ -2954,10 +2954,12 @@ function renderOrg(){
       <!-- TRIBUTON -->
       <div class="org-tribu-col">
         <div class="org-tribu-header" style="background:#eff6ff;color:#1d4ed8">TRIBUTON</div>
-        <div class="org-bp-row">
-          ${orgCard(koljchen)} ${orgCard(samuel)}
+        <div style="display:flex;align-items:center;gap:6px;justify-content:center;flex-wrap:wrap">
+          ${orgCard(tomasso)}
+          ${orgCard(samuel)}
+          <span style="font-size:14px;color:var(--gris3)">→</span>
+          <div style="transform:scale(.88);transform-origin:center">${orgCard(koljchen)}</div>
         </div>
-        ${orgCard(tomasso)}
         <div class="org-section-title" style="margin-top:10px;width:100%">Células</div>
         <div class="org-pods-row">${tributonPods.map(p=>renderPod(p)).join('')}</div>
       </div>
@@ -2972,10 +2974,12 @@ function renderOrg(){
       <!-- TRIBUTEN -->
       <div class="org-tribu-col">
         <div class="org-tribu-header" style="background:#f0fdf4;color:#15803d">TRIBUTEN</div>
-        <div class="org-bp-row">
-          ${orgCard(maxi)} ${orgCard(pablo)}
+        <div style="display:flex;align-items:center;gap:6px;justify-content:center;flex-wrap:wrap">
+          ${orgCard(mariajose)}
+          ${orgCard(maxi)}
+          <span style="font-size:14px;color:var(--gris3)">→</span>
+          <div style="transform:scale(.88);transform-origin:center">${orgCard(pablo)}</div>
         </div>
-        ${orgCard(mariajose)}
         <div class="org-section-title" style="margin-top:10px;width:100%">Células</div>
         <div class="org-pods-row">${tributenPods.map(p=>renderPod(p)).join('')}</div>
       </div>
