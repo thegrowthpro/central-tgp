@@ -2924,18 +2924,6 @@ function renderOrg(){
   const franc={nombre:'Francesco Cotroneo',cargo:'Operations Lead',email:''};
   const fantSub=subCard({nombre:'Sebastián Fantuzzi',cargo:'Senior SDR Manager',email:'sebastian@thegrowth.pro',nota:'Manager del pod Rho + mano derecha de Francesco. Apoya a todos los Managers en liderazgo y rendimiento'});
 
-  // Leads centrales con sus sub-reportes expandibles
-  const centralCards = [
-    cardWithExpander(franc,'exp-franc',fantSub,'S. Fantuzzi'),
-    cardWithExpander({nombre:'Martin Kolton',cargo:'Strategy Lead Llamados',email:''},'exp-martin',
-      ORG_CENTRAL.find(c=>c.nombre==='Martin Kolton').subs.map(s=>subCard(s)).join(''),'ver Specialists'),
-    cardWithExpander({nombre:'Belén Forti',cargo:'HR Lead',email:'belen@thegrowth.pro'},'exp-belen',
-      ORG_HR.map(s=>subCard(s)).join(''),'ver equipo HR'),
-    cardWithExpander({nombre:'Benjamin Apt',cargo:'Strategy Lead Correos',email:''},'exp-benja',
-      ORG_CENTRAL.find(c=>c.nombre==='Benjamin Apt')?.subs?.map(s=>subCard(s)).join('')||'','ver Specialists'),
-  ];
-
-  // BP + KAM en fila (KAM al lado del BP)
   const samuel={nombre:'Samuel Weinstein',cargo:'Business Partner',email:''};
   const koljchen={nombre:'Benjamin Koljchen',cargo:'KAM',email:''};
   const maxi={nombre:'Maximiliano Frey',cargo:'Business Partner',email:''};
@@ -2943,10 +2931,21 @@ function renderOrg(){
   const tomasso={nombre:'Tomasso Cannistra',cargo:'Customer Success Lead',email:''};
   const mariajose={nombre:'María José Sainz',cargo:'Customer Success Lead',email:''};
 
+  const martin=cardWithExpander({nombre:'Martin Kolton',cargo:'Strategy Lead Llamados',email:''},'exp-martin',
+    ORG_CENTRAL.find(c=>c.nombre==='Martin Kolton').subs.map(s=>subCard(s)).join(''),'Specialists');
+  const belen=cardWithExpander({nombre:'Belén Forti',cargo:'HR Lead',email:'belen@thegrowth.pro'},'exp-belen',
+    ORG_HR.map(s=>subCard(s)).join(''),'equipo HR');
+  const benja=cardWithExpander({nombre:'Benjamin Apt',cargo:'Strategy Lead Correos',email:''},'exp-benja',
+    (ORG_CENTRAL.find(c=>c.nombre==='Benjamin Apt')?.subs||[]).map(s=>subCard(s)).join(''),'Specialists');
+
   el.innerHTML=`
     <div class="org-row">
       ${orgCard({nombre:'Samuel Weinstein',cargo:'Cofundador',email:''})}
       ${orgCard({nombre:'Ariel Kauderer',cargo:'Cofundador',email:''})}
+    </div>
+    <div class="org-connector"><div class="org-connector-line"></div></div>
+    <div style="display:flex;justify-content:center">
+      ${cardWithExpander(franc,'exp-franc',fantSub,'S. Fantuzzi')}
     </div>
     <div class="org-connector"><div class="org-connector-line"></div></div>
 
@@ -2964,10 +2963,10 @@ function renderOrg(){
         <div class="org-pods-row">${tributonPods.map(p=>renderPod(p)).join('')}</div>
       </div>
 
-      <!-- CENTRAL — 2x2 simétrico -->
+      <!-- CENTRAL fila 3: Martin + Belén + Benjamin -->
       <div class="org-central-col">
-        <div class="org-central-grid">
-          ${centralCards.join('')}
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;align-items:flex-start">
+          ${martin}${belen}${benja}
         </div>
       </div>
 
