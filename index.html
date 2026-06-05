@@ -960,45 +960,70 @@ body.admin-mode .res-wrap{padding-bottom:72px}
       <div class="rrhh-card" style="grid-column:span 2">
         <div class="rrhh-card-title">💰 Pagos y Boletas</div>
 
-        <!-- Datos TGP -->
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px">
-          <div style="background:var(--gris5);border-radius:8px;padding:10px;border:1px solid var(--gris4)"><div style="font-size:10px;font-weight:700;color:var(--gris2);margin-bottom:2px">Razón Social</div><div style="font-size:13px;font-weight:700;color:var(--negro)">TGP SpA</div></div>
-          <div style="background:var(--gris5);border-radius:8px;padding:10px;border:1px solid var(--gris4)"><div style="font-size:10px;font-weight:700;color:var(--gris2);margin-bottom:2px">RUT</div><div style="font-size:13px;font-weight:700;color:var(--negro)">77.628.885-3</div></div>
-          <div style="background:var(--gris5);border-radius:8px;padding:10px;border:1px solid var(--gris4)"><div style="font-size:10px;font-weight:700;color:var(--gris2);margin-bottom:2px">Dirección fiscal</div><div style="font-size:12px;font-weight:600;color:var(--negro)">Hermanos Cabot 6777, depto 87</div></div>
+        <!-- Datos empresa -->
+        <div style="margin-bottom:14px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris3);margin-bottom:8px">Datos de la empresa — usar al realizar tu boleta</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px">
+            <div style="background:var(--gris5);border-radius:8px;padding:10px;border:1px solid var(--gris4)"><div style="font-size:10px;font-weight:700;color:var(--gris2);margin-bottom:2px">Razón Social</div><div style="font-size:13px;font-weight:700;color:var(--negro)">TGP SpA</div></div>
+            <div style="background:var(--gris5);border-radius:8px;padding:10px;border:1px solid var(--gris4)"><div style="font-size:10px;font-weight:700;color:var(--gris2);margin-bottom:2px">RUT</div><div style="font-size:13px;font-weight:700;color:var(--negro)">77.628.885-3</div></div>
+            <div style="background:var(--gris5);border-radius:8px;padding:10px;border:1px solid var(--gris4)"><div style="font-size:10px;font-weight:700;color:var(--gris2);margin-bottom:2px">Mail (si lo pide el SII)</div><div style="font-size:12px;font-weight:600;color:var(--negro)">ariel@thegrowth.pro</div></div>
+            <div style="background:var(--gris5);border-radius:8px;padding:10px;border:1px solid var(--gris4)"><div style="font-size:10px;font-weight:700;color:var(--gris2);margin-bottom:2px">Dirección fiscal</div><div style="font-size:12px;font-weight:600;color:var(--negro)">Hermanos Cabot 6777, depto 87</div></div>
+          </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-          <!-- Columna izquierda: boleta -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+
+          <!-- IZQUIERDA: Pasos -->
           <div>
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris3);margin-bottom:10px">Cómo emitir tu boleta</div>
-            <div class="callout c-info" style="font-size:12px;margin-bottom:10px"><span class="callout-i">1️⃣</span><div><b>¿Primera vez?</b> Primero debes iniciar actividades como trabajador independiente en el SII (se hace en línea, gratis).</div></div>
-            <div class="callout c-ok" style="font-size:12px;margin-bottom:10px"><span class="callout-i">2️⃣</span><div><b>Calcula tu boleta</b> — Usa la calculadora del SII. En "bruto" va el monto a poner en la boleta, en "líquido" lo que recibirás.<br>En el ítem <em>Prestación</em> escribe tu cargo.</div></div>
-            <div class="callout c-tip" style="font-size:12px;margin-bottom:12px"><span class="callout-i">📅</span><div><b>Boleta fija:</b> emitir el primer día de cada mes y subir al formulario.<br><b>Boleta variable:</b> esperar aviso de tu Manager con las validaciones listas.</div></div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <a href="https://www.sii.cl" target="_blank" class="solicitud-item"><span class="solicitud-icon">🧾</span><span class="solicitud-text">Portal SII — emitir boleta</span><span class="solicitud-arr">↗</span></a>
-              <a href="https://www4.sii.cl/boletas/boletas.html" target="_blank" class="solicitud-item"><span class="solicitud-icon">🧮</span><span class="solicitud-text">Calculadora de boleta de honorarios</span><span class="solicitud-arr">↗</span></a>
-              <a href="https://www.sii.cl/servicios_online/1039-1183.html" target="_blank" class="solicitud-item"><span class="solicitud-icon">📋</span><span class="solicitud-text">Inicio de actividades (primera vez)</span><span class="solicitud-arr">↗</span></a>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris3);margin-bottom:10px">Paso a paso cada mes</div>
+
+            <div class="callout c-info" style="font-size:12px;margin-bottom:8px"><span class="callout-i">1️⃣</span><div><b>¿Primera vez emitiendo boleta de honorarios?</b> (en tu vida, no solo en TGP) — Debes iniciar actividades como trabajador independiente en el SII. Se hace en línea, es gratis y solo se hace una vez.<br><a href="https://drive.google.com/file/d/1fZjpndZiuYuLxtnurMGWaG1LBPleba91/view?usp=drive_link" target="_blank" style="color:#1e40af;font-weight:600">📄 Guía: cómo iniciar actividades →</a></div></div>
+
+            <div class="callout c-ok" style="font-size:12px;margin-bottom:8px"><span class="callout-i">2️⃣</span><div><b>Calcula tu boleta</b> — Ingresa tu sueldo bruto en la calculadora. El valor "bruto" es el que pones en la boleta; el "líquido" es lo que recibirás.<br><a href="https://patrimore.com/herramientas/calcular-boleta-de-honorarios" target="_blank" style="color:#166534;font-weight:600">🧮 Calculadora de boleta →</a></div></div>
+
+            <div class="callout c-tip" style="font-size:12px;margin-bottom:8px"><span class="callout-i">3️⃣</span><div><b>Realiza tu boleta en el SII</b> — En el ítem <em>Prestación</em> escribe tu cargo. Usa los datos de empresa de arriba.<br><a href="https://drive.google.com/file/d/1Qbg6gKgXeJtOrsdR44UMTJJYyBeW3Ny8/view?usp=drive_link" target="_blank" style="color:#4c1d95;font-weight:600">📄 Guía: cómo hacer una boleta →</a></div></div>
+
+            <div class="callout c-warn" style="font-size:12px;margin-bottom:12px"><span class="callout-i">4️⃣</span><div><b>Sube tu boleta al formulario</b> — En el formulario deja un comentario explicando a qué corresponde el monto (fijo, variable, proporcional, etc.).<br><strong>¿Primera boleta en TGP?</strong> Ingresa también tus datos bancarios en el formulario para que finanzas los registre.<br><a href="https://forms.gle/StmtkADtXgj3RF8G6" target="_blank" style="color:#92400e;font-weight:600">📤 Formulario de boletas →</a></div></div>
+
+            <div style="background:var(--gris5);border-radius:10px;padding:12px;border:1px solid var(--gris4)">
+              <div style="font-size:11px;font-weight:700;color:var(--gris2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.4px">📅 ¿Cuándo emito mi boleta?</div>
+              <div style="font-size:12px;color:var(--gris1);line-height:1.7">
+                <strong>Monto fijo:</strong> siempre el <strong>primer día de cada mes</strong>.<br>
+                <strong>Monto variable:</strong> depende de cuándo los clientes validan las reuniones. Tu Manager te avisa cuando está listo — suele ser la <strong>segunda semana del mes</strong>.
+              </div>
             </div>
           </div>
 
-          <!-- Columna derecha: cálculo proporcional -->
+          <!-- DERECHA: Cálculo proporcional -->
           <div>
-            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris3);margin-bottom:10px">Cálculo proporcional (primer mes)</div>
-            <p style="font-size:13px;color:var(--gris1);line-height:1.6;margin-bottom:10px">Si ingresaste después del día 1, tu boleta del primer mes es proporcional a los días trabajados.</p>
-            <div style="background:var(--brand);color:#fff;border-radius:10px;padding:14px;margin-bottom:10px">
-              <div style="font-size:11px;font-weight:700;opacity:.7;margin-bottom:6px;text-transform:uppercase;letter-spacing:.4px">Fórmula</div>
-              <div style="font-size:14px;font-weight:700;line-height:1.6">(Días trabajados ÷ Días del mes) × Sueldo bruto mensual</div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris3);margin-bottom:10px">Cálculo proporcional — primer mes</div>
+            <p style="font-size:13px;color:var(--gris1);line-height:1.6;margin-bottom:12px">Si ingresaste después del día 1, solo cobras los días que trabajaste ese mes. Así se calcula:</p>
+
+            <div style="background:var(--brand);color:#fff;border-radius:10px;padding:14px;margin-bottom:12px">
+              <div style="font-size:10px;font-weight:700;opacity:.6;margin-bottom:6px;text-transform:uppercase;letter-spacing:.4px">Fórmula</div>
+              <div style="font-size:14px;font-weight:800;line-height:1.6">(Días trabajados ÷ Días totales del mes) × Sueldo bruto</div>
             </div>
-            <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
-              <div style="font-size:11px;font-weight:700;color:var(--gris2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.4px">Ejemplo — ingreso 20 de marzo</div>
-              <div style="font-size:12px;color:var(--gris1);line-height:1.8">
-                • Días trabajados: 31 − 20 + 1 = <strong>12 días</strong><br>
-                • Días del mes: <strong>31</strong><br>
-                • Sueldo bruto: <strong>$200.000</strong><br>
-                • Boleta: (12 ÷ 31) × 200.000 = <strong>$77.419 bruto</strong>
+
+            <div style="background:var(--azul-pale);border-radius:10px;padding:14px;border:1px solid #bfdbfe;margin-bottom:12px">
+              <div style="font-size:11px;font-weight:700;color:#1d4ed8;margin-bottom:8px;text-transform:uppercase;letter-spacing:.4px">Cómo contar los días</div>
+              <div style="font-size:12px;color:#1e40af;line-height:1.8">
+                <strong>Días totales del mes</strong> = todos los días del mes calendario, <u>incluyendo fines de semana</u>.<br>
+                <strong>Días trabajados</strong> = días totales del mes − (día de ingreso − 1).<br>
+                <em style="font-size:11px;opacity:.8">Es decir: desde el día que entraste hasta el último día del mes, contando todos los días incluidos fines de semana.</em>
               </div>
             </div>
-            <div class="callout c-warn" style="font-size:12px;margin-top:10px"><span class="callout-i">💬</span><div>Deja siempre un comentario en el formulario explicando el cálculo. Dudas: <strong>finanzas@thegrowth.pro</strong></div></div>
+
+            <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4);margin-bottom:10px">
+              <div style="font-size:11px;font-weight:700;color:var(--gris2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.4px">Ejemplo — ingreso 20 de marzo</div>
+              <div style="font-size:12px;color:var(--gris1);line-height:1.9">
+                Días totales de marzo: <strong>31</strong><br>
+                Días trabajados: 31 − (20 − 1) = 31 − 19 = <strong>12 días</strong><br>
+                Sueldo bruto mensual: <strong>$200.000</strong><br>
+                Boleta = (12 ÷ 31) × $200.000 = <strong>$77.419 bruto</strong>
+              </div>
+            </div>
+
+            <div class="callout c-info" style="font-size:12px"><span class="callout-i">💬</span><div>Dudas sobre montos, fechas o cálculos: <strong>finanzas@thegrowth.pro</strong></div></div>
           </div>
         </div>
       </div>
