@@ -541,6 +541,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .org-pod-role-card:hover{background:var(--azul-pale);border-color:var(--azul)}
 .org-pod-role-card.vacante{border:1px dashed #fbbf24;background:#fffbeb;cursor:default}
 .org-pod-role-card.encap{border-color:#a78bfa;background:#f5f3ff}
+.org-pod-role-card.coordinador{border:2px solid #374151;background:#f1f5f9;box-shadow:0 2px 8px rgba(55,65,81,.1)}
 .org-pod-role-ini{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:#fff;flex-shrink:0}
 .org-pod-role-name{font-size:11px;font-weight:600;color:var(--negro);line-height:1.3;flex:1}
 .org-pod-role-cargo{font-size:9px;color:var(--gris3);text-transform:uppercase;letter-spacing:.2px;margin-left:auto;white-space:nowrap}
@@ -2812,7 +2813,7 @@ const ORG_PODS = [
             {nombre:'Manuel Morande',     cargo:'Specialist',  email:''}],
     juniors:[{nombre:'Benjamin Lopez',cargo:'SDR Junior',email:''},{nombre:'Manuel Paz',cargo:'SDR Junior',email:''},{nombre:'Santiago Astaburuaga',cargo:'SDR Junior',email:''}]},
   {nombre:'Rho',    tribu:'Tributon',manager:'Sebastián Fantuzzi',managerEmail:'sebastian@thegrowth.pro',
-    equipo:[{nombre:'Álvaro Levi',        cargo:'SDR Senior',  email:'',nota:'Senior Coordinator — supervisa y apoya a todos los Seniors de TGP',esCoordinador:true},
+    equipo:[{nombre:'Álvaro Levi',        cargo:'Senior Coordinator',  email:'',nota:'Lidera y supervisa a todos los Seniors de TGP. Monitorea su rendimiento y los apoya en su desarrollo. — supervisa y apoya a todos los Seniors de TGP',esCoordinador:true},
             {nombre:'Bartolomé Miranda',  cargo:'CSR',         email:''},
             {nombre:'Franco Casanova',    cargo:'Specialist',  email:''}],
     juniors:[{nombre:'Candelaria Elgueta',cargo:'SDR Junior',email:''},{nombre:'Felipe Valdivia',cargo:'SDR Junior',email:''},{nombre:'José Álvarez',cargo:'SDR Junior',email:''},{nombre:'Leonardo Leon',cargo:'SDR Junior',email:''},{nombre:'Matías MacGuire',cargo:'SDR Junior',email:''}]},
@@ -2859,7 +2860,7 @@ function renderPod(pod){
   const roles=(pod.equipo||[]).map(m=>{
     const isVac=m.vacante,isCap=m.enCapacitacion;
     const color=isVac?'#d97706':getColor(m.cargo);
-    const cls=isVac?'vacante':isCap?'encap':'';
+    const cls=isVac?'vacante':isCap?'encap':m.esCoordinador?'coordinador':'';
     const initials=isVac?'?':getInitials(m.nombre);
     const nombre=isVac?'Vacante':m.nombre;
     const d2=isVac?'':encodeURIComponent(JSON.stringify({...m,pod:pod.nombre}));
