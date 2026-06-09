@@ -1585,21 +1585,13 @@ const ADMIN_STEPS = [
   {
     id:'admin-chrome',
     icon:'🔗',
-    badge:'Paso 6',
-    title:'Documentos en Favoritos',
-    keywords:'chrome favoritos links documentos guardar barra navegador kit colaborador',
+    badge:'Favoritos',
+    title:'Links en Favoritos',
+    keywords:'chrome favoritos links central tgp app guardar barra navegador',
     content: () => `
-      <p class="pt">Guarda estos links en tus Favoritos de Chrome para tenerlos siempre a mano. Para cada uno: abre el link → haz clic en la ★ → pon un nombre corto → elige la carpeta → Listo.</p>
-      <h3 class="sh">Carpeta "Onboarding"</h3>
+      <p class="pt">Guarda estos dos links en tu barra de Favoritos de Chrome para tenerlos siempre a mano. Para cada uno: abre el link → haz clic en la ★ → ponle un nombre corto → Listo.</p>
       <div class="link-row">
-        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit del Colaborador</a>
-        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="esquema-agend">📄 Proceso de agendamiento</a>
-        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="correos">📄 Manejo de correos</a>
-      </div>
-      <h3 class="sh">Barra de Favoritos</h3>
-      <div class="link-row">
-        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive" data-req="kit-ventas">📁 Kit de ventas clientes</a>
-        <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc" data-req="dashboard">📊 Dashboard reuniones</a>
+        <a href="https://thegrowthpro.github.io/central-tgp/" target="_blank" class="lbtn lbtn-app" data-req="central">🏠 Central TGP</a>
         <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app" data-req="app">⚡ App TGP</a>
       </div>
     `
@@ -1623,6 +1615,24 @@ const SDR_STEPS = [
       <p class="pt">Como <strong>SDR Junior</strong>, tu misión principal es generar oportunidades de venta para los clientes de TGP — es decir, <strong>agendar reuniones comerciales</strong>.</p>
       <div class="callout c-info"><span class="callout-i">🤔</span><div>¿Cómo agendo las reuniones? ¿Cómo consigo a los prospectos?<br><br>Antes de responder esas preguntas, tienes que estudiar el <strong>Glosario de TGP</strong> — el diccionario de la empresa. Hay conceptos clave que vas a usar todos los días y necesitas manejarlos bien desde el principio.</div></div>
       <p class="pt" style="color:var(--gris2);font-size:13px">En los siguientes pasos iremos respondiendo cada una de esas preguntas, paso a paso. No te preocupes si al principio suena complicado — es más simple de lo que parece.</p>
+    `
+  },
+  {
+    id:'sdr-favoritos',
+    icon:'🔖',
+    badge:'Día 1',
+    title:'Documentos clave en Favoritos',
+    keywords:'chrome favoritos links documentos guardar kit colaborador ventas dashboard proceso agendamiento correos',
+    content: () => `
+      <p class="pt">Guarda estos links en una carpeta <strong>"TGP"</strong> de tus Favoritos de Chrome. Los vas a usar todos los días — tenerlos a mano te ahorra tiempo.</p>
+      <p class="pt">Para cada uno: abre el link → haz clic en la ★ → pon un nombre corto → elige la carpeta → Listo.</p>
+      <div class="link-row">
+        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit del Colaborador</a>
+        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="esquema-agend">📄 Proceso de agendamiento</a>
+        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="correos">📄 Manejo de correos</a>
+        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive" data-req="kit-ventas">📁 Kit de ventas clientes</a>
+        <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc" data-req="dashboard">📊 Dashboard reuniones</a>
+      </div>
     `
   },
   {
@@ -2266,8 +2276,8 @@ function renderOnboarding() {
 }
 
 function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
-  const SDR_DAY2_START = 11;
-  const SDR_DAY3_START = 16;
+  const SDR_DAY2_START = 12;
+  const SDR_DAY3_START = 17;
 
   const sb = document.getElementById('sidebar');
   const total = steps.length;
@@ -2331,8 +2341,8 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
 }
 
 function jumpTo(track, idx) {
-  const SDR_DAY2_START = 11;
-  const SDR_DAY3_START = 16;
+  const SDR_DAY2_START = 12;
+  const SDR_DAY3_START = 17;
   if (!adminMode) {
     if (track === 'sdr') {
       if (idx >= SDR_DAY3_START && STATE.sdrStep < SDR_DAY3_START && !STATE.sdrDone) return;
