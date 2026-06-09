@@ -2333,12 +2333,14 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
 function jumpTo(track, idx) {
   const SDR_DAY2_START = 11;
   const SDR_DAY3_START = 16;
-  if (track === 'sdr') {
-    if (idx >= SDR_DAY3_START && STATE.sdrStep < SDR_DAY3_START && !STATE.sdrDone) return;
-    if (idx >= SDR_DAY2_START && STATE.sdrStep < SDR_DAY2_START && !STATE.sdrDone) return;
+  if (!adminMode) {
+    if (track === 'sdr') {
+      if (idx >= SDR_DAY3_START && STATE.sdrStep < SDR_DAY3_START && !STATE.sdrDone) return;
+      if (idx >= SDR_DAY2_START && STATE.sdrStep < SDR_DAY2_START && !STATE.sdrDone) return;
+    }
+    const maxIdx = track==='admin' ? STATE.adminStep : STATE.sdrStep;
+    if (idx > maxIdx) return; // can't skip ahead
   }
-  const maxIdx = track==='admin' ? STATE.adminStep : STATE.sdrStep;
-  if (idx > maxIdx) return; // can't skip ahead
   STATE.track = track;
   if (track === 'sdr') STATE.sdrStep = idx;
   else STATE.adminStep = idx;
@@ -2380,6 +2382,7 @@ function renderStep(steps, idx, track) {
 }
 
 function setupRequiredLinks(track, idx) {
+  if (adminMode) return; // admin bypasses all data-req restrictions
   const reqLinks = document.querySelectorAll('#stepContent [data-req]');
   const checkboxes = document.querySelectorAll('#stepContent .inline-check input[type="checkbox"]');
   if (reqLinks.length === 0 && checkboxes.length === 0) return;
