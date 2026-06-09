@@ -1604,48 +1604,6 @@ const ADMIN_STEPS = [
       </div>
     `
   },
-  {
-    id:'admin-honorarios',
-    icon:'🧾',
-    badge:'Día 3',
-    title:'Boleta de Honorarios',
-    keywords:'boleta honorarios sii factura pago mensual emitir inicio actividades calculadora formulario proporcional',
-    content: () => `
-      <p class="pt">Como colaborador de TGP, emites <strong>boleta de honorarios</strong> cada mes. Es tu responsabilidad emitirla y subirla al formulario correspondiente. Acá tienes todo lo que necesitas para hacerlo.</p>
-      <h3 class="sh">¿Primera vez emitiendo boleta en tu vida?</h3>
-      <p class="pt">Antes de emitir tu primera boleta, necesitas iniciar actividades en el SII. Es un trámite de 10 minutos que solo se hace una vez.</p>
-      <div class="link-row">
-        <a href="https://drive.google.com/file/d/1fZjpndZiuYuLxtnurMGWaG1LBPleba91/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="inicio">📄 Guía: Inicio de actividades en SII</a>
-      </div>
-      <h3 class="sh">El proceso cada mes</h3>
-      <ol class="steps-list">
-        <li>Calcular el monto de tu boleta con la calculadora.</li>
-        <li>Emitir la boleta en el portal del SII.</li>
-        <li>Subir la boleta al formulario de TGP.</li>
-      </ol>
-      <div class="link-row">
-        <a href="https://patrimore.com/herramientas/calcular-boleta-de-honorarios" target="_blank" class="lbtn lbtn-doc" data-req="calc">🧮 Calculadora de boleta</a>
-        <a href="https://drive.google.com/file/d/1Qbg6gKgXeJtOrsdR44UMTJJYyBeW3Ny8/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="guia-boleta">📄 Guía: Cómo hacer la boleta en SII</a>
-        <a href="https://forms.gle/StmtkADtXgj3RF8G6" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Formulario subir boleta</a>
-      </div>
-      <div class="callout c-info"><span class="callout-i">📌</span><div><b>Datos de TGP para tu boleta</b><br>Razón Social: TGP SpA · RUT: 77.628.885-3 · Mail: ariel@thegrowth.pro · Dirección: Hermanos Cabot 6777, depto 87</div></div>
-      <div class="callout c-tip"><span class="callout-i">💡</span><div>Toda la guía completa de pagos (cuándo emitir, cálculo proporcional para el primer mes, etc.) está en la sección <strong>RRHH → Pagos y Boletas</strong>.</div></div>
-    `
-  },
-  {
-    id:'admin-advertencias',
-    icon:'⚠️',
-    badge:'Día 3',
-    title:'Sistema de Advertencias',
-    keywords:'advertencias sistema responsabilidades incumplimiento acuerdo reglas',
-    content: () => `
-      <p class="pt">En TGP tenemos un Sistema de Advertencias que se aplica cuando un colaborador no está cumpliendo sus responsabilidades correctamente. Es importante conocerlo para estar alineados desde el primer día.</p>
-      <div class="link-row">
-        <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="doc">📄 Sistema de advertencias</a>
-      </div>
-      <div class="callout c-info" style="margin-top:12px"><span class="callout-i">ℹ️</span><div>Este sistema está adjunto en el acuerdo de trabajo que ya firmaste. Puedes volver a revisarlo cuando quieras.</div></div>
-    `
-  }
 ];
 
 // ════════════════════════════════════════════════════════════════
@@ -2012,6 +1970,7 @@ const SDR_STEPS = [
     title:'Bienvenido/a al segundo día',
     keywords:'segundo dia onboarding dia 2 clientes bandejas tarea estudiar',
     content: () => `
+      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 2</b><br>Empiézala el segundo día de onboarding, cuando llegues a la oficina con los clientes ya estudiados.</div></div>
       <p class="pt">¡Bien hecho! Ya tienes toda la teoría y conoces los clientes. Hoy arranca el trabajo en vivo — las bandejas son tuyas.</p>
       <p class="pt">El proceso del Día 2 es:</p>
       <ol class="steps-list">
@@ -2111,6 +2070,49 @@ const SDR_STEPS = [
         <li>Enviar (o programar si no es buen horario).</li>
         <li>Repetir con el resto de correos y bandejas.</li>
       </ol>
+    `
+  },
+  {
+    id:'sdr-honorarios',
+    icon:'🧾',
+    badge:'Día 3',
+    title:'Boleta de Honorarios',
+    keywords:'boleta honorarios sii factura pago mensual emitir inicio actividades calculadora formulario proporcional',
+    content: () => `
+      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 3</b><br>Complétala durante tu primera semana, cuando ya tengas las bandejas en mano y puedas concentrarte.</div></div>
+      <p class="pt">Como colaborador de TGP, emites <strong>boleta de honorarios</strong> cada mes. Es tu responsabilidad emitirla y subirla al formulario correspondiente. Acá tienes todo lo que necesitas para hacerlo.</p>
+      <h3 class="sh">¿Primera vez emitiendo boleta en tu vida?</h3>
+      <p class="pt">Antes de emitir tu primera boleta, necesitas iniciar actividades en el SII. Es un trámite de 10 minutos que solo se hace una vez.</p>
+      <div class="link-row">
+        <a href="https://drive.google.com/file/d/1fZjpndZiuYuLxtnurMGWaG1LBPleba91/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="inicio">📄 Guía: Inicio de actividades en SII</a>
+      </div>
+      <h3 class="sh">El proceso cada mes</h3>
+      <ol class="steps-list">
+        <li>Calcular el monto de tu boleta con la calculadora.</li>
+        <li>Emitir la boleta en el portal del SII.</li>
+        <li>Subir la boleta al formulario de TGP.</li>
+      </ol>
+      <div class="link-row">
+        <a href="https://patrimore.com/herramientas/calcular-boleta-de-honorarios" target="_blank" class="lbtn lbtn-doc" data-req="calc">🧮 Calculadora de boleta</a>
+        <a href="https://drive.google.com/file/d/1Qbg6gKgXeJtOrsdR44UMTJJYyBeW3Ny8/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="guia-boleta">📄 Guía: Cómo hacer la boleta en SII</a>
+        <a href="https://forms.gle/StmtkADtXgj3RF8G6" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Formulario subir boleta</a>
+      </div>
+      <div class="callout c-info"><span class="callout-i">📌</span><div><b>Datos de TGP para tu boleta</b><br>Razón Social: TGP SpA · RUT: 77.628.885-3 · Mail: ariel@thegrowth.pro · Dirección: Hermanos Cabot 6777, depto 87</div></div>
+      <div class="callout c-tip"><span class="callout-i">💡</span><div>Toda la guía completa de pagos (cuándo emitir, cálculo proporcional para el primer mes, etc.) está en la sección <strong>RRHH → Pagos y Boletas</strong>.</div></div>
+    `
+  },
+  {
+    id:'sdr-advertencias',
+    icon:'⚠️',
+    badge:'Día 3',
+    title:'Sistema de Advertencias',
+    keywords:'advertencias sistema faltas descanso puntualidad acumulacion suspension',
+    content: () => `
+      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 3</b><br>Complétala durante tu primera semana, junto con la boleta de honorarios.</div></div>
+      <p class="pt">TGP tiene un sistema formal de advertencias para mantener la convivencia y el estándar del equipo. Es importante que lo conozcas desde el inicio.</p>
+      <div class="link-row">
+        <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="advertencias-doc">📄 Sistema de Advertencias</a>
+      </div>
     `
   }
 ];
@@ -2264,23 +2266,21 @@ function renderOnboarding() {
 }
 
 function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
+  const SDR_DAY2_START = 11;
+  const SDR_DAY3_START = 16;
+
   const sb = document.getElementById('sidebar');
   const total = steps.length;
   const prog = done ? 100 : Math.round((currentIdx / total) * 100);
   const stepsInTrack = (track==='sdr'?STATE.sdrStep:STATE.adminStep);
-
   let html = `<div class="sidebar-progress">
     <div class="prog-label"><span class="prog-name">${track==='sdr'?'SDR Junior':'Administrativo'}</span><span class="prog-pct">${prog}%</span></div>
     <div class="prog-bar"><div class="prog-fill" style="width:${prog}%"></div></div>
     <div class="prog-sub">${done ? '✅ Completado' : `${stepsInTrack} de ${total} pasos`}</div>
   </div>`;
 
-  const ADMIN_DAY3_START = 10;
-  const SDR_DAY2_START = 11;
-
-  html += `<div class="sidebar-section-title">📅 Día 1 — Para todos</div>`;
+  html += `<div class="sidebar-section-title">📋 Para todos</div>`;
   ADMIN_STEPS.forEach((s,i) => {
-    if (i === ADMIN_DAY3_START) html += `<div class="sidebar-section-title" style="margin-top:8px">📅 Día 3 — Esta semana</div>`;
     const isDone = track==='admin' ? i < STATE.adminStep : STATE.adminDone;
     const isActive = track==='admin' && i === STATE.adminStep && !STATE.adminDone;
     const cls = isDone ? 'done' : (isActive ? 'active' : '');
@@ -2291,15 +2291,36 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
   });
 
   if (isSDR) {
+    const sdrUnlocked = STATE.adminDone;
+    const day2Unlocked = sdrUnlocked && (STATE.sdrStep >= SDR_DAY2_START || STATE.sdrDone);
+    const day3Unlocked = sdrUnlocked && (STATE.sdrStep >= SDR_DAY3_START || STATE.sdrDone);
+
     html += `<div class="sidebar-section-title" style="margin-top:12px">📅 Día 1 — SDR Junior</div>`;
+
     SDR_STEPS.forEach((s,i) => {
-      if (i === SDR_DAY2_START) html += `<div class="sidebar-section-title" style="margin-top:8px">📅 Día 2</div>`;
-      const unlocked = STATE.adminDone;
+      if (i === SDR_DAY2_START) {
+        if (!day2Unlocked) {
+          html += `<div class="sidebar-section-title" style="margin-top:8px;opacity:0.5">🔒 Día 2 — se desbloquea al terminar el Día 1</div>`;
+        } else {
+          html += `<div class="sidebar-section-title" style="margin-top:8px">📅 Día 2</div>`;
+        }
+      }
+      if (i === SDR_DAY3_START) {
+        if (!day3Unlocked) {
+          html += `<div class="sidebar-section-title" style="margin-top:8px;opacity:0.5">🔒 Día 3 — se desbloquea al terminar el Día 2</div>`;
+        } else {
+          html += `<div class="sidebar-section-title" style="margin-top:8px">📅 Día 3</div>`;
+        }
+      }
+
+      const dayLocked = (!day2Unlocked && i >= SDR_DAY2_START) || (!day3Unlocked && i >= SDR_DAY3_START);
+      const unlocked = sdrUnlocked && !dayLocked;
       const isDone = unlocked && i < STATE.sdrStep;
       const isActive = unlocked && track==='sdr' && i === STATE.sdrStep && !STATE.sdrDone;
       const locked = !unlocked;
       const cls = locked ? 'locked' : (isDone ? 'done' : (isActive ? 'active' : ''));
-      html += `<div class="sidebar-step ${cls}" onclick="${locked?'':(`jumpTo('sdr',${i})`)}">
+
+      html += `<div class="sidebar-step ${cls}" onclick="${locked ? '' : `jumpTo('sdr',${i})`}">
         <div class="step-dot">${isDone ? '✓' : (locked ? '🔒' : (i+1))}</div>
         <div class="sidebar-step-title">${s.title}</div>
       </div>`;
@@ -2310,6 +2331,12 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
 }
 
 function jumpTo(track, idx) {
+  const SDR_DAY2_START = 11;
+  const SDR_DAY3_START = 16;
+  if (track === 'sdr') {
+    if (idx >= SDR_DAY3_START && STATE.sdrStep < SDR_DAY3_START && !STATE.sdrDone) return;
+    if (idx >= SDR_DAY2_START && STATE.sdrStep < SDR_DAY2_START && !STATE.sdrDone) return;
+  }
   const maxIdx = track==='admin' ? STATE.adminStep : STATE.sdrStep;
   if (idx > maxIdx) return; // can't skip ahead
   STATE.track = track;
