@@ -1564,7 +1564,7 @@ const ADMIN_STEPS = [
       <div class="callout c-ok"><span class="callout-i">💬</span><div>El canal de Slack <strong>"almuerzos"</strong> tiene la lista diaria, créditos restantes y el link para pedir. El formulario cierra a las <strong>14:00 hrs del día anterior</strong>.</div></div>
       <div class="callout c-tip"><span class="callout-i">💡</span><div><b>Hazlo ahora</b>Si mañana vienes a la oficina, pide tu almuerzo antes de las 14:00 hrs de hoy. Si ya tienes definidos tus días de asistencia de la semana, puedes dejar programados todos tus pedidos de una sola vez.</div></div>
       <div class="link-row">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="lbtn lbtn-form">📋 Formulario de almuerzos</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Formulario de almuerzos</a>
       </div>
     `
   },
@@ -1579,7 +1579,7 @@ const ADMIN_STEPS = [
       <div class="link-row">
         <a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Cómo reservar una sala</a>
       </div>
-      <div class="callout c-info" style="margin-top:12px"><span class="callout-i">💡</span><div>Reservá siempre con anticipación — las salas son compartidas por todo el equipo.</div></div>
+      <div class="callout c-info" style="margin-top:12px"><span class="callout-i">💡</span><div>Reserva siempre con anticipación — las salas son compartidas por todo el equipo.</div></div>
     `
   },
   {
@@ -1621,14 +1621,14 @@ const ADMIN_STEPS = [
       <h3 class="sh">Carpeta "Onboarding"</h3>
       <div class="link-row">
         <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit del Colaborador</a>
-        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Proceso de agendamiento</a>
-        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Manejo de correos</a>
+        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="esquema-agend">📄 Proceso de agendamiento</a>
+        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="correos">📄 Manejo de correos</a>
       </div>
       <h3 class="sh">Barra de Favoritos</h3>
       <div class="link-row">
-        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive">📁 Kit de ventas clientes</a>
-        <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc">📊 Dashboard reuniones</a>
-        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ App TGP</a>
+        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive" data-req="kit-ventas">📁 Kit de ventas clientes</a>
+        <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc" data-req="dashboard">📊 Dashboard reuniones</a>
+        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app" data-req="app">⚡ App TGP</a>
       </div>
     `
   },
@@ -1643,7 +1643,7 @@ const ADMIN_STEPS = [
       <div class="link-row">
         <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="doc">📄 Sistema de advertencias</a>
       </div>
-      <div class="callout c-info" style="margin-top:12px"><span class="callout-i">ℹ️</span><div>Este sistema está adjunto en el acuerdo de trabajo que ya firmaste. Podés volver a revisarlo cuando quieras.</div></div>
+      <div class="callout c-info" style="margin-top:12px"><span class="callout-i">ℹ️</span><div>Este sistema está adjunto en el acuerdo de trabajo que ya firmaste. Puedes volver a revisarlo cuando quieras.</div></div>
     `
   }
 ];
@@ -1781,7 +1781,7 @@ const SDR_STEPS = [
       <h3 class="sh">Fuera de la Oficina</h3>
       <p class="pt">Correos automáticos de personas ausentes. Usamos plantillas del kit de ventas para responder.</p>
       <div class="link-row">
-        <a href="https://docs.google.com/document/d/1N7I8ZGjMJfvu5muqzZ11GLUz-1OYdABOhWcnUq2eeso/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Respuestas tipo (Seba)</a>
+        <a href="https://docs.google.com/document/d/1N7I8ZGjMJfvu5muqzZ11GLUz-1OYdABOhWcnUq2eeso/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="respuestas">📄 Respuestas tipo (Seba)</a>
         <a href="https://www.loom.com/share/4b9e4ecae20143c2a21a6a26fb1987f3" target="_blank" class="lbtn lbtn-vid" data-req="fueraoficina">▶ Video: Cómo responder</a>
       </div>
       <h3 class="sh">No Interesado</h3>
@@ -1989,20 +1989,20 @@ const SDR_STEPS = [
     content: () => `
       <h3 class="sh">Correos Snov (wsn / snv / snw)</h3>
       <p class="pt">Correos en inglés con "wsn" en el asunto. Son muchos — puedes archivarlos o eliminarlos directamente.</p>
-      <div class="link-row"><a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid">▶ Video: Correos Snov</a></div>
+      <div class="link-row"><a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid" data-req="snov">▶ Video: Correos Snov</a></div>
       <h3 class="sh">Correos que Rebotan</h3>
       <p class="pt">Correos con mensajes de error — archivar directamente.</p>
-      <div class="link-row"><a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid">▶ Video: Correos rebote</a></div>
+      <div class="link-row"><a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid" data-req="rebotes">▶ Video: Correos rebote</a></div>
       <h3 class="sh">✨ Varita Mágica (IA en Gmail)</h3>
       <p class="pt">IA para redactar mejores correos. Siempre revisa el resultado antes de enviar.</p>
-      <div class="link-row"><a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid">▶ Video: Varita mágica</a></div>
+      <div class="link-row"><a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid" data-req="varita">▶ Video: Varita mágica</a></div>
       <h3 class="sh">Apollo y Lusha — Scraping</h3>
       <p class="pt">Para encontrar teléfonos y correos de prospectos. Instala las extensiones mientras ves los videos.</p>
       <div class="link-row">
         <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid" data-req="apollo">▶ Apollo — instalación</a>
         <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid" data-req="lusha">▶ Lusha — instalación</a>
-        <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid">▶ Empleados de empresa</a>
-        <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid">▶ Empleados por país</a>
+        <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid" data-req="empleados">▶ Empleados de empresa</a>
+        <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid" data-req="empleados-pais">▶ Empleados por país</a>
       </div>
     `
   },
