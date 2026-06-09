@@ -1618,34 +1618,19 @@ const SDR_STEPS = [
     `
   },
   {
-    id:'sdr-favoritos',
-    icon:'🔖',
-    badge:'Día 1',
-    title:'Documentos clave en Favoritos',
-    keywords:'chrome favoritos links documentos guardar kit colaborador ventas dashboard proceso agendamiento correos',
-    content: () => `
-      <p class="pt">Guarda estos links en una carpeta <strong>"TGP"</strong> de tus Favoritos de Chrome. Los vas a usar todos los días — tenerlos a mano te ahorra tiempo.</p>
-      <p class="pt">Para cada uno: abre el link → haz clic en la ★ → pon un nombre corto → elige la carpeta → Listo.</p>
-      <div class="link-row">
-        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit del Colaborador</a>
-        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="esquema-agend">📄 Proceso de agendamiento</a>
-        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="correos">📄 Manejo de correos</a>
-        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive" data-req="kit-ventas">📁 Kit de ventas clientes</a>
-        <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc" data-req="dashboard">📊 Dashboard reuniones</a>
-      </div>
-    `
-  },
-  {
     id:'sdr-glosario',
     icon:'📖',
     badge:'Antes de empezar',
     title:'Glosario — Conceptos Clave',
     keywords:'glosario terminos cliente prospecto kdm icp b2b push no show weekly bandeja etiqueta',
     content: () => `
-      <p class="pt">Tienes que dominar estos conceptos. Si no puedes explicar alguno con tus propias palabras, vuelve al glosario completo.</p>
+      <h3 class="sh">Paso 1 — Lee el glosario completo</h3>
+      <p class="pt">Antes de ver el resumen de abajo, abre el glosario y léelo completo. Contiene todos los términos que vas a escuchar desde el primer día — si te salteas este paso, el resumen no va a servir de nada.</p>
       <div class="link-row" style="margin-bottom:16px">
         <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc" data-req="glosario">📄 Glosario completo TGP</a>
       </div>
+      <h3 class="sh">Paso 2 — Repasa los conceptos clave</h3>
+      <p class="pt">¿Ya lo leíste? Bien. Ahora repasa estos conceptos. Si no puedes explicar alguno con tus propias palabras, vuelve al glosario.</p>
       <div class="gloss">
         <div class="gloss-row"><div class="gloss-term">Cliente</div><div class="gloss-def">Empresa que contrata TGP para que generemos reuniones comerciales con sus prospectos.</div></div>
         <div class="gloss-row"><div class="gloss-term">Prospecto</div><div class="gloss-def">Persona o empresa a la que contactamos con el objetivo de agendar una reunión con nuestro cliente.</div></div>
@@ -1945,7 +1930,25 @@ const SDR_STEPS = [
         <li>Contactar al prospecto inmediatamente (llamado, WhatsApp, correo).</li>
         <li>Reagendar la reunión en la App TGP y avisar al cliente.</li>
       </ul>
-      <div class="callout c-tip"><span class="callout-i">💡</span><div><b>Tip preventivo</b>Llamá al prospecto <strong>20 minutos antes</strong> de cada reunión para confirmar asistencia.</div></div>
+      <div class="callout c-tip"><span class="callout-i">💡</span><div><b>Tip preventivo</b>Llama al prospecto <strong>20 minutos antes</strong> de cada reunión para confirmar asistencia.</div></div>
+    `
+  },
+  {
+    id:'sdr-favoritos',
+    icon:'🔖',
+    badge:'Día 1',
+    title:'Documentos clave en Favoritos',
+    keywords:'chrome favoritos links documentos guardar kit colaborador ventas dashboard proceso agendamiento correos',
+    content: () => `
+      <p class="pt">Ya conoces el proceso, las herramientas y cómo funciona todo. Ahora guarda los documentos que vas a usar día a día en una carpeta <strong>"TGP"</strong> de tus Favoritos de Chrome para tenerlos siempre a mano.</p>
+      <p class="pt">Para cada uno: abre el link → haz clic en la ★ → pon un nombre corto → elige la carpeta → Listo.</p>
+      <div class="link-row">
+        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit del Colaborador</a>
+        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="esquema-agend">📄 Proceso de agendamiento</a>
+        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="correos">📄 Manejo de correos</a>
+        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive" data-req="kit-ventas">📁 Kit de ventas clientes</a>
+        <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc" data-req="dashboard">📊 Dashboard reuniones</a>
+      </div>
     `
   },
   {
@@ -2276,8 +2279,8 @@ function renderOnboarding() {
 }
 
 function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
-  const SDR_DAY2_START = 12;
-  const SDR_DAY3_START = 17;
+  const SDR_DAY2_START = 13;
+  const SDR_DAY3_START = 18;
 
   const sb = document.getElementById('sidebar');
   const total = steps.length;
@@ -2341,8 +2344,8 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
 }
 
 function jumpTo(track, idx) {
-  const SDR_DAY2_START = 12;
-  const SDR_DAY3_START = 17;
+  const SDR_DAY2_START = 13;
+  const SDR_DAY3_START = 18;
   if (!adminMode) {
     if (track === 'sdr') {
       if (idx >= SDR_DAY3_START && STATE.sdrStep < SDR_DAY3_START && !STATE.sdrDone) return;
