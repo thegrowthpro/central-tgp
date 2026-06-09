@@ -1583,9 +1583,31 @@ const ADMIN_STEPS = [
     `
   },
   {
+    id:'admin-chrome',
+    icon:'🔗',
+    badge:'Paso 6',
+    title:'Documentos en Favoritos',
+    keywords:'chrome favoritos links documentos guardar barra navegador kit colaborador',
+    content: () => `
+      <p class="pt">Guarda estos links en tus Favoritos de Chrome para tenerlos siempre a mano. Para cada uno: abre el link → haz clic en la ★ → pon un nombre corto → elige la carpeta → Listo.</p>
+      <h3 class="sh">Carpeta "Onboarding"</h3>
+      <div class="link-row">
+        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit del Colaborador</a>
+        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="esquema-agend">📄 Proceso de agendamiento</a>
+        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="correos">📄 Manejo de correos</a>
+      </div>
+      <h3 class="sh">Barra de Favoritos</h3>
+      <div class="link-row">
+        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive" data-req="kit-ventas">📁 Kit de ventas clientes</a>
+        <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc" data-req="dashboard">📊 Dashboard reuniones</a>
+        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app" data-req="app">⚡ App TGP</a>
+      </div>
+    `
+  },
+  {
     id:'admin-honorarios',
     icon:'🧾',
-    badge:'Administrativo',
+    badge:'Día 3',
     title:'Boleta de Honorarios',
     keywords:'boleta honorarios sii factura pago mensual emitir inicio actividades calculadora formulario proporcional',
     content: () => `
@@ -1611,31 +1633,9 @@ const ADMIN_STEPS = [
     `
   },
   {
-    id:'admin-chrome',
-    icon:'🔗',
-    badge:'Paso 6',
-    title:'Documentos en Favoritos',
-    keywords:'chrome favoritos links documentos guardar barra navegador kit colaborador',
-    content: () => `
-      <p class="pt">Guarda estos links en tus Favoritos de Chrome para tenerlos siempre a mano. Para cada uno: abre el link → haz clic en la ★ → pon un nombre corto → elige la carpeta → Listo.</p>
-      <h3 class="sh">Carpeta "Onboarding"</h3>
-      <div class="link-row">
-        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit del Colaborador</a>
-        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="esquema-agend">📄 Proceso de agendamiento</a>
-        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="correos">📄 Manejo de correos</a>
-      </div>
-      <h3 class="sh">Barra de Favoritos</h3>
-      <div class="link-row">
-        <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive" data-req="kit-ventas">📁 Kit de ventas clientes</a>
-        <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc" data-req="dashboard">📊 Dashboard reuniones</a>
-        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app" data-req="app">⚡ App TGP</a>
-      </div>
-    `
-  },
-  {
     id:'admin-advertencias',
     icon:'⚠️',
-    badge:'Importante',
+    badge:'Día 3',
     title:'Sistema de Advertencias',
     keywords:'advertencias sistema responsabilidades incumplimiento acuerdo reglas',
     content: () => `
@@ -1981,57 +1981,13 @@ const SDR_STEPS = [
     `
   },
   {
-    id:'sdr-herramientas',
-    icon:'🔧',
-    badge:'Herramientas',
-    title:'Apollo, Lusha y Gmail IA',
-    keywords:'snov wsn rebotes varita magica apollo lusha scraping empleados herramientas instalar extension',
-    content: () => `
-      <h3 class="sh">Correos Snov (wsn / snv / snw)</h3>
-      <p class="pt">Correos en inglés con "wsn" en el asunto. Son muchos — puedes archivarlos o eliminarlos directamente.</p>
-      <div class="link-row"><a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid" data-req="snov">▶ Video: Correos Snov</a></div>
-      <h3 class="sh">Correos que Rebotan</h3>
-      <p class="pt">Correos con mensajes de error — archivar directamente.</p>
-      <div class="link-row"><a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid" data-req="rebotes">▶ Video: Correos rebote</a></div>
-      <h3 class="sh">✨ Varita Mágica (IA en Gmail)</h3>
-      <p class="pt">IA para redactar mejores correos. Siempre revisa el resultado antes de enviar.</p>
-      <div class="link-row"><a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid" data-req="varita">▶ Video: Varita mágica</a></div>
-      <h3 class="sh">Apollo y Lusha — Scraping</h3>
-      <p class="pt">Para encontrar teléfonos y correos de prospectos. Instala las extensiones mientras ves los videos.</p>
-      <div class="link-row">
-        <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid" data-req="apollo">▶ Apollo — instalación</a>
-        <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid" data-req="lusha">▶ Lusha — instalación</a>
-        <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid" data-req="empleados">▶ Empleados de empresa</a>
-        <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid" data-req="empleados-pais">▶ Empleados por país</a>
-      </div>
-    `
-  },
-  {
-    id:'sdr-dia2',
-    icon:'🌅',
-    badge:'Día 2',
-    title:'Bienvenido/a al segundo día',
-    keywords:'segundo dia onboarding dia 2 clientes bandejas tarea estudiar',
-    content: () => `
-      <p class="pt">¡Bien hecho! Terminaste la parte teórica del onboarding — ya conoces el proceso completo, las herramientas, las etiquetas, el agendamiento y los recordatorios.</p>
-      <p class="pt">Hoy empezamos el trabajo real. Antes de recibir tus bandejas, tienes que conocer bien los clientes con los que vas a trabajar. El proceso del segundo día es:</p>
-      <ol class="steps-list">
-        <li><strong>Tarea 1:</strong> Estudiar los clientes asignados.</li>
-        <li><strong>Reunión con tu SDR Senior:</strong> resolver dudas y recibir tus primeras bandejas.</li>
-        <li><strong>Reunión con tu Manager:</strong> inducción oficial al pod, accesos y documentos.</li>
-        <li><strong>Tarea 2:</strong> Ordenar las bandejas que recibiste.</li>
-        <li><strong>Tarea 3:</strong> Primer barrido de bandejas — llamar y hacer push.</li>
-      </ol>
-    `
-  },
-  {
     id:'sdr-tarea1',
     icon:'📚',
-    badge:'Tarea 1 — Día 2',
+    badge:'Tarea 1 — Día 1',
     title:'Estudiar los Clientes Asignados',
     keywords:'tarea estudiar clientes kit ventas linkedin web onboarding secuencia',
     content: () => `
-      <p class="pt">Antes de tener tu reunión con el Senior y recibir tus bandejas, tienes que conocer bien los clientes con los que vas a trabajar: propuesta de valor, servicio, diferenciadores, países, etc.</p>
+      <p class="pt">Esta es la última tarea del Día 1. Antes de tu reunión con el Senior mañana y de recibir tus bandejas, tienes que conocer bien los clientes con los que vas a trabajar: propuesta de valor, servicio, diferenciadores, países, etc.</p>
       <p class="pt">Para <strong>cada cliente asignado</strong>, haz esto en orden:</p>
       <ol class="steps-list">
         <li>Buscar y estudiar el perfil de LinkedIn de la empresa.</li>
@@ -2043,9 +1999,28 @@ const SDR_STEPS = [
         <li>Estudiar la secuencia de correo del cliente.</li>
         <li>Estudiar las respuestas tipo del cliente.</li>
       </ol>
+      <div class="callout c-ok"><span class="callout-i">🎉</span><div>Con esto cierras el Día 1. Llegaste preparado/a — mañana son las reuniones y las bandejas en vivo.</div></div>
       <div class="link-row">
         <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit de Ventas Clientes</a>
       </div>
+    `
+  },
+  {
+    id:'sdr-dia2',
+    icon:'🌅',
+    badge:'Día 2',
+    title:'Bienvenido/a al segundo día',
+    keywords:'segundo dia onboarding dia 2 clientes bandejas tarea estudiar',
+    content: () => `
+      <p class="pt">¡Bien hecho! Ya tienes toda la teoría y conoces los clientes. Hoy arranca el trabajo en vivo — las bandejas son tuyas.</p>
+      <p class="pt">El proceso del Día 2 es:</p>
+      <ol class="steps-list">
+        <li><strong>Reunión con tu SDR Senior:</strong> resolver dudas sobre los clientes y recibir tus primeras bandejas.</li>
+        <li><strong>Reunión con tu Manager:</strong> inducción oficial al pod, accesos y documentos.</li>
+        <li><strong>Apollo, Lusha y Gmail IA:</strong> instalar las extensiones que vas a usar día a día en las bandejas.</li>
+        <li><strong>Tarea 2:</strong> Ordenar las bandejas que recibiste.</li>
+        <li><strong>Tarea 3:</strong> Primer barrido de bandejas — llamar y hacer push.</li>
+      </ol>
     `
   },
   {
@@ -2082,6 +2057,32 @@ const SDR_STEPS = [
       <div class="link-row">
         <a href="https://www.loom.com/share/b2264e12fcd94eaf9bc4090efe36c0f4" target="_blank" class="lbtn lbtn-vid" data-req="reglas">▶ Video: Reglas de agendamiento</a>
         <a href="https://www.loom.com/share/fe5331f4c1b64911b558e57e48f4f9bc" target="_blank" class="lbtn lbtn-vid" data-req="bandejas">▶ Video: Distribución de bandejas</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-herramientas',
+    icon:'🔧',
+    badge:'Herramientas — Día 2',
+    title:'Apollo, Lusha y Gmail IA',
+    keywords:'snov wsn rebotes varita magica apollo lusha scraping empleados herramientas instalar extension',
+    content: () => `
+      <h3 class="sh">Correos Snov (wsn / snv / snw)</h3>
+      <p class="pt">Correos en inglés con "wsn" en el asunto. Son muchos — puedes archivarlos o eliminarlos directamente.</p>
+      <div class="link-row"><a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid" data-req="snov">▶ Video: Correos Snov</a></div>
+      <h3 class="sh">Correos que Rebotan</h3>
+      <p class="pt">Correos con mensajes de error — archivar directamente.</p>
+      <div class="link-row"><a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid" data-req="rebotes">▶ Video: Correos rebote</a></div>
+      <h3 class="sh">✨ Varita Mágica (IA en Gmail)</h3>
+      <p class="pt">IA para redactar mejores correos. Siempre revisa el resultado antes de enviar.</p>
+      <div class="link-row"><a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid" data-req="varita">▶ Video: Varita mágica</a></div>
+      <h3 class="sh">Apollo y Lusha — Scraping</h3>
+      <p class="pt">Para encontrar teléfonos y correos de prospectos. Instala las extensiones mientras ves los videos.</p>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid" data-req="apollo">▶ Apollo — instalación</a>
+        <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid" data-req="lusha">▶ Lusha — instalación</a>
+        <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid" data-req="empleados">▶ Empleados de empresa</a>
+        <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid" data-req="empleados-pais">▶ Empleados por país</a>
       </div>
     `
   },
@@ -2274,8 +2275,12 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
     <div class="prog-sub">${done ? '✅ Completado' : `${stepsInTrack} de ${total} pasos`}</div>
   </div>`;
 
-  html += `<div class="sidebar-section-title">Parte 1 — Todos</div>`;
+  const ADMIN_DAY3_START = 10;
+  const SDR_DAY2_START = 11;
+
+  html += `<div class="sidebar-section-title">📅 Día 1 — Para todos</div>`;
   ADMIN_STEPS.forEach((s,i) => {
+    if (i === ADMIN_DAY3_START) html += `<div class="sidebar-section-title" style="margin-top:8px">📅 Día 3 — Esta semana</div>`;
     const isDone = track==='admin' ? i < STATE.adminStep : STATE.adminDone;
     const isActive = track==='admin' && i === STATE.adminStep && !STATE.adminDone;
     const cls = isDone ? 'done' : (isActive ? 'active' : '');
@@ -2286,8 +2291,9 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
   });
 
   if (isSDR) {
-    html += `<div class="sidebar-section-title" style="margin-top:12px">Parte 2 — SDR Junior</div>`;
+    html += `<div class="sidebar-section-title" style="margin-top:12px">📅 Día 1 — SDR Junior</div>`;
     SDR_STEPS.forEach((s,i) => {
+      if (i === SDR_DAY2_START) html += `<div class="sidebar-section-title" style="margin-top:8px">📅 Día 2</div>`;
       const unlocked = STATE.adminDone;
       const isDone = unlocked && i < STATE.sdrStep;
       const isActive = unlocked && track==='sdr' && i === STATE.sdrStep && !STATE.sdrDone;
