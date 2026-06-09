@@ -1587,13 +1587,27 @@ const ADMIN_STEPS = [
     icon:'🧾',
     badge:'Administrativo',
     title:'Boleta de Honorarios',
-    keywords:'boleta honorarios sii factura pago mensual emitir',
+    keywords:'boleta honorarios sii factura pago mensual emitir inicio actividades calculadora formulario proporcional',
     content: () => `
-      <p class="pt">Como colaborador de TGP, debes emitir boleta de honorarios mensualmente. El SII tiene un portal gratuito para hacerlo en línea.</p>
+      <p class="pt">Como colaborador de TGP, emites <strong>boleta de honorarios</strong> cada mes. Es tu responsabilidad emitirla y subirla al formulario correspondiente. Acá tienes todo lo que necesitas para hacerlo.</p>
+      <h3 class="sh">¿Primera vez emitiendo boleta en tu vida?</h3>
+      <p class="pt">Antes de emitir tu primera boleta, necesitas iniciar actividades en el SII. Es un trámite de 10 minutos que solo se hace una vez.</p>
       <div class="link-row">
-        <a href="https://www.sii.cl" target="_blank" class="lbtn lbtn-doc">📄 Portal SII — boleta electrónica</a>
+        <a href="https://drive.google.com/file/d/1fZjpndZiuYuLxtnurMGWaG1LBPleba91/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="inicio">📄 Guía: Inicio de actividades en SII</a>
       </div>
-      <div class="callout c-info" style="margin-top:12px"><span class="callout-i">💬</span><div>¿Tenés dudas sobre el monto o el proceso? Escribile a Belén (HR Lead) por Slack.</div></div>
+      <h3 class="sh">El proceso cada mes</h3>
+      <ol class="steps-list">
+        <li>Calcular el monto de tu boleta con la calculadora.</li>
+        <li>Emitir la boleta en el portal del SII.</li>
+        <li>Subir la boleta al formulario de TGP.</li>
+      </ol>
+      <div class="link-row">
+        <a href="https://patrimore.com/herramientas/calcular-boleta-de-honorarios" target="_blank" class="lbtn lbtn-doc" data-req="calc">🧮 Calculadora de boleta</a>
+        <a href="https://drive.google.com/file/d/1Qbg6gKgXeJtOrsdR44UMTJJYyBeW3Ny8/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="guia-boleta">📄 Guía: Cómo hacer la boleta en SII</a>
+        <a href="https://forms.gle/StmtkADtXgj3RF8G6" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Formulario subir boleta</a>
+      </div>
+      <div class="callout c-info"><span class="callout-i">📌</span><div><b>Datos de TGP para tu boleta</b><br>Razón Social: TGP SpA · RUT: 77.628.885-3 · Mail: ariel@thegrowth.pro · Dirección: Hermanos Cabot 6777, depto 87</div></div>
+      <div class="callout c-tip"><span class="callout-i">💡</span><div>Toda la guía completa de pagos (cuándo emitir, cálculo proporcional para el primer mes, etc.) está en la sección <strong>RRHH → Pagos y Boletas</strong>.</div></div>
     `
   },
   {
