@@ -1794,6 +1794,8 @@ const SDR_STEPS = [
     title:'Proceso de Agendamiento',
     keywords:'agendamiento agendar reunion app tgp horario ejecutivo prospecto esquema proceso',
     content: () => `
+      <p class="pt">El proceso de agendamiento arranca en el momento en que un prospecto muestra interés — ya sea respondiendo un correo de la bandeja, confirmando que quiere reunirse después de un llamado en tibio, o cualquier señal clara de que está dispuesto a verse con el ejecutivo.</p>
+      <p class="pt">Desde ese momento, hay un procedimiento fijo de 9 pasos que hay que seguir en orden. No se puede saltar ninguno — cada paso depende del anterior. Este es el corazón de tu trabajo como SDR.</p>
       <div class="agend-steps">
         <div class="agend-step" onclick="this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">1</span><span class="agend-title">Encontrar horario disponible</span><span class="agend-arr">+</span></div>
@@ -1885,7 +1887,11 @@ const SDR_STEPS = [
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">6</span><span class="agend-title">Confirmar reunión al prospecto</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Responde en el mismo hilo de correo con la fecha, hora y link de la reunión confirmada. El prospecto tiene que saber exactamente cuándo y dónde entrar.</div>
+          <div class="agend-detail">
+            <p style="margin-bottom:8px">Responde en el <strong>mismo hilo de correo</strong> confirmándole al prospecto que la reunión quedó agendada. El mensaje tiene que incluir: fecha, hora (en su hora local si está en otro país), link de Google Meet y nombre del ejecutivo con quien se reunirá.</p>
+            <p style="margin-bottom:8px">El objetivo es que el prospecto tenga todo claro de un solo correo — sin que tenga que preguntar nada. Si tiene dudas o no sabe cómo entrar, hay más chances de que no se presente.</p>
+            <div class="callout c-tip"><span class="callout-i">💡</span><div>La App TGP genera automáticamente el link de Meet al agendar — lo encuentras en el detalle de la reunión dentro de la App.</div></div>
+          </div>
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">7</span><span class="agend-title">Programar 2 recordatorios ⚠️</span><span class="agend-arr">+</span></div>
@@ -1908,6 +1914,11 @@ const SDR_STEPS = [
             </div>
           </div>
         </div>
+      </div>
+      <h3 class="sh" style="margin-top:20px">Diagrama de referencia</h3>
+      <p class="pt">Guarda este diagrama — es el resumen visual de los 9 pasos. Úsalo como guía de consulta rápida cada vez que vayas a agendar una reunión.</p>
+      <div class="link-row">
+        <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="diagrama">📄 Diagrama: Proceso de agendamiento</a>
       </div>
     `
   },
