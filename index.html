@@ -1826,9 +1826,11 @@ const SDR_STEPS = [
     icon:'🏷️',
     badge:'Técnico',
     title:'Uso de Etiquetas',
-    keywords:'etiquetas estados correo proceso agendado no interesado no aplica reagendar',
+    keywords:'etiquetas estados correo proceso agendado no interesado no aplica reagendar categoria seguimiento',
     content: () => `
-      <p class="pt">Cada correo recibido <strong>debe ser etiquetado antes de responder</strong>. Las etiquetas representan el estado de la conversación.</p>
+      <p class="pt">En las bandejas se acumulan decenas de conversaciones activas al mismo tiempo. Sin un sistema de categorización es imposible saber en qué estado está cada prospecto, qué tipo de respuesta dió, si hay que hacerle push, si ya está agendado o si simplemente no aplica.</p>
+      <p class="pt">El método que usa TGP es simple y efectivo: a cada conversación se le pone una <strong>etiqueta</strong> — un nombre que representa el estado actual. Eso permite leer la bandeja de un vistazo y saber exactamente qué hacer con cada correo.</p>
+      <p class="pt">Las etiquetas que se usan en TGP de forma obligatoria son las siguientes. Cada correo recibido <strong>debe ser etiquetado antes de responder</strong>:</p>
       <div class="etiq-grid">
         <div class="etiq" style="border-left:4px solid #eab308"><div class="etiq-name" style="color:#854d0e">Proceso</div><div class="etiq-desc">Conversación activa, se está trabajando para agendar.</div></div>
         <div class="etiq" style="border-left:4px solid #16a34a"><div class="etiq-name" style="color:#15803d">Agendado</div><div class="etiq-desc">Reunión confirmada y agendada en la App TGP.</div></div>
