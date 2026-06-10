@@ -2547,12 +2547,15 @@ function showScreen(id) {
 function renderOnboarding() {
   const isSDR = STATE.role === 'sdr';
   const adminDone = STATE.adminDone;
-  const track = STATE.track;
+  // En modo admin usa _adminView si existe, si no el track real
+  const track = (adminMode && _adminView) ? _adminView.track : STATE.track;
 
-  // If admin done but showing sdr (or not sdr), determine what to show
   const steps = (track === 'sdr' && isSDR) ? SDR_STEPS : ADMIN_STEPS;
-  const currentIdx = (track === 'sdr') ? STATE.sdrStep : STATE.adminStep;
-  const done = (track === 'sdr') ? STATE.sdrDone : STATE.adminDone;
+  // En modo admin usa el índice de vista sin tocar el progreso real
+  const currentIdx = (adminMode && _adminView)
+    ? _adminView.idx
+    : (track === 'sdr') ? STATE.sdrStep : STATE.adminStep;
+  const done = (adminMode && _adminView) ? false : ((track === 'sdr') ? STATE.sdrDone : STATE.adminDone);
 
   renderSidebar(steps, currentIdx, done, track, isSDR, adminDone);
 
@@ -2582,8 +2585,11 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
 
   html += `<div class="sidebar-section-title">📋 Para todos</div>`;
   ADMIN_STEPS.forEach((s,i) => {
-    const isDone = track==='admin' ? i < STATE.adminStep : STATE.adminDone;
-    const isActive = track==='admin' && i === STATE.adminStep && !STATE.adminDone;
+    const adminViewIdx = (adminMode && _adminView && _adminView.track === 'admin') ? _adminView.idx : null;
+    const isDone = adminMode ? false : (track==='admin' ? i < STATE.adminStep : STATE.adminDone);
+    const isActive = adminMode
+      ? (adminViewIdx !== null && i === adminViewIdx)
+      : (track==='admin' && i === STATE.adminStep && !STATE.adminDone);
     const cls = isDone ? 'done' : (isActive ? 'active' : '');
     html += `<div class="sidebar-step ${cls}" onclick="jumpTo('admin',${i})">
       <div class="step-dot">${isDone ? '✓' : (i+1)}</div>
@@ -2592,9 +2598,9 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
   });
 
   if (isSDR) {
-    const sdrUnlocked = STATE.adminDone;
-    const day2Unlocked = sdrUnlocked && (STATE.sdrStep >= SDR_DAY2_START || STATE.sdrDone);
-    const day3Unlocked = sdrUnlocked && (STATE.sdrStep >= SDR_DAY3_START || STATE.sdrDone);
+    const sdrUnlocked = adminMode || STATE.adminDone;
+    const day2Unlocked = adminMode || (sdrUnlocked && (STATE.sdrStep >= SDR_DAY2_START || STATE.sdrDone));
+    const day3Unlocked = adminMode || (sdrUnlocked && (STATE.sdrStep >= SDR_DAY3_START || STATE.sdrDone));
 
     html += `<div class="sidebar-section-title" style="margin-top:12px">📅 Día 1 — SDR Junior</div>`;
 
@@ -2614,10 +2620,13 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
         }
       }
 
-      const dayLocked = (!day2Unlocked && i >= SDR_DAY2_START) || (!day3Unlocked && i >= SDR_DAY3_START);
-      const unlocked = sdrUnlocked && !dayLocked;
-      const isDone = unlocked && i < STATE.sdrStep;
-      const isActive = unlocked && track==='sdr' && i === STATE.sdrStep && !STATE.sdrDone;
+      const dayLocked = !adminMode && ((!day2Unlocked && i >= SDR_DAY2_START) || (!day3Unlocked && i >= SDR_DAY3_START));
+      const unlocked = adminMode || (sdrUnlocked && !dayLocked);
+      const sdrViewIdx = (adminMode && _adminView && _adminView.track === 'sdr') ? _adminView.idx : null;
+      const isDone = adminMode ? false : (unlocked && i < STATE.sdrStep);
+      const isActive = adminMode
+        ? (sdrViewIdx !== null && i === sdrViewIdx)
+        : (unlocked && track==='sdr' && i === STATE.sdrStep && !STATE.sdrDone);
       const locked = !unlocked;
       const cls = locked ? 'locked' : (isDone ? 'done' : (isActive ? 'active' : ''));
 
@@ -2643,8 +2652,13 @@ function jumpTo(track, idx) {
     if (idx > maxIdx) return; // can't skip ahead
   }
   STATE.track = track;
-  if (track === 'sdr') STATE.sdrStep = idx;
-  else STATE.adminStep = idx;
+  if (adminMode) {
+    // En modo admin solo actualiza la vista, sin tocar el progreso guardado
+    _adminView = { track, idx };
+  } else {
+    if (track === 'sdr') STATE.sdrStep = idx;
+    else STATE.adminStep = idx;
+  }
   renderOnboarding();
 }
 
@@ -3716,6 +3730,7 @@ function deleteBoletinItem(id) {
 const ADMIN_PWD = 'tgp2025'; // ← cambia esta contraseña si quieres
 let adminMode = false;
 let _editingLink = null;
+let _adminView = null; // { track, idx } — navegación admin sin tocar el progreso real
 
 function openAdminPass() {
   if (adminMode) { exitAdmin(); return; }
@@ -3737,6 +3752,11 @@ function checkAdminPass() {
 }
 function enterAdmin() {
   adminMode = true;
+  // Inicializar la vista en el paso actual sin tocarlo
+  _adminView = { track: STATE.track, idx: STATE.track === 'sdr' ? STATE.sdrStep : STATE.adminStep };
+  // Si el admin está "hecho" (completado), arrancar desde el paso 0
+  if (_adminView.track === 'admin' && STATE.adminDone) _adminView.idx = 0;
+  if (_adminView.track === 'sdr' && STATE.sdrDone) _adminView.idx = 0;
   document.body.classList.add('admin-mode');
   document.getElementById('adminBar').style.display = 'flex';
   const btn = document.getElementById('adminBtn');
@@ -3746,6 +3766,7 @@ function enterAdmin() {
 }
 function exitAdmin() {
   adminMode = false;
+  _adminView = null; // limpiar vista temporal
   document.body.classList.remove('admin-mode');
   document.getElementById('adminBar').style.display = 'none';
   const btn = document.getElementById('adminBtn');
