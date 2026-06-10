@@ -2837,10 +2837,11 @@ function replayOnboarding() {
 // ════════════════════════════════════════════════════════════════
 const RES_CATEGORIES = [
   { id:'inicio',       label:'📄 Documentos de Onboarding' },
-  { id:'herramientas', label:'🔧 Herramientas' },
   { id:'oficina',      label:'🏢 Oficina' },
-  { id:'sdr',          label:'📧 Proceso SDR' },
-  { id:'links',        label:'🔗 Links y Recursos', fullrow: true },
+  { id:'bandejas',     label:'📥 Bandejas de Correo' },
+  { id:'agendamiento', label:'📅 Agendamiento' },
+  { id:'llamado',      label:'📞 Llamado' },
+  { id:'kits',         label:'⚡ Apps y Kits', fullrow: true },
 ];
 
 const RES_DATA = [
@@ -2862,19 +2863,29 @@ const RES_DATA = [
     `
   },
   {
-    category:'herramientas',
+    category:'bandejas',
     direct: true,
-    icon:'🔧', title:'Herramientas', sub:'',
-    keywords:'apollo lusha varita magica snov correos rebotes empleados extension ia herramientas',
+    icon:'🔧', title:'Herramientas de correo', sub:'',
+    keywords:'varita magica snov correos rebotes empleados extension ia herramientas bandejas',
     body:`
       <div class="link-row" style="flex-wrap:wrap">
-        <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid">▶ Apollo</a>
-        <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid">▶ Lusha</a>
         <a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid">▶ Varita mágica Gmail</a>
         <a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid">▶ Correos Snov</a>
         <a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid">▶ Correos rebote</a>
         <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid">▶ Empleados empresa</a>
         <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid">▶ Empleados por país</a>
+      </div>`
+  },
+  {
+    category:'llamado',
+    direct: true,
+    icon:'📞', title:'Llamado', sub:'',
+    keywords:'llamado tibio apollo lusha contacto telefono prospecto',
+    body:`
+      <div class="link-row" style="flex-wrap:wrap">
+        <a href="https://www.loom.com/share/6863b17f349542e782f28b1d2ef81f14" target="_blank" class="lbtn lbtn-vid">▶ Llamada en tibio</a>
+        <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid">▶ Apollo — En Tibio</a>
+        <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid">▶ Lusha — En Tibio</a>
       </div>`
   },
   {
@@ -2914,7 +2925,7 @@ const RES_DATA = [
       </div>`
   },
   {
-    category:'sdr',
+    category:'bandejas',
     icon:'📧', title:'Bandejas de Correo', sub:'Secuencias, etiquetas y movimiento',
     keywords:'bandejas correo secuencias etiquetas movimiento archivar eliminar dominio cliente gmail',
     body:`
@@ -2936,7 +2947,7 @@ const RES_DATA = [
       </div>`
   },
   {
-    category:'sdr',
+    category:'bandejas',
     icon:'🛡️', title:'Manejo de Objeciones', sub:'Derivaciones, fuera de oficina, no interesado',
     keywords:'objeciones derivaciones referidos fuera oficina vacaciones no interesado responder manejar',
     body:`
@@ -2951,7 +2962,7 @@ const RES_DATA = [
       <div class="link-row"><a href="https://www.loom.com/share/7d78d8afa42d478bbc6f9e0afb449644" target="_blank" class="lbtn lbtn-vid">▶ Video: "No interesado" — Tere</a></div>`
   },
   {
-    category:'sdr',
+    category:'bandejas',
     icon:'📲', title:'Push y Llamado en Tibio', sub:'Estrategia más importante para agendar',
     keywords:'push insistencia llamado tibio frio telefono seguimiento 2 veces semana frecuencia',
     body:`
@@ -2964,7 +2975,7 @@ const RES_DATA = [
       </div>`
   },
   {
-    category:'sdr',
+    category:'agendamiento',
     icon:'📆', title:'Proceso de Agendamiento', sub:'Del match de horario a la reunión confirmada',
     keywords:'agendamiento proceso agendar reunion app tgp horario ejecutivo prospecto esquema pasos',
     body:`
@@ -3020,7 +3031,7 @@ const RES_DATA = [
       </div>`
   },
   {
-    category:'sdr',
+    category:'agendamiento',
     icon:'🔔', title:'Recordatorios y No Show', sub:'WhatsApp automático y estrategias de realización',
     keywords:'recordatorio no show whatsapp realizacion seguimiento programar correo alarma canal pod',
     body:`
@@ -3029,15 +3040,14 @@ const RES_DATA = [
       <div class="link-row"><a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank" class="lbtn lbtn-vid">▶ Video: Recordatorios</a></div>`
   },
   {
-    category:'links',
+    category:'kits',
     direct: true,
-    icon:'🔗', title:'Todos los Links y Recursos', sub:'',
-    keywords:'links recursos documentos videos todos referencias drive app dashboard glosario kit',
+    icon:'⚡', title:'Apps y Kits', sub:'',
+    keywords:'app tgp dashboard liga kit ventas sdr colaborador drive carpeta recursos',
     body:`
       <div style="display:flex;flex-direction:column;gap:18px">
-
         <div>
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--gris3);margin-bottom:10px">⚡ Herramientas</div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--gris3);margin-bottom:10px">⚡ Aplicaciones</div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px">
             <a href="https://app.tgp.cl/" target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;background:var(--brand);color:#fff;border-radius:12px;text-decoration:none;gap:8px;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
               <span style="font-size:24px">⚡</span><span style="font-size:13px;font-weight:700;text-align:center">App TGP</span>
@@ -3053,13 +3063,9 @@ const RES_DATA = [
             </a>
           </div>
         </div>
-
         <div>
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--gris3);margin-bottom:10px">📁 Kits y Carpetas</div>
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--gris3);margin-bottom:10px">📁 Kits Drive</div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px">
-            <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="res-link-block" style="background:#fff7ed;border:1.5px solid #fed7aa;color:#c2410c">
-              <span style="font-size:22px">📁</span><span>Kit del Colaborador</span>
-            </a>
             <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="res-link-block" style="background:#fff7ed;border:1.5px solid #fed7aa;color:#c2410c">
               <span style="font-size:22px">📁</span><span>Kit de Ventas Clientes</span>
             </a>
@@ -3068,43 +3074,6 @@ const RES_DATA = [
             </a>
           </div>
         </div>
-
-        <div>
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--gris3);margin-bottom:10px">📄 Guías y Documentos</div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px">
-            <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">📖</span><span>Glosario TGP</span></a>
-            <a href="https://docs.google.com/document/d/1MPv57sOJvw9k4xfuWxoGpaXgNHW4kIFrP_I6SHofJ1E/edit" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">🏷️</span><span>Guía etiquetas</span></a>
-            <a href="https://docs.google.com/document/d/1UzBrzY1Yrg5rNI8FkCasOeVe3X8GpV-gRf6smyf4Z7k/edit?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">📲</span><span>Guía push</span></a>
-            <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">⚡</span><span>Instructivo App TGP</span></a>
-            <a href="https://docs.google.com/document/d/1CR322lgWchHj82KZvCQRCf5gnd8xEj4XsdWQ0vnpmhE/edit?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">📧</span><span>Ordenar bandejas</span></a>
-            <a href="https://docs.google.com/document/d/1N7I8ZGjMJfvu5muqzZ11GLUz-1OYdABOhWcnUq2eeso/edit?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">💬</span><span>Respuestas tipo</span></a>
-            <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">📐</span><span>Esquema bandejas</span></a>
-            <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">📆</span><span>Esquema agendamiento</span></a>
-            <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="res-link-block" style="background:#eff6ff;border:1.5px solid #bfdbfe;color:#1d4ed8"><span style="font-size:22px">⚠️</span><span>Sistema advertencias</span></a>
-          </div>
-        </div>
-
-        <div>
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--gris3);margin-bottom:10px">▶ Videos</div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px">
-            <a href="https://www.loom.com/share/f8e93b73c31040d8ad9c8c5ee0a23697" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">💬</span><span>Tour Slack</span></a>
-            <a href="https://www.loom.com/share/72be9e9b20e043dfb833308be04216d7" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">📅</span><span>Google Calendar</span></a>
-            <a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🚪</span><span>Reserva de salas</span></a>
-            <a href="https://www.loom.com/share/99a9d029e8a6421dae5a7beac7882e1a" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">📧</span><span>Tour bandeja</span></a>
-            <a href="https://www.loom.com/share/0ae18c83bb084ff89884a7c7fccd840c" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">↕️</span><span>Movimiento correos</span></a>
-            <a href="https://www.loom.com/share/9b6b9a1cbb564e5b905039537d7e00a7" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">↗️</span><span>Derivaciones</span></a>
-            <a href="https://www.loom.com/share/7d78d8afa42d478bbc6f9e0afb449644" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🛡️</span><span>No interesado</span></a>
-            <a href="https://www.loom.com/share/9b6b9a1cbb564e5b905034671d1db2a8" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">📲</span><span>Push</span></a>
-            <a href="https://www.loom.com/share/6863b17f349542e782f28b1d2ef81f14" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">📞</span><span>Llamada en tibio</span></a>
-            <a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">📅</span><span>Disponibilidad ejecutivos</span></a>
-            <a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🤝</span><span>Agendamiento en vivo</span></a>
-            <a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🔔</span><span>Recordatorios</span></a>
-            <a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">✨</span><span>Varita mágica Gmail</span></a>
-            <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🔍</span><span>Apollo</span></a>
-            <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="res-link-block" style="background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9"><span style="font-size:22px">🔍</span><span>Lusha</span></a>
-          </div>
-        </div>
-
       </div>`
   },
 ];
