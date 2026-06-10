@@ -2561,7 +2561,7 @@ function renderOnboarding() {
 
   if (done) {
     renderCompletion(track, isSDR);
-  } else if (track === 'admin' && adminDone && isSDR) {
+  } else if (!adminMode && track === 'admin' && adminDone && isSDR) {
     // show unlock screen
     renderUnlock();
   } else {
