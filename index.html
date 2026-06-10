@@ -1386,9 +1386,29 @@ const CONTENT_OVERRIDES = {};
 // ════════════════════════════════════════════════════════════════
 const ADMIN_STEPS = [
   {
+    id:'admin-bienvenida',
+    icon:'🎉',
+    badge:'Bienvenida',
+    title:'¡Bienvenido/a a TGP!',
+    keywords:'bienvenida inicio primer dia estructura agencia prospeccion latinoamerica',
+    content: () => `
+      <p class="pt">Bienvenido/a a <strong>la agencia de prospección más grande de Latinoamérica</strong>. Desde hoy eres parte de un equipo que trabaja todos los días para que las empresas más importantes de la región vendan más.</p>
+      <p class="pt">Este onboarding está dividido en pasos — cada uno te guía por una tarea concreta. Puedes avanzar a tu propio ritmo y el sistema guarda tu progreso automáticamente.</p>
+      <h3 class="sh">Lo que vas a cubrir</h3>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">📋</span> Datos personales</div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">🕐</span> Horarios, jornada y vida en la oficina</div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">💬</span> Slack, WhatsApp y canales del equipo</div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">📅</span> Google Calendar, Meet y LinkedIn</div>
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">🔗</span> Links clave en favoritos</div>
+      </div>
+      <div class="callout c-ok"><span class="callout-i">👇</span><div>Cada paso te indica exactamente qué hacer. Cuando termines, presiona el botón para continuar al siguiente.</div></div>
+    `
+  },
+  {
     id:'admin-quienes',
     icon:'🚀',
-    badge:'Antes de empezar',
+    badge:'TGP',
     title:'¿Qué es TGP?',
     keywords:'tgp empresa mision vision valores fundadores quienes somos proposito autonomia accountability excelencia',
     content: () => `
@@ -1410,31 +1430,48 @@ const ADMIN_STEPS = [
     `
   },
   {
-    id:'admin-bienvenida',
-    icon:'🎉',
-    badge:'Día 1',
-    title:'¡Bienvenido/a a TGP!',
-    keywords:'bienvenida inicio primer dia estructura',
+    id:'admin-glosario',
+    icon:'📖',
+    badge:'Cultura TGP',
+    title:'Glosario TGP',
+    keywords:'glosario terminos conceptos cliente prospecto b2b pod celula kdm icp push no show weekly sdr senior manager csr',
     content: () => `
-      <p class="pt">Este onboarding está dividido en pasos — cada uno te guía por una tarea concreta. Puedes avanzar a tu propio ritmo y el sistema guarda tu progreso automáticamente.</p>
-      <h3 class="sh">Lo que vas a cubrir en los siguientes pasos</h3>
-      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">📋</span> Datos personales</div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">💬</span> Configurar Slack y grupo de WhatsApp</div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">🕐</span> Horarios y jornada</div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">🧑‍💼</span> ¿A quién le pregunto qué?</div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">📅</span> Google Calendar y Meet</div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">💼</span> Actualizar LinkedIn</div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">🍽️</span> Beneficios y vida en la oficina</div>
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--gris5);border-radius:8px;font-size:13px;color:var(--gris1)"><span style="font-size:16px">🔗</span> Links clave en favoritos</div>
+      <p class="pt">En TGP usamos un lenguaje propio. Desde el primer día vas a escuchar términos que no son comunes en otros trabajos — acá los explicamos todos.</p>
+      <p class="pt">Abre el glosario completo y léelo antes de seguir. No es largo, pero es clave para entender todo lo que viene.</p>
+      <div class="link-row" style="margin-bottom:16px">
+        <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc" data-req="glosario-admin">📄 Glosario completo TGP</a>
       </div>
-      <div class="callout c-ok"><span class="callout-i">👇</span><div>Cada paso te indica exactamente qué hacer. Cuando termines, presiona el botón para continuar al siguiente.</div></div>
+      <h3 class="sh">Conceptos clave para cualquier cargo</h3>
+      <div class="gloss">
+        <div class="gloss-row"><div class="gloss-term">Cliente</div><div class="gloss-def">Empresa que contrata TGP para que generemos reuniones comerciales con sus prospectos.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Prospecto</div><div class="gloss-def">Persona o empresa a la que contactamos con el objetivo de agendar una reunión con nuestro cliente.</div></div>
+        <div class="gloss-row"><div class="gloss-term">B2B</div><div class="gloss-def">Business to Business — empresa que vende a otra empresa. TGP trabaja exclusivamente B2B.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Pod / Célula</div><div class="gloss-def">Equipo de trabajo asignado a uno o más clientes. Cada pod tiene un Manager, un SDR Senior y uno o más SDR Junior.</div></div>
+        <div class="gloss-row"><div class="gloss-term">KDM</div><div class="gloss-def">Key Decision Maker — el tomador de decisiones de la empresa prospecto.</div></div>
+        <div class="gloss-row"><div class="gloss-term">ICP</div><div class="gloss-def">Ideal Customer Profile — perfil ideal del prospecto (sector, tamaño, cargo, etc.).</div></div>
+        <div class="gloss-row"><div class="gloss-term">Weekly</div><div class="gloss-def">Reunión semanal del equipo. Presencial obligatoria, misma hora cada semana.</div></div>
+        <div class="gloss-row"><div class="gloss-term">No Show</div><div class="gloss-def">Prospecto que no se presenta a una reunión agendada. Hay que reagendar de inmediato.</div></div>
+      </div>
+    `
+  },
+  {
+    id:'admin-datos',
+    icon:'📋',
+    badge:'Datos',
+    title:'Datos Personales',
+    keywords:'datos personales formulario accesos',
+    content: () => `
+      <p class="pt">Antes de arrancar con todo, completa el formulario de datos personales. Es necesario para generar tus accesos y tener tu información ante cualquier emergencia.</p>
+      <div class="link-row">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSep-5s9FTC7nvHsGhXBC-v3m6ymFHkBCuFiN8BfLdY9CF2sKg/viewform" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Abrir formulario de datos personales</a>
+      </div>
+      <div class="callout c-warn" style="margin-top:12px"><span class="callout-i">⚠️</span><div>Completa el formulario <strong>antes de continuar</strong>. Es el primer paso obligatorio.</div></div>
     `
   },
   {
     id:'admin-horarios',
     icon:'🕐',
-    badge:'Tu jornada',
+    badge:'Jornada',
     title:'Horarios y Jornada',
     keywords:'horario jornada presencial dias semana parttime fulltime flexibilidad modulo correo tgp acceso',
     content: () => `
@@ -1455,40 +1492,111 @@ const ADMIN_STEPS = [
     `
   },
   {
-    id:'admin-contactos',
-    icon:'🧑‍💼',
-    badge:'Equipo TGP',
-    title:'¿A quién le pregunto qué?',
-    keywords:'rrhh contacto belen forti equipo duda ayuda pregunta central tgp recursos',
+    id:'admin-whatsapp',
+    icon:'💬',
+    badge:'Comunicación',
+    title:'Grupo de WhatsApp TGP',
+    keywords:'whatsapp grupo equipo anuncios comunicacion canal importante unirse',
     content: () => `
-      <p class="pt">Todo lo que necesitas durante tu trabajo en TGP está en la <strong>Central TGP</strong> — la plataforma que acabas de guardar en favoritos. No tienes que memorizar nada, solo saber dónde buscar.</p>
-      <div style="display:flex;flex-direction:column;gap:8px;margin:14px 0">
-        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">🏠 Onboarding</strong> — este mismo proceso, disponible siempre para repasar</div>
-        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">🧑‍💼 RRHH</strong> — ausencias, solicitudes, documentos, pagos y todo lo administrativo</div>
-        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">📢 Tablón</strong> — comunicados y anuncios del equipo</div>
-        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">🏢 Organigrama</strong> — quién es quién en TGP</div>
+      <p class="pt">Hay un grupo de WhatsApp con todo el equipo TGP. Se usa para anuncios importantes, novedades y comunicaciones generales. Es el canal directo con todo el equipo.</p>
+      <p class="pt">Entra al grupo con el link y espera la aprobación de los admins — puede tomar unas horas.</p>
+      <div class="link-row">
+        <a href="https://chat.whatsapp.com/FM4BgeTUVl59z6RZnJnsZj?mode=gi_t" target="_blank" class="lbtn lbtn-app" data-req="whatsapp">💬 Unirse al grupo TGP</a>
       </div>
-      <div class="callout c-info"><span class="callout-i">👋</span><div>Mientras te incorporas a tu equipo, <strong>Belén Forti</strong> (RRHH) es tu punto de contacto para cualquier duda de onboarding, oficina o RRHH.</div></div>
     `
   },
   {
-    id:'admin-datos',
-    icon:'📋',
-    badge:'Paso 1',
-    title:'Datos Personales',
-    keywords:'datos personales formulario accesos',
+    id:'admin-oficina',
+    icon:'🏠',
+    badge:'La oficina',
+    title:'Así vivimos en la oficina',
+    keywords:'oficina convivencia cafe cocina escritorio sala monitor orden limpieza cowork',
     content: () => `
-      <p class="pt">Antes de todo, debes completar el formulario de datos personales. Es necesario para generar tus accesos y tener tu información ante cualquier emergencia.</p>
-      <div class="link-row">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSep-5s9FTC7nvHsGhXBC-v3m6ymFHkBCuFiN8BfLdY9CF2sKg/viewform" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Abrir formulario de datos personales</a>
+      <p class="pt">Sin reglamento, sin nadie supervisando. Solo gente que hace su parte.</p>
+      <div class="oficina-grid">
+        <div class="oficina-item">
+          <div class="oficina-icon">☕</div>
+          <div class="oficina-body">
+            <div class="oficina-title">Máquina de café</div>
+            <p class="oficina-desc">¡Disponible esperando tus cafés! Antes de usarla, rellena el depósito de agua, vacía el de café y la bandeja que recibe los restos de agua. ¡Así dejas la máquina lista para el siguiente adicto al café!</p>
+          </div>
+        </div>
+        <div class="oficina-item">
+          <div class="oficina-icon">🧼</div>
+          <div class="oficina-body">
+            <div class="oficina-title">Cocina</div>
+            <p class="oficina-desc">Lo que usamos queda lavado y secando. No tenemos personal de aseo, pero cada uno lava su taza o cubiertos y el espacio queda ordenado.</p>
+          </div>
+        </div>
+        <div class="oficina-item">
+          <div class="oficina-icon">🖥️</div>
+          <div class="oficina-body">
+            <div class="oficina-title">Escritorios</div>
+            <p class="oficina-desc">¡La mayoría son compartidos! Déjalo como lo encontraste (o como te gustaría encontrarlo) — limpio y ordenado. Aprovecha el monitor y si lo mueves, devuélvelo a su lugar.</p>
+          </div>
+        </div>
+        <div class="oficina-item">
+          <div class="oficina-icon">📅</div>
+          <div class="oficina-body">
+            <div class="oficina-title">Salas</div>
+            <p class="oficina-desc">Funcionan con reserva. Si reservaste y no la vas a usar, libérala. Si está vacía pero reservada, pregunta antes de usarla. Al salir, déjala limpia y ordenada para el siguiente.</p>
+          </div>
+        </div>
       </div>
-      <div class="callout c-warn" style="margin-top:12px"><span class="callout-i">⚠️</span><div>Completá el formulario <strong>antes de continuar</strong>. Es el primer paso administrativo obligatorio.</div></div>
+    `
+  },
+  {
+    id:'admin-almuerzo',
+    icon:'🍽️',
+    badge:'Beneficio',
+    title:'Servicio de Almuerzo',
+    keywords:'almuerzo creditos comida beneficio part time full time formulario canal slack',
+    content: () => `
+      <p class="pt">En TGP tenemos almuerzo incluido en la oficina. Funciona con créditos mensuales según tu modalidad.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0">
+        <div style="background:var(--gris5);border-radius:10px;padding:16px;text-align:center;border:1px solid var(--gris4)">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:4px">Part-time</div>
+          <div style="font-size:28px;font-weight:800;color:var(--azul)">4</div>
+          <div style="font-size:12px;color:var(--gris3)">créditos/mes</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:16px;text-align:center;border:1px solid var(--gris4)">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:4px">Full-time</div>
+          <div style="font-size:28px;font-weight:800;color:var(--azul)">8</div>
+          <div style="font-size:12px;color:var(--gris3)">créditos/mes</div>
+        </div>
+      </div>
+      <div class="callout c-info"><span class="callout-i">ℹ️</span><div>1 crédito = 1 almuerzo. Los créditos <strong>no se acumulan ni se transfieren</strong>. Si no los usas, al mes siguiente tienes los mismos. ¡Aprovéchalos!</div></div>
+      <h3 class="sh">⭐ Platos favoritos del equipo</h3>
+      <ul class="info-list">
+        <li>Plateada de cerdo de cocción lenta con puré picante</li>
+        <li>Milanesa de carne con milhoja de papas</li>
+        <li>Ensalada de pollo o Timbal de atún</li>
+      </ul>
+      <div class="callout c-ok"><span class="callout-i">💬</span><div>El canal de Slack <strong>"almuerzos"</strong> tiene la lista diaria, créditos restantes y el link para pedir. El formulario cierra a las <strong>14:00 hrs del día anterior</strong>.</div></div>
+      <div class="callout c-tip"><span class="callout-i">💡</span><div>Si mañana vienes a la oficina, pide tu almuerzo antes de las 14:00 hrs de hoy. Si ya tienes definidos tus días de asistencia de la semana, puedes dejar programados todos tus pedidos de una sola vez.</div></div>
+      <div class="link-row">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Formulario de almuerzos</a>
+      </div>
+    `
+  },
+  {
+    id:'admin-salas',
+    icon:'🚪',
+    badge:'Oficina',
+    title:'Salas de Reuniones',
+    keywords:'salas reuniones reserva calendario oficina privadas',
+    content: () => `
+      <p class="pt">En la oficina tenemos varias salas privadas de uso comunitario para reuniones, llamados o lo que necesites. Para usar una sala, tienes que reservarla en el calendario.</p>
+      <div class="link-row">
+        <a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Cómo reservar una sala</a>
+      </div>
+      <div class="callout c-info" style="margin-top:12px"><span class="callout-i">💡</span><div>Reserva siempre con anticipación — las salas son compartidas por todo el equipo.</div></div>
     `
   },
   {
     id:'admin-slack',
     icon:'💬',
-    badge:'Paso 2',
+    badge:'Herramientas',
     title:'Configurar Slack',
     keywords:'slack comunicacion canales mensajes foto perfil celular app notificaciones',
     content: () => `
@@ -1504,20 +1612,6 @@ const ADMIN_STEPS = [
         <div class="ic-item"><input type="checkbox" id="sc1"><label for="sc1">Descargar la app de Slack en mi celular e iniciar sesión con mi cuenta TGP</label></div>
         <div class="ic-item"><input type="checkbox" id="sc2"><label for="sc2">Poner una foto de perfil profesional en Slack</label></div>
         <div class="ic-item"><input type="checkbox" id="sc3"><label for="sc3">Revisar y unirme a los canales relevantes</label></div>
-      </div>
-    `
-  },
-  {
-    id:'admin-whatsapp',
-    icon:'💬',
-    badge:'Comunicación',
-    title:'Grupo de WhatsApp TGP',
-    keywords:'whatsapp grupo equipo anuncios comunicacion canal importante unirse',
-    content: () => `
-      <p class="pt">Hay un grupo de WhatsApp con todo el equipo TGP. Se usa para anuncios importantes, novedades y comunicaciones generales. Es el canal directo con todo el equipo.</p>
-      <p class="pt">Entra al grupo con el link y espera la aprobación de los admins — puede tomar unas horas.</p>
-      <div class="link-row">
-        <a href="https://chat.whatsapp.com/FM4BgeTUVl59z6RZnJnsZj?mode=gi_t" target="_blank" class="lbtn lbtn-app" data-req="whatsapp">💬 Unirse al grupo TGP</a>
       </div>
     `
   },
@@ -1579,7 +1673,7 @@ const ADMIN_STEPS = [
     title:'Actualizar LinkedIn',
     keywords:'linkedin perfil profesional puesto cargo titulo experiencia portada foto',
     content: () => `
-      <p class="pt">Tu LinkedIn tiene que reflejar que ahora estás en TGP. Seguí este paso a paso:</p>
+      <p class="pt">Tu LinkedIn tiene que reflejar que ahora estás en TGP. Sigue este paso a paso:</p>
       <ol class="steps-list">
         <li>Ingresar a LinkedIn.</li>
         <li>Editar el titular del perfil: <strong>"${STATE.role==='sdr'?'SDR Junior':'[Tu cargo]'} en TGP"</strong></li>
@@ -1596,107 +1690,36 @@ const ADMIN_STEPS = [
     `
   },
   {
-    id:'admin-almuerzo',
-    icon:'🍽️',
-    badge:'Beneficio',
-    title:'Servicio de Almuerzo',
-    keywords:'almuerzo creditos comida beneficio part time full time formulario canal slack',
-    content: () => `
-      <p class="pt">En TGP tenemos almuerzo incluido en la oficina. Funciona con créditos mensuales según tu modalidad.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0">
-        <div style="background:var(--gris5);border-radius:10px;padding:16px;text-align:center;border:1px solid var(--gris4)">
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:4px">Part-time</div>
-          <div style="font-size:28px;font-weight:800;color:var(--azul)">4</div>
-          <div style="font-size:12px;color:var(--gris3)">créditos/mes</div>
-        </div>
-        <div style="background:var(--gris5);border-radius:10px;padding:16px;text-align:center;border:1px solid var(--gris4)">
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:4px">Full-time</div>
-          <div style="font-size:28px;font-weight:800;color:var(--azul)">8</div>
-          <div style="font-size:12px;color:var(--gris3)">créditos/mes</div>
-        </div>
-      </div>
-      <div class="callout c-info"><span class="callout-i">ℹ️</span><div>1 crédito = 1 almuerzo. Los créditos <strong>no se acumulan ni se transfieren</strong>. Si no los usas, al mes siguiente tienes los mismos. ¡Aprovéchalos!</div></div>
-      <h3 class="sh">⭐ Platos favoritos del equipo</h3>
-      <ul class="info-list">
-        <li>Plateada de cerdo de cocción lenta con puré picante</li>
-        <li>Milanesa de carne con milhoja de papas</li>
-        <li>Ensalada de pollo o Timbal de atún</li>
-      </ul>
-      <div class="callout c-ok"><span class="callout-i">💬</span><div>El canal de Slack <strong>"almuerzos"</strong> tiene la lista diaria, créditos restantes y el link para pedir. El formulario cierra a las <strong>14:00 hrs del día anterior</strong>.</div></div>
-      <div class="callout c-tip"><span class="callout-i">💡</span><div><b>Hazlo ahora</b>Si mañana vienes a la oficina, pide tu almuerzo antes de las 14:00 hrs de hoy. Si ya tienes definidos tus días de asistencia de la semana, puedes dejar programados todos tus pedidos de una sola vez.</div></div>
-      <div class="link-row">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Formulario de almuerzos</a>
-      </div>
-    `
-  },
-  {
-    id:'admin-oficina',
-    icon:'🏠',
-    badge:'La oficina',
-    title:'Así vivimos en la oficina 🏠',
-    keywords:'oficina convivencia cafe cocina escritorio sala monitor orden limpieza cowork',
-    content: () => `
-      <p class="pt">Sin reglamento, sin nadie supervisando. Solo gente que hace su parte.</p>
-      <div class="oficina-grid">
-        <div class="oficina-item">
-          <div class="oficina-icon">☕</div>
-          <div class="oficina-body">
-            <div class="oficina-title">Máquina de café</div>
-            <p class="oficina-desc">¡Disponible esperando tus cafés! Antes de usarla, rellena el depósito de agua, vacía el de café y la bandeja que recibe los restos de agua. ¡Así dejas la máquina lista para el siguiente adicto al café!</p>
-          </div>
-        </div>
-        <div class="oficina-item">
-          <div class="oficina-icon">🧼</div>
-          <div class="oficina-body">
-            <div class="oficina-title">Cocina</div>
-            <p class="oficina-desc">Lo que usamos queda lavado y secando. No tenemos personal de aseo, pero cada uno lava su taza o cubiertos y el espacio queda ordenado.</p>
-          </div>
-        </div>
-        <div class="oficina-item">
-          <div class="oficina-icon">🖥️</div>
-          <div class="oficina-body">
-            <div class="oficina-title">Escritorios</div>
-            <p class="oficina-desc">¡La mayoría son compartidos! Déjalo como lo encontraste (o como te gustaría encontrarlo) — limpio y ordenado. Aprovecha el monitor y si lo mueves, devuélvelo a su lugar.</p>
-          </div>
-        </div>
-        <div class="oficina-item">
-          <div class="oficina-icon">📅</div>
-          <div class="oficina-body">
-            <div class="oficina-title">Salas</div>
-            <p class="oficina-desc">Funcionan con reserva. Si reservaste y no la vas a usar, libérala. Si está vacía pero reservada, pregunta antes de usarla. Al salir, déjala limpia y ordenada para el siguiente.</p>
-          </div>
-        </div>
-      </div>
-    `
-  },
-  {
-    id:'admin-salas',
-    icon:'🚪',
-    badge:'Beneficio',
-    title:'Salas de Reuniones',
-    keywords:'salas reuniones reserva calendario oficina privadas',
-    content: () => `
-      <p class="pt">En la oficina tenemos varias salas privadas de uso comunitario para reuniones, llamados o lo que necesites. Para usar una sala, tienes que reservarla en el calendario.</p>
-      <div class="link-row">
-        <a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Cómo reservar una sala</a>
-      </div>
-      <div class="callout c-info" style="margin-top:12px"><span class="callout-i">💡</span><div>Reserva siempre con anticipación — las salas son compartidas por todo el equipo.</div></div>
-    `
-  },
-  {
     id:'admin-chrome',
     icon:'🔗',
     badge:'Favoritos',
     title:'Links en Favoritos',
     keywords:'chrome favoritos links central tgp app guardar barra navegador',
     content: () => `
-      <p class="pt">Guarda estos dos links en tu barra de Favoritos de Chrome para tenerlos siempre a mano. Para cada uno: abre el link → haz clic en la ★ → ponle un nombre corto → Listo.</p>
+      <p class="pt">Guarda estos links en tu barra de Favoritos de Chrome para tenerlos siempre a mano. Para cada uno: abre el link → haz clic en la ★ → ponle un nombre corto → Listo.</p>
       <div class="link-row">
         <a href="https://thegrowthpro.github.io/central-tgp/" target="_blank" class="lbtn lbtn-app" data-req="central">🏠 Central TGP</a>
         <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app" data-req="app">⚡ App TGP</a>
         <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc" data-req="dash-general">📊 Dashboard general</a>
         <a href="https://dashboard-llamados.thegrowth.pro/" target="_blank" class="lbtn lbtn-doc" data-req="dash-llamados">📊 Dashboard llamados</a>
       </div>
+    `
+  },
+  {
+    id:'admin-contactos',
+    icon:'🧑‍💼',
+    badge:'Dudas',
+    title:'¿A quién le pregunto qué?',
+    keywords:'rrhh contacto belen forti equipo duda ayuda pregunta central tgp recursos',
+    content: () => `
+      <p class="pt">Todo lo que necesitas durante tu trabajo en TGP está en la <strong>Central TGP</strong> — la plataforma que acabas de guardar en favoritos. No tienes que memorizar nada, solo saber dónde buscar.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin:14px 0">
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">🏠 Onboarding</strong> — este mismo proceso, disponible siempre para repasar</div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">🧑‍💼 RRHH</strong> — ausencias, solicitudes, documentos, pagos y todo lo administrativo</div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">📢 Tablón</strong> — comunicados y anuncios del equipo</div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">🏢 Organigrama</strong> — quién es quién en TGP</div>
+      </div>
+      <div class="callout c-info"><span class="callout-i">👋</span><div>Mientras te incorporas a tu equipo, <strong>Belén Forti</strong> (RRHH) es tu punto de contacto para cualquier duda de onboarding, oficina o RRHH.</div></div>
     `
   },
 ];
@@ -1721,30 +1744,59 @@ const SDR_STEPS = [
     `
   },
   {
+    id:'sdr-pilares',
+    icon:'🏛️',
+    badge:'Los pilares',
+    title:'Los 5 Pilares del SDR en TGP',
+    keywords:'pilares comunicacion organizacion presencialidad constancia responsabilidad slack push metas',
+    content: () => `
+      <p class="pt">Antes de entrar al proceso, necesitas entender qué actitudes y comportamientos se esperan de un SDR en TGP. No son recomendaciones — son los pilares que definen si alguien funciona bien o no en este rol.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin:14px 0">
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border-left:4px solid var(--verde)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">🗣️ Comunicación</div>
+          <p style="font-size:13px;color:var(--gris2);line-height:1.5;margin:0">Slack, grupos de clientes, equipo, RRHH y Manager. <strong>Prohibido tener mensajes sin leer en Slack.</strong></p>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border-left:4px solid #3b82f6">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">🗂️ Organización</div>
+          <p style="font-size:13px;color:var(--gris2);line-height:1.5;margin:0">Actividades y horarios claros. <strong>Google Calendar actualizado siempre.</strong></p>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border-left:4px solid #f59e0b">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">🏢 Presencialidad</div>
+          <p style="font-size:13px;color:var(--gris2);line-height:1.5;margin:0">Asistencia a la oficina <strong>mínimo 2 veces a la semana.</strong></p>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border-left:4px solid #8b5cf6">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">🔄 Constancia</div>
+          <p style="font-size:13px;color:var(--gris2);line-height:1.5;margin:0">Bandejas al día, respuesta rápida y push <strong>mínimo 2 veces a la semana a cada prospecto.</strong></p>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border-left:4px solid #ec4899">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">✅ Responsabilidad</div>
+          <p style="font-size:13px;color:var(--gris2);line-height:1.5;margin:0">Participar de todas las reuniones, solicitar ausencias con tiempo y cumplir metas semanales.</p>
+        </div>
+      </div>
+      <div class="callout c-info"><span class="callout-i">💡</span><div>Estos pilares son la base de todo lo que viene. Cuando entiendas bien el proceso, vas a ver por qué cada uno de ellos importa.</div></div>
+    `
+  },
+  {
     id:'sdr-glosario',
     icon:'📖',
-    badge:'Antes de empezar',
-    title:'Glosario — Conceptos Clave',
-    keywords:'glosario terminos cliente prospecto kdm icp b2b push no show weekly bandeja etiqueta',
+    badge:'Conceptos del cargo',
+    title:'Conceptos Clave del SDR Junior',
+    keywords:'glosario terminos cliente prospecto kdm icp b2b push no show weekly bandeja etiqueta llamado tibio derivacion',
     content: () => `
-      <h3 class="sh">Paso 1 — Lee el glosario completo</h3>
-      <p class="pt">Antes de ver el resumen de abajo, abre el glosario y léelo completo. Contiene todos los términos que vas a escuchar desde el primer día — si te salteas este paso, el resumen no va a servir de nada.</p>
-      <div class="link-row" style="margin-bottom:16px">
-        <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc" data-req="glosario">📄 Glosario completo TGP</a>
-      </div>
-      <h3 class="sh">Paso 2 — Repasa los conceptos clave</h3>
-      <p class="pt">¿Ya lo leíste? Bien. Ahora repasa estos conceptos. Si no puedes explicar alguno con tus propias palabras, vuelve al glosario.</p>
+      <p class="pt">Ya leíste el Glosario TGP en la parte general. Ahora que empiezas la sección específica de tu cargo, repasa los conceptos que más vas a usar como SDR. Si alguno no te quedó claro, el botón del glosario está acá para volver cuando lo necesites.</p>
       <div class="gloss">
-        <div class="gloss-row"><div class="gloss-term">Cliente</div><div class="gloss-def">Empresa que contrata TGP para que generemos reuniones comerciales con sus prospectos.</div></div>
-        <div class="gloss-row"><div class="gloss-term">Prospecto</div><div class="gloss-def">Persona o empresa a la que contactamos con el objetivo de agendar una reunión con nuestro cliente.</div></div>
-        <div class="gloss-row"><div class="gloss-term">KDM</div><div class="gloss-def">Key Decision Maker — el tomador de decisiones de la empresa. Con quien vale la pena agendar.</div></div>
-        <div class="gloss-row"><div class="gloss-term">ICP</div><div class="gloss-def">Ideal Customer Profile — perfil ideal del prospecto (sector, tamaño de empresa, cargo, etc.).</div></div>
-        <div class="gloss-row"><div class="gloss-term">B2B</div><div class="gloss-def">Business to Business — empresa que vende a otra empresa. TGP trabaja exclusivamente B2B.</div></div>
-        <div class="gloss-row"><div class="gloss-term">Push</div><div class="gloss-def">Correo o llamado de insistencia. Mínimo 2 veces por semana a cada prospecto.</div></div>
-        <div class="gloss-row"><div class="gloss-term">No Show</div><div class="gloss-def">Prospecto que no se presenta a la reunión. Hay que reagendarla inmediatamente — si no se realiza, no es válida y no genera comisión.</div></div>
-        <div class="gloss-row"><div class="gloss-term">Weekly</div><div class="gloss-def">Reunión semanal del equipo donde se revisan métricas y avances.</div></div>
-        <div class="gloss-row"><div class="gloss-term">Derivación</div><div class="gloss-def">El prospecto nos pasa el contacto del KDM real. Es una respuesta valiosa.</div></div>
-        <div class="gloss-row"><div class="gloss-term">Llamado en tibio</div><div class="gloss-def">Llamada a un prospecto con el que ya hubo contacto previo. Más efectivo que el frío.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Push</div><div class="gloss-def">Correo o llamado de insistencia que envías a un prospecto para reactivar la conversación. Mínimo 2 veces por semana a cada uno.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Llamado en tibio</div><div class="gloss-def">Llamada a un prospecto con el que ya hubo contacto previo. Mucho más efectivo que el frío — el prospecto ya te conoce.</div></div>
+        <div class="gloss-row"><div class="gloss-term">KDM</div><div class="gloss-def">Key Decision Maker — el tomador de decisiones. El objetivo siempre es hablar con él.</div></div>
+        <div class="gloss-row"><div class="gloss-term">ICP</div><div class="gloss-def">Ideal Customer Profile — el perfil exacto del prospecto al que vale la pena contactar (sector, tamaño de empresa, cargo, país, etc.).</div></div>
+        <div class="gloss-row"><div class="gloss-term">No Show</div><div class="gloss-def">Prospecto que no se presenta a la reunión. Hay que reagendarla de inmediato — si no se realiza, no es válida y no genera comisión.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Derivación</div><div class="gloss-def">El prospecto te pasa el contacto del KDM real. Es una respuesta valiosa — actúa rápido.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Weekly</div><div class="gloss-def">Reunión semanal del equipo. Presencial obligatoria, misma hora cada semana. Se revisan resultados y metas.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Pod / Célula</div><div class="gloss-def">Tu equipo de trabajo: Manager + SDR Senior + SDR Junior. Trabajan juntos para los mismos clientes.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Call to action</div><div class="gloss-def">Frase al final del correo que indica el siguiente paso concreto — siempre proponer una reunión con horarios específicos.</div></div>
+      </div>
+      <div class="link-row" style="margin-top:12px">
+        <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc">📄 Volver al Glosario completo TGP</a>
       </div>
     `
   },
@@ -1775,27 +1827,6 @@ const SDR_STEPS = [
         El Manager programa correos automáticos que salen a miles de prospectos a nombre de Sofía. Benjamín se encarga de responder y agendar reuniones — pero no solo con las respuestas nuevas que van llegando. También trabaja con todas las conversaciones que ya están en la bandeja: prospectos que en algún momento respondieron pero que todavía no se convirtieron en una reunión. Los recontacta, les escribe de nuevo, los llama. Mientras más conversaciones activas tenga en la bandeja, más oportunidades tiene de agendar.<br><br>
         Apenas llega una respuesta nueva, lee, etiqueta y responde. Si el prospecto no vuelve a escribir, lo llama. Si no contesta, le manda WhatsApp. Y con los que ya están en conversación, hace exactamente lo mismo: insiste hasta que la reunión se agenda.
       </div></div>
-    `
-  },
-  {
-    id:'sdr-weekly',
-    icon:'📊',
-    badge:'Equipo',
-    title:'Weekly y Metas Semanales',
-    keywords:'weekly reunion semanal equipo manager senior csr metas resultados reporte presencial obligatorio',
-    content: () => `
-      <h3 class="sh">La Weekly</h3>
-      <p class="pt">Cada semana el equipo tiene una reunión fija llamada <strong>Weekly</strong>. Misma hora, mismo día, todas las semanas. La lidera el Manager junto al CSR y el Senior.</p>
-      <p class="pt">En cada Weekly se revisan:</p>
-      <ul class="info-list">
-        <li>Resultados de la semana anterior.</li>
-        <li>Metas y desafíos de la semana que empieza.</li>
-        <li>Anuncios y novedades del equipo.</li>
-      </ul>
-      <div class="callout c-warn"><span class="callout-i">📍</span><div><b>Presencial obligatoria, sin excepciones.</b> La Weekly es el espacio de sincronización del equipo — no hay forma de participar de forma remota ni de recuperarla después.</div></div>
-      <h3 class="sh">Metas semanales y reporte</h3>
-      <p class="pt">Cada SDR tiene metas semanales propias. Al final de la semana, le reportas los resultados a tu Manager. El Senior los analiza y los presenta en la siguiente Weekly.</p>
-      <div class="callout c-tip"><span class="callout-i">🏆</span><div>No hay un número fijo de reuniones que se te exija — depende del equipo, los clientes y el momento. Lo que sí se espera siempre: <strong>estar en el top 3 de tu pod</strong>. Eso es lo que define si estás rindiendo bien.</div></div>
     `
   },
   {
@@ -2203,6 +2234,27 @@ const SDR_STEPS = [
     `
   },
   {
+    id:'sdr-weekly',
+    icon:'📊',
+    badge:'Equipo — Día 2',
+    title:'Weekly y Metas Semanales',
+    keywords:'weekly reunion semanal equipo manager senior csr metas resultados reporte presencial obligatorio',
+    content: () => `
+      <h3 class="sh">La Weekly</h3>
+      <p class="pt">Cada semana el equipo tiene una reunión fija llamada <strong>Weekly</strong>. Misma hora, mismo día, todas las semanas. La lidera el Manager junto al CSR y el Senior.</p>
+      <p class="pt">En cada Weekly se revisan:</p>
+      <ul class="info-list">
+        <li>Resultados de la semana anterior.</li>
+        <li>Metas y desafíos de la semana que empieza.</li>
+        <li>Anuncios y novedades del equipo.</li>
+      </ul>
+      <div class="callout c-warn"><span class="callout-i">📍</span><div><b>Presencial obligatoria, sin excepciones.</b> La Weekly es el espacio de sincronización del equipo — no hay forma de participar de forma remota ni de recuperarla después.</div></div>
+      <h3 class="sh">Metas semanales y reporte</h3>
+      <p class="pt">Cada SDR tiene metas semanales propias. Al final de la semana, le reportas los resultados a tu Manager. El Senior los analiza y los presenta en la siguiente Weekly.</p>
+      <div class="callout c-tip"><span class="callout-i">🏆</span><div>No hay un número fijo de reuniones que se te exija — depende del equipo, los clientes y el momento. Lo que sí se espera siempre: <strong>estar en el top 3 de tu pod</strong>. Eso es lo que define si estás rindiendo bien.</div></div>
+    `
+  },
+  {
     id:'sdr-reunion-senior',
     icon:'🤝',
     badge:'Día 2',
@@ -2516,7 +2568,7 @@ function renderOnboarding() {
 
 function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
   const SDR_DAY2_START = 15;
-  const SDR_DAY3_START = 20;
+  const SDR_DAY3_START = 21;
 
   const sb = document.getElementById('sidebar');
   const total = steps.length;
@@ -2581,7 +2633,7 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
 
 function jumpTo(track, idx) {
   const SDR_DAY2_START = 15;
-  const SDR_DAY3_START = 20;
+  const SDR_DAY3_START = 21;
   if (!adminMode) {
     if (track === 'sdr') {
       if (idx >= SDR_DAY3_START && STATE.sdrStep < SDR_DAY3_START && !STATE.sdrDone) return;
