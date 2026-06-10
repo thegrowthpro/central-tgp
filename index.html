@@ -195,6 +195,11 @@ p.pt{font-size:14px;color:var(--gris1);line-height:1.7;margin-bottom:10px}
 
 /* Etiquetas */
 .etiq-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.oficina-grid{display:flex;flex-direction:column;gap:12px;margin:14px 0}
+.oficina-item{display:flex;gap:14px;align-items:flex-start;background:var(--gris5);border-radius:12px;padding:14px 16px;border:1px solid var(--gris4)}
+.oficina-icon{font-size:24px;line-height:1;flex-shrink:0;margin-top:2px}
+.oficina-title{font-size:14px;font-weight:700;color:var(--negro);margin-bottom:4px}
+.oficina-desc{font-size:13px;color:var(--gris2);line-height:1.55;margin:0}
 .etiq{border-radius:8px;padding:10px 12px;border:1px solid var(--gris4);background:#fff}
 .etiq-name{font-size:13px;font-weight:700;margin-bottom:3px}
 .etiq-desc{font-size:12px;color:var(--gris2)}
@@ -1565,6 +1570,46 @@ const ADMIN_STEPS = [
       <div class="callout c-tip"><span class="callout-i">💡</span><div><b>Hazlo ahora</b>Si mañana vienes a la oficina, pide tu almuerzo antes de las 14:00 hrs de hoy. Si ya tienes definidos tus días de asistencia de la semana, puedes dejar programados todos tus pedidos de una sola vez.</div></div>
       <div class="link-row">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Formulario de almuerzos</a>
+      </div>
+    `
+  },
+  {
+    id:'admin-oficina',
+    icon:'🏠',
+    badge:'La oficina',
+    title:'La oficina es un lugar copado',
+    keywords:'oficina convivencia cafe cocina escritorio sala monitor orden limpieza cowork',
+    content: () => `
+      <p class="pt">Se mantiene así entre todos — sin reglamento, sin nadie supervisando. Solo gente que hace su parte.</p>
+      <div class="oficina-grid">
+        <div class="oficina-item">
+          <div class="oficina-icon">☕</div>
+          <div class="oficina-body">
+            <div class="oficina-title">Máquina de café</div>
+            <p class="oficina-desc">¡Disponible esperando tus cafés! Antes de usarla, rellena el depósito de agua, vacía el de café y la bandeja que recibe los restos de agua. ¡Así dejas la máquina lista para el siguiente adicto al café!</p>
+          </div>
+        </div>
+        <div class="oficina-item">
+          <div class="oficina-icon">🧼</div>
+          <div class="oficina-body">
+            <div class="oficina-title">Cocina</div>
+            <p class="oficina-desc">Lo que usamos queda lavado y secando. No tenemos personal de aseo, pero cada uno lava su taza o cubiertos y el espacio queda ordenado.</p>
+          </div>
+        </div>
+        <div class="oficina-item">
+          <div class="oficina-icon">🖥️</div>
+          <div class="oficina-body">
+            <div class="oficina-title">Escritorios</div>
+            <p class="oficina-desc">¡La mayoría son compartidos! Déjalo como lo encontraste (o como te gustaría encontrarlo) — limpio y ordenado. Aprovecha el monitor y si lo mueves, devuélvelo a su lugar.</p>
+          </div>
+        </div>
+        <div class="oficina-item">
+          <div class="oficina-icon">📅</div>
+          <div class="oficina-body">
+            <div class="oficina-title">Salas</div>
+            <p class="oficina-desc">Funcionan con reserva. Si reservaste y no la vas a usar, libérala. Si está vacía pero reservada, pregunta antes de usarla. Al salir, déjala limpia y ordenada para el siguiente.</p>
+          </div>
+        </div>
       </div>
     `
   },
