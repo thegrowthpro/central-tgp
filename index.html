@@ -2835,8 +2835,8 @@ function replayOnboarding() {
 // Puedes cambiar: icon, title, sub (subtítulo), y el contenido en body
 // ════════════════════════════════════════════════════════════════
 const RES_CATEGORIES = [
-  { id:'inicio',       label:'🚀 Primeros Pasos' },
-  { id:'herramientas', label:'🔧 Herramientas de Trabajo' },
+  { id:'inicio',       label:'📄 Documentos de Onboarding' },
+  { id:'herramientas', label:'🔧 Herramientas' },
   { id:'oficina',      label:'🏢 Oficina' },
   { id:'sdr',          label:'📧 Proceso SDR' },
   { id:'links',        label:'🔗 Links y Recursos', fullrow: true },
@@ -2845,53 +2845,35 @@ const RES_CATEGORIES = [
 const RES_DATA = [
   {
     category:'inicio',
-    icon:'✅', title:'Checklist General — Día 1', sub:'Para todos los colaboradores',
-    keywords:'checklist dia 1 configuracion inicial slack calendar linkedin almuerzo datos personales',
+    direct: true,
+    icon:'📄', title:'Documentos de Onboarding', sub:'',
+    keywords:'checklist onboarding glosario slack calendar fondo virtual kit sistema advertencias',
     body:`
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)">
-          <span style="font-size:13px;color:var(--gris1)">📋 Formulario de datos personales</span>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSep-5s9FTC7nvHsGhXBC-v3m6ymFHkBCuFiN8BfLdY9CF2sKg/viewform" target="_blank" class="lbtn lbtn-form" style="padding:5px 10px;font-size:12px">Abrir ↗</a>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)">
-          <span style="font-size:13px;color:var(--gris1)">💬 Configurar Slack</span>
-          <div style="display:flex;gap:6px">
-            <a href="https://docs.google.com/document/u/1/d/1lt4TF3wu-3UgIQrk1h7xov20dzVlN6xp_b2IG_tsoo0/edit" target="_blank" class="lbtn lbtn-doc" style="padding:5px 10px;font-size:12px">📄 Guía</a>
-            <a href="https://www.loom.com/share/f8e93b73c31040d8ad9c8c5ee0a23697" target="_blank" class="lbtn lbtn-vid" style="padding:5px 10px;font-size:12px">▶ Video</a>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)">
-          <span style="font-size:13px;color:var(--gris1)">📅 Configurar Google Calendar</span>
-          <a href="https://www.loom.com/share/72be9e9b20e043dfb833308be04216d7" target="_blank" class="lbtn lbtn-vid" style="padding:5px 10px;font-size:12px">▶ Video</a>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)">
-          <span style="font-size:13px;color:var(--gris1)">🎥 Fondo virtual Google Meet</span>
-          <a href="https://drive.google.com/drive/folders/1VvRCIk5EGXVy1Slsz4m4Uh9UBFLML31R?usp=drive_link" target="_blank" class="lbtn lbtn-drive" style="padding:5px 10px;font-size:12px">⬇ Descargar</a>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)">
-          <span style="font-size:13px;color:var(--gris1)">💼 Actualizar LinkedIn</span>
-          <a href="https://drive.google.com/file/d/1wjUMY7LnMlcDkTB3FWcy13VWJlg2EJS1/view?usp=drive_link" target="_blank" class="lbtn lbtn-drive" style="padding:5px 10px;font-size:12px">⬇ Portada</a>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)">
-          <span style="font-size:13px;color:var(--gris1)">📁 Documentos en Chrome (Favoritos)</span>
-          <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive" style="padding:5px 10px;font-size:12px">📁 Kit</a>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--gris5);border-radius:8px;border:1px solid var(--gris4)">
-          <span style="font-size:13px;color:var(--gris1)">⚠️ Sistema de advertencias</span>
-          <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" style="padding:5px 10px;font-size:12px">📄 Ver</a>
-        </div>
+      <div class="link-row" style="flex-wrap:wrap">
+        <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc">📖 Glosario TGP</a>
+        <a href="https://docs.google.com/document/u/1/d/1lt4TF3wu-3UgIQrk1h7xov20dzVlN6xp_b2IG_tsoo0/edit" target="_blank" class="lbtn lbtn-doc">📄 Guía Slack</a>
+        <a href="https://www.loom.com/share/f8e93b73c31040d8ad9c8c5ee0a23697" target="_blank" class="lbtn lbtn-vid">▶ Video Slack</a>
+        <a href="https://www.loom.com/share/72be9e9b20e043dfb833308be04216d7" target="_blank" class="lbtn lbtn-vid">▶ Google Calendar</a>
+        <a href="https://drive.google.com/drive/folders/1VvRCIk5EGXVy1Slsz4m4Uh9UBFLML31R?usp=drive_link" target="_blank" class="lbtn lbtn-drive">🎥 Fondo Virtual Meet</a>
+        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive">📁 Kit del Colaborador</a>
+        <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">⚠️ Sistema de Advertencias</a>
       </div>
     `
   },
   {
     category:'herramientas',
-    icon:'💬', title:'Slack', sub:'Configuración y reglas',
-    keywords:'slack comunicacion canales notificaciones foto perfil regla oro app celular guia',
+    direct: true,
+    icon:'🔧', title:'Herramientas', sub:'',
+    keywords:'apollo lusha varita magica snov correos rebotes empleados extension ia herramientas',
     body:`
-      <div class="callout c-warn"><span class="callout-i">⚠️</span><div><b>Regla de oro</b>Prohibido mantener notificaciones, canales y chats sin abrir. Todo lo que se recibe es importante y se responde.</div></div>
-      <div class="link-row">
-        <a href="https://docs.google.com/document/u/1/d/1lt4TF3wu-3UgIQrk1h7xov20dzVlN6xp_b2IG_tsoo0/edit" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía de uso de Slack</a>
-        <a href="https://www.loom.com/share/f8e93b73c31040d8ad9c8c5ee0a23697" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Tour por Slack</a>
+      <div class="link-row" style="flex-wrap:wrap">
+        <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid">▶ Apollo</a>
+        <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid">▶ Lusha</a>
+        <a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid">▶ Varita mágica Gmail</a>
+        <a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid">▶ Correos Snov</a>
+        <a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid">▶ Correos rebote</a>
+        <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid">▶ Empleados empresa</a>
+        <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid">▶ Empleados por país</a>
       </div>`
   },
   {
@@ -2928,23 +2910,6 @@ const RES_DATA = [
       </div>
       <div class="link-row">
         <a href="https://www.loom.com/share/3cc4e02497994533b560287d4d93d332" target="_blank" class="lbtn lbtn-vid">▶ Video: Cómo reservar una sala</a>
-      </div>`
-  },
-  {
-    category:'inicio',
-    icon:'📖', title:'Glosario TGP', sub:'Cliente, Prospecto, KDM, ICP, Push, No Show…',
-    keywords:'glosario cliente prospecto kdm icp b2b push no show weekly bandeja etiqueta derivacion llamado tibio',
-    body:`
-      <div class="link-row"><a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc">📄 Glosario completo TGP</a></div>
-      <div class="gloss">
-        <div class="gloss-row"><div class="gloss-term">Cliente</div><div class="gloss-def">Empresa que contrata TGP para generar reuniones con sus prospectos.</div></div>
-        <div class="gloss-row"><div class="gloss-term">Prospecto</div><div class="gloss-def">Persona o empresa a contactar para agendar una reunión con el cliente.</div></div>
-        <div class="gloss-row"><div class="gloss-term">KDM</div><div class="gloss-def">Key Decision Maker — tomador de decisiones. Con quien vale la pena agendar.</div></div>
-        <div class="gloss-row"><div class="gloss-term">ICP</div><div class="gloss-def">Ideal Customer Profile — perfil ideal del prospecto.</div></div>
-        <div class="gloss-row"><div class="gloss-term">Push</div><div class="gloss-def">Correo o llamado de insistencia. Mínimo 2x/semana.</div></div>
-        <div class="gloss-row"><div class="gloss-term">No Show</div><div class="gloss-def">Prospecto que no asiste a la reunión. Reagendar de inmediato.</div></div>
-        <div class="gloss-row"><div class="gloss-term">Derivación</div><div class="gloss-def">El prospecto nos pasa el contacto del KDM real. Respuesta valiosa.</div></div>
-        <div class="gloss-row"><div class="gloss-term">Llamado en tibio</div><div class="gloss-def">Llamada a prospecto con contacto previo. Más efectivo que el frío.</div></div>
       </div>`
   },
   {
@@ -3061,21 +3026,6 @@ const RES_DATA = [
       <div class="callout c-info"><span class="callout-i">📱</span><div><b>🆕 WhatsApp automático</b>TGP envía recordatorio 1 hora antes. Si el prospecto responde → notificación en el canal de No Show del pod → respondés desde Slack.</div></div>
       <ul class="info-list"><li>Programar 2 correos recordatorios — obligatorio.</li><li>Llamado preventivo 20 min antes para confirmar asistencia.</li><li>Si hay No Show: llamar inmediatamente y reagendar.</li></ul>
       <div class="link-row"><a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank" class="lbtn lbtn-vid">▶ Video: Recordatorios</a></div>`
-  },
-  {
-    category:'herramientas',
-    icon:'🔧', title:'Herramientas Adicionales', sub:'Apollo, Lusha, varita mágica, correos Snov',
-    keywords:'apollo lusha varita magica snov wsn rebotes scraping empleados extension instalar ia',
-    body:`
-      <div class="link-row">
-        <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid">▶ Apollo</a>
-        <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid">▶ Lusha</a>
-        <a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid">▶ Varita mágica Gmail</a>
-        <a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid">▶ Correos Snov</a>
-        <a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid">▶ Correos rebote</a>
-        <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid">▶ Empleados empresa</a>
-        <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid">▶ Empleados por país</a>
-      </div>`
   },
   {
     category:'links',
