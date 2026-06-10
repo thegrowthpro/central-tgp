@@ -1459,25 +1459,16 @@ const ADMIN_STEPS = [
     icon:'🧑‍💼',
     badge:'Equipo TGP',
     title:'¿A quién le pregunto qué?',
-    keywords:'rrhh contacto belen forti amelia honorato laly campos equipo manager senior duda ayuda pregunta',
+    keywords:'rrhh contacto belen forti equipo duda ayuda pregunta central tgp recursos',
     content: () => `
-      <p class="pt">Para casi todo lo del día a día vas a tener a tu Manager y Senior como primer punto de contacto. Pero hay cosas específicas que van directo a RRHH:</p>
-      <div style="display:flex;flex-direction:column;gap:10px;margin:14px 0">
-        <div style="display:flex;align-items:flex-start;gap:12px;background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
-          <div style="width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">BF</div>
-          <div><div style="font-size:14px;font-weight:700;color:var(--negro)">Belén Forti</div><div style="font-size:12px;color:var(--gris2);margin-top:2px">HR Lead — gestión de equipos, ascensos, rendimiento, dudas de RRHH en general</div></div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:12px;background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
-          <div style="width:36px;height:36px;border-radius:50%;background:#7c3aed;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">AH</div>
-          <div><div style="font-size:14px;font-weight:700;color:var(--negro)">Amelia Honorato</div><div style="font-size:12px;color:var(--gris2);margin-top:2px">Talent Acquisition — selección y reclutamiento</div></div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:12px;background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
-          <div style="width:36px;height:36px;border-radius:50%;background:#0891b2;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">LC</div>
-          <div><div style="font-size:14px;font-weight:700;color:var(--negro)">Laly Campos</div><div style="font-size:12px;color:var(--gris2);margin-top:2px">Asistente Administrativa — cultura, administración y coordinación</div></div>
-        </div>
+      <p class="pt">Todo lo que necesitas durante tu trabajo en TGP está en la <strong>Central TGP</strong> — la plataforma que acabas de guardar en favoritos. No tienes que memorizar nada, solo saber dónde buscar.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin:14px 0">
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">🏠 Onboarding</strong> — este mismo proceso, disponible siempre para repasar</div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">🧑‍💼 RRHH</strong> — ausencias, solicitudes, documentos, pagos y todo lo administrativo</div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">📢 Tablón</strong> — comunicados y anuncios del equipo</div>
+        <div style="padding:10px 14px;background:var(--gris5);border-radius:10px;border:1px solid var(--gris4);font-size:13px;color:var(--gris1)"><strong style="color:var(--negro)">🏢 Organigrama</strong> — quién es quién en TGP</div>
       </div>
-      <div class="callout c-info"><span class="callout-i">💰</span><div>Dudas de pagos, comisiones o montos: <strong>finanzas@thegrowth.pro</strong></div></div>
-      <p class="pt" style="font-size:13px;color:var(--gris2)">Todo el detalle de RRHH — ausencias, solicitudes, plataformas — está en la sección <strong>RRHH</strong> de la Central TGP.</p>
+      <div class="callout c-info"><span class="callout-i">👋</span><div>Mientras te incorporas a tu equipo, <strong>Belén Forti</strong> (RRHH) es tu punto de contacto para cualquier duda de onboarding, oficina o RRHH.</div></div>
     `
   },
   {
@@ -2339,6 +2330,35 @@ const SDR_STEPS = [
       <p class="pt">TGP tiene un sistema formal de advertencias para mantener la convivencia y el estándar del equipo. Es importante que lo conozcas desde el inicio.</p>
       <div class="link-row">
         <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="advertencias-doc">📄 Sistema de Advertencias</a>
+      </div>
+    `
+  },
+  {
+    id:'sdr-contactos',
+    icon:'🙋',
+    badge:'Día 3',
+    title:'¿A quién le pregunto qué?',
+    keywords:'contacto preguntar duda ayuda senior specialist manager rrhh belen equipo escalada',
+    content: () => `
+      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 3</b><br>Un buen cierre del onboarding: saber exactamente a quién ir según la situación.</div></div>
+      <p class="pt">Ya conoces el proceso y el equipo. Acá va la guía de a quién ir según el tema:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin:14px 0">
+        <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">🎯 SDR Senior</div>
+          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Cualquier cosa de bandejas — correos, respuestas, objeciones, cómo manejar una conversación específica.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">📞 SDR Specialist</div>
+          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Cualquier cosa de llamados — técnica, manejo de conversación telefónica, dudas de bases de datos.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">👔 Manager</div>
+          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Dudas específicas de clientes, validaciones, aprobación de reuniones, dinámicas del equipo, ausencias y temas del pod.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">🧑‍💼 RRHH — Belén Forti</div>
+          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Oficina, ausencias, solicitudes formales, ascensos, temas de contrato o cualquier cosa de RRHH.</div>
+        </div>
       </div>
     `
   }
