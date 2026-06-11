@@ -2976,58 +2976,65 @@ const RES_DATA = [
   },
   {
     category:'agendamiento',
+    direct: true,
+    icon:'📆', title:'Links de Agendamiento', sub:'',
+    keywords:'agendamiento disponibilidad ejecutivos instructivo app tgp agendamiento vivo',
+    body:`
+      <div class="link-row" style="flex-wrap:wrap">
+        <a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank" class="lbtn lbtn-vid">▶ Disponibilidad ejecutivos</a>
+        <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Instructivo App TGP</a>
+        <a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank" class="lbtn lbtn-vid">▶ Agendamiento en vivo</a>
+        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ App TGP</a>
+      </div>`
+  },
+  {
+    category:'agendamiento',
     icon:'📆', title:'Proceso de Agendamiento', sub:'Del match de horario a la reunión confirmada',
     keywords:'agendamiento proceso agendar reunion app tgp horario ejecutivo prospecto esquema pasos',
     body:`
       <div class="agend-steps">
-        <div class="agend-step" onclick="this.classList.toggle('open')">
+        <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">1</span><span class="agend-title">Encontrar horario disponible</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Revisá el calendario del cliente y la hora local del prospecto.</div>
+          <div class="agend-detail">Revisa el calendario del cliente y la hora local del prospecto.</div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
+        <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">2</span><span class="agend-title">Validar al prospecto y la empresa</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Revisá los parámetros en el Excel de Reglas de Agendamiento. El prospecto <strong>debe cumplir los criterios de validación</strong> antes de continuar.</div>
+          <div class="agend-detail">Revisa los parámetros en el Excel de Reglas de Agendamiento. El prospecto <strong>debe cumplir los criterios de validación</strong> antes de continuar.</div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
+        <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">3</span><span class="agend-title">Agendar en la App TGP</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Una vez que el prospecto confirma, agendá en la App. La app manda automáticamente el mensaje resumen al canal de Slack del pod.</div>
+          <div class="agend-detail">Una vez que el prospecto confirma, agenda en la App. La app manda automáticamente el mensaje resumen al canal de Slack del pod.</div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
+        <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">4</span><span class="agend-title">Esperar aprobación del Manager</span><span class="agend-arr">+</span></div>
           <div class="agend-detail">El Manager aprueba con un emoji en el canal <strong>pod-nombre-reuniones</strong> de Slack.</div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
+        <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">5</span><span class="agend-title">Mandar detalle al cliente</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Copiar el mensaje resumen y enviarlo por el grupo con el cliente, con el contexto de la reunión.</div>
+          <div class="agend-detail">Copia el mensaje resumen y envíalo por el grupo con el cliente, con el contexto de la reunión.</div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
+        <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">6</span><span class="agend-title">Confirmar reunión al prospecto</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Respondé en el correo con fecha, hora y link de la reunión.</div>
+          <div class="agend-detail">Responde en el correo con fecha, hora y link de la reunión.</div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
+        <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">7</span><span class="agend-title">Programar 2 recordatorios ⚠️</span><span class="agend-arr">+</span></div>
           <div class="agend-detail"><strong>Obligatorio.</strong> Uno el día antes y uno una hora antes — reduce el No Show.</div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
+        <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">8</span><span class="agend-title">Actualizar etiqueta a "Agendado"</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Cambiar la etiqueta del correo de "Proceso" a "Agendado" y dejarlo en recibidos.</div>
+          <div class="agend-detail">Cambia la etiqueta del correo de "Proceso" a "Agendado" y déjalo en recibidos.</div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
+        <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">9</span><span class="agend-title">Estar pendiente a la realización</span><span class="agend-arr">+</span></div>
           <div class="agend-detail">
-            <p style="margin-bottom:8px">💡 <em>Llamá al prospecto esa mañana para confirmar asistencia.</em></p>
+            <p style="margin-bottom:8px">💡 <em>Llama al prospecto esa mañana para confirmar asistencia.</em></p>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
               <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:7px;padding:10px"><div style="font-size:11px;font-weight:700;color:#15803d;margin-bottom:4px">✅ YES SHOW</div><p style="font-size:12px;color:#166534;line-height:1.5">Mover correo a "Agendado" → esperar validación en App TGP.</p></div>
               <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:7px;padding:10px"><div style="font-size:11px;font-weight:700;color:#b91c1c;margin-bottom:4px">❌ NO SHOW</div><p style="font-size:12px;color:#991b1b;line-height:1.5">Etiqueta "Reagendar" → llamar → avisar al cliente y reagendar en App TGP.</p></div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="link-row" style="margin-top:14px">
-        <a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank" class="lbtn lbtn-vid">▶ Disponibilidad ejecutivos</a>
-        <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Instructivo App TGP</a>
-        <a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank" class="lbtn lbtn-vid">▶ Agendamiento en vivo</a>
-        <a href="https://app.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ App TGP</a>
       </div>`
   },
   {
