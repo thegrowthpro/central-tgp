@@ -912,29 +912,6 @@ body.admin-mode .res-wrap{padding-bottom:72px}
       </div>
 
       <!-- Info útil -->
-      <div class="rrhh-card">
-        <div class="rrhh-card-title">💡 Info útil</div>
-        <a href="https://www.sii.cl" target="_blank" class="solicitud-item">
-          <span class="solicitud-icon">🧾</span>
-          <span class="solicitud-text">Portal SII — boleta de honorarios</span>
-          <span class="solicitud-arr">↗</span>
-        </a>
-        <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="solicitud-item">
-          <span class="solicitud-icon">⚠️</span>
-          <span class="solicitud-text">Sistema de advertencias</span>
-          <span class="solicitud-arr">↗</span>
-        </a>
-        <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="solicitud-item">
-          <span class="solicitud-icon">📁</span>
-          <span class="solicitud-text">Kit del colaborador</span>
-          <span class="solicitud-arr">↗</span>
-        </a>
-        <a href="https://drive.google.com/drive/folders/1Y6xl6dDLZ6GrzqRWOErFjzKJ4bQ4nJYv?usp=drive_link" target="_blank" class="solicitud-item">
-          <span class="solicitud-icon">📦</span>
-          <span class="solicitud-text">Kit del SDR</span>
-          <span class="solicitud-arr">↗</span>
-        </a>
-      </div>
 
       <!-- Almuerzos -->
       <div class="rrhh-card">
@@ -982,7 +959,12 @@ body.admin-mode .res-wrap{padding-bottom:72px}
           <div>
             <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris3);margin-bottom:10px">Paso a paso cada mes</div>
 
-            <div class="callout c-info" style="font-size:12px;margin-bottom:8px"><span class="callout-i">1️⃣</span><div><b>¿Primera vez emitiendo boleta de honorarios?</b> (en tu vida, no solo en TGP) — Debes iniciar actividades como trabajador independiente en el SII. Se hace en línea, es gratis y solo se hace una vez.<br><a href="https://drive.google.com/file/d/1fZjpndZiuYuLxtnurMGWaG1LBPleba91/view?usp=drive_link" target="_blank" style="color:#1e40af;font-weight:600">📄 Guía: cómo iniciar actividades →</a></div></div>
+            <a href="https://www.sii.cl" target="_blank" class="solicitud-item" style="margin-bottom:10px">
+          <span class="solicitud-icon">🧾</span>
+          <span class="solicitud-text">Portal SII — emitir boleta de honorarios</span>
+          <span class="solicitud-arr">↗</span>
+        </a>
+        <div class="callout c-info" style="font-size:12px;margin-bottom:8px"><span class="callout-i">1️⃣</span><div><b>¿Primera vez emitiendo boleta de honorarios?</b> (en tu vida, no solo en TGP) — Debes iniciar actividades como trabajador independiente en el SII. Se hace en línea, es gratis y solo se hace una vez.<br><a href="https://drive.google.com/file/d/1fZjpndZiuYuLxtnurMGWaG1LBPleba91/view?usp=drive_link" target="_blank" style="color:#1e40af;font-weight:600">📄 Guía: cómo iniciar actividades →</a></div></div>
 
             <div class="callout c-ok" style="font-size:12px;margin-bottom:8px"><span class="callout-i">2️⃣</span><div><b>Calcula tu boleta</b> — Ingresa tu sueldo bruto en la calculadora. El valor "bruto" es el que pones en la boleta; el "líquido" es lo que recibirás.<br><a href="https://patrimore.com/herramientas/calcular-boleta-de-honorarios" target="_blank" style="color:#166534;font-weight:600">🧮 Calculadora de boleta →</a></div></div>
 
@@ -2835,13 +2817,18 @@ function replayOnboarding() {
 // Para editar: busca el título de la sección con Ctrl+F
 // Puedes cambiar: icon, title, sub (subtítulo), y el contenido en body
 // ════════════════════════════════════════════════════════════════
+const RES_GROUPS = [
+  { id:'apps',    label:null,                cols:1 },
+  { id:'sdr',     label:'🎯 Desarrollo SDR', cols:3 },
+  { id:'general', label:'📋 General',         cols:2 },
+];
 const RES_CATEGORIES = [
-  { id:'inicio',       label:'📄 Documentos de Onboarding' },
-  { id:'oficina',      label:'🏢 Oficina' },
-  { id:'bandejas',     label:'📥 Bandejas de Correo' },
-  { id:'agendamiento', label:'📅 Agendamiento' },
-  { id:'llamado',      label:'📞 Llamado' },
-  { id:'kits',         label:'⚡ Apps y Kits', fullrow: true },
+  { id:'kits',         label:'⚡ Apps y Kits',               group:'apps',    fullrow:true },
+  { id:'bandejas',     label:'📥 Bandejas de Correo',        group:'sdr' },
+  { id:'llamado',      label:'📞 Llamado',                   group:'sdr' },
+  { id:'agendamiento', label:'📅 Agendamiento',              group:'sdr' },
+  { id:'inicio',       label:'📄 Documentos de Onboarding',  group:'general' },
+  { id:'oficina',      label:'🏢 Oficina',                   group:'general' },
 ];
 
 const RES_DATA = [
@@ -3855,34 +3842,37 @@ function downloadUpdatedHTML() {
 
 function buildResources() {
   const container = document.getElementById('resSections');
-  if (container._built) return; // evitar rebuild innecesario
-  let html = '<div class="rrhh-grid">';
-  RES_CATEGORIES.forEach(cat => {
-    const items = RES_DATA.map((r,i) => ({...r, idx:i})).filter(r => r.category === cat.id);
-    if (!items.length) return;
-    const spanStyle = cat.fullrow ? 'grid-column:1/-1' : '';
-    html += `<div class="rrhh-card res-cat-section" data-cat="${cat.id}" style="${spanStyle}">`;
-    html += `<div class="rrhh-card-title">${cat.label}</div>`;
-    items.forEach(r => {
-      if (r.direct) {
-        // Siempre expandido, sin click
-        html += `<div style="width:100%">${r.body}</div>`;
-      } else {
-        html += `<div class="solicitud-item" id="res-card-${r.idx}" onclick="openResCard(${r.idx})" style="flex-direction:column;align-items:flex-start;gap:0">
-          <div style="display:flex;align-items:center;gap:10px;width:100%">
-            <span class="solicitud-icon">${r.icon}</span>
-            <span class="solicitud-text" style="flex:1">${r.title}</span>
-            <span class="solicitud-arr" id="res-arr-${r.idx}">↓</span>
-          </div>
-          <div class="res-detail" id="res-detail-${r.idx}" style="margin-top:10px;width:100%;border:none;padding:0;background:transparent">
-            ${r.body}
-          </div>
-        </div>`;
-      }
+  if (container._built) return;
+  const renderItem = r => r.direct
+    ? `<div style="width:100%">${r.body}</div>`
+    : `<div class="solicitud-item" id="res-card-${r.idx}" onclick="openResCard(${r.idx})" style="flex-direction:column;align-items:flex-start;gap:0">
+        <div style="display:flex;align-items:center;gap:10px;width:100%">
+          <span class="solicitud-icon">${r.icon}</span>
+          <span class="solicitud-text" style="flex:1">${r.title}</span>
+          <span class="solicitud-arr" id="res-arr-${r.idx}">↓</span>
+        </div>
+        <div class="res-detail" id="res-detail-${r.idx}" style="margin-top:10px;width:100%;border:none;padding:0;background:transparent">${r.body}</div>
+      </div>`;
+  let html = '';
+  RES_GROUPS.forEach(group => {
+    const groupCats = RES_CATEGORIES.filter(c => c.group === group.id);
+    if (!groupCats.length) return;
+    if (group.label) {
+      html += `<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--gris2);padding:10px 0 12px;margin-top:4px;border-top:2px solid var(--gris4)">${group.label}</div>`;
+    }
+    const cols = group.cols || 1;
+    html += `<div style="display:grid;grid-template-columns:repeat(${cols},1fr);gap:16px;margin-bottom:28px">`;
+    groupCats.forEach(cat => {
+      const items = RES_DATA.map((r,i) => ({...r, idx:i})).filter(r => r.category === cat.id);
+      if (!items.length) return;
+      const spanStyle = cat.fullrow ? 'grid-column:1/-1' : '';
+      html += `<div class="rrhh-card res-cat-section" data-cat="${cat.id}" style="${spanStyle}">`;
+      html += `<div class="rrhh-card-title">${cat.label}</div>`;
+      items.forEach(r => { html += renderItem(r); });
+      html += `</div>`;
     });
     html += `</div>`;
   });
-  html += '</div>';
   container.innerHTML = html;
   container._built = true;
 }
