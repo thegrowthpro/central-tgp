@@ -3214,11 +3214,12 @@ const ORG_PODS = [
 ];
 function getInitials(n){return n.split(' ').slice(0,2).map(x=>x[0]).join('').toUpperCase();}
 function getColor(c){return ROLE_COLORS[c]||'#6b7280';}
+function tribeBg(tribu){return tribu==='Tributon'?'background:#f0f7ff;border-color:#bfdbfe':tribu==='Tributen'?'background:#f0fdf4;border-color:#bbf7d0':'';}
 function orgCard(p,extra){
   const color=getColor(p.cargo),ini=getInitials(p.nombre);
   const d=encodeURIComponent(JSON.stringify(p));
-  const badge=p.tribu&&p.tribu!=='Ambas'?`<span class="org-card-badge" style="background:${p.tribu==='Tributon'?'#eff6ff':'#f0fdf4'};color:${p.tribu==='Tributon'?'#1d4ed8':'#15803d'}">${p.tribu}</span>`:'';
-  return `<div class="org-card" style="${extra||''}" onclick="openOrgModal(${d})"><div class="org-card-avatar" style="background:${color}">${ini}</div><div class="org-card-name">${p.nombre}</div><div class="org-card-role">${p.cargo}</div>${badge}</div>`;
+  const tbg=tribeBg(p.tribu);
+  return `<div class="org-card" style="${tbg?tbg+';':''} ${extra||''}" onclick="openOrgModal(${d})"><div class="org-card-avatar" style="background:${color}">${ini}</div><div class="org-card-name">${p.nombre}</div><div class="org-card-role">${p.cargo}</div></div>`;
 }
 function renderPod(pod){
   const tc=pod.tribu==='Tributon'?'#1d4ed8':'#15803d';
@@ -3315,15 +3316,18 @@ function toggleJuniors(id){
 }
 function subCard(p){
   const color=getColor(p.cargo),d=encodeURIComponent(JSON.stringify(p));
-  return `<div class="org-sub-card" onclick="openOrgModal(${d})"><div class="org-sub-card-avatar" style="background:${color}">${getInitials(p.nombre)}</div><div class="org-sub-card-name">${p.nombre}</div><div class="org-sub-card-role">${p.cargo}</div></div>`;
+  const tbg=tribeBg(p.tribu);
+  return `<div class="org-sub-card" style="${tbg}" onclick="openOrgModal(${d})"><div class="org-sub-card-avatar" style="background:${color}">${getInitials(p.nombre)}</div><div class="org-sub-card-name">${p.nombre}</div><div class="org-sub-card-role">${p.cargo}</div></div>`;
 }
 
 function cardWithExpander(p, expandId, subsHtml, btnLabel){
   const d=encodeURIComponent(JSON.stringify(p));
   const color=getColor(p.cargo);
-  if(!subsHtml) return `<div class="org-card-wrap"><div class="org-card" onclick="openOrgModal(${d})"><div class="org-card-avatar" style="background:${color}">${getInitials(p.nombre)}</div><div class="org-card-name">${p.nombre}</div><div class="org-card-role">${p.cargo}</div></div></div>`;
+  const tbg=tribeBg(p.tribu);
+  const cardStyle=tbg?tbg+';':'';
+  if(!subsHtml) return `<div class="org-card-wrap"><div class="org-card" style="${cardStyle}" onclick="openOrgModal(${d})"><div class="org-card-avatar" style="background:${color}">${getInitials(p.nombre)}</div><div class="org-card-name">${p.nombre}</div><div class="org-card-role">${p.cargo}</div></div></div>`;
   return `<div class="org-card-wrap" style="display:flex;flex-direction:column;align-items:center">
-    <div class="org-card" onclick="openOrgModal(${d})">
+    <div class="org-card" style="${cardStyle}" onclick="openOrgModal(${d})">
       <div class="org-card-avatar" style="background:${color}">${getInitials(p.nombre)}</div>
       <div class="org-card-name">${p.nombre}</div>
       <div class="org-card-role">${p.cargo}</div>
@@ -3349,11 +3353,11 @@ function renderOrg(){
 
   const franc={nombre:'Francesco Cotroneo',cargo:'Operations Lead',email:''};
   const fantSub=subCard({nombre:'Sebastián Fantuzzi',cargo:'Senior SDR Manager',email:'sebastian@thegrowth.pro',nota:'Manager del pod Rho + mano derecha de Francesco. Apoya a todos los Managers en liderazgo y rendimiento'});
-  const tomasso={nombre:'Tomasso Cannistra',cargo:'Customer Success Lead',email:''};
-  const mariajose={nombre:'María José Sainz',cargo:'Customer Success Lead',email:''};
+  const tomasso={nombre:'Tomasso Cannistra',cargo:'Customer Success Lead',email:'',tribu:'Tributon'};
+  const mariajose={nombre:'María José Sainz',cargo:'Customer Success Lead',email:'',tribu:'Tributen'};
 
-  const samuelBP=cardWithExpander({nombre:'Samuel Weinstein',cargo:'Business Partner',email:''},'exp-sw',subCard({nombre:'Benjamin Koljchen',cargo:'KAM',email:''}),'KAM');
-  const maxiBP=cardWithExpander({nombre:'Maximiliano Frey',cargo:'Business Partner',email:''},'exp-mf',subCard({nombre:'Pablo Saralegui',cargo:'KAM',email:''}),'KAM');
+  const samuelBP=cardWithExpander({nombre:'Samuel Weinstein',cargo:'Business Partner',email:'',tribu:'Tributon'},'exp-sw',subCard({nombre:'Benjamin Koljchen',cargo:'KAM',email:'',tribu:'Tributon'}),'KAM');
+  const maxiBP=cardWithExpander({nombre:'Maximiliano Frey',cargo:'Business Partner',email:'',tribu:'Tributen'},'exp-mf',subCard({nombre:'Pablo Saralegui',cargo:'KAM',email:'',tribu:'Tributen'}),'KAM');
 
   const martin=cardWithExpander({nombre:'Martin Kolton',cargo:'Head of Strategy',email:''},'exp-martin',
     ORG_CENTRAL.find(c=>c.nombre==='Martin Kolton').subs.map(s=>subCard(s)).join(''),'Specialists');
