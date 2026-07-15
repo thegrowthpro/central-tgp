@@ -3352,8 +3352,8 @@ function cardWithExpander(p, expandId, subsHtml, btnLabel){
       <div class="org-card-name">${p.nombre}</div>
       <div class="org-card-role">${p.cargo}</div>
     </div>
-    <div style="width:2px;height:12px;background:var(--gris3);flex-shrink:0"></div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center">${subsHtml}</div>
+    <button class="org-expand-btn" onclick="toggleExpand('${expandId}')">▼ ${btnLabel||'ver reportes'}</button>
+    <div class="org-expand-panel" id="${expandId}">${subsHtml}</div>
   </div>`;
 }
 
@@ -3376,8 +3376,10 @@ function renderOrg(){
   const tomasso={nombre:'Tomasso Cannistra',cargo:'Customer Success Lead',email:'',tribu:'Tributon'};
   const mariajose={nombre:'María José Sainz',cargo:'Customer Success Lead',email:'',tribu:'Tributen'};
 
-  const samuelBP=cardWithExpander({nombre:'Samuel Weinstein',cargo:'Business Partner',email:'',tribu:'Tributon'},'exp-sw',subCard({nombre:'Benjamin Koljchen',cargo:'KAM',email:'',tribu:'Tributon'}),'KAM');
-  const maxiBP=cardWithExpander({nombre:'Maximiliano Frey',cargo:'Business Partner',email:'',tribu:'Tributen'},'exp-mf',subCard({nombre:'Pablo Saralegui',cargo:'KAM',email:'',tribu:'Tributen'}),'KAM');
+  const samuelBP=orgCard({nombre:'Samuel Weinstein',cargo:'Business Partner',email:'',tribu:'Tributon'});
+  const maxiBP=orgCard({nombre:'Maximiliano Frey',cargo:'Business Partner',email:'',tribu:'Tributen'});
+  const benjaminKAM=orgCard({nombre:'Benjamin Koljchen',cargo:'KAM',email:'',tribu:'Tributon'});
+  const pabloKAM=orgCard({nombre:'Pablo Saralegui',cargo:'KAM',email:'',tribu:'Tributen'});
 
   const laly=orgCard({nombre:'Laly Campos',cargo:'Asistente Administrativo',email:''});
   const devOrdenados=[ORG_DEV[0],ORG_DEV[2],ORG_DEV[3],ORG_DEV[4]];
@@ -3397,7 +3399,7 @@ function renderOrg(){
   const martin=cardWithExpander({nombre:'Martin Kolton',cargo:'Head of Strategy',email:''},'exp-martin',
     ORG_CENTRAL.find(c=>c.nombre==='Martin Kolton').subs.map(s=>subCard(s)).join(''),'Specialists');
   const belen=cardWithExpander({nombre:'Belén Forti',cargo:'HR Lead',email:'belen@thegrowth.pro'},'exp-belen',
-    ORG_HR.filter(p=>p.nombre!=='Laly Campos').map(s=>subCard(s)).join(''),'equipo HR');
+    ORG_HR.map(s=>subCard(s)).join(''),'equipo HR');
   const benja=cardWithExpander({nombre:'Benjamin Apt',cargo:'Head of Strategy',email:''},'exp-benja',
     (ORG_CENTRAL.find(c=>c.nombre==='Benjamin Apt')?.subs||[]).map(s=>subCard(s)).join(''),'Specialists');
 
@@ -3422,6 +3424,7 @@ function renderOrg(){
       <div>
         <div class="org-leads-section">
           ${samuelBP}
+          ${benjaminKAM}
           ${orgCard(tomasso)}
           ${martin}
           ${laly}
@@ -3431,6 +3434,7 @@ function renderOrg(){
           ${ignacio}
           ${orgCard(mariajose)}
           ${maxiBP}
+          ${pabloKAM}
         </div>
       </div>
 
