@@ -3252,14 +3252,16 @@ function renderPod(pod){
   const jrs=(pod.juniors||[]);
   const jrContent=jrs.length?jrs.map(m=>vcard(m,'',true)).join(''):`<div style="font-size:11px;color:var(--gris3);text-align:center;padding:8px">Sin Juniors cargados</div>`;
 
+  const allTeam=roles+(jrs.length?jrContent:`<div style="font-size:11px;color:var(--gris3);text-align:center;padding:8px">Sin Juniors cargados</div>`);
+
   return `<div class="org-pod-col" id="${mid}">
     <div class="org-pod-top" style="border-color:${tc};background:${tbg}">
       <div class="org-pod-top-name" style="color:${tc}">${pod.nombre}</div>
     </div>
     <div class="org-pod-vline"></div>
-    <div class="org-pod-cards-grid">${managerCard}${roles}</div>
-    <button class="org-pod-jrs-btn" onclick="togglePodJrs('${mid}')">▼ Juniors</button>
-    <div class="org-pod-jrs" id="${mid}-jrs"><div class="org-pod-cards-grid">${jrContent}</div></div>
+    <div class="org-pod-cards-grid">${managerCard}</div>
+    <button class="org-pod-jrs-btn" onclick="togglePodJrs('${mid}')">▼ Ver equipo</button>
+    <div class="org-pod-jrs" id="${mid}-jrs"><div class="org-pod-cards-grid">${allTeam}</div></div>
   </div>`;
 }
 
@@ -3319,13 +3321,15 @@ function subCard(p){
 function cardWithExpander(p, expandId, subsHtml, btnLabel){
   const d=encodeURIComponent(JSON.stringify(p));
   const color=getColor(p.cargo);
-  return `<div class="org-card-wrap">
+  if(!subsHtml) return `<div class="org-card-wrap"><div class="org-card" onclick="openOrgModal(${d})"><div class="org-card-avatar" style="background:${color}">${getInitials(p.nombre)}</div><div class="org-card-name">${p.nombre}</div><div class="org-card-role">${p.cargo}</div></div></div>`;
+  return `<div class="org-card-wrap" style="display:flex;flex-direction:column;align-items:center">
     <div class="org-card" onclick="openOrgModal(${d})">
       <div class="org-card-avatar" style="background:${color}">${getInitials(p.nombre)}</div>
       <div class="org-card-name">${p.nombre}</div>
       <div class="org-card-role">${p.cargo}</div>
     </div>
-    ${subsHtml?`<button class="org-expand-btn" onclick="toggleExpand('${expandId}')">▼ ${btnLabel||'ver reportes'}</button><div class="org-expand-panel" id="${expandId}">${subsHtml}</div>`:''}
+    <div style="width:2px;height:12px;background:var(--gris3);flex-shrink:0"></div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center">${subsHtml}</div>
   </div>`;
 }
 
