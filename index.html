@@ -1081,7 +1081,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
       <button class="org-zoom-btn" onclick="orgZoom(-0.15)" title="Alejar">−</button>
     </div>
   </div>
-  <div id="orgViewport" style="overflow:hidden;cursor:grab;flex:1;position:relative;background:var(--gris5)">
+  <div id="orgViewport" style="overflow:hidden;flex:1;position:relative;background:var(--gris5)">
     <div id="orgContent" style="position:absolute;top:0;left:0;transform-origin:0 0;padding:24px;width:max-content"></div>
   </div>
 </div>
@@ -3343,28 +3343,7 @@ function orgZoom(delta,cx,cy){
   _oScale=ns;_oApply();
 }
 function orgReset(){_oScale=0.72;_oX=40;_oY=30;_oApply();}
-function initOrgCanvas(){
-  const vp=document.getElementById('orgViewport');
-  if(!vp||vp._orgInit)return;
-  vp._orgInit=true;
-  vp.addEventListener('wheel',e=>{e.preventDefault();orgZoom(e.deltaY>0?-0.08:0.08,e.clientX,e.clientY);},{passive:false});
-  vp.addEventListener('mousedown',e=>{if(e.button!==0)return;_oDrag=true;_oMoved=false;_oDx=e.clientX-_oX;_oDy=e.clientY-_oY;vp.style.cursor='grabbing';});
-  document.addEventListener('mousemove',e=>{if(!_oDrag)return;const dx=e.clientX-_oDx,dy=e.clientY-_oDy;if(Math.abs(dx-_oX)>3||Math.abs(dy-_oY)>3)_oMoved=true;_oX=dx;_oY=dy;_oApply();});
-  document.addEventListener('mouseup',()=>{_oDrag=false;if(vp)vp.style.cursor='grab';});
-  vp.addEventListener('click',e=>{if(_oMoved)e.stopPropagation();});
-  // touch
-  let _t1x,_t1y,_tScale,_tX,_tY;
-  vp.addEventListener('touchstart',e=>{
-    if(e.touches.length===1){_oDrag=true;_oMoved=false;_oDx=e.touches[0].clientX-_oX;_oDy=e.touches[0].clientY-_oY;}
-    if(e.touches.length===2){_oDrag=false;const dx=e.touches[1].clientX-e.touches[0].clientX,dy=e.touches[1].clientY-e.touches[0].clientY;_tScale=Math.hypot(dx,dy);_tX=(_oX);_tY=(_oY);}
-  },{passive:true});
-  vp.addEventListener('touchmove',e=>{
-    e.preventDefault();
-    if(e.touches.length===1&&_oDrag){_oX=e.touches[0].clientX-_oDx;_oY=e.touches[0].clientY-_oDy;_oMoved=true;_oApply();}
-    if(e.touches.length===2){const dx=e.touches[1].clientX-e.touches[0].clientX,dy=e.touches[1].clientY-e.touches[0].clientY;const dist=Math.hypot(dx,dy);const ns=Math.min(2,Math.max(0.2,_oScale*(dist/_tScale)));_oScale=ns;_oApply();}
-  },{passive:false});
-  vp.addEventListener('touchend',()=>{_oDrag=false;});
-}
+function initOrgCanvas(){}
 // ─────────────────────────────────────────────────────────────────
 function renderOrg(){
   const el=document.getElementById('orgContent');
