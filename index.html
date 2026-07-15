@@ -3380,8 +3380,19 @@ function renderOrg(){
   const maxiBP=cardWithExpander({nombre:'Maximiliano Frey',cargo:'Business Partner',email:'',tribu:'Tributen'},'exp-mf',subCard({nombre:'Pablo Saralegui',cargo:'KAM',email:'',tribu:'Tributen'}),'KAM');
 
   const laly=orgCard({nombre:'Laly Campos',cargo:'Asistente Administrativo',email:''});
-  const devSubs=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">${[ORG_DEV[0],...ORG_DEV.slice(2)].map(d=>subCard(d)).join('')}</div>`;
-  const ignacio=cardWithExpander({nombre:'Ignacio Lungenstrass',cargo:'Full Stack AI Engineer',email:''},'exp-ignacio',devSubs,'Desarrolladores');
+  const devOrdenados=[ORG_DEV[0],ORG_DEV[2],ORG_DEV[3],ORG_DEV[4]];
+  const devSubs=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">${devOrdenados.map(d=>subCard(d)).join('')}</div>`;
+  const ignacioP={nombre:'Ignacio Lungenstrass',cargo:'Full Stack AI Engineer',email:''};
+  const ignacioD=encodeURIComponent(JSON.stringify(ignacioP));
+  const ignacio=`<div class="org-card-wrap" style="display:flex;flex-direction:column;align-items:center">
+    <div class="org-card" onclick="openOrgModal(${ignacioD})">
+      <div class="org-card-avatar" style="background:${getColor(ignacioP.cargo)}">${getInitials(ignacioP.nombre)}</div>
+      <div class="org-card-name">${ignacioP.nombre}</div>
+      <div class="org-card-role">${ignacioP.cargo}</div>
+    </div>
+    <button class="org-expand-btn" onclick="toggleExpand('exp-ignacio')">▼ Desarrolladores</button>
+    <div class="org-expand-panel" id="exp-ignacio">${devSubs}</div>
+  </div>`;
 
   const martin=cardWithExpander({nombre:'Martin Kolton',cargo:'Head of Strategy',email:''},'exp-martin',
     ORG_CENTRAL.find(c=>c.nombre==='Martin Kolton').subs.map(s=>subCard(s)).join(''),'Specialists');
