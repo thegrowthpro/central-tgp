@@ -539,9 +539,9 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .org-pods-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%}
 .org-pod-col{display:flex;flex-direction:column;align-items:center;gap:0;width:100%}
 /* Cabecera del pod (círculo) */
-.org-pod-top{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;transition:all .18s;flex-shrink:0;border:2.5px solid;padding:6px;box-sizing:border-box}
+.org-pod-top{width:86px;height:86px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;transition:all .18s;flex-shrink:0;border:2.5px solid;padding:6px;box-sizing:border-box}
 .org-pod-top:hover{transform:scale(1.06);box-shadow:0 4px 16px rgba(0,0,0,.12)}
-.org-pod-top-name{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;line-height:1.2}
+.org-pod-top-name{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;line-height:1.2}
 /* Línea conectora */
 .org-pod-vline{width:2px;height:16px;background:var(--gris4);flex-shrink:0}
 /* Tarjeta del Manager */
@@ -3242,18 +3242,35 @@ function renderPod(pod){
     </div>`;
   };
 
+  const mgrParts=pod.manager.trim().split(' ');
+  const mgrDisplay=mgrParts.length>1?`${mgrParts[0]}<br>${mgrParts.slice(1).join(' ')}`:pod.manager;
+
   const managerCard=`<div class="org-pod-vcard" onclick="openOrgModal(${md})">
     <div class="org-pod-vcard-av" style="background:${getColor('Manager')}">${getInitials(pod.manager)}</div>
-    <div class="org-pod-vcard-name">${pod.manager}</div>
+    <div class="org-pod-vcard-name">${mgrDisplay}</div>
     <div class="org-pod-vcard-role">Manager</div>
   </div>`;
 
-  const roles=(pod.equipo||[]).map(m=>vcard(m)).join('');
+  const vcard2=(m,isJr=false)=>{
+    const isVac=m.vacante,isCap=m.enCapacitacion;
+    const color=isVac?'#d97706':getColor(m.cargo);
+    const cls=[isVac?'vacante':isCap?'encap':m.esCoordinador?'coordinador':'',isJr?'junior':''].filter(Boolean).join(' ');
+    const initials=isVac?'?':getInitials(m.nombre);
+    const nombre=isVac?'Vacante':m.nombre;
+    const parts=nombre.split(' ');
+    const displayNombre=parts.length>1?`${parts[0]}<br>${parts.slice(1).join(' ')}`:nombre;
+    const d2=isVac?'':encodeURIComponent(JSON.stringify({...m,pod:pod.nombre}));
+    const extra=isCap?` <span style="font-size:9px;color:#6d28d9;font-weight:700">cap.</span>`:m.esCoordinador?` <span style="font-size:9px;color:#374151;font-weight:700">★</span>`:'';
+    return `<div class="org-pod-vcard ${cls}" style="width:120px;min-height:120px" ${isVac?'':'onclick="openOrgModal('+d2+')"'}>
+      <div class="org-pod-vcard-av" style="background:${color}">${initials}</div>
+      <div class="org-pod-vcard-name">${displayNombre}${extra}</div>
+      <div class="org-pod-vcard-role">${m.cargo}</div>
+    </div>`;
+  };
 
+  const roles=(pod.equipo||[]).map(m=>vcard2(m)).join('');
   const jrs=(pod.juniors||[]);
-  const jrContent=jrs.length?jrs.map(m=>vcard(m,'',true)).join(''):`<div style="font-size:11px;color:var(--gris3);text-align:center;padding:8px">Sin Juniors cargados</div>`;
-
-  const allTeam=roles+(jrs.length?jrContent:`<div style="font-size:11px;color:var(--gris3);text-align:center;padding:8px">Sin Juniors cargados</div>`);
+  const jrContent=jrs.length?jrs.map(m=>vcard2(m,true)).join(''):`<div style="font-size:11px;color:var(--gris3);text-align:center;padding:8px">Sin Juniors cargados</div>`;
 
   return `<div class="org-pod-col" id="${mid}">
     <div class="org-pod-top" style="border-color:${tc};background:${tbg}">
@@ -3262,7 +3279,10 @@ function renderPod(pod){
     <div class="org-pod-vline"></div>
     <div class="org-pod-cards-grid">${managerCard}</div>
     <button class="org-pod-jrs-btn" onclick="togglePodJrs('${mid}')">▼ Ver equipo</button>
-    <div class="org-pod-jrs" id="${mid}-jrs"><div class="org-pod-cards-grid">${allTeam}</div></div>
+    <div class="org-pod-jrs" id="${mid}-jrs">
+      ${roles?`<div style="display:flex;gap:8px;justify-content:center;flex-wrap:nowrap;margin-bottom:8px">${roles}</div>`:''}
+      ${jrs.length?`<div class="org-pod-cards-grid">${jrContent}</div>`:''}
+    </div>
   </div>`;
 }
 
@@ -3359,10 +3379,14 @@ function renderOrg(){
   const samuelBP=cardWithExpander({nombre:'Samuel Weinstein',cargo:'Business Partner',email:'',tribu:'Tributon'},'exp-sw',subCard({nombre:'Benjamin Koljchen',cargo:'KAM',email:'',tribu:'Tributon'}),'KAM');
   const maxiBP=cardWithExpander({nombre:'Maximiliano Frey',cargo:'Business Partner',email:'',tribu:'Tributen'},'exp-mf',subCard({nombre:'Pablo Saralegui',cargo:'KAM',email:'',tribu:'Tributen'}),'KAM');
 
+  const laly=orgCard({nombre:'Laly Campos',cargo:'Asistente Administrativo',email:''});
+  const ignacio=cardWithExpander({nombre:'Ignacio Lungenstrass',cargo:'Full Stack AI Engineer',email:''},'exp-ignacio',
+    [ORG_DEV[0],...ORG_DEV.slice(2)].map(d=>subCard(d)).join(''),'Desarrolladores');
+
   const martin=cardWithExpander({nombre:'Martin Kolton',cargo:'Head of Strategy',email:''},'exp-martin',
     ORG_CENTRAL.find(c=>c.nombre==='Martin Kolton').subs.map(s=>subCard(s)).join(''),'Specialists');
   const belen=cardWithExpander({nombre:'Belén Forti',cargo:'HR Lead',email:'belen@thegrowth.pro'},'exp-belen',
-    ORG_HR.map(s=>subCard(s)).join(''),'equipo HR');
+    ORG_HR.filter(p=>p.nombre!=='Laly Campos').map(s=>subCard(s)).join(''),'equipo HR');
   const benja=cardWithExpander({nombre:'Benjamin Apt',cargo:'Head of Strategy',email:''},'exp-benja',
     (ORG_CENTRAL.find(c=>c.nombre==='Benjamin Apt')?.subs||[]).map(s=>subCard(s)).join(''),'Specialists');
 
@@ -3388,10 +3412,12 @@ function renderOrg(){
         <div class="org-leads-section">
           ${samuelBP}
           ${orgCard(tomasso)}
+          ${laly}
           ${cardWithExpander(franc,'exp-franc',fantSub,'S. Fantuzzi')}
           ${martin}
           ${belen}
           ${benja}
+          ${ignacio}
           ${orgCard(mariajose)}
           ${maxiBP}
         </div>
@@ -3400,17 +3426,10 @@ function renderOrg(){
       <!-- CÉLULAS -->
       <div style="${sb}border-radius:0 0 0 8px;padding:20px 0">CÉLULAS</div>
       <div>
-        <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:start">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start">
           <div style="background:#f0f7ff;border-radius:12px;padding:10px 12px 16px">
             <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:#1d4ed8;text-align:center;margin-bottom:8px">TRIBUTON</div>
             <div class="org-pods-row">${tributonPods.map(p=>renderPod(p)).join('')}</div>
-          </div>
-          <div style="padding:0 6px">
-            <div style="margin-top:16px">
-              <div class="org-section-title" style="text-align:center">DESARROLLADORES / IA</div>
-              <div style="display:flex;justify-content:center;margin-bottom:8px">${orgCard(ORG_DEV[1])}</div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;justify-items:center">${[ORG_DEV[0],...ORG_DEV.slice(2)].map(d=>orgCard(d)).join('')}</div>
-            </div>
           </div>
           <div style="background:#f0fdf4;border-radius:12px;padding:10px 12px 16px">
             <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:#15803d;text-align:center;margin-bottom:8px">TRIBUTEN</div>
