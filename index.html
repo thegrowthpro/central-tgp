@@ -3375,8 +3375,9 @@ function renderOrg(){
           <div style="width:110px">${benja}</div>
         </div>
         <div style="margin-top:18px">
-          <div class="org-section-title" style="text-align:center;border-bottom:2px solid var(--negro);padding-bottom:6px;margin-bottom:12px;font-size:13px;font-weight:800;letter-spacing:.5px">DESARROLLADORES / IA</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;justify-items:center">${devCards}</div>
+          <div class="org-section-title" style="text-align:center">DESARROLLADORES / IA</div>
+          <div style="display:flex;justify-content:center;margin-bottom:8px">${orgCard(ORG_DEV[1])}</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;justify-items:center">${[ORG_DEV[0],...ORG_DEV.slice(2)].map(d=>orgCard(d)).join('')}</div>
         </div>
       </div>
 
