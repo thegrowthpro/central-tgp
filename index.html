@@ -486,12 +486,12 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .org-3col{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:start;margin-top:8px}
 .org-zoom-btn{width:32px;height:32px;border-radius:8px;border:1.5px solid var(--gris4);background:var(--blanco);font-size:15px;font-weight:700;cursor:pointer;color:var(--negro);transition:background .15s;display:flex;align-items:center;justify-content:center;font-family:inherit}
 .org-zoom-btn:hover{background:var(--gris4)}
-.org-founders-section{background:#111;border-radius:16px;padding:20px 28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
-.org-founder-card{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:14px;padding:14px 22px;cursor:pointer;transition:all .15s;min-width:190px}
-.org-founder-card:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
+.org-founders-section{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:10px;padding:10px 0}
+.org-founder-card{display:flex;align-items:center;gap:14px;background:var(--gris5);border:1.5px solid var(--gris4);border-radius:14px;padding:14px 22px;cursor:pointer;transition:all .15s;min-width:190px}
+.org-founder-card:hover{background:var(--gris4);transform:translateY(-2px)}
 .org-founder-av{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
-.org-founder-nm{font-size:15px;font-weight:800;color:#fff;margin-bottom:3px}
-.org-founder-rl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:rgba(255,255,255,.45)}
+.org-founder-nm{font-size:15px;font-weight:800;color:var(--gris1);margin-bottom:3px}
+.org-founder-rl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--gris2)}
 .org-leads-section{background:var(--gris5);border:1.5px solid var(--gris4);border-radius:14px;padding:16px 20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:flex-start;margin-bottom:10px}
 .org-tribu-col{display:flex;flex-direction:column;align-items:center;gap:6px}
 .org-tribu-header{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;text-align:center;padding:5px 14px;border-radius:8px;width:100%;box-sizing:border-box}
@@ -3371,7 +3371,7 @@ function renderOrg(){
     <div style="display:grid;grid-template-columns:38px 1fr;gap:0;align-items:start">
 
       <!-- FOUNDERS -->
-      <div style="${sb}border-radius:8px 0 0 0;padding:14px 0"></div>
+      <div style="${sb}border-radius:8px 0 0 0;padding:14px 0">FOUNDERS</div>
       <div>
         <div class="org-founders-section">
           ${fcrd({nombre:'Samuel Weinstein',cargo:'Cofundador',email:''})}
