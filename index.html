@@ -3222,7 +3222,7 @@ function orgCard(p,extra){
   return `<div class="org-card" style="${tbg?tbg+';':''} ${extra||''}" onclick="openOrgModal(${d})"><div class="org-card-avatar" style="background:${color}">${ini}</div><div class="org-card-name">${p.nombre}</div><div class="org-card-role">${p.cargo}</div></div>`;
 }
 function renderPod(pod){
-  const tc=pod.tribu==='Tributon'?'#1d4ed8':'#15803d';
+  const tc=pod.tribu==='Tributon'?'#60a5fa':'#34d399';
   const tbg=pod.tribu==='Tributon'?'#eff6ff':'#f0fdf4';
   const mid='podrow-'+pod.nombre.toLowerCase();
   const md=encodeURIComponent(JSON.stringify({nombre:pod.manager,cargo:'Manager',email:pod.managerEmail,pod:pod.nombre}));
@@ -3453,12 +3453,12 @@ function renderOrg(){
       <div style="${sb}border-radius:0 0 0 8px;padding:20px 0">CÉLULAS</div>
       <div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start">
-          <div style="background:#f0f7ff;border-radius:12px;padding:10px 12px 16px">
-            <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:#1d4ed8;text-align:center;margin-bottom:8px">TRIBUTON</div>
+          <div style="border-radius:12px;padding:10px 12px 16px">
+            <div style="font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:#1d4ed8;text-align:center;margin-bottom:12px">TRIBUTON</div>
             <div class="org-pods-row">${tributonPods.map(p=>renderPod(p)).join('')}</div>
           </div>
-          <div style="background:#f0fdf4;border-radius:12px;padding:10px 12px 16px">
-            <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:#15803d;text-align:center;margin-bottom:8px">TRIBUTEN</div>
+          <div style="border-radius:12px;padding:10px 12px 16px">
+            <div style="font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:#15803d;text-align:center;margin-bottom:12px">TRIBUTEN</div>
             <div class="org-pods-row">${tributenPods.map(p=>renderPod(p)).join('')}</div>
           </div>
         </div>
