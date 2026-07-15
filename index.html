@@ -3088,12 +3088,16 @@ const ROLE_COLORS = {
   // Customer Success — Tomasso + María José + todos los CSR
   'Customer Success Lead':   '#059669',
   'CSR':                     '#059669',
-  // Strategy Llamados — Martin + todos los Specialists
+  // Strategy — Martin + Benjamin + Specialists
+  'Head of Strategy':        '#7c3aed',
   'Strategy Lead Llamados':  '#ea580c',
   'Specialist':              '#ea580c',
-  // Strategy Correos — Benjamin Apt + Aníbal + Diego
+  'Senior Specialist':       '#7c3aed',
   'Strategy Lead Correos':   '#7c3aed',
   'Strategy Specialist':     '#7c3aed',
+  // Desarrolladores / IA
+  'Full Stack AI Engineer':           '#0369a1',
+  'Desarrollador/a de Software Junior':'#0369a1',
   // RRHH — Belén + Laly + Amelia
   'HR Lead':                 '#db2777',
   'Talent Acquisition':      '#db2777',
@@ -3106,15 +3110,24 @@ const ROLE_COLORS = {
 };
 // Liderazgo transversal (centro)
 const ORG_CENTRAL = [
-  {nombre:'Martin Kolton',cargo:'Strategy Lead Llamados',email:'',subs:[]},
+  {nombre:'Martin Kolton',cargo:'Head of Strategy',email:'',subs:[
+    {nombre:'Juan Pablo Cabrera',cargo:'Senior Specialist',email:''},
+  ]},
   {nombre:'Belén Forti',cargo:'HR Lead',email:'belen@thegrowth.pro',subs:[
     {nombre:'Laly Campos',cargo:'Asistente Administrativo',email:''},
     {nombre:'Amelia Honorato',cargo:'Talent Acquisition',email:''},
   ]},
-  {nombre:'Benjamin Apt',cargo:'Strategy Lead Correos',email:'',subs:[
+  {nombre:'Benjamin Apt',cargo:'Head of Strategy',email:'',subs:[
     {nombre:'Aníbal del Río',cargo:'Strategy Specialist',tribu:'Tributon',email:''},
     {nombre:'Diego de la Puente',cargo:'Strategy Specialist',tribu:'Tributen',email:''},
   ]},
+];
+const ORG_DEV = [
+  {nombre:'Juan Manuel Durand',   cargo:'Full Stack AI Engineer',            email:''},
+  {nombre:'Ignacio Lungenstrass', cargo:'Full Stack AI Engineer',            email:''},
+  {nombre:'Tomás Casanova',       cargo:'Full Stack AI Engineer',            email:''},
+  {nombre:'Nicolas Arias',        cargo:'Desarrollador/a de Software Junior',email:''},
+  {nombre:'Tomás Hernández',      cargo:'Desarrollador/a de Software Junior',email:''},
 ];
 // Liderazgo TRIBUTON
 const ORG_TRIBUTON_LEAD = [
@@ -3156,7 +3169,7 @@ const ORG_PODS = [
             {nombre:'Bartolomé Miranda',  cargo:'CSR',         email:''},
             {nombre:'Franco Casanova',    cargo:'Specialist',  email:''}],
     juniors:[{nombre:'Candelaria Elgueta',cargo:'SDR Junior',email:''},{nombre:'Felipe Valdivia',cargo:'SDR Junior',email:''},{nombre:'José Álvarez',cargo:'SDR Junior',email:''},{nombre:'Leonardo Leon',cargo:'SDR Junior',email:''},{nombre:'Matías MacGuire',cargo:'SDR Junior',email:''}]},
-  {nombre:'Phi',    tribu:'Tributon',manager:'',                  managerEmail:'',
+  {nombre:'Phi',    tribu:'Tributon',manager:'Francisco Rozas',   managerEmail:'',
     equipo:[],
     juniors:[]},
   {nombre:'Omega',  tribu:'Tributen',manager:'Tomás Pinedo',      managerEmail:'tomasp@thegrowth.pro',
@@ -3176,7 +3189,7 @@ const ORG_PODS = [
     juniors:[{nombre:'Jose Pablo Gomez',cargo:'SDR Junior',email:''},{nombre:'Leon Chanes',cargo:'SDR Junior',email:''},{nombre:'Nicolas Arias',cargo:'SDR Junior',email:''},{nombre:'Tobias Salcedo',cargo:'SDR Junior',email:''}]},
   {nombre:'Zeta',   tribu:'Tributen',manager:'Agustín Moraga',    managerEmail:'agustin@thegrowth.pro',
     equipo:[{nombre:'Sebastian Loi',      cargo:'SDR Senior',  email:''},
-            {nombre:'Francisco Rozas',    cargo:'CSR',         email:''},
+            {nombre:'VACANTE',            cargo:'CSR',         email:'',vacante:true},
             {nombre:'Martín Peredo',      cargo:'Specialist',  email:''}],
     juniors:[{nombre:'Álvaro Muñoz',cargo:'SDR Junior',email:''},{nombre:'Andres Tagle',cargo:'SDR Junior',email:''},{nombre:'Magdalena Soumastre',cargo:'SDR Junior',email:''},{nombre:'Martina Middleton',cargo:'SDR Junior',email:''},{nombre:'Pedro Vial',cargo:'SDR Junior',email:''},{nombre:'Verónica Donoso',cargo:'SDR Junior',email:''}]},
   {nombre:'Kappa',  tribu:'Tributen',manager:'Rosario Soto',      managerEmail:'rosario@thegrowth.pro',
@@ -3320,12 +3333,13 @@ function renderOrg(){
   const tomasso={nombre:'Tomasso Cannistra',cargo:'Customer Success Lead',email:''};
   const mariajose={nombre:'María José Sainz',cargo:'Customer Success Lead',email:''};
 
-  const martin=cardWithExpander({nombre:'Martin Kolton',cargo:'Strategy Lead Llamados',email:''},'exp-martin',
+  const martin=cardWithExpander({nombre:'Martin Kolton',cargo:'Head of Strategy',email:''},'exp-martin',
     ORG_CENTRAL.find(c=>c.nombre==='Martin Kolton').subs.map(s=>subCard(s)).join(''),'Specialists');
   const belen=cardWithExpander({nombre:'Belén Forti',cargo:'HR Lead',email:'belen@thegrowth.pro'},'exp-belen',
     ORG_HR.map(s=>subCard(s)).join(''),'equipo HR');
-  const benja=cardWithExpander({nombre:'Benjamin Apt',cargo:'Strategy Lead Correos',email:''},'exp-benja',
+  const benja=cardWithExpander({nombre:'Benjamin Apt',cargo:'Head of Strategy',email:''},'exp-benja',
     (ORG_CENTRAL.find(c=>c.nombre==='Benjamin Apt')?.subs||[]).map(s=>subCard(s)).join(''),'Specialists');
+  const devCards=ORG_DEV.map(d=>orgCard(d)).join('');
 
   el.innerHTML=`
     <!-- Fundadores alineados con la columna central -->
@@ -3352,13 +3366,17 @@ function renderOrg(){
         <div class="org-pods-row">${tributonPods.map(p=>renderPod(p)).join('')}</div>
       </div>
 
-      <!-- CENTRAL: 2x2 con Francesco+Martin / Belén+Benjamin -->
+      <!-- CENTRAL: 2x2 con Francesco+Martin / Belén+Benjamin + Desarrolladores -->
       <div class="org-central-col">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;justify-items:center">
           <div style="width:110px">${cardWithExpander(franc,'exp-franc',fantSub,'S. Fantuzzi')}</div>
           <div style="width:110px">${martin}</div>
           <div style="width:110px">${belen}</div>
           <div style="width:110px">${benja}</div>
+        </div>
+        <div style="margin-top:18px">
+          <div class="org-section-title" style="text-align:center;border-bottom:2px solid var(--negro);padding-bottom:6px;margin-bottom:12px;font-size:13px;font-weight:800;letter-spacing:.5px">DESARROLLADORES / IA</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;justify-items:center">${devCards}</div>
         </div>
       </div>
 
