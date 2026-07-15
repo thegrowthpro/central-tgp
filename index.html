@@ -3277,7 +3277,10 @@ function renderPod(pod){
 
   const roles=(pod.equipo||[]).map(m=>vcard2(m)).join('');
   const jrs=(pod.juniors||[]);
-  const jrContent=jrs.length?jrs.map(m=>vcard2(m,true)).join(''):`<div style="font-size:11px;color:var(--gris3);text-align:center;padding:8px">Sin Juniors cargados</div>`;
+  const jrRow=r=>`<div style="display:flex;gap:6px;justify-content:center;padding:2px 0">${r.map(m=>vcard2(m,true)).join('')}</div>`;
+  const jrSection=jrs.length
+    ? jrRow(jrs.slice(0,3))+(jrs.length>3?jrRow(jrs.slice(3)):'')
+    : `<div style="font-size:11px;color:var(--gris3);text-align:center;padding:8px">Sin Juniors cargados</div>`;
 
   return `<div class="org-pod-col" id="${mid}">
     <div class="org-pod-top" style="border-color:${tc};background:${tbg}">
@@ -3288,7 +3291,7 @@ function renderPod(pod){
     <button class="org-pod-jrs-btn" onclick="togglePodJrs('${mid}')">▼ Ver equipo</button>
     <div class="org-pod-jrs" id="${mid}-jrs">
       ${roles?`<div style="display:flex;gap:8px;justify-content:center;flex-wrap:nowrap;margin-bottom:8px">${roles}</div>`:''}
-      ${jrs.length?`<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:4px 0">${jrContent}</div>`:''}
+      ${jrSection}
     </div>
   </div>`;
 }
