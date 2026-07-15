@@ -344,8 +344,9 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .home-card{background:var(--blanco);border:1.5px solid var(--gris4);border-radius:16px;padding:28px 24px 24px;cursor:pointer;transition:all .18s;text-align:left;font-family:inherit;width:100%}
 .home-card:hover{border-color:var(--azul);transform:translateY(-3px);box-shadow:0 8px 24px rgba(37,99,235,.1)}
-.home-card-icon{font-size:32px;margin-bottom:14px}
-.home-card-title{font-size:17px;font-weight:800;color:var(--negro);margin-bottom:6px;letter-spacing:-.2px}
+.home-card-header{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.home-card-icon{font-size:36px;flex-shrink:0}
+.home-card-title{font-size:22px;font-weight:900;color:var(--negro);letter-spacing:-.3px;text-transform:uppercase}
 .home-card-desc{font-size:13px;color:var(--gris2);line-height:1.6}
 .home-card-arr{font-size:18px;color:var(--azul);font-weight:700;margin-top:16px;display:block}
 
@@ -693,20 +694,17 @@ body.admin-mode .res-wrap{padding-bottom:72px}
     <div style="font-size:13px;font-weight:700;color:var(--gris3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px">¿Qué quieres hacer?</div>
     <div class="home-grid">
       <button class="home-card" onclick="showScreen('onboarding');renderOnboarding()">
-        <div class="home-card-icon">🗺️</div>
-        <div class="home-card-title">Onboarding</div>
+        <div class="home-card-header"><div class="home-card-icon">🗺️</div><div class="home-card-title">Onboarding</div></div>
         <div class="home-card-desc">Completá tu proceso de incorporación paso a paso. Accesos, herramientas y capacitación.</div>
         <span class="home-card-arr">→</span>
       </button>
       <button class="home-card" onclick="showScreen('rrhh')">
-        <div class="home-card-icon">👥</div>
-        <div class="home-card-title">RRHH</div>
+        <div class="home-card-header"><div class="home-card-icon">👥</div><div class="home-card-title">RRHH</div></div>
         <div class="home-card-desc">Contactos del equipo, solicitudes y todo lo que necesitás de Recursos Humanos.</div>
         <span class="home-card-arr">→</span>
       </button>
       <button class="home-card" onclick="showScreen('recursos');buildResources()">
-        <div class="home-card-icon">📚</div>
-        <div class="home-card-title">Recursos</div>
+        <div class="home-card-header"><div class="home-card-icon">📚</div><div class="home-card-title">Recursos</div></div>
         <div class="home-card-desc">Guías, documentos, videos y herramientas organizados por categoría.</div>
         <span class="home-card-arr">→</span>
       </button>
