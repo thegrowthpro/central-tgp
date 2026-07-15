@@ -492,7 +492,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .org-founder-av{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
 .org-founder-nm{font-size:15px;font-weight:800;color:var(--gris1);margin-bottom:3px}
 .org-founder-rl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--gris2)}
-.org-leads-section{background:var(--gris5);border:1.5px solid var(--gris4);border-radius:14px;padding:16px 20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:flex-start;margin-bottom:10px}
+.org-leads-section{background:var(--gris5);border:1.5px solid var(--gris4);border-radius:14px;padding:16px 20px;display:flex;flex-wrap:nowrap;gap:10px;justify-content:center;align-items:flex-start;margin-bottom:10px;overflow-x:auto}
 .org-tribu-col{display:flex;flex-direction:column;align-items:center;gap:6px}
 .org-tribu-header{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;text-align:center;padding:5px 14px;border-radius:8px;width:100%;box-sizing:border-box}
 .org-central-col{display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -3380,8 +3380,8 @@ function renderOrg(){
   const maxiBP=cardWithExpander({nombre:'Maximiliano Frey',cargo:'Business Partner',email:'',tribu:'Tributen'},'exp-mf',subCard({nombre:'Pablo Saralegui',cargo:'KAM',email:'',tribu:'Tributen'}),'KAM');
 
   const laly=orgCard({nombre:'Laly Campos',cargo:'Asistente Administrativo',email:''});
-  const ignacio=cardWithExpander({nombre:'Ignacio Lungenstrass',cargo:'Full Stack AI Engineer',email:''},'exp-ignacio',
-    [ORG_DEV[0],...ORG_DEV.slice(2)].map(d=>subCard(d)).join(''),'Desarrolladores');
+  const devSubs=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">${[ORG_DEV[0],...ORG_DEV.slice(2)].map(d=>subCard(d)).join('')}</div>`;
+  const ignacio=cardWithExpander({nombre:'Ignacio Lungenstrass',cargo:'Full Stack AI Engineer',email:''},'exp-ignacio',devSubs,'Desarrolladores');
 
   const martin=cardWithExpander({nombre:'Martin Kolton',cargo:'Head of Strategy',email:''},'exp-martin',
     ORG_CENTRAL.find(c=>c.nombre==='Martin Kolton').subs.map(s=>subCard(s)).join(''),'Specialists');
@@ -3412,9 +3412,9 @@ function renderOrg(){
         <div class="org-leads-section">
           ${samuelBP}
           ${orgCard(tomasso)}
+          ${martin}
           ${laly}
           ${cardWithExpander(franc,'exp-franc',fantSub,'S. Fantuzzi')}
-          ${martin}
           ${belen}
           ${benja}
           ${ignacio}
