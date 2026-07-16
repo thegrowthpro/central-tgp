@@ -3447,7 +3447,7 @@ function renderOrg(){
   const benja=cardWithExpander({nombre:'Benjamin Apt',cargo:'Head of Strategy',email:''},'exp-benja',
     (ORG_CENTRAL.find(c=>c.nombre==='Benjamin Apt')?.subs||[]).map(s=>subCard(s)).join(''),'Specialists');
 
-  const sb=`display:inline-block;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:var(--negro);background:var(--gris5);border:1.5px solid var(--gris4);border-radius:6px;padding:3px 12px;margin-bottom:8px`;
+  const sb=`display:inline-block;font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:var(--negro);margin-bottom:8px`;
 
   const fcrd=p=>{const color=getColor(p.cargo),d=encodeURIComponent(JSON.stringify(p));return `<div class="org-founder-card" onclick="openOrgModal(${d})"><div class="org-founder-av" style="background:${color}">${getInitials(p.nombre)}</div><div><div class="org-founder-nm">${p.nombre}</div><div class="org-founder-rl">${p.cargo}</div></div></div>`;};
 
