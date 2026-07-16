@@ -3367,7 +3367,7 @@ function cardWithExpander(p, expandId, subsHtml, btnLabel, zIdx){
       <div class="org-card-role">${p.cargo}</div>
     </div>
     <button class="org-expand-btn" onclick="toggleExpand('${expandId}')">▼ ${btnLabel||'ver reportes'}</button>
-    <div class="org-expand-panel" id="${expandId}" style="position:absolute;top:calc(100% + 2px);left:50%;transform:translateX(-50%);z-index:${zIdx||10};min-width:max-content">${subsHtml}</div>
+    <div class="org-expand-panel" id="${expandId}">${subsHtml}</div>
   </div>`;
 }
 
@@ -3485,7 +3485,7 @@ function renderOrg(){
               <div class="org-card-role">${ignacioP.cargo}</div>
             </div>
             <button class="org-expand-btn" onclick="toggleExpand('exp-ignacio')">▼ Desarrolladores</button>
-            <div class="org-expand-panel" id="exp-ignacio" style="position:absolute;top:calc(100% + 2px);left:50%;transform:translateX(-50%);z-index:4;min-width:max-content">${devSubs}</div>
+            <div class="org-expand-panel" id="exp-ignacio">${devSubs}</div>
           </div>
           <div class="org-card-wrap">${orgCard(mariajose)}</div>
           <div class="org-card-wrap">${maxiBP}</div>
