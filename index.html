@@ -493,7 +493,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .org-founder-av{display:none}
 .org-founder-nm{font-size:17px;font-weight:900;color:var(--negro);margin-bottom:4px;letter-spacing:-.2px}
 .org-founder-rl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#f59e0b}
-.org-leads-section{background:var(--gris5);border:1.5px solid var(--gris4);border-radius:14px;padding:16px 20px;display:flex;flex-wrap:nowrap;gap:10px;justify-content:stretch;align-items:flex-start;margin-bottom:10px;overflow-x:auto}
+.org-leads-section{background:var(--gris5);border:1.5px solid var(--gris4);border-radius:14px;padding:16px 20px;display:flex;flex-wrap:nowrap;gap:10px;justify-content:stretch;align-items:flex-start;margin-bottom:10px;overflow:visible}
 .org-leads-section>.org-card,.org-leads-section>.org-card-wrap{flex:1;min-width:0}
 .org-leads-section .org-card{width:100%;height:110px;box-sizing:border-box}
 .org-tribu-col{display:flex;flex-direction:column;align-items:center;gap:6px}
@@ -1072,10 +1072,10 @@ body.admin-mode .res-wrap{padding-bottom:72px}
         <button class="org-zoom-btn" onclick="orgZoom(0.1)" title="Acercar">+</button>
         <button class="org-zoom-btn" onclick="orgReset()" title="Restablecer">⌂</button>
         <button class="org-zoom-btn" onclick="orgZoom(-0.1)" title="Alejar">−</button>
-        <button class="org-zoom-btn" id="org-expand-all-btn" onclick="orgToggleAll()" title="Desplegar todo" style="font-size:12px;width:auto;padding:0 10px">⊞</button>
+        <button id="org-expand-all-btn" onclick="orgToggleAll()" style="height:32px;padding:0 14px;border-radius:8px;border:1.5px solid var(--gris4);background:var(--blanco);font-size:12px;font-weight:700;cursor:pointer;color:var(--negro);font-family:inherit;transition:background .15s">Desplegar todo</button>
       </div>
     </div>
-    <div style="overflow-x:auto">
+    <div style="overflow:visible">
       <div id="orgContent"></div>
     </div>
   </div>
@@ -3393,7 +3393,7 @@ function orgToggleAll(){
   });
   // Actualizar icono del botón
   const btn=document.getElementById('org-expand-all-btn');
-  if(btn) btn.textContent=_orgAllOpen?'⊟':'⊞';
+  if(btn) btn.textContent=_orgAllOpen?'Colapsar todo':'Desplegar todo';
 }
 function initOrgCanvas(){}
 // ─────────────────────────────────────────────────────────────────
