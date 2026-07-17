@@ -2207,52 +2207,68 @@ const SDR_STEPS = [
       <p class="pt">Antes de que te asignen tus clientes, completá este quiz. No es una evaluación — es para ayudarte a identificar qué áreas te quedaron más claras y cuáles necesitan refuerzo. Los resultados llegan directo a RRHH para que tu Senior y Manager puedan acompañarte mejor desde el día uno.</p>
       <div id="sdr-quiz-form">
         <div class="quiz-block">
-          <div class="quiz-q">1. ¿Qué es un KDM?</div>
-          <label class="quiz-opt"><input type="radio" name="q1" value="a"> El ejecutivo del cliente al que le pasamos las reuniones</label>
-          <label class="quiz-opt"><input type="radio" name="q1" value="b"> El tomador de decisiones — la persona a quien hay que contactar en la empresa prospecto</label>
-          <label class="quiz-opt"><input type="radio" name="q1" value="c"> El sistema de etiquetado de bandejas</label>
+          <div class="quiz-q">1. Un prospecto te responde el correo de la secuencia diciendo: <em>"Hola, no soy la persona encargada — escribile a mi colega María."</em> ¿Qué etiqueta le ponés a ese correo en tu bandeja?</div>
+          <label class="quiz-opt"><input type="radio" name="q1" value="a"> NO INTERESADO — rechazó la propuesta</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="b"> NO APLICA — no es el KDM</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="c"> PROCESO — mostró interés y te derivó al encargado</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="d"> AGENDADO — hay un avance claro</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">2. ¿Cuántas veces mínimo se revisa cada bandeja por día?</div>
-          <label class="quiz-opt"><input type="radio" name="q2" value="a"> 1 vez</label>
-          <label class="quiz-opt"><input type="radio" name="q2" value="b"> 2 veces</label>
-          <label class="quiz-opt"><input type="radio" name="q2" value="c"> Solo cuando hay respuestas</label>
+          <div class="quiz-q">2. El prospecto responde: <em>"Gracias, pero ya tenemos todo cubierto y no estamos buscando nuevas alternativas."</em> ¿Qué etiqueta corresponde?</div>
+          <label class="quiz-opt"><input type="radio" name="q2" value="a"> NO APLICA — no cumple el perfil</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="b"> NO INTERESADO — no quiere saber más, es imposible agendar</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="c"> PROCESO — puede cambiar de opinión</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="d"> REAGENDAR — retomar en otro momento</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">3. ¿Qué diferencia un llamado en tibio de uno en frío?</div>
-          <label class="quiz-opt"><input type="radio" name="q3" value="a"> El tibio se hace por WhatsApp, el frío por teléfono</label>
-          <label class="quiz-opt"><input type="radio" name="q3" value="b"> El tibio es a alguien con quien ya hubo contacto previo; el frío es a alguien desconocido</label>
-          <label class="quiz-opt"><input type="radio" name="q3" value="c"> El tibio se hace al mediodía y el frío por la mañana</label>
+          <div class="quiz-q">3. Estudiás la empresa antes de proponer horarios y descubrís que tiene solo 15 empleados. Tu cliente requiere mínimo 50 para que la reunión sea válida. ¿Qué etiqueta ponés?</div>
+          <label class="quiz-opt"><input type="radio" name="q3" value="a"> PROCESO — igual vale intentar</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="b"> NO INTERESADO — no respondieron</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="c"> REAGENDAR — retomar cuando crezcan</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="d"> NO APLICA — el prospecto no cumple los parámetros del cliente</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">4. ¿Qué hace que una reunión sea válida y genere comisión?</div>
-          <label class="quiz-opt"><input type="radio" name="q4" value="a"> Que el prospecto haya respondido el correo</label>
-          <label class="quiz-opt"><input type="radio" name="q4" value="b"> Que esté registrada en la App TGP</label>
-          <label class="quiz-opt"><input type="radio" name="q4" value="c"> Que fue coordinada, ejecutada y validada por el cliente según sus criterios</label>
+          <div class="quiz-q">4. Tenés 40 correos en PROCESO en tu bandeja. Ningún prospecto respondió esta semana. ¿Qué debés hacer con esas conversaciones?</div>
+          <label class="quiz-opt"><input type="radio" name="q4" value="a"> Mandar un push a cada una aunque no hayan respondido</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="b"> No tocarlas — las secuencias se responden y se hace push solo cuando el prospecto responde</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="c"> Archivarlas y marcarlas como NO INTERESADO</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="d"> Reenviar el mismo correo de la secuencia manualmente</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">5. ¿Cuántas llamadas mínimas se esperan por semana de cada SDR?</div>
-          <label class="quiz-opt"><input type="radio" name="q5" value="a"> 50</label>
-          <label class="quiz-opt"><input type="radio" name="q5" value="b"> 100</label>
-          <label class="quiz-opt"><input type="radio" name="q5" value="c"> 150</label>
+          <div class="quiz-q">5. Un prospecto en PROCESO te responde con mucho interés, quiere reunirse y cumple todos los parámetros. Ya revisaste la disponibilidad del ejecutivo. ¿Cuál es el siguiente paso?</div>
+          <label class="quiz-opt"><input type="radio" name="q5" value="a"> Agendar directamente en Calendly y enviarle el link</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="b"> Pedir aprobación del Manager antes de proponer cualquier horario</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="c"> Proponer 3 días con 3 horarios disponibles en cada uno</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="d"> Llamarlo en tibio para confirmar el interés antes de proponer horarios</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">6. ¿Qué pasa si una reunión no se realiza (No Show)?</div>
-          <label class="quiz-opt"><input type="radio" name="q6" value="a"> Se cobra igual si estaba registrada en la App</label>
-          <label class="quiz-opt"><input type="radio" name="q6" value="b"> No es válida, no genera comisión y hay que reagendarla</label>
-          <label class="quiz-opt"><input type="radio" name="q6" value="c"> El Manager decide si se cobra o no</label>
+          <div class="quiz-q">6. Agendaste una reunión para el viernes a las 15:00. ¿Cuántos recordatorios debés programar y cuándo?</div>
+          <label class="quiz-opt"><input type="radio" name="q6" value="a"> 1 recordatorio el mismo viernes por la mañana</label>
+          <label class="quiz-opt"><input type="radio" name="q6" value="b"> 2 recordatorios: uno el día anterior y uno una hora antes</label>
+          <label class="quiz-opt"><input type="radio" name="q6" value="c"> 3 recordatorios: 3 días antes, 1 día antes y 1 hora antes</label>
+          <label class="quiz-opt"><input type="radio" name="q6" value="d"> Ninguno — el sistema lo programa automáticamente</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">7. ¿Qué parte del proceso te generó más dudas hasta ahora?</div>
-          <textarea class="sug-textarea" name="q7" rows="3" placeholder="Ej: el proceso de agendamiento, el uso de etiquetas, cómo manejar objeciones..."></textarea>
+          <div class="quiz-q">7. La reunión era a las 15:00. A las 15:15 el prospecto definitivamente no apareció. ¿Cuáles son los dos primeros pasos que debés ejecutar?</div>
+          <label class="quiz-opt"><input type="radio" name="q7" value="a"> Marcar como NO INTERESADO y seguir con las otras bandejas</label>
+          <label class="quiz-opt"><input type="radio" name="q7" value="b"> Agregar etiqueta REAGENDAR y llamar/pushear inmediatamente al prospecto para reagendar</label>
+          <label class="quiz-opt"><input type="radio" name="q7" value="c"> Esperar a que el Manager te indique qué hacer</label>
+          <label class="quiz-opt"><input type="radio" name="q7" value="d"> Registrar en App TGP y esperar a que el prospecto reagende por su cuenta</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">8. ¿Qué esperás aprender o desarrollar durante tu tiempo en TGP?</div>
-          <textarea class="sug-textarea" name="q8" rows="3" placeholder="Puede ser algo técnico, de ventas, personal..."></textarea>
+          <div class="quiz-q">8. Revisás tu bandeja y ves un correo marcado con <strong>"AI_Thread"</strong>. ¿Qué significa y qué debés hacer?</div>
+          <label class="quiz-opt"><input type="radio" name="q8" value="a"> La IA procesó el correo y puede haber un borrador listo — revisarlo antes de enviar</label>
+          <label class="quiz-opt"><input type="radio" name="q8" value="b"> La IA está trabajando activamente en esa conversación — no debés interferir</label>
+          <label class="quiz-opt"><input type="radio" name="q8" value="c"> La conversación fue cerrada definitivamente — verificar resultado en App TGP</label>
+          <label class="quiz-opt"><input type="radio" name="q8" value="d"> El correo fue clasificado automáticamente como PROCESO</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">9. ¿Hay algo que no te quedó claro o que querés repasar antes de arrancar con las bandejas?</div>
-          <textarea class="sug-textarea" name="q9" rows="3" placeholder="Cualquier duda o tema que quieras profundizar..."></textarea>
+          <div class="quiz-q">9. Un prospecto lleva 2 semanas sin responder. Su último mensaje decía que estaba de vacaciones hasta el 15. Hoy es el 16. Describí qué harías paso a paso.</div>
+          <textarea class="sug-textarea" name="q9" rows="4" placeholder="Ej: qué etiqueta tiene, cuándo y cómo lo contactarías, por qué canal..."></textarea>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">10. ¿Qué parte del proceso te parece más difícil o menos clara? ¿Qué tema querés repasar o profundizar antes de arrancar con tus bandejas?</div>
+          <textarea class="sug-textarea" name="q10" rows="4" placeholder="Puede ser el flujo de etiquetas, el proceso de agendamiento, los llamados en tibio, la IA, etc."></textarea>
         </div>
         <div id="quiz-msg" style="display:none;margin:12px 0;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:600"></div>
         <button class="complete-btn" style="margin-top:8px" onclick="enviarQuiz()">Enviar respuestas →</button>
@@ -3735,22 +3751,26 @@ const ADMIN_EMAIL = 'belen@thegrowth.pro';
 const TEAM_TOTAL = 99;
 
 // ── QUIZ ONBOARDING SDR ──
-const QUIZ_CORRECTAS = {q1:'b',q2:'b',q3:'b',q4:'c',q5:'c',q6:'b'};
+const QUIZ_CORRECTAS = {q1:'c',q2:'b',q3:'d',q4:'b',q5:'c',q6:'b',q7:'b',q8:'b'};
 const QUIZ_PREGUNTAS = {
-  q1:'¿Qué es un KDM?',
-  q2:'¿Cuántas veces mínimo se revisa cada bandeja por día?',
-  q3:'¿Qué diferencia un llamado en tibio de uno en frío?',
-  q4:'¿Qué hace que una reunión sea válida y genere comisión?',
-  q5:'¿Cuántas llamadas mínimas se esperan por semana de cada SDR?',
-  q6:'¿Qué pasa si una reunión no se realiza (No Show)?'
+  q1:'Prospecto dice "no soy la persona encargada — escribile a mi colega María." ¿Qué etiqueta?',
+  q2:'Prospecto dice "ya tenemos todo cubierto, no buscamos nuevas alternativas." ¿Qué etiqueta?',
+  q3:'La empresa tiene 15 empleados y el cliente requiere mínimo 50. ¿Qué etiqueta?',
+  q4:'40 correos en PROCESO, ninguno respondió esta semana. ¿Qué hacés?',
+  q5:'Prospecto con mucho interés, cumple parámetros, disponibilidad revisada. ¿Siguiente paso?',
+  q6:'Reunión agendada para el viernes 15:00. ¿Cuántos recordatorios y cuándo?',
+  q7:'Reunión a las 15:00, a las 15:15 el prospecto no apareció. ¿Primeros dos pasos?',
+  q8:'Bandeja con correo marcado "AI_Thread". ¿Qué significa y qué hacés?'
 };
 const QUIZ_OPCIONES = {
-  q1:{a:'El ejecutivo del cliente',b:'El tomador de decisiones en la empresa prospecto',c:'El sistema de etiquetado'},
-  q2:{a:'1 vez',b:'2 veces',c:'Solo cuando hay respuestas'},
-  q3:{a:'Por el canal usado',b:'El tibio es a alguien con contacto previo; el frío a desconocido',c:'Por el horario'},
-  q4:{a:'Que el prospecto respondió el correo',b:'Que esté registrada en la App',c:'Coordinada, ejecutada y validada por el cliente'},
-  q5:{a:'50',b:'100',c:'150'},
-  q6:{a:'Se cobra si estaba en la App',b:'No es válida, no genera comisión y hay que reagendarla',c:'El Manager decide'}
+  q1:{a:'NO INTERESADO',b:'NO APLICA',c:'PROCESO',d:'AGENDADO'},
+  q2:{a:'NO APLICA',b:'NO INTERESADO',c:'PROCESO',d:'REAGENDAR'},
+  q3:{a:'PROCESO',b:'NO INTERESADO',c:'REAGENDAR',d:'NO APLICA'},
+  q4:{a:'Mandar push a cada una',b:'No tocarlas — solo se actúa cuando el prospecto responde',c:'Archivar como NO INTERESADO',d:'Reenviar la secuencia manualmente'},
+  q5:{a:'Agendar en Calendly y enviar link',b:'Pedir aprobación del Manager primero',c:'Proponer 3 días con 3 horarios cada uno',d:'Llamar en tibio para confirmar interés'},
+  q6:{a:'1 recordatorio el mismo día',b:'2 recordatorios: día anterior y una hora antes',c:'3 recordatorios: 3 días, 1 día y 1 hora antes',d:'Ninguno — el sistema lo hace'},
+  q7:{a:'Marcar NO INTERESADO y seguir',b:'Etiqueta REAGENDAR + llamar/pushear inmediatamente',c:'Esperar instrucción del Manager',d:'Registrar en App y esperar que el prospecto reagende'},
+  q8:{a:'IA procesó el correo, puede haber borrador — revisar',b:'IA trabajando activamente — no interferir',c:'Conversación cerrada — verificar en App TGP',d:'Clasificado automáticamente como PROCESO'}
 };
 
 function enviarQuiz(){
@@ -3759,7 +3779,7 @@ function enviarQuiz(){
   const msg=document.getElementById('quiz-msg');
   // Recolectar respuestas MC
   const resp={};
-  for(let i=1;i<=6;i++){
+  for(let i=1;i<=8;i++){
     const sel=form.querySelector(`input[name="q${i}"]:checked`);
     if(!sel){
       msg.style.display='block';msg.style.background='#fef2f2';msg.style.color='#991b1b';
@@ -3769,9 +3789,8 @@ function enviarQuiz(){
     resp[`q${i}`]=sel.value;
   }
   // Preguntas abiertas
-  resp.q7=(form.querySelector('textarea[name="q7"]').value||'').trim();
-  resp.q8=(form.querySelector('textarea[name="q8"]').value||'').trim();
   resp.q9=(form.querySelector('textarea[name="q9"]').value||'').trim();
+  resp.q10=(form.querySelector('textarea[name="q10"]').value||'').trim();
   // Calcular puntaje
   let correctas=0;
   Object.keys(QUIZ_CORRECTAS).forEach(k=>{if(resp[k]===QUIZ_CORRECTAS[k])correctas++;});
@@ -3779,7 +3798,7 @@ function enviarQuiz(){
     nombre:currentUser.displayName||currentUser.email,
     email:currentUser.email,
     fecha:Date.now(),
-    puntaje:`${correctas}/6`,
+    puntaje:`${correctas}/8`,
     respuestas:resp
   };
   const userKey=currentUser.email.replace(/\./g,'_');
