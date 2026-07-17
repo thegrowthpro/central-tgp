@@ -905,7 +905,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
         <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:12px">
           <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
             <div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:4px">🍱 Jackie Guiloff</div>
-            <div style="font-size:12px;color:var(--gris1);line-height:1.6">Almuerzo preparado con menú diario. Se pide <strong>hasta las 14:00 hrs del día anterior</strong> a través del formulario.</div>
+            <div style="font-size:12px;color:var(--gris1);line-height:1.6">Almuerzo preparado con menú diario. Se pide <strong>hasta las 13:30 hrs del día hábil anterior</strong> a través del formulario.</div>
           </div>
           <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
             <div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:4px">🥗 Más Frutas</div>
@@ -1537,10 +1537,19 @@ const ADMIN_STEPS = [
         <li>Milanesa de carne con milhoja de papas</li>
         <li>Ensalada de pollo o Timbal de atún</li>
       </ul>
-      <div class="callout c-ok"><span class="callout-i">💬</span><div>El canal de Slack <strong>"almuerzos"</strong> tiene la lista diaria, créditos restantes y el link para pedir. El formulario cierra a las <strong>14:00 hrs del día anterior</strong>.</div></div>
-      <div class="callout c-tip"><span class="callout-i">💡</span><div>Si mañana vienes a la oficina, pide tu almuerzo antes de las 14:00 hrs de hoy. Si ya tienes definidos tus días de asistencia de la semana, puedes dejar programados todos tus pedidos de una sola vez.</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin:14px 0">
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">🍱 Jackie Guiloff — menú preparado</div>
+          <p style="font-size:13px;color:var(--gris1);line-height:1.5;margin:0 0 6px">Se pide <strong>hasta las 13:30 hrs del día hábil anterior</strong> a través del formulario. El canal de Slack <strong>"almuerzos"</strong> tiene el link y los créditos disponibles.</p>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">🥗 Más Frutas — refrigerador en la oficina</div>
+          <p style="font-size:13px;color:var(--gris1);line-height:1.5;margin:0">Almuerzos frescos disponibles directamente en el refrigerador de la oficina. Sin pedido previo — retiras cuando llegues.</p>
+        </div>
+      </div>
+      <div class="callout c-tip"><span class="callout-i">💡</span><div>Si mañana vienes a la oficina, pide tu almuerzo Jackie Guiloff antes de las <strong>13:30 hrs de hoy</strong>. Si ya tienes tus días definidos, puedes programar todos los pedidos de una sola vez.</div></div>
       <div class="link-row">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Formulario de almuerzos</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7vqv2O7_8YRpr7pTCXrGOtLoYDojtCpS_xl-qrvTVcWAqsA/viewform" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Formulario de almuerzos (Jackie Guiloff)</a>
       </div>
     `
   },
