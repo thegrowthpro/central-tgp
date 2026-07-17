@@ -2229,68 +2229,54 @@ const SDR_STEPS = [
       <p class="pt">Antes de que te asignen tus clientes, completá este quiz. No es una evaluación — es para ayudarte a identificar qué áreas te quedaron más claras y cuáles necesitan refuerzo. Los resultados llegan directo a RRHH para que tu Senior y Manager puedan acompañarte mejor desde el día uno.</p>
       <div id="sdr-quiz-form">
         <div class="quiz-block">
-          <div class="quiz-q">1. Un prospecto te responde el correo de la secuencia diciendo: <em>"Hola, no soy la persona encargada — escribile a mi colega María."</em> ¿Qué etiqueta le ponés a ese correo en tu bandeja?</div>
-          <label class="quiz-opt"><input type="radio" name="q1" value="a"> NO INTERESADO — rechazó la propuesta</label>
-          <label class="quiz-opt"><input type="radio" name="q1" value="b"> NO APLICA — no es el KDM</label>
-          <label class="quiz-opt"><input type="radio" name="q1" value="c"> PROCESO — mostró interés y te derivó al encargado</label>
-          <label class="quiz-opt"><input type="radio" name="q1" value="d"> AGENDADO — hay un avance claro</label>
+          <div class="quiz-q">1. Tienes 45 correos con etiqueta PROCESO en tu bandeja. Ningún prospecto respondió esta semana. ¿Qué debería estar ocurriendo con esas conversaciones, y cuál sería el mayor error en este contexto?</div>
+          <label class="quiz-opt"><input type="radio" name="q1" value="a"> Las secuencias siguen enviando correos de forma automática; tu única acción es responder cuando el prospecto escribe. El error sería ignorar una respuesta que ya llegó.</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="b"> Debes enviar un push personalizado a cada uno esta semana para mantener el contacto activo, aunque no hayan respondido.</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="c"> Debes archivar los que llevan más de 2 semanas sin respuesta y abrir nuevas conversaciones con prospectos frescos.</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="d"> Debes llamar a cada uno para verificar si recibieron los correos de la secuencia y si los están leyendo.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">2. El prospecto responde: <em>"Gracias, pero ya tenemos todo cubierto y no estamos buscando nuevas alternativas."</em> ¿Qué etiqueta corresponde?</div>
-          <label class="quiz-opt"><input type="radio" name="q2" value="a"> NO APLICA — no cumple el perfil</label>
-          <label class="quiz-opt"><input type="radio" name="q2" value="b"> NO INTERESADO — no quiere saber más, es imposible agendar</label>
-          <label class="quiz-opt"><input type="radio" name="q2" value="c"> PROCESO — puede cambiar de opinión</label>
-          <label class="quiz-opt"><input type="radio" name="q2" value="d"> REAGENDAR — retomar en otro momento</label>
+          <div class="quiz-q">2. Un prospecto responde: <em>"Me interesa, pero ahora estoy de vacaciones. Escríbeme el 20 de agosto."</em> ¿Cuál es la etiqueta correcta y qué acción corresponde?</div>
+          <label class="quiz-opt"><input type="radio" name="q2" value="a"> PROCESO — registras la respuesta y programas un correo nuevo para 3 días después del 20 de agosto.</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="b"> REAGENDAR — porque hay que coordinar una nueva fecha disponible entre el ejecutivo y el prospecto.</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="c"> PROCESO — lo dejas en la bandeja y esperas que la secuencia automática lo contacte cuando vuelva.</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="d"> NO INTERESADO — si no puede reunirse en este momento, el interés no es suficiente para seguir invirtiendo tiempo.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">3. Estudiás la empresa antes de proponer horarios y descubrís que tiene solo 15 empleados. Tu cliente requiere mínimo 50 para que la reunión sea válida. ¿Qué etiqueta ponés?</div>
-          <label class="quiz-opt"><input type="radio" name="q3" value="a"> PROCESO — igual vale intentar</label>
-          <label class="quiz-opt"><input type="radio" name="q3" value="b"> NO INTERESADO — no respondieron</label>
-          <label class="quiz-opt"><input type="radio" name="q3" value="c"> REAGENDAR — retomar cuando crezcan</label>
-          <label class="quiz-opt"><input type="radio" name="q3" value="d"> NO APLICA — el prospecto no cumple los parámetros del cliente</label>
+          <div class="quiz-q">3. Un prospecto en PROCESO con mucho potencial no respondió tu último push. Han pasado 3 días. Tienes su número de teléfono. ¿Cuál es la estrategia más efectiva y por qué?</div>
+          <label class="quiz-opt"><input type="radio" name="q3" value="a"> Enviar otro correo de push hoy y esperar 5 días más antes de probar otro canal, para no parecer insistente.</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="b"> Llamarlo ahora: ya hubo contacto previo, así que es la forma más efectiva de retomar, resolver dudas y calzar un horario.</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="c"> Marcar como NO INTERESADO — si no responde al push escrito, es una señal de que ya no quiere continuar.</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="d"> Escribirle por WhatsApp directamente, ya que es un canal más personal con mayor probabilidad de respuesta que el correo.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">4. Tenés 40 correos en PROCESO en tu bandeja. Ningún prospecto respondió esta semana. ¿Qué debés hacer con esas conversaciones?</div>
-          <label class="quiz-opt"><input type="radio" name="q4" value="a"> Mandar un push a cada una aunque no hayan respondido</label>
-          <label class="quiz-opt"><input type="radio" name="q4" value="b"> No tocarlas — las secuencias se responden y se hace push solo cuando el prospecto responde</label>
-          <label class="quiz-opt"><input type="radio" name="q4" value="c"> Archivarlas y marcarlas como NO INTERESADO</label>
-          <label class="quiz-opt"><input type="radio" name="q4" value="d"> Reenviar el mismo correo de la secuencia manualmente</label>
+          <div class="quiz-q">4. Un prospecto acepta reunirse y los parámetros están validados. ¿Cuál de estas secuencias representa correctamente el proceso de agendamiento?</div>
+          <label class="quiz-opt"><input type="radio" name="q4" value="a"> Proponer horarios → agendar en App TGP → esperar aprobación del Manager → mandar detalle al cliente → responder al prospecto confirmando → programar 2 recordatorios → actualizar etiqueta.</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="b"> Proponer horarios → agendar en App TGP → mandar detalle al cliente → esperar aprobación del Manager → programar recordatorios → actualizar etiqueta.</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="c"> Esperar aprobación del Manager → proponer horarios → agendar en App TGP → mandar detalle al cliente → programar recordatorios.</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="d"> Proponer horarios → agendar en App TGP → responder al prospecto confirmando → programar recordatorios → mandar detalle al cliente → esperar aprobación del Manager.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">5. Un prospecto en PROCESO te responde con mucho interés, quiere reunirse y cumple todos los parámetros. Ya revisaste la disponibilidad del ejecutivo. ¿Cuál es el siguiente paso?</div>
-          <label class="quiz-opt"><input type="radio" name="q5" value="a"> Agendar directamente en Calendly y enviarle el link</label>
-          <label class="quiz-opt"><input type="radio" name="q5" value="b"> Pedir aprobación del Manager antes de proponer cualquier horario</label>
-          <label class="quiz-opt"><input type="radio" name="q5" value="c"> Proponer 3 días con 3 horarios disponibles en cada uno</label>
-          <label class="quiz-opt"><input type="radio" name="q5" value="d"> Llamarlo en tibio para confirmar el interés antes de proponer horarios</label>
+          <div class="quiz-q">5. Son las 15:12 y el prospecto no aparece a la reunión. ¿Cuál es la acción correcta y cuál sería el error más frecuente en esta situación?</div>
+          <label class="quiz-opt"><input type="radio" name="q5" value="a"> Esperar hasta las 15:30 antes de actuar, para darle tiempo suficiente en caso de que tenga un imprevisto.</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="b"> Notificar al Manager por mensaje privado y esperar su instrucción antes de contactar al prospecto.</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="c"> Llamar al prospecto de inmediato, agregar etiqueta REAGENDAR y coordinar con el cliente para reagendar en App TGP. El error más común es esperar pasivamente.</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="d"> Marcar como NO INTERESADO para liberar la disponibilidad en el calendario del ejecutivo.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">6. Agendaste una reunión para el viernes a las 15:00. ¿Cuántos recordatorios debés programar y cuándo?</div>
-          <label class="quiz-opt"><input type="radio" name="q6" value="a"> 1 recordatorio el mismo viernes por la mañana</label>
-          <label class="quiz-opt"><input type="radio" name="q6" value="b"> 2 recordatorios: uno el día anterior y uno una hora antes</label>
-          <label class="quiz-opt"><input type="radio" name="q6" value="c"> 3 recordatorios: 3 días antes, 1 día antes y 1 hora antes</label>
-          <label class="quiz-opt"><input type="radio" name="q6" value="d"> Ninguno — el sistema lo programa automáticamente</label>
+          <div class="quiz-q">6. Tu semana cerró con 130 correos enviados, 2 reuniones agendadas y bandejas revisadas cada día. Sin embargo, un prospecto clave en PROCESO que mostró mucho interés hace 7 días no recibió ningún push tuyo desde entonces. ¿Qué pilar fallaste y cuál es el riesgo concreto?</div>
+          <label class="quiz-opt"><input type="radio" name="q6" value="a"> Organización — no registraste el prospecto en el calendario para hacer seguimiento puntual.</label>
+          <label class="quiz-opt"><input type="radio" name="q6" value="b"> Constancia — el push debe ser mínimo cada 2 días; 7 días sin contacto en un prospecto con interés activo es romper el proceso y arriesgar perderlo.</label>
+          <label class="quiz-opt"><input type="radio" name="q6" value="c"> Comunicación — el prospecto probablemente necesitaba más información del servicio y no la recibió a tiempo.</label>
+          <label class="quiz-opt"><input type="radio" name="q6" value="d"> Responsabilidad — no le avisaste al Manager que ese prospecto no estaba respondiendo.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">7. La reunión era a las 15:00. A las 15:15 el prospecto definitivamente no apareció. ¿Cuáles son los dos primeros pasos que debés ejecutar?</div>
-          <label class="quiz-opt"><input type="radio" name="q7" value="a"> Marcar como NO INTERESADO y seguir con las otras bandejas</label>
-          <label class="quiz-opt"><input type="radio" name="q7" value="b"> Agregar etiqueta REAGENDAR y llamar/pushear inmediatamente al prospecto para reagendar</label>
-          <label class="quiz-opt"><input type="radio" name="q7" value="c"> Esperar a que el Manager te indique qué hacer</label>
-          <label class="quiz-opt"><input type="radio" name="q7" value="d"> Registrar en App TGP y esperar a que el prospecto reagende por su cuenta</label>
+          <div class="quiz-q">7. Hace 10 días un prospecto respondió: <em>"Habla con mi colega María, ella es la encargada."</em> No lo hiciste. Hoy te acuerdas. ¿Qué harías ahora, paso a paso? ¿Qué deberías haber hecho en el momento y cómo evitas que pase de nuevo?</div>
+          <textarea class="sug-textarea" name="q9" rows="5" placeholder="¿Qué etiqueta tiene este correo? ¿Cómo contactas a María ahora? ¿Qué le dices? ¿Qué error cometiste y qué haces diferente la próxima vez?"></textarea>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">8. Revisás tu bandeja y ves un correo marcado con <strong>"AI_Thread"</strong>. ¿Qué significa y qué debés hacer?</div>
-          <label class="quiz-opt"><input type="radio" name="q8" value="a"> La IA procesó el correo y puede haber un borrador listo — revisarlo antes de enviar</label>
-          <label class="quiz-opt"><input type="radio" name="q8" value="b"> La IA está trabajando activamente en esa conversación — no debés interferir</label>
-          <label class="quiz-opt"><input type="radio" name="q8" value="c"> La conversación fue cerrada definitivamente — verificar resultado en App TGP</label>
-          <label class="quiz-opt"><input type="radio" name="q8" value="d"> El correo fue clasificado automáticamente como PROCESO</label>
-        </div>
-        <div class="quiz-block">
-          <div class="quiz-q">9. Un prospecto lleva 2 semanas sin responder. Su último mensaje decía que estaba de vacaciones hasta el 15. Hoy es el 16. Describí qué harías paso a paso.</div>
-          <textarea class="sug-textarea" name="q9" rows="4" placeholder="Ej: qué etiqueta tiene, cuándo y cómo lo contactarías, por qué canal..."></textarea>
-        </div>
-        <div class="quiz-block">
-          <div class="quiz-q">10. ¿Qué parte del proceso te parece más difícil o menos clara? ¿Qué tema querés repasar o profundizar antes de arrancar con tus bandejas?</div>
-          <textarea class="sug-textarea" name="q10" rows="4" placeholder="Puede ser el flujo de etiquetas, el proceso de agendamiento, los llamados en tibio, la IA, etc."></textarea>
+          <div class="quiz-q">8. ¿Qué parte del proceso sientes que entiendes menos o que te genera más dudas? ¿Por qué?</div>
+          <textarea class="sug-textarea" name="q10" rows="4" placeholder="Puede ser el manejo de objeciones, saber cuándo llamar, el proceso de agendamiento, distinguir etiquetas, etc."></textarea>
         </div>
         <div id="quiz-msg" style="display:none;margin:12px 0;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:600"></div>
         <button class="complete-btn" style="margin-top:8px" onclick="enviarQuiz()">Enviar respuestas →</button>
@@ -3773,26 +3759,22 @@ const ADMIN_EMAIL = 'belen@thegrowth.pro';
 const TEAM_TOTAL = 99;
 
 // ── QUIZ ONBOARDING SDR ──
-const QUIZ_CORRECTAS = {q1:'c',q2:'b',q3:'d',q4:'b',q5:'c',q6:'b',q7:'b',q8:'b'};
+const QUIZ_CORRECTAS = {q1:'a',q2:'a',q3:'b',q4:'a',q5:'c',q6:'b'};
 const QUIZ_PREGUNTAS = {
-  q1:'Prospecto dice "no soy la persona encargada — escribile a mi colega María." ¿Qué etiqueta?',
-  q2:'Prospecto dice "ya tenemos todo cubierto, no buscamos nuevas alternativas." ¿Qué etiqueta?',
-  q3:'La empresa tiene 15 empleados y el cliente requiere mínimo 50. ¿Qué etiqueta?',
-  q4:'40 correos en PROCESO, ninguno respondió esta semana. ¿Qué hacés?',
-  q5:'Prospecto con mucho interés, cumple parámetros, disponibilidad revisada. ¿Siguiente paso?',
-  q6:'Reunión agendada para el viernes 15:00. ¿Cuántos recordatorios y cuándo?',
-  q7:'Reunión a las 15:00, a las 15:15 el prospecto no apareció. ¿Primeros dos pasos?',
-  q8:'Bandeja con correo marcado "AI_Thread". ¿Qué significa y qué hacés?'
+  q1:'45 correos PROCESO sin respuesta esta semana. ¿Qué ocurre con esas conversaciones?',
+  q2:'Prospecto dice "me interesa, pero estoy de vacaciones, escríbeme el 20 de agosto." ¿Etiqueta y acción?',
+  q3:'Prospecto en PROCESO sin responder hace 3 días, tienes su número. ¿Estrategia más efectiva?',
+  q4:'Prospecto acepta reunirse, parámetros validados. ¿Orden correcto del proceso de agendamiento?',
+  q5:'Son las 15:12 y el prospecto no aparece a la reunión. ¿Acción correcta y error más frecuente?',
+  q6:'Semana activa pero un prospecto clave en PROCESO lleva 7 días sin push tuyo. ¿Qué pilar fallaste?'
 };
 const QUIZ_OPCIONES = {
-  q1:{a:'NO INTERESADO',b:'NO APLICA',c:'PROCESO',d:'AGENDADO'},
-  q2:{a:'NO APLICA',b:'NO INTERESADO',c:'PROCESO',d:'REAGENDAR'},
-  q3:{a:'PROCESO',b:'NO INTERESADO',c:'REAGENDAR',d:'NO APLICA'},
-  q4:{a:'Mandar push a cada una',b:'No tocarlas — solo se actúa cuando el prospecto responde',c:'Archivar como NO INTERESADO',d:'Reenviar la secuencia manualmente'},
-  q5:{a:'Agendar en Calendly y enviar link',b:'Pedir aprobación del Manager primero',c:'Proponer 3 días con 3 horarios cada uno',d:'Llamar en tibio para confirmar interés'},
-  q6:{a:'1 recordatorio el mismo día',b:'2 recordatorios: día anterior y una hora antes',c:'3 recordatorios: 3 días, 1 día y 1 hora antes',d:'Ninguno — el sistema lo hace'},
-  q7:{a:'Marcar NO INTERESADO y seguir',b:'Etiqueta REAGENDAR + llamar/pushear inmediatamente',c:'Esperar instrucción del Manager',d:'Registrar en App y esperar que el prospecto reagende'},
-  q8:{a:'IA procesó el correo, puede haber borrador — revisar',b:'IA trabajando activamente — no interferir',c:'Conversación cerrada — verificar en App TGP',d:'Clasificado automáticamente como PROCESO'}
+  q1:{a:'Las secuencias corren automáticamente; actúas solo cuando el prospecto responde',b:'Enviar push personalizado a cada uno esta semana',c:'Archivar los que llevan más de 2 semanas sin respuesta',d:'Llamar a cada uno para verificar si recibieron los correos'},
+  q2:{a:'PROCESO — programas correo nuevo 3 días después del 20 de agosto',b:'REAGENDAR — coordinas nueva fecha entre ejecutivo y prospecto',c:'PROCESO — esperas que la secuencia automática lo contacte al volver',d:'NO INTERESADO — si no puede reunirse ahora, el interés no es real'},
+  q3:{a:'Otro push hoy y esperar 5 días más antes de probar otro canal',b:'Llamarlo ahora: hay contacto previo, es la forma más efectiva de retomar',c:'Marcar NO INTERESADO — si no responde al push, ya no quiere continuar',d:'Escribirle por WhatsApp directamente, canal más personal que el correo'},
+  q4:{a:'Proponer horarios → App TGP → aprobación Manager → detalle al cliente → confirmar prospecto → 2 recordatorios → actualizar etiqueta',b:'Proponer horarios → App TGP → detalle al cliente → aprobación Manager → recordatorios → etiqueta',c:'Aprobación Manager → proponer horarios → App TGP → detalle al cliente → recordatorios',d:'Proponer horarios → App TGP → confirmar prospecto → recordatorios → detalle al cliente → aprobación Manager'},
+  q5:{a:'Esperar hasta las 15:30 para darle tiempo suficiente al prospecto',b:'Notificar al Manager y esperar instrucción antes de contactar al prospecto',c:'Llamar de inmediato + etiqueta REAGENDAR + coordinar con cliente en App TGP',d:'Marcar NO INTERESADO para liberar disponibilidad en el calendario'},
+  q6:{a:'Organización — no lo registraste en el calendario para hacer seguimiento',b:'Constancia — push mínimo cada 2 días; 7 días sin contacto con un prospecto activo rompe el proceso',c:'Comunicación — el prospecto necesitaba más información del servicio',d:'Responsabilidad — no avisaste al Manager que no estaba respondiendo'}
 };
 
 function enviarQuiz(){
@@ -3801,11 +3783,11 @@ function enviarQuiz(){
   const msg=document.getElementById('quiz-msg');
   // Recolectar respuestas MC
   const resp={};
-  for(let i=1;i<=8;i++){
+  for(let i=1;i<=6;i++){
     const sel=form.querySelector(`input[name="q${i}"]:checked`);
     if(!sel){
       msg.style.display='block';msg.style.background='#fef2f2';msg.style.color='#991b1b';
-      msg.textContent=`Respondé todas las preguntas de opción múltiple antes de enviar (falta pregunta ${i}).`;
+      msg.textContent=`Responde todas las preguntas de opción múltiple antes de enviar (falta pregunta ${i}).`;
       return;
     }
     resp[`q${i}`]=sel.value;
@@ -3820,7 +3802,7 @@ function enviarQuiz(){
     nombre:currentUser.displayName||currentUser.email,
     email:currentUser.email,
     fecha:Date.now(),
-    puntaje:`${correctas}/8`,
+    puntaje:`${correctas}/6`,
     respuestas:resp
   };
   const userKey=currentUser.email.replace(/\./g,'_');
