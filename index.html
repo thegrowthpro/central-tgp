@@ -448,6 +448,12 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 .sug-admin-item{background:var(--gris5);border:1px solid var(--gris4);border-radius:8px;padding:12px;margin-bottom:8px}
 .sug-admin-meta{font-size:11px;color:var(--gris3);margin-bottom:4px}
 .sug-admin-text{font-size:13px;color:var(--negro);line-height:1.5}
+.quiz-block{margin-bottom:20px}
+.quiz-q{font-size:14px;font-weight:700;color:var(--negro);margin-bottom:10px;line-height:1.4}
+.quiz-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;border:1.5px solid var(--gris4);background:var(--blanco);font-size:13px;color:var(--gris1);cursor:pointer;margin-bottom:6px;line-height:1.4;transition:all .12s}
+.quiz-opt:hover{border-color:var(--azul);background:var(--azul-pale)}
+.quiz-opt input{margin-top:2px;flex-shrink:0;accent-color:var(--azul)}
+.quiz-opt.selected{border-color:var(--azul);background:var(--azul-pale);color:var(--negro);font-weight:600}
 
 /* ── RESOURCE LINK BLOCKS ── */
 .res-link-block{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 8px;border-radius:9px;text-decoration:none;gap:5px;transition:all .15s;text-align:center;min-height:72px}
@@ -1187,8 +1193,20 @@ body.admin-mode .res-wrap{padding-bottom:72px}
 <!-- ═══════════════════════════════════════════════════════════ -->
 <div id="adminBar" class="admin-bar" style="display:none">
   <span class="admin-bar-label">✏️ Modo edición — haz clic en cualquier texto o link para editar</span>
+  <button class="admin-bar-btn" style="background:rgba(255,255,255,.12);color:#fff" onclick="abrirQuizResultados()">🧠 Quiz SDR</button>
   <button class="admin-bar-btn admin-bar-dl" onclick="downloadUpdatedHTML()">⬇ Descargar HTML actualizado</button>
   <button class="admin-bar-btn admin-bar-exit" onclick="exitAdmin()">✕ Salir</button>
+</div>
+
+<!-- MODAL: QUIZ RESULTADOS ADMIN -->
+<div id="quizResultadosOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:600;overflow-y:auto;padding:40px 20px">
+  <div style="background:#fff;border-radius:18px;max-width:700px;margin:0 auto;padding:32px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+      <div style="font-size:18px;font-weight:800;color:var(--negro)">🧠 Resultados Quiz Onboarding SDR</div>
+      <button onclick="cerrarQuizResultados()" style="background:var(--gris5);border:1px solid var(--gris4);border-radius:8px;padding:6px 14px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600">✕ Cerrar</button>
+    </div>
+    <div id="quiz-resultados-lista"><p style="font-size:13px;color:var(--gris2)">Cargando…</p></div>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -2166,6 +2184,84 @@ const SDR_STEPS = [
     `
   },
   {
+  {
+    id:'sdr-repaso',
+    icon:'🤝',
+    badge:'Día 1 — 14:00',
+    title:'Reunión de repaso con RRHH',
+    keywords:'reunion repaso rrhh belen forti dudas revision dia 1 onboarding',
+    content: () => `
+      <p class="pt">Antes de avanzar, hay una reunión de repaso con Belén (RRHH) a las <strong>14:00 hrs</strong>. En esta reunión van a repasar todo lo que estudiaste en el onboarding, resolver dudas y aterrizar la información.</p>
+      <div class="callout c-warn"><span class="callout-i">📩</span><div><strong>Avisale a Belén por Slack que ya terminaste el onboarding y que estás listo/a para la reunión.</strong><br>Ella coordina el horario y te manda el link o te avisa si es presencial.</div></div>
+      <div class="callout c-info"><span class="callout-i">💡</span><div>Mientras esperás, repasá los pasos que más te costaron y anotá todas las dudas que tengas. Es el momento ideal para resolverlas.</div></div>
+      <p class="pt" style="font-size:13px;color:var(--gris2)">Cuando termines la reunión, marcá este paso como completado y continuá con el quiz.</p>
+    `
+  },
+  {
+    id:'sdr-quiz',
+    icon:'🧠',
+    badge:'Día 1 — Post reunión',
+    title:'Quiz de Onboarding',
+    keywords:'quiz preguntas evaluacion conocimiento proceso sdr bandeja push llamado reunion valida',
+    content: () => `
+      <p class="pt">Antes de que te asignen tus clientes, completá este quiz. No es una evaluación — es para ayudarte a identificar qué áreas te quedaron más claras y cuáles necesitan refuerzo. Los resultados llegan directo a RRHH para que tu Senior y Manager puedan acompañarte mejor desde el día uno.</p>
+      <div id="sdr-quiz-form">
+        <div class="quiz-block">
+          <div class="quiz-q">1. ¿Qué es un KDM?</div>
+          <label class="quiz-opt"><input type="radio" name="q1" value="a"> El ejecutivo del cliente al que le pasamos las reuniones</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="b"> El tomador de decisiones — la persona a quien hay que contactar en la empresa prospecto</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="c"> El sistema de etiquetado de bandejas</label>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">2. ¿Cuántas veces mínimo se revisa cada bandeja por día?</div>
+          <label class="quiz-opt"><input type="radio" name="q2" value="a"> 1 vez</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="b"> 2 veces</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="c"> Solo cuando hay respuestas</label>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">3. ¿Qué diferencia un llamado en tibio de uno en frío?</div>
+          <label class="quiz-opt"><input type="radio" name="q3" value="a"> El tibio se hace por WhatsApp, el frío por teléfono</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="b"> El tibio es a alguien con quien ya hubo contacto previo; el frío es a alguien desconocido</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="c"> El tibio se hace al mediodía y el frío por la mañana</label>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">4. ¿Qué hace que una reunión sea válida y genere comisión?</div>
+          <label class="quiz-opt"><input type="radio" name="q4" value="a"> Que el prospecto haya respondido el correo</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="b"> Que esté registrada en la App TGP</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="c"> Que fue coordinada, ejecutada y validada por el cliente según sus criterios</label>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">5. ¿Cuántas llamadas mínimas se esperan por semana de cada SDR?</div>
+          <label class="quiz-opt"><input type="radio" name="q5" value="a"> 50</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="b"> 100</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="c"> 150</label>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">6. ¿Qué pasa si una reunión no se realiza (No Show)?</div>
+          <label class="quiz-opt"><input type="radio" name="q6" value="a"> Se cobra igual si estaba registrada en la App</label>
+          <label class="quiz-opt"><input type="radio" name="q6" value="b"> No es válida, no genera comisión y hay que reagendarla</label>
+          <label class="quiz-opt"><input type="radio" name="q6" value="c"> El Manager decide si se cobra o no</label>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">7. ¿Qué parte del proceso te generó más dudas hasta ahora?</div>
+          <textarea class="sug-textarea" name="q7" rows="3" placeholder="Ej: el proceso de agendamiento, el uso de etiquetas, cómo manejar objeciones..."></textarea>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">8. ¿Qué esperás aprender o desarrollar durante tu tiempo en TGP?</div>
+          <textarea class="sug-textarea" name="q8" rows="3" placeholder="Puede ser algo técnico, de ventas, personal..."></textarea>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">9. ¿Hay algo que no te quedó claro o que querés repasar antes de arrancar con las bandejas?</div>
+          <textarea class="sug-textarea" name="q9" rows="3" placeholder="Cualquier duda o tema que quieras profundizar..."></textarea>
+        </div>
+        <div id="quiz-msg" style="display:none;margin:12px 0;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:600"></div>
+        <button class="complete-btn" style="margin-top:8px" onclick="enviarQuiz()">Enviar respuestas →</button>
+      </div>
+      <div id="sdr-quiz-done" style="display:none">
+        <div class="callout c-ok"><span class="callout-i">✅</span><div><strong>¡Respuestas enviadas!</strong> RRHH ya tiene tus resultados. Podés continuar — en cualquier momento te llegan tus clientes asignados.</div></div>
+      </div>
+    `
+  },
   {
     id:'sdr-tarea1',
     icon:'📚',
@@ -3637,6 +3733,108 @@ const BOLETIN_TYPES = {
 
 const ADMIN_EMAIL = 'belen@thegrowth.pro';
 const TEAM_TOTAL = 99;
+
+// ── QUIZ ONBOARDING SDR ──
+const QUIZ_CORRECTAS = {q1:'b',q2:'b',q3:'b',q4:'c',q5:'c',q6:'b'};
+const QUIZ_PREGUNTAS = {
+  q1:'¿Qué es un KDM?',
+  q2:'¿Cuántas veces mínimo se revisa cada bandeja por día?',
+  q3:'¿Qué diferencia un llamado en tibio de uno en frío?',
+  q4:'¿Qué hace que una reunión sea válida y genere comisión?',
+  q5:'¿Cuántas llamadas mínimas se esperan por semana de cada SDR?',
+  q6:'¿Qué pasa si una reunión no se realiza (No Show)?'
+};
+const QUIZ_OPCIONES = {
+  q1:{a:'El ejecutivo del cliente',b:'El tomador de decisiones en la empresa prospecto',c:'El sistema de etiquetado'},
+  q2:{a:'1 vez',b:'2 veces',c:'Solo cuando hay respuestas'},
+  q3:{a:'Por el canal usado',b:'El tibio es a alguien con contacto previo; el frío a desconocido',c:'Por el horario'},
+  q4:{a:'Que el prospecto respondió el correo',b:'Que esté registrada en la App',c:'Coordinada, ejecutada y validada por el cliente'},
+  q5:{a:'50',b:'100',c:'150'},
+  q6:{a:'Se cobra si estaba en la App',b:'No es válida, no genera comisión y hay que reagendarla',c:'El Manager decide'}
+};
+
+function enviarQuiz(){
+  if(!db||!currentUser){alert('Debés estar conectado/a para enviar el quiz.');return;}
+  const form=document.getElementById('sdr-quiz-form');
+  const msg=document.getElementById('quiz-msg');
+  // Recolectar respuestas MC
+  const resp={};
+  for(let i=1;i<=6;i++){
+    const sel=form.querySelector(`input[name="q${i}"]:checked`);
+    if(!sel){
+      msg.style.display='block';msg.style.background='#fef2f2';msg.style.color='#991b1b';
+      msg.textContent=`Respondé todas las preguntas de opción múltiple antes de enviar (falta pregunta ${i}).`;
+      return;
+    }
+    resp[`q${i}`]=sel.value;
+  }
+  // Preguntas abiertas
+  resp.q7=(form.querySelector('textarea[name="q7"]').value||'').trim();
+  resp.q8=(form.querySelector('textarea[name="q8"]').value||'').trim();
+  resp.q9=(form.querySelector('textarea[name="q9"]').value||'').trim();
+  // Calcular puntaje
+  let correctas=0;
+  Object.keys(QUIZ_CORRECTAS).forEach(k=>{if(resp[k]===QUIZ_CORRECTAS[k])correctas++;});
+  const resultado={
+    nombre:currentUser.displayName||currentUser.email,
+    email:currentUser.email,
+    fecha:Date.now(),
+    puntaje:`${correctas}/6`,
+    respuestas:resp
+  };
+  const userKey=currentUser.email.replace(/\./g,'_');
+  db.ref(`quiz_onboarding/${userKey}`).set(resultado)
+  .then(()=>{
+    document.getElementById('sdr-quiz-form').style.display='none';
+    document.getElementById('sdr-quiz-done').style.display='block';
+  })
+  .catch(err=>{
+    msg.style.display='block';msg.style.background='#fef2f2';msg.style.color='#991b1b';
+    msg.textContent='Error al enviar: '+err.message;
+  });
+}
+
+function abrirQuizResultados(){
+  document.getElementById('quizResultadosOverlay').style.display='block';
+  verQuizResultados();
+}
+function cerrarQuizResultados(){
+  document.getElementById('quizResultadosOverlay').style.display='none';
+}
+function verQuizResultados(){
+  if(!db)return;
+  const cont=document.getElementById('quiz-resultados-lista');
+  cont.innerHTML='<p style="font-size:13px;color:var(--gris2)">Cargando…</p>';
+  db.ref('quiz_onboarding').once('value').then(snap=>{
+    const data=snap.val();
+    if(!data){cont.innerHTML='<p style="font-size:13px;color:var(--gris2)">Todavía no hay resultados.</p>';return;}
+    cont.innerHTML='';
+    Object.values(data).sort((a,b)=>b.fecha-a.fecha).forEach(r=>{
+      const fecha=new Date(r.fecha).toLocaleDateString('es-CL',{day:'2-digit',month:'short',year:'numeric'});
+      const puntaje=r.puntaje||'–';
+      const [ok,total]=puntaje.split('/').map(Number);
+      const color=ok>=5?'var(--verde)':ok>=3?'#f59e0b':'var(--rojo)';
+      let html=`<div class="sug-admin-item">
+        <div class="sug-admin-meta">${r.nombre} · ${r.email} · ${fecha} · <strong style="color:${color}">${puntaje} correctas</strong></div>`;
+      // MC incorrectas
+      const incorrectas=Object.keys(QUIZ_CORRECTAS).filter(k=>r.respuestas&&r.respuestas[k]!==QUIZ_CORRECTAS[k]);
+      if(incorrectas.length){
+        html+=`<div style="font-size:12px;color:var(--rojo);margin:6px 0 4px;font-weight:700">Errores:</div>`;
+        incorrectas.forEach(k=>{
+          html+=`<div style="font-size:12px;color:var(--gris1);margin-bottom:3px">• <em>${QUIZ_PREGUNTAS[k]}</em><br>&nbsp;&nbsp;Respondió: <strong>${QUIZ_OPCIONES[k][r.respuestas[k]]||r.respuestas[k]}</strong></div>`;
+        });
+      }
+      // Abiertas
+      ['q7','q8','q9'].forEach((k,i)=>{
+        const labels=['Dudas del proceso','Expectativas','Temas a repasar'];
+        const val=r.respuestas&&r.respuestas[k];
+        if(val) html+=`<div style="font-size:12px;margin-top:6px"><strong>${labels[i]}:</strong> ${val}</div>`;
+      });
+      html+='</div>';
+      cont.innerHTML+=html;
+    });
+  });
+}
 
 function isBoletinAdmin() {
   return currentUser && currentUser.email === ADMIN_EMAIL;
