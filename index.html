@@ -861,6 +861,7 @@ body.admin-mode .res-wrap{padding-bottom:72px}
           <li>Trabajo remoto</li>
           <li>Presentar renuncia (part-time)</li>
         </ul>
+        <div class="callout c-warn" style="font-size:12px;margin-bottom:10px"><span class="callout-i">⚠️</span><div><strong>Período inicial (primeros 3 meses):</strong> No se pueden solicitar días libres, ausencias por viajes ni trabajo remoto extendido. Sin excepciones.</div></div>
         <a href="https://app.tgp.cl/" target="_blank" class="solicitud-item" style="background:var(--gris5);border:1.5px solid var(--gris4);border-radius:10px;font-weight:600">
           <span class="solicitud-icon">🔗</span>
           <span class="solicitud-text">Ir a la app TGP → Recursos Humanos</span>
@@ -1442,15 +1443,21 @@ const ADMIN_STEPS = [
       <p class="pt">TGP tiene modalidad híbrida con horario flexible — pero con un mínimo de presencialidad que hay que cumplir.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0">
         <div style="background:var(--gris5);border-radius:12px;padding:16px;border:1px solid var(--gris4)">
-          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:8px">Part-time</div>
-          <p style="font-size:13px;color:var(--negro);line-height:1.6;margin:0">Mínimo <strong>2 días completos</strong> a la semana en la oficina. Si no puedes hacer 2 días completos, son <strong>4 módulos de 4 horas</strong> cada uno para completar el equivalente.</p>
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:8px">Part-time — presencialidad mínima</div>
+          <p style="font-size:13px;color:var(--negro);line-height:1.6;margin:0 0 8px">Se cumple de una de estas tres formas:</p>
+          <ul style="font-size:13px;color:var(--negro);line-height:1.7;margin:0 0 0 16px;padding:0">
+            <li><strong>2 días completos</strong> (9:00–18:00)</li>
+            <li><strong>1 día completo + 2 módulos</strong> de medio día</li>
+            <li><strong>4 módulos</strong> de medio día</li>
+          </ul>
+          <p style="font-size:12px;color:var(--gris2);margin:8px 0 0">Cada módulo = mínimo 4 horas continuas. No se consideran válidas asistencias menores.</p>
         </div>
         <div style="background:var(--gris5);border-radius:12px;padding:16px;border:1px solid var(--gris4)">
           <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:8px">Full-time</div>
           <p style="font-size:13px;color:var(--negro);line-height:1.6;margin:0">Mínimo <strong>3 días completos</strong> a la semana en la oficina. El resto de los días con flexibilidad remota.</p>
         </div>
       </div>
-      <div class="callout c-info"><span class="callout-i">⚡</span><div>Dentro de eso, el horario es flexible. Lo importante es cumplir el compromiso de presencialidad y estar disponible en los horarios del equipo.</div></div>
+      <div class="callout c-info"><span class="callout-i">⚡</span><div>La presencialidad cubre el componente presencial del rol — no reemplaza el trabajo diario. El trabajo se realiza todos los días de lunes a viernes, remoto o presencial.</div></div>
       <h3 class="sh">Tu correo TGP</h3>
       <p class="pt">Ya deberías tener un correo de acceso a tu cuenta <strong>@thegrowth.pro</strong> en tu mail personal. Si todavía no lo recibiste, avísale a RRHH. Ese correo es tu identidad dentro de TGP — lo usas para todo.</p>
     `
@@ -1587,6 +1594,7 @@ const ADMIN_STEPS = [
     keywords:'google calendar agenda disponibilidad reuniones app celular',
     content: () => `
       <p class="pt">El calendario dirige el día a día de todo el equipo. Cualquier persona puede ver tu disponibilidad para agendar reuniones — que son de asistencia obligatoria.</p>
+      <div class="callout c-warn" style="margin-bottom:4px"><span class="callout-i">⏱️</span><div><strong>Disponibilidad mínima diaria (part-time):</strong> debés reflejar en tu calendario al menos <strong>5 horas disponibles para TGP</strong> dentro de la ventana de 9:00 a 18:00, de lunes a viernes. El calendario es la evidencia formal de tu disponibilidad — si no está cargado, no está.</div></div>
       <h3 class="sh">1 — Mira el video primero</h3>
       <div class="link-row">
         <a href="https://www.loom.com/share/72be9e9b20e043dfb833308be04216d7" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Uso de Google Calendar</a>
@@ -2230,7 +2238,27 @@ const SDR_STEPS = [
       <div class="callout c-warn"><span class="callout-i">📍</span><div><b>Presencial obligatoria, sin excepciones.</b> La Weekly es el espacio de sincronización del equipo — no hay forma de participar de forma remota ni de recuperarla después.</div></div>
       <h3 class="sh">Metas semanales y reporte</h3>
       <p class="pt">Cada SDR tiene metas semanales propias. Al final de la semana, le reportas los resultados a tu Manager. El Senior los analiza y los presenta en la siguiente Weekly.</p>
-      <div class="callout c-tip"><span class="callout-i">🏆</span><div>No hay un número fijo de reuniones que se te exija — depende del equipo, los clientes y el momento. Lo que sí se espera siempre: <strong>estar en el top 3 de tu pod</strong>. Eso es lo que define si estás rindiendo bien.</div></div>
+      <h3 class="sh">Estándares mínimos de desempeño</h3>
+      <p class="pt">Estos son los mínimos no negociables que aplican a todos los SDR, siempre:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0">
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:22px;font-weight:900;color:var(--negro)">150</div>
+          <div style="font-size:12px;color:var(--gris2);font-weight:600">llamadas mínimas por semana</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:22px;font-weight:900;color:var(--negro)">2×</div>
+          <div style="font-size:12px;color:var(--gris2);font-weight:600">push por semana por bandeja activa</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:22px;font-weight:900;color:var(--negro)">2×</div>
+          <div style="font-size:12px;color:var(--gris2);font-weight:600">revisión de bandeja por día</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:22px;font-weight:900;color:var(--negro)">4 hrs</div>
+          <div style="font-size:12px;color:var(--gris2);font-weight:600">tiempo máx. de respuesta a mensajes</div>
+        </div>
+      </div>
+      <div class="callout c-tip"><span class="callout-i">🏆</span><div>Más allá de los mínimos, lo que te posiciona en el equipo es <strong>estar en el top 3 de tu pod</strong> de forma consistente.</div></div>
     `
   },
   {
