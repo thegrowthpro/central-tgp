@@ -1287,6 +1287,7 @@ auth.onAuthStateChanged(user => {
     document.getElementById('sugFab').style.display = 'flex';
     loadBoletin();
     showScreen('home');
+    if (isBoletinAdmin()) enterAdmin();
   } else {
     currentUser = null;
     document.getElementById('loginScreen').classList.remove('hidden');
@@ -3824,6 +3825,7 @@ const QUIZ_OPCIONES = {
 
 function enviarQuiz(){
   if(!db||!currentUser){alert('Debes estar conectado/a para enviar el quiz.');return;}
+  const isAdmin = adminMode || (currentUser && currentUser.email===ADMIN_EMAIL);
   const form=document.getElementById('sdr-quiz-form');
   const msg=document.getElementById('quiz-msg');
   // Recolectar respuestas MC
@@ -3832,6 +3834,7 @@ function enviarQuiz(){
     const key=`q${i}`;
     const sel=form.querySelector(`input[name="${key}"]:checked`);
     if(!sel){
+      if(isAdmin){resp[key]='a';continue;} // admin: rellenar con 'a' si falta
       msg.style.display='block';msg.style.background='#fef2f2';msg.style.color='#991b1b';
       msg.textContent=`Responde todas las preguntas antes de enviar (falta pregunta ${i}).`;
       return;
@@ -3849,7 +3852,7 @@ function enviarQuiz(){
     respuestas:resp
   };
   // Admin: mostrar resultados sin guardar en Firebase
-  if(adminMode || (currentUser && currentUser.email===ADMIN_EMAIL)){
+  if(isAdmin){
     document.getElementById('sdr-quiz-form').style.display='none';
     mostrarResultadosQuiz(resp, correctas, resultado.nombre);
     return;
