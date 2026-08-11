@@ -3849,7 +3849,7 @@ function enviarQuiz(){
     respuestas:resp
   };
   // Admin: mostrar resultados sin guardar en Firebase
-  if(adminMode){
+  if(adminMode || (currentUser && currentUser.email===ADMIN_EMAIL)){
     document.getElementById('sdr-quiz-form').style.display='none';
     mostrarResultadosQuiz(resp, correctas, resultado.nombre);
     return;
