@@ -3823,7 +3823,7 @@ const QUIZ_OPCIONES = {
 };
 
 function enviarQuiz(){
-  if(!db||!currentUser){alert('Debés estar conectado/a para enviar el quiz.');return;}
+  if(!db||!currentUser){alert('Debes estar conectado/a para enviar el quiz.');return;}
   const form=document.getElementById('sdr-quiz-form');
   const msg=document.getElementById('quiz-msg');
   // Recolectar respuestas MC
@@ -3848,6 +3848,12 @@ function enviarQuiz(){
     puntaje:`${correctas}/12`,
     respuestas:resp
   };
+  // Admin: mostrar resultados sin guardar en Firebase
+  if(adminMode){
+    document.getElementById('sdr-quiz-form').style.display='none';
+    mostrarResultadosQuiz(resp, correctas, resultado.nombre);
+    return;
+  }
   const userKey=currentUser.email.replace(/\./g,'_');
   db.ref(`quiz_onboarding/${userKey}`).set(resultado)
   .then(()=>{
