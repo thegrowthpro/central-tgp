@@ -2229,60 +2229,94 @@ const SDR_STEPS = [
       <p class="pt">Antes de que te asignen tus clientes, completá este quiz. No es una evaluación — es para ayudarte a identificar qué áreas te quedaron más claras y cuáles necesitan refuerzo. Los resultados llegan directo a RRHH para que tu Senior y Manager puedan acompañarte mejor desde el día uno.</p>
       <div id="sdr-quiz-form">
         <div class="quiz-block">
-          <div class="quiz-q">1. Tienes 45 correos con etiqueta PROCESO en tu bandeja. Ningún prospecto respondió esta semana. ¿Qué debería estar ocurriendo con esas conversaciones, y cuál sería el mayor error en este contexto?</div>
-          <label class="quiz-opt"><input type="radio" name="q1" value="a"> Las secuencias siguen enviando correos de forma automática; tu única acción es responder cuando el prospecto escribe. El error sería ignorar una respuesta que ya llegó.</label>
-          <label class="quiz-opt"><input type="radio" name="q1" value="b"> Debes enviar un push personalizado a cada uno esta semana para mantener el contacto activo, aunque no hayan respondido.</label>
-          <label class="quiz-opt"><input type="radio" name="q1" value="c"> Debes archivar los que llevan más de 2 semanas sin respuesta y abrir nuevas conversaciones con prospectos frescos.</label>
-          <label class="quiz-opt"><input type="radio" name="q1" value="d"> Debes llamar a cada uno para verificar si recibieron los correos de la secuencia y si los están leyendo.</label>
+          <div class="quiz-q">1. Tienes 40 prospectos en PROCESO que no han respondido ningún correo en los últimos 10 días. Tu bandeja de recibidos está vacía. ¿Qué deberías hacer?</div>
+          <label class="quiz-opt"><input type="radio" name="q1" value="a"> Nada: las secuencias siguen corriendo solas, solo actúas cuando un prospecto responde.</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="b"> Barres la bandeja y haces push a cada prospecto activo cada 2 días, llamando por teléfono antes de enviar correo.</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="c"> Envías un correo general a todos recordando que siguen en proceso.</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="d"> Archivas los que llevan más de 2 semanas sin respuesta para limpiar la bandeja.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">2. Un prospecto responde: <em>"Me interesa, pero ahora estoy de vacaciones. Escríbeme el 20 de agosto."</em> ¿Cuál es la etiqueta correcta y qué acción corresponde?</div>
-          <label class="quiz-opt"><input type="radio" name="q2" value="a"> PROCESO — registras la respuesta y programas un correo nuevo para 3 días después del 20 de agosto.</label>
-          <label class="quiz-opt"><input type="radio" name="q2" value="b"> REAGENDAR — porque hay que coordinar una nueva fecha disponible entre el ejecutivo y el prospecto.</label>
-          <label class="quiz-opt"><input type="radio" name="q2" value="c"> PROCESO — lo dejas en la bandeja y esperas que la secuencia automática lo contacte cuando vuelva.</label>
-          <label class="quiz-opt"><input type="radio" name="q2" value="d"> NO INTERESADO — si no puede reunirse en este momento, el interés no es suficiente para seguir invirtiendo tiempo.</label>
+          <div class="quiz-q">2. Un prospecto responde tu secuencia: <em>"Me interesa, pero estoy de vacaciones, escríbeme el 20 de agosto. Mi reemplazo es Andrea López."</em> Hoy es 5 de agosto. ¿Qué etiqueta usas y qué haces?</div>
+          <label class="quiz-opt"><input type="radio" name="q2" value="a"> PROCESO — programas un correo para el 23 de agosto y además contactas a Andrea López para no perder tiempo.</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="b"> REAGENDAR — coordinas con el ejecutivo una nueva fecha para después de las vacaciones.</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="c"> PROCESO — esperas al 20 de agosto y escribes solo al prospecto original.</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="d"> NO INTERESADO — si no puede reunirse ahora, no es un prospecto activo.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">3. Un prospecto en PROCESO con mucho potencial no respondió tu último push. Han pasado 3 días. Tienes su número de teléfono. ¿Cuál es la estrategia más efectiva y por qué?</div>
-          <label class="quiz-opt"><input type="radio" name="q3" value="a"> Enviar otro correo de push hoy y esperar 5 días más antes de probar otro canal, para no parecer insistente.</label>
-          <label class="quiz-opt"><input type="radio" name="q3" value="b"> Llamarlo ahora: ya hubo contacto previo, así que es la forma más efectiva de retomar, resolver dudas y calzar un horario.</label>
-          <label class="quiz-opt"><input type="radio" name="q3" value="c"> Marcar como NO INTERESADO — si no responde al push escrito, es una señal de que ya no quiere continuar.</label>
-          <label class="quiz-opt"><input type="radio" name="q3" value="d"> Escribirle por WhatsApp directamente, ya que es un canal más personal con mayor probabilidad de respuesta que el correo.</label>
+          <div class="quiz-q">3. Un prospecto en PROCESO respondió tu correo hace 4 días con <em>"lo reviso y te escribo"</em> y no volvió a responder. Ya hiciste push ayer. ¿Cuál es el paso más efectivo ahora?</div>
+          <label class="quiz-opt"><input type="radio" name="q3" value="a"> Esperar 3 días más antes de insistir; el plazo de respuesta razonable es de una semana.</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="b"> Volver a hacer push hoy y en el correo proponer directamente una reunión para forzar una decisión.</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="c"> Llamar por teléfono: ya hay conversación iniciada y el teléfono es el canal más efectivo para retomar y agendar.</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="d"> Cambiar a NO INTERESADO: si dijo que escribía y no lo hizo, ya no hay interés real.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">4. Un prospecto acepta reunirse y los parámetros están validados. ¿Cuál de estas secuencias representa correctamente el proceso de agendamiento?</div>
-          <label class="quiz-opt"><input type="radio" name="q4" value="a"> Proponer horarios → agendar en App TGP → esperar aprobación del Manager → mandar detalle al cliente → responder al prospecto confirmando → programar 2 recordatorios → actualizar etiqueta.</label>
-          <label class="quiz-opt"><input type="radio" name="q4" value="b"> Proponer horarios → agendar en App TGP → mandar detalle al cliente → esperar aprobación del Manager → programar recordatorios → actualizar etiqueta.</label>
-          <label class="quiz-opt"><input type="radio" name="q4" value="c"> Esperar aprobación del Manager → proponer horarios → agendar en App TGP → mandar detalle al cliente → programar recordatorios.</label>
-          <label class="quiz-opt"><input type="radio" name="q4" value="d"> Proponer horarios → agendar en App TGP → responder al prospecto confirmando → programar recordatorios → mandar detalle al cliente → esperar aprobación del Manager.</label>
+          <div class="quiz-q">4. El prospecto aceptó reunirse y ya validaste todos los parámetros. ¿Cuál es el orden correcto de los pasos que siguen?</div>
+          <label class="quiz-opt"><input type="radio" name="q4" value="a"> Proponer horarios → App TGP → enviar detalle al cliente → aprobación Manager → confirmar prospecto → 2 recordatorios → actualizar etiqueta.</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="b"> Proponer horarios → App TGP → aprobación Manager → enviar detalle al cliente → confirmar prospecto → 2 recordatorios → actualizar etiqueta.</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="c"> Aprobación Manager → proponer horarios → App TGP → enviar detalle al cliente → confirmar prospecto → recordatorios.</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="d"> Proponer horarios → App TGP → confirmar prospecto → aprobación Manager → detalle al cliente → recordatorios → etiqueta.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">5. Son las 15:12 y el prospecto no aparece a la reunión. ¿Cuál es la acción correcta y cuál sería el error más frecuente en esta situación?</div>
-          <label class="quiz-opt"><input type="radio" name="q5" value="a"> Esperar hasta las 15:30 antes de actuar, para darle tiempo suficiente en caso de que tenga un imprevisto.</label>
-          <label class="quiz-opt"><input type="radio" name="q5" value="b"> Notificar al Manager por mensaje privado y esperar su instrucción antes de contactar al prospecto.</label>
-          <label class="quiz-opt"><input type="radio" name="q5" value="c"> Llamar al prospecto de inmediato, agregar etiqueta REAGENDAR y coordinar con el cliente para reagendar en App TGP. El error más común es esperar pasivamente.</label>
-          <label class="quiz-opt"><input type="radio" name="q5" value="d"> Marcar como NO INTERESADO para liberar la disponibilidad en el calendario del ejecutivo.</label>
+          <div class="quiz-q">5. Son las 15:12. El prospecto tenía reunión a las 15:00 y no apareció. El ejecutivo te escribe preguntando qué pasó. ¿Qué haces ahora?</div>
+          <label class="quiz-opt"><input type="radio" name="q5" value="a"> Esperar hasta las 15:30 antes de actuar: 12 minutos de retraso aún está dentro del margen.</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="b"> Llamar al prospecto, cambiar etiqueta de AGENDADO a PROCESO y coordinar una nueva fecha.</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="c"> Llamar al prospecto de inmediato, etiquetar REAGENDAR y coordinar nueva fecha con el cliente en App TGP.</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="d"> Etiquetar NO INTERESADO: un no-show es señal clara de que el prospecto no quiere continuar.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">6. Tu semana cerró con 130 correos enviados, 2 reuniones agendadas y bandejas revisadas cada día. Sin embargo, un prospecto clave en PROCESO que mostró mucho interés hace 7 días no recibió ningún push tuyo desde entonces. ¿Qué pilar fallaste y cuál es el riesgo concreto?</div>
-          <label class="quiz-opt"><input type="radio" name="q6" value="a"> Organización — no registraste el prospecto en el calendario para hacer seguimiento puntual.</label>
-          <label class="quiz-opt"><input type="radio" name="q6" value="b"> Constancia — el push debe ser mínimo cada 2 días; 7 días sin contacto en un prospecto con interés activo es romper el proceso y arriesgar perderlo.</label>
-          <label class="quiz-opt"><input type="radio" name="q6" value="c"> Comunicación — el prospecto probablemente necesitaba más información del servicio y no la recibió a tiempo.</label>
-          <label class="quiz-opt"><input type="radio" name="q6" value="d"> Responsabilidad — no le avisaste al Manager que ese prospecto no estaba respondiendo.</label>
+          <div class="quiz-q">6. Hoy a las 15:00 tienes una reunión agendada entre un prospecto y el ejecutivo. Son las 14:55. ¿Qué deberías estar haciendo?</div>
+          <label class="quiz-opt"><input type="radio" name="q6" value="a"> Nada especial: la reunión ya está confirmada con 2 recordatorios, el prospecto sabe a qué hora es.</label>
+          <label class="quiz-opt"><input type="radio" name="q6" value="b"> Esperar hasta las 15:10 para ver si el prospecto entra; si no aparece, llamar y notificar al cliente.</label>
+          <label class="quiz-opt"><input type="radio" name="q6" value="c"> Estar en Meet desde antes de las 15:00 con el contacto del prospecto a mano: ante cualquier ausencia, notificar al cliente de inmediato y llamar al prospecto sin esperar.</label>
+          <label class="quiz-opt"><input type="radio" name="q6" value="d"> Llamar al prospecto a las 15:00 exactas para confirmar que va a entrar a la reunión.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">7. Hace 10 días un prospecto respondió: <em>"Habla con mi colega María, ella es la encargada."</em> No lo hiciste. Hoy te acuerdas. ¿Qué harías ahora, paso a paso? ¿Qué deberías haber hecho en el momento y cómo evitas que pase de nuevo?</div>
-          <textarea class="sug-textarea" name="q9" rows="5" placeholder="¿Qué etiqueta tiene este correo? ¿Cómo contactas a María ahora? ¿Qué le dices? ¿Qué error cometiste y qué haces diferente la próxima vez?"></textarea>
+          <div class="quiz-q">7. Un prospecto de tu secuencia responde automáticamente: <em>"Estoy fuera hasta el 18 de agosto. Para urgencias, contactar a Jefa Torres: jefa@empresa.com."</em> ¿Qué haces?</div>
+          <label class="quiz-opt"><input type="radio" name="q7" value="a"> Escribir directamente a jefa@empresa.com: si está activa, es una oportunidad de avanzar sin esperar.</label>
+          <label class="quiz-opt"><input type="radio" name="q7" value="b"> Dejar que la secuencia siga corriendo; el sistema continuará contactando al prospecto cuando vuelva.</label>
+          <label class="quiz-opt"><input type="radio" name="q7" value="c"> Programar un correo para unos días después del 18 y además buscar el teléfono de Jefa Torres para contactarla: es un referido activo.</label>
+          <label class="quiz-opt"><input type="radio" name="q7" value="d"> Cambiar etiqueta a PROCESO y esperar que el prospecto escriba cuando vuelva.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">8. ¿Qué parte del proceso sientes que entiendes menos o que te genera más dudas? ¿Por qué?</div>
-          <textarea class="sug-textarea" name="q10" rows="4" placeholder="Puede ser el manejo de objeciones, saber cuándo llamar, el proceso de agendamiento, distinguir etiquetas, etc."></textarea>
+          <div class="quiz-q">8. Estás gestionando un prospecto difícil que responde pero siempre pone obstáculos antes de aceptar reunirse. No sabes cómo manejar las objeciones. ¿A quién acudes?</div>
+          <label class="quiz-opt"><input type="radio" name="q8" value="a"> Al SDR Manager: tiene visión de todos los prospectos del equipo y puede orientarte directamente.</label>
+          <label class="quiz-opt"><input type="radio" name="q8" value="b"> Al SDR Senior de tu equipo: es tu primer punto de apoyo para casos del proceso de prospección.</label>
+          <label class="quiz-opt"><input type="radio" name="q8" value="c"> Al CSR: conoce a los clientes y puede darte contexto del servicio para responder las objeciones.</label>
+          <label class="quiz-opt"><input type="radio" name="q8" value="d"> Lo resuelves solo con el material del onboarding y escalarías solo si el prospecto se molesta.</label>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">9. Tuviste una semana muy activa: agendaste 7 reuniones y gestionaste muchas respuestas. Pero hay un prospecto en PROCESO al que no le hiciste push en 7 días. ¿Qué pilar de tu rol fallaste?</div>
+          <label class="quiz-opt"><input type="radio" name="q9" value="a"> Organización: no lo registraste en tu calendario para hacer seguimiento.</label>
+          <label class="quiz-opt"><input type="radio" name="q9" value="b"> Constancia: el push mínimo es cada 2 días; 7 días sin contacto rompe el proceso aunque hayas tenido una semana muy activa.</label>
+          <label class="quiz-opt"><input type="radio" name="q9" value="c"> Responsabilidad: no cumpliste con lo que se pidió y no avisaste al Manager que ese prospecto quedó sin atención.</label>
+          <label class="quiz-opt"><input type="radio" name="q9" value="d"> Comunicación: el prospecto necesitaba más información del servicio para avanzar y no se la diste.</label>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">10. Tienes semana de pruebas en la universidad: 3 en 4 días. El lunes no hiciste el primer push y es martes, aún no empezaste con la meta de llamados. ¿Qué haces?</div>
+          <label class="quiz-opt"><input type="radio" name="q10" value="a"> Avisarle al Senior y al Manager que vas atrasado por las pruebas y que probablemente necesitas reducir la carga esa semana.</label>
+          <label class="quiz-opt"><input type="radio" name="q10" value="b"> Compensar la semana siguiente con los números y push que hayan faltado, una vez que pasen las pruebas.</label>
+          <label class="quiz-opt"><input type="radio" name="q10" value="c"> Reorganizas la semana, haces ahora el push del lunes, empiezas con los llamados, divides los pendientes por día que queda y le avisas al Senior cómo te organizaste para cumplir.</label>
+          <label class="quiz-opt"><input type="radio" name="q10" value="d"> Al final de la semana ves qué cosas faltaron y le avisas al Senior para que esté al tanto.</label>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">11. Hoy es jueves y llevas 70 llamados en la semana. Para llegar a los 150 mínimos necesitas 80 más. ¿Cuál es la actitud correcta?</div>
+          <label class="quiz-opt"><input type="radio" name="q11" value="a"> Avisarle al Manager que probablemente no vas a poder cumplir la meta y que la próxima semana harás los que falten.</label>
+          <label class="quiz-opt"><input type="radio" name="q11" value="b"> Priorizar calidad sobre cantidad: 70 llamados bien hechos valen más que 150 rápidos.</label>
+          <label class="quiz-opt"><input type="radio" name="q11" value="c"> Los 150 llamados son un mínimo sin excusas: hoy y mañana haces los 80 que faltan, no es opción no cumplir.</label>
+          <label class="quiz-opt"><input type="radio" name="q11" value="d"> Compensar la próxima semana haciendo el doble para promediar el objetivo.</label>
+        </div>
+        <div class="quiz-block">
+          <div class="quiz-q">12. Un prospecto te responde: <em>"Ya usamos un servicio similar y estamos conformes, gracias."</em> ¿Cuál es la acción correcta?</div>
+          <label class="quiz-opt"><input type="radio" name="q12" value="a"> Etiquetar PROCESO, llamar al prospecto y conversar con él para asegurarte de que realmente no le sirve el servicio antes de cerrar el caso.</label>
+          <label class="quiz-opt"><input type="radio" name="q12" value="b"> Insistir con un ángulo diferente del servicio, mencionando los recursos valiosos que podría ganar el cliente con el cambio.</label>
+          <label class="quiz-opt"><input type="radio" name="q12" value="c"> Hacer push insistiendo en la propuesta de valor del servicio para que reconsidere.</label>
+          <label class="quiz-opt"><input type="radio" name="q12" value="d"> Cerrar la conversación con un mensaje cordial, etiquetar NO INTERESADO y sacarlo de recibidos.</label>
         </div>
         <div id="quiz-msg" style="display:none;margin:12px 0;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:600"></div>
         <button class="complete-btn" style="margin-top:8px" onclick="enviarQuiz()">Enviar respuestas →</button>
       </div>
       <div id="sdr-quiz-done" style="display:none">
-        <div class="callout c-ok"><span class="callout-i">✅</span><div><strong>¡Respuestas enviadas!</strong> RRHH ya tiene tus resultados. Podés continuar — en cualquier momento te llegan tus clientes asignados.</div></div>
+        <div class="callout c-ok"><span class="callout-i">✅</span><div><strong>¡Respuestas enviadas!</strong> RRHH ya tiene tus resultados. Puedes continuar al siguiente paso.</div></div>
       </div>
     `
   },
@@ -2318,7 +2352,6 @@ const SDR_STEPS = [
     keywords:'segundo dia onboarding dia 2 clientes bandejas tarea estudiar',
     content: () => `
       <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 2</b><br>Empiézala el segundo día de onboarding, cuando llegues a la oficina con los clientes ya estudiados.</div></div>
-      <p class="pt">¡Bien hecho! Ya tienes toda la teoría y conoces los clientes. Hoy arranca el trabajo en vivo — las bandejas son tuyas.</p>
       <p class="pt">El proceso del Día 2 es:</p>
       <ol class="steps-list">
         <li><strong>Reunión con tu SDR Senior:</strong> resolver dudas sobre los clientes y recibir tus primeras bandejas.</li>
@@ -2326,48 +2359,8 @@ const SDR_STEPS = [
         <li><strong>Apollo, Lusha y Gmail IA:</strong> instalar las extensiones que vas a usar día a día en las bandejas.</li>
         <li><strong>Tarea 2:</strong> Ordenar las bandejas que recibiste.</li>
         <li><strong>Tarea 3:</strong> Primer barrido de bandejas — llamar y hacer push.</li>
+        <li><strong>Weekly y Metas Semanales:</strong> reunión fija de equipo, metas y estándares.</li>
       </ol>
-    `
-  },
-  {
-    id:'sdr-weekly',
-    icon:'📊',
-    badge:'Equipo — Día 2',
-    title:'Weekly y Metas Semanales',
-    keywords:'weekly reunion semanal equipo manager senior csr metas resultados reporte presencial obligatorio',
-    content: () => `
-      <h3 class="sh">La Weekly</h3>
-      <p class="pt">Cada semana el equipo tiene una reunión fija llamada <strong>Weekly</strong>. Misma hora, mismo día, todas las semanas. La lidera el Manager junto al CSR y el Senior.</p>
-      <p class="pt">En cada Weekly se revisan:</p>
-      <ul class="info-list">
-        <li>Resultados de la semana anterior.</li>
-        <li>Metas y desafíos de la semana que empieza.</li>
-        <li>Anuncios y novedades del equipo.</li>
-      </ul>
-      <div class="callout c-warn"><span class="callout-i">📍</span><div><b>Presencial obligatoria, sin excepciones.</b> La Weekly es el espacio de sincronización del equipo — no hay forma de participar de forma remota ni de recuperarla después.</div></div>
-      <h3 class="sh">Metas semanales y reporte</h3>
-      <p class="pt">Cada SDR tiene metas semanales propias. Al final de la semana, le reportas los resultados a tu Manager. El Senior los analiza y los presenta en la siguiente Weekly.</p>
-      <h3 class="sh">Estándares mínimos de desempeño</h3>
-      <p class="pt">Estos son los mínimos no negociables que aplican a todos los SDR, siempre:</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0">
-        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:22px;font-weight:900;color:var(--negro)">150</div>
-          <div style="font-size:12px;color:var(--gris2);font-weight:600">llamadas mínimas por semana</div>
-        </div>
-        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:22px;font-weight:900;color:var(--negro)">2×</div>
-          <div style="font-size:12px;color:var(--gris2);font-weight:600">push por semana por bandeja activa</div>
-        </div>
-        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:22px;font-weight:900;color:var(--negro)">2×</div>
-          <div style="font-size:12px;color:var(--gris2);font-weight:600">revisión de bandeja por día</div>
-        </div>
-        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:22px;font-weight:900;color:var(--negro)">4 hrs</div>
-          <div style="font-size:12px;color:var(--gris2);font-weight:600">tiempo máx. de respuesta a mensajes</div>
-        </div>
-      </div>
-      <div class="callout c-tip"><span class="callout-i">🏆</span><div>Más allá de los mínimos, lo que te posiciona en el equipo es <strong>estar en el top 3 de tu pod</strong> de forma consistente.</div></div>
     `
   },
   {
@@ -2461,13 +2454,54 @@ const SDR_STEPS = [
     `
   },
   {
+    id:'sdr-weekly',
+    icon:'📊',
+    badge:'Equipo — Día 2',
+    title:'Weekly y Metas Semanales',
+    keywords:'weekly reunion semanal equipo manager senior csr metas resultados reporte presencial obligatorio',
+    content: () => `
+      <h3 class="sh">La Weekly</h3>
+      <p class="pt">Cada semana el equipo tiene una reunión fija llamada <strong>Weekly</strong>. Misma hora, mismo día, todas las semanas. La lidera el Manager junto al CSR y el Senior.</p>
+      <p class="pt">En cada Weekly se revisan:</p>
+      <ul class="info-list">
+        <li>Resultados de la semana anterior.</li>
+        <li>Metas y desafíos de la semana que empieza.</li>
+        <li>Anuncios y novedades del equipo.</li>
+      </ul>
+      <div class="callout c-warn"><span class="callout-i">📍</span><div><b>Presencial obligatoria, sin excepciones.</b> La Weekly es el espacio de sincronización del equipo — no hay forma de participar de forma remota ni de recuperarla después.</div></div>
+      <h3 class="sh">Metas semanales y reporte</h3>
+      <p class="pt">Cada SDR tiene metas semanales propias. Al final de la semana, le reportas los resultados a tu Manager. El Senior los analiza y los presenta en la siguiente Weekly.</p>
+      <h3 class="sh">Estándares mínimos de desempeño</h3>
+      <p class="pt">Estos son los mínimos no negociables que aplican a todos los SDR, siempre:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0">
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:22px;font-weight:900;color:var(--negro)">150</div>
+          <div style="font-size:12px;color:var(--gris2);font-weight:600">llamadas mínimas por semana</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:22px;font-weight:900;color:var(--negro)">2×</div>
+          <div style="font-size:12px;color:var(--gris2);font-weight:600">push por semana por bandeja activa</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:22px;font-weight:900;color:var(--negro)">2×</div>
+          <div style="font-size:12px;color:var(--gris2);font-weight:600">revisión de bandeja por día</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:22px;font-weight:900;color:var(--negro)">4 hrs</div>
+          <div style="font-size:12px;color:var(--gris2);font-weight:600">tiempo máx. de respuesta a mensajes</div>
+        </div>
+      </div>
+      <div class="callout c-tip"><span class="callout-i">🏆</span><div>Más allá de los mínimos, lo que te posiciona en el equipo es <strong>estar en el top 3 de tu pod</strong> de forma consistente.</div></div>
+    `
+  },
+  {
     id:'sdr-honorarios',
     icon:'🧾',
-    badge:'Día 3',
+    badge:'Día 2',
     title:'Boleta de Honorarios',
     keywords:'boleta honorarios sii factura pago mensual emitir inicio actividades calculadora formulario proporcional',
     content: () => `
-      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 3</b><br>Complétala durante tu primera semana, cuando ya tengas las bandejas en mano y puedas concentrarte.</div></div>
+      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 2</b><br>Complétala durante tu primera semana, cuando ya tengas las bandejas en mano y puedas concentrarte.</div></div>
       <p class="pt">Como colaborador de TGP, emites <strong>boleta de honorarios</strong> cada mes. Es tu responsabilidad emitirla y subirla al formulario correspondiente. Acá tienes todo lo que necesitas para hacerlo.</p>
       <h3 class="sh">¿Primera vez emitiendo boleta en tu vida?</h3>
       <p class="pt">Antes de emitir tu primera boleta, necesitas iniciar actividades en el SII. Es un trámite de 10 minutos que solo se hace una vez.</p>
@@ -2492,11 +2526,11 @@ const SDR_STEPS = [
   {
     id:'sdr-advertencias',
     icon:'⚠️',
-    badge:'Día 3',
+    badge:'Día 2',
     title:'Sistema de Advertencias',
     keywords:'advertencias sistema faltas descanso puntualidad acumulacion suspension',
     content: () => `
-      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 3</b><br>Complétala durante tu primera semana, junto con la boleta de honorarios.</div></div>
+      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 2</b><br>Complétala durante tu primera semana, junto con la boleta de honorarios.</div></div>
       <p class="pt">TGP tiene un sistema formal de advertencias para mantener la convivencia y el estándar del equipo. Es importante que lo conozcas desde el inicio.</p>
       <div class="link-row">
         <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="advertencias-doc">📄 Sistema de Advertencias</a>
@@ -2506,11 +2540,11 @@ const SDR_STEPS = [
   {
     id:'sdr-contactos',
     icon:'🙋',
-    badge:'Día 3',
+    badge:'Día 2',
     title:'¿A quién le pregunto qué?',
     keywords:'contacto preguntar duda ayuda senior specialist manager rrhh belen equipo escalada',
     content: () => `
-      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 3</b><br>Un buen cierre del onboarding: saber exactamente a quién ir según la situación.</div></div>
+      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 2</b><br>Un buen cierre del onboarding: saber exactamente a quién ir según la situación.</div></div>
       <p class="pt">Ya conoces el proceso y el equipo. Acá va la guía de a quién ir según el tema:</p>
       <div style="display:flex;flex-direction:column;gap:10px;margin:14px 0">
         <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
@@ -3758,22 +3792,34 @@ const ADMIN_EMAIL = 'belen@thegrowth.pro';
 const TEAM_TOTAL = 99;
 
 // ── QUIZ ONBOARDING SDR ──
-const QUIZ_CORRECTAS = {q1:'a',q2:'a',q3:'b',q4:'a',q5:'c',q6:'b'};
+const QUIZ_CORRECTAS = {q1:'b',q2:'a',q3:'c',q4:'b',q5:'c',q6:'c',q7:'c',q8:'b',q9:'b',q10:'c',q11:'c',q12:'a'};
 const QUIZ_PREGUNTAS = {
-  q1:'45 correos PROCESO sin respuesta esta semana. ¿Qué ocurre con esas conversaciones?',
-  q2:'Prospecto dice "me interesa, pero estoy de vacaciones, escríbeme el 20 de agosto." ¿Etiqueta y acción?',
-  q3:'Prospecto en PROCESO sin responder hace 3 días, tienes su número. ¿Estrategia más efectiva?',
-  q4:'Prospecto acepta reunirse, parámetros validados. ¿Orden correcto del proceso de agendamiento?',
-  q5:'Son las 15:12 y el prospecto no aparece a la reunión. ¿Acción correcta y error más frecuente?',
-  q6:'Semana activa pero un prospecto clave en PROCESO lleva 7 días sin push tuyo. ¿Qué pilar fallaste?'
+  q1:'40 prospectos en PROCESO sin respuesta en 10 días. Bandeja vacía. ¿Qué haces?',
+  q2:'Prospecto de vacaciones hasta el 20 de agosto, indica reemplazo Andrea López. Hoy es 5 de agosto. ¿Etiqueta y acción?',
+  q3:'Prospecto respondió hace 4 días "lo reviso y te escribo". Ya hiciste push ayer. ¿Paso más efectivo ahora?',
+  q4:'Prospecto aceptó reunirse, parámetros validados. ¿Orden correcto del agendamiento?',
+  q5:'15:12, reunión era a las 15:00, prospecto no apareció. ¿Qué haces?',
+  q6:'Reunión agendada a las 15:00. Son las 14:55. ¿Qué deberías estar haciendo?',
+  q7:'Correo automático: prospecto fuera hasta el 18, deja contacto de reemplazo. ¿Qué haces?',
+  q8:'No sabes manejar objeciones de un prospecto difícil. ¿A quién acudes?',
+  q9:'Agendaste 7 reuniones esta semana pero un prospecto lleva 7 días sin push. ¿Qué pilar fallaste?',
+  q10:'Semana de pruebas universitarias, lunes sin push ni llamados, es martes. ¿Qué haces?',
+  q11:'Jueves, llevas 70 de 150 llamados mínimos. ¿Actitud correcta?',
+  q12:'Prospecto dice "ya usamos un servicio similar y estamos conformes". ¿Acción correcta?'
 };
 const QUIZ_OPCIONES = {
-  q1:{a:'Las secuencias corren automáticamente; actúas solo cuando el prospecto responde',b:'Enviar push personalizado a cada uno esta semana',c:'Archivar los que llevan más de 2 semanas sin respuesta',d:'Llamar a cada uno para verificar si recibieron los correos'},
-  q2:{a:'PROCESO — programas correo nuevo 3 días después del 20 de agosto',b:'REAGENDAR — coordinas nueva fecha entre ejecutivo y prospecto',c:'PROCESO — esperas que la secuencia automática lo contacte al volver',d:'NO INTERESADO — si no puede reunirse ahora, el interés no es real'},
-  q3:{a:'Otro push hoy y esperar 5 días más antes de probar otro canal',b:'Llamarlo ahora: hay contacto previo, es la forma más efectiva de retomar',c:'Marcar NO INTERESADO — si no responde al push, ya no quiere continuar',d:'Escribirle por WhatsApp directamente, canal más personal que el correo'},
-  q4:{a:'Proponer horarios → App TGP → aprobación Manager → detalle al cliente → confirmar prospecto → 2 recordatorios → actualizar etiqueta',b:'Proponer horarios → App TGP → detalle al cliente → aprobación Manager → recordatorios → etiqueta',c:'Aprobación Manager → proponer horarios → App TGP → detalle al cliente → recordatorios',d:'Proponer horarios → App TGP → confirmar prospecto → recordatorios → detalle al cliente → aprobación Manager'},
-  q5:{a:'Esperar hasta las 15:30 para darle tiempo suficiente al prospecto',b:'Notificar al Manager y esperar instrucción antes de contactar al prospecto',c:'Llamar de inmediato + etiqueta REAGENDAR + coordinar con cliente en App TGP',d:'Marcar NO INTERESADO para liberar disponibilidad en el calendario'},
-  q6:{a:'Organización — no lo registraste en el calendario para hacer seguimiento',b:'Constancia — push mínimo cada 2 días; 7 días sin contacto con un prospecto activo rompe el proceso',c:'Comunicación — el prospecto necesitaba más información del servicio',d:'Responsabilidad — no avisaste al Manager que no estaba respondiendo'}
+  q1:{a:'Nada: las secuencias siguen corriendo solas, solo actúas cuando un prospecto responde',b:'Barres la bandeja y haces push a cada prospecto activo cada 2 días, llamando por teléfono antes de enviar correo',c:'Envías un correo general a todos recordando que siguen en proceso',d:'Archivas los que llevan más de 2 semanas sin respuesta para limpiar la bandeja'},
+  q2:{a:'PROCESO — programas correo para el 23 de agosto y contactas a Andrea López',b:'REAGENDAR — coordinas nueva fecha con el ejecutivo para después de las vacaciones',c:'PROCESO — esperas al 20 de agosto y escribes solo al prospecto original',d:'NO INTERESADO — si no puede reunirse ahora, no es un prospecto activo'},
+  q3:{a:'Esperar 3 días más; el plazo razonable de respuesta es una semana',b:'Volver a hacer push hoy y proponer reunión directamente en el correo',c:'Llamar por teléfono: ya hay conversación iniciada y es el canal más efectivo para retomar y agendar',d:'Cambiar a NO INTERESADO: si dijo que escribía y no lo hizo, ya no hay interés real'},
+  q4:{a:'Proponer horarios → App TGP → detalle al cliente → aprobación Manager → confirmar prospecto → 2 recordatorios → etiqueta',b:'Proponer horarios → App TGP → aprobación Manager → detalle al cliente → confirmar prospecto → 2 recordatorios → etiqueta',c:'Aprobación Manager → proponer horarios → App TGP → detalle al cliente → confirmar prospecto → recordatorios',d:'Proponer horarios → App TGP → confirmar prospecto → aprobación Manager → detalle al cliente → recordatorios → etiqueta'},
+  q5:{a:'Esperar hasta las 15:30: 12 minutos de retraso aún está dentro del margen',b:'Llamar al prospecto, cambiar etiqueta de AGENDADO a PROCESO y coordinar nueva fecha',c:'Llamar al prospecto de inmediato, etiquetar REAGENDAR y coordinar nueva fecha con el cliente en App TGP',d:'Etiquetar NO INTERESADO: un no-show es señal de que el prospecto no quiere continuar'},
+  q6:{a:'Nada especial: la reunión está confirmada con 2 recordatorios, el prospecto sabe el horario',b:'Esperar hasta las 15:10 para ver si entra; si no aparece, llamar y notificar al cliente',c:'Estar en Meet desde antes de las 15:00 con el contacto del prospecto a mano: ante cualquier ausencia, notificar al cliente de inmediato y llamar sin esperar',d:'Llamar al prospecto a las 15:00 exactas para confirmar que va a entrar'},
+  q7:{a:'Escribir directamente a jefa@empresa.com: si está activa, es una oportunidad de avanzar',b:'Dejar que la secuencia siga corriendo; el sistema contactará al prospecto cuando vuelva',c:'Programar correo para días después del 18 y además buscar el teléfono de Jefa Torres para contactarla: es un referido activo',d:'Cambiar etiqueta a PROCESO y esperar que el prospecto escriba cuando vuelva'},
+  q8:{a:'Al SDR Manager: tiene visión de todos los prospectos y puede orientarte directamente',b:'Al SDR Senior: es tu primer punto de apoyo para casos del proceso de prospección',c:'Al CSR: conoce a los clientes y puede darte contexto del servicio',d:'Lo resuelves solo con el material del onboarding y escalarías solo si el prospecto se molesta'},
+  q9:{a:'Organización: no lo registraste en el calendario para hacer seguimiento',b:'Constancia: el push mínimo es cada 2 días; 7 días sin contacto rompe el proceso aunque la semana haya sido muy activa',c:'Responsabilidad: no cumpliste lo que se pidió y no avisaste al Manager que ese prospecto quedó sin atención',d:'Comunicación: el prospecto necesitaba más información del servicio para avanzar'},
+  q10:{a:'Avisarle al Senior y al Manager que vas atrasado por las pruebas y que probablemente necesitas reducir la carga esa semana',b:'Compensar la semana siguiente con los números y push que hayan faltado una vez que pasen las pruebas',c:'Reorganizas la semana, haces ahora el push del lunes, empiezas con los llamados, divides los pendientes por día que queda y le avisas al Senior cómo te organizaste para cumplir',d:'Al final de la semana ves qué cosas faltaron y le avisas al Senior para que esté al tanto'},
+  q11:{a:'Avisarle al Manager que probablemente no vas a poder cumplir la meta y que la próxima semana harás los que falten',b:'Priorizar calidad sobre cantidad: 70 llamados bien hechos valen más que 150 rápidos',c:'Los 150 llamados son un mínimo sin excusas: hoy y mañana haces los 80 que faltan, no es opción no cumplir',d:'Compensar la próxima semana haciendo el doble para promediar el objetivo'},
+  q12:{a:'Etiquetar PROCESO, llamar al prospecto y conversar para asegurarte de que realmente no le sirve el servicio antes de cerrar el caso',b:'Insistir con un ángulo diferente del servicio, mencionando los recursos valiosos que podría ganar el cliente con el cambio',c:'Hacer push insistiendo en la propuesta de valor del servicio para que reconsidere',d:'Cerrar la conversación con un mensaje cordial, etiquetar NO INTERESADO y sacarlo de recibidos'}
 };
 
 function enviarQuiz(){
@@ -3782,18 +3828,16 @@ function enviarQuiz(){
   const msg=document.getElementById('quiz-msg');
   // Recolectar respuestas MC
   const resp={};
-  for(let i=1;i<=6;i++){
-    const sel=form.querySelector(`input[name="q${i}"]:checked`);
+  for(let i=1;i<=12;i++){
+    const key=`q${i}`;
+    const sel=form.querySelector(`input[name="${key}"]:checked`);
     if(!sel){
       msg.style.display='block';msg.style.background='#fef2f2';msg.style.color='#991b1b';
-      msg.textContent=`Responde todas las preguntas de opción múltiple antes de enviar (falta pregunta ${i}).`;
+      msg.textContent=`Responde todas las preguntas antes de enviar (falta pregunta ${i}).`;
       return;
     }
-    resp[`q${i}`]=sel.value;
+    resp[key]=sel.value;
   }
-  // Preguntas abiertas
-  resp.q9=(form.querySelector('textarea[name="q9"]').value||'').trim();
-  resp.q10=(form.querySelector('textarea[name="q10"]').value||'').trim();
   // Calcular puntaje
   let correctas=0;
   Object.keys(QUIZ_CORRECTAS).forEach(k=>{if(resp[k]===QUIZ_CORRECTAS[k])correctas++;});
@@ -3801,7 +3845,7 @@ function enviarQuiz(){
     nombre:currentUser.displayName||currentUser.email,
     email:currentUser.email,
     fecha:Date.now(),
-    puntaje:`${correctas}/6`,
+    puntaje:`${correctas}/12`,
     respuestas:resp
   };
   const userKey=currentUser.email.replace(/\./g,'_');
@@ -3835,7 +3879,7 @@ function verQuizResultados(){
       const fecha=new Date(r.fecha).toLocaleDateString('es-CL',{day:'2-digit',month:'short',year:'numeric'});
       const puntaje=r.puntaje||'–';
       const [ok,total]=puntaje.split('/').map(Number);
-      const color=ok>=5?'var(--verde)':ok>=3?'#f59e0b':'var(--rojo)';
+      const color=ok>=10?'var(--verde)':ok>=7?'#f59e0b':'var(--rojo)';
       let html=`<div class="sug-admin-item">
         <div class="sug-admin-meta">${r.nombre} · ${r.email} · ${fecha} · <strong style="color:${color}">${puntaje} correctas</strong></div>`;
       // MC incorrectas
@@ -3846,12 +3890,13 @@ function verQuizResultados(){
           html+=`<div style="font-size:12px;color:var(--gris1);margin-bottom:3px">• <em>${QUIZ_PREGUNTAS[k]}</em><br>&nbsp;&nbsp;Respondió: <strong>${QUIZ_OPCIONES[k][r.respuestas[k]]||r.respuestas[k]}</strong></div>`;
         });
       }
-      // Abiertas
-      ['q7','q8','q9'].forEach((k,i)=>{
-        const labels=['Dudas del proceso','Expectativas','Temas a repasar'];
-        const val=r.respuestas&&r.respuestas[k];
-        if(val) html+=`<div style="font-size:12px;margin-top:6px"><strong>${labels[i]}:</strong> ${val}</div>`;
-      });
+      // Preguntas adicionales incorrectas (q7-q12)
+      const incAdicionales=Object.keys(QUIZ_CORRECTAS).filter(k=>parseInt(k.slice(1))>6&&r.respuestas&&r.respuestas[k]!==QUIZ_CORRECTAS[k]);
+      if(incAdicionales.length){
+        incAdicionales.forEach(k=>{
+          html+=`<div style="font-size:12px;color:var(--gris1);margin-bottom:3px">• <em>${QUIZ_PREGUNTAS[k]}</em><br>&nbsp;&nbsp;Respondió: <strong>${QUIZ_OPCIONES[k][r.respuestas[k]]||r.respuestas[k]}</strong></div>`;
+        });
+      }
       html+='</div>';
       cont.innerHTML+=html;
     });
