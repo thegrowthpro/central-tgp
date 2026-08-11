@@ -3922,7 +3922,7 @@ function mostrarResultadosQuiz(resp, correctas, nombre){
 
 function notificarQuiz(resultado, resp, correctas){
   // ── CONFIGURACIÓN ──────────────────────────────────────────────
-  const APPS_SCRIPT_URL = ''; // pegar URL del Google Apps Script aquí
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzL0quLCXgJ39cAik9nTdo4fbQkx38UJT32IvDXjfxQNX8RwWyrdTGJUUGsHVMdrdbiyA/exec';
   // ───────────────────────────────────────────────────────────────
   if(!APPS_SCRIPT_URL) return;
   const incorrectas=Object.keys(QUIZ_CORRECTAS).filter(k=>resp[k]!==QUIZ_CORRECTAS[k]);
