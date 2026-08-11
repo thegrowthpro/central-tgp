@@ -3924,8 +3924,8 @@ function mostrarResultadosQuiz(resp, correctas, nombre){
     </div>
     <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;margin-bottom:14px">Repaso completo — las ${total} preguntas</div>
     ${qHtml}
-    <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px 16px;margin-top:8px;font-size:13px;color:#166534">
-      ✅ Tus respuestas quedaron guardadas. RRHH ya tiene tus resultados. Puedes continuar al siguiente paso.
+    <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px 16px;margin-top:8px;font-size:13px;color:#166534;line-height:1.6">
+      ✅ <strong>Tus respuestas fueron registradas.</strong> Tu SDR Senior las revisará y trabajará los temas pendientes contigo en los próximos coachings.${incorrectas.length?` <br><br>📖 <strong>Recomendación:</strong> repasa las preguntas marcadas con ❌ antes del coaching para llegar con los conceptos más claros y revertir los errores más rápido.`:''}
     </div>`;
 }
 
