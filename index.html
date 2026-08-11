@@ -3852,12 +3852,92 @@ function enviarQuiz(){
   db.ref(`quiz_onboarding/${userKey}`).set(resultado)
   .then(()=>{
     document.getElementById('sdr-quiz-form').style.display='none';
-    document.getElementById('sdr-quiz-done').style.display='block';
+    mostrarResultadosQuiz(resp, correctas, resultado.nombre);
+    notificarQuiz(resultado, resp, correctas);
   })
   .catch(err=>{
     msg.style.display='block';msg.style.background='#fef2f2';msg.style.color='#991b1b';
     msg.textContent='Error al enviar: '+err.message;
   });
+}
+
+function mostrarResultadosQuiz(resp, correctas, nombre){
+  const total=12;
+  const done=document.getElementById('sdr-quiz-done');
+  done.style.display='block';
+  const col=correctas>=10?'#16a34a':correctas>=7?'#d97706':'#dc2626';
+  const saludo=correctas>=10?'¡Muy bien!':correctas>=7?'Hay temas para repasar con tu Senior.':'Repasa los temas marcados con tu Senior antes de seguir.';
+  const incorrectas=Object.keys(QUIZ_CORRECTAS).filter(k=>resp[k]!==QUIZ_CORRECTAS[k]);
+  let qHtml='';
+  for(let i=1;i<=total;i++){
+    const k=`q${i}`;
+    const ok=resp[k]===QUIZ_CORRECTAS[k];
+    const corr=QUIZ_CORRECTAS[k];
+    const opts=QUIZ_OPCIONES[k];
+    let optsHtml='';
+    ['a','b','c','d'].forEach(l=>{
+      const isChosen=resp[k]===l, isCorr=corr===l;
+      let bg='',border='',badge='',txtCol='';
+      if(isCorr){bg='#f0fdf4';border='1.5px solid #86efac';txtCol='#166534';}
+      else if(isChosen&&!isCorr){bg='#fef2f2';border='1.5px solid #fecaca';txtCol='#991b1b';}
+      else{bg='transparent';border='1px solid #e2e8f0';txtCol='inherit';}
+      if(isCorr) badge='<span style="font-size:10px;font-weight:700;color:#16a34a;background:#dcfce7;padding:2px 7px;border-radius:99px;margin-left:6px;white-space:nowrap">✓ Correcta</span>';
+      else if(isChosen&&!isCorr) badge='<span style="font-size:10px;font-weight:700;color:#dc2626;background:#fee2e2;padding:2px 7px;border-radius:99px;margin-left:6px;white-space:nowrap">Tu respuesta</span>';
+      optsHtml+=`<div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:7px;background:${bg};border:${border};margin-bottom:6px">
+        <span style="width:20px;height:20px;border-radius:50%;background:${isCorr?'#16a34a':isChosen&&!isCorr?'#dc2626':'#e2e8f0'};color:${isCorr||isChosen&&!isCorr?'#fff':'#6b7280'};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;margin-top:1px">${l.toUpperCase()}</span>
+        <span style="font-size:12.5px;color:${txtCol};flex:1;line-height:1.45">${opts[l]}</span>
+        ${badge}
+      </div>`;
+    });
+    qHtml+=`<div style="background:#fff;border:1.5px solid ${ok?'#bbf7d0':'#fecaca'};border-radius:10px;margin-bottom:12px;overflow:hidden">
+      <div style="padding:10px 14px;background:${ok?'#f0fdf4':'#fff8f8'};border-bottom:1px solid ${ok?'#bbf7d0':'#fecaca'};display:flex;gap:10px;align-items:flex-start">
+        <span style="font-size:15px;flex-shrink:0;margin-top:1px">${ok?'✅':'❌'}</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:${ok?'#16a34a':'#dc2626'};text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px">Pregunta ${i} — ${ok?'Correcta':'Incorrecta'}</div>
+          <div style="font-size:13px;font-weight:600;color:#1e293b;line-height:1.45">${QUIZ_PREGUNTAS[k]}</div>
+        </div>
+      </div>
+      <div style="padding:12px 14px">${optsHtml}</div>
+    </div>`;
+  }
+  done.innerHTML=`
+    <div style="background:${col}18;border:1.5px solid ${col}40;border-radius:12px;padding:18px 20px;margin-bottom:20px;display:flex;gap:16px;align-items:center">
+      <div style="width:64px;height:64px;border-radius:50%;background:${col};display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0">
+        <span style="font-size:22px;font-weight:800;color:#fff;line-height:1">${correctas}</span>
+        <span style="font-size:11px;color:rgba(255,255,255,.8)">de ${total}</span>
+      </div>
+      <div>
+        <div style="font-size:16px;font-weight:700;color:${col}">${saludo}</div>
+        <div style="font-size:13px;color:#64748b;margin-top:2px">
+          ${correctas} correctas · ${incorrectas.length} para repasar${incorrectas.length?` · <strong style="color:#dc2626">Temas: ${incorrectas.map(k=>'P'+k.slice(1)).join(', ')}</strong>`:''}
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;margin-bottom:14px">Repaso completo — las ${total} preguntas</div>
+    ${qHtml}
+    <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px 16px;margin-top:8px;font-size:13px;color:#166534">
+      ✅ Tus respuestas quedaron guardadas. RRHH ya tiene tus resultados. Puedes continuar al siguiente paso.
+    </div>`;
+}
+
+function notificarQuiz(resultado, resp, correctas){
+  // ── CONFIGURACIÓN ──────────────────────────────────────────────
+  const APPS_SCRIPT_URL = ''; // pegar URL del Google Apps Script aquí
+  // ───────────────────────────────────────────────────────────────
+  if(!APPS_SCRIPT_URL) return;
+  const incorrectas=Object.keys(QUIZ_CORRECTAS).filter(k=>resp[k]!==QUIZ_CORRECTAS[k]);
+  const payload={
+    nombre:resultado.nombre,
+    email:resultado.email,
+    puntaje:resultado.puntaje,
+    fecha:new Date(resultado.fecha).toLocaleString('es-CL'),
+    incorrectas:incorrectas.map(k=>({
+      pregunta:'P'+k.slice(1)+': '+QUIZ_PREGUNTAS[k],
+      respondio:QUIZ_OPCIONES[k][resp[k]]||resp[k],
+      correcta:QUIZ_OPCIONES[k][QUIZ_CORRECTAS[k]]
+    }))
+  };
+  fetch(APPS_SCRIPT_URL,{method:'POST',body:JSON.stringify(payload)}).catch(()=>{});
 }
 
 function abrirQuizResultados(){
