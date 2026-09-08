@@ -2521,6 +2521,9 @@ const SDR_STEPS = [
         <a href="https://forms.gle/StmtkADtXgj3RF8G6" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Formulario subir boleta</a>
       </div>
       <div class="callout c-info"><span class="callout-i">📌</span><div><b>Datos de TGP para tu boleta</b><br>Razón Social: TGP SpA · RUT: 77.628.885-3 · Mail: ariel@thegrowth.pro · Dirección: Hermanos Cabot 6777, depto 87</div></div>
+      <div class="link-row">
+        <a href="informacion-pago-tgp.pdf" target="_blank" class="lbtn lbtn-doc" data-req="info-pago">📄 Información de Pago TGP — guía completa</a>
+      </div>
       <div class="callout c-tip"><span class="callout-i">💡</span><div>Toda la guía completa de pagos (cuándo emitir, cálculo proporcional para el primer mes, etc.) está en la sección <strong>RRHH → Pagos y Boletas</strong>.</div></div>
     `
   },
@@ -3268,6 +3271,7 @@ const ROLE_COLORS = {
   'Cofundador':              '#6366f1',
   // Operaciones — Francesco + todos los Managers
   'Operations Lead':         '#0f172a',
+  'Business Operations Lead':'#0f172a',
   'Manager':                 '#0f172a',
   'Senior SDR Manager':      '#0f172a',
   // BP + KAM — mismo grupo
@@ -3589,7 +3593,7 @@ function renderOrg(){
   const tributenPods=ORG_PODS.filter(p=>p.tribu==='Tributen');
 
   const franc={nombre:'Francesco Cotroneo',cargo:'Operations Lead',email:''};
-  const fantSub=subCard({nombre:'Sebastián Fantuzzi',cargo:'Senior SDR Manager',email:'sebastian@thegrowth.pro',nota:'Manager del pod Rho + mano derecha de Francesco. Apoya a todos los Managers en liderazgo y rendimiento'});
+  const seb={nombre:'Sebastián Fantuzzi',cargo:'Business Operations Lead',email:'sebastian@thegrowth.pro',nota:'Jefe de todos los Managers de TGP. Lidera la operación comercial y el rendimiento de los pods.'};
   const tomasso={nombre:'Tomasso Cannistra',cargo:'Customer Success Lead',email:'',tribu:'Tributon'};
   const mariajose={nombre:'María José Sainz',cargo:'Customer Success Lead',email:'',tribu:'Tributen'};
 
@@ -3661,7 +3665,8 @@ function renderOrg(){
           <div class="org-card-wrap">${orgCard(tomasso)}</div>
           ${cardWithExpander({nombre:'Martin Kolton',cargo:'Head of Strategy',email:''},'exp-martin',ORG_CENTRAL.find(c=>c.nombre==='Martin Kolton').subs.map(s=>subCard(s)).join(''),'Specialists',8)}
           ${cardWithExpander({nombre:'Belén Forti',cargo:'HR Lead',email:'belen@thegrowth.pro'},'exp-belen',ORG_HR.map(s=>subCard(s)).join(''),'equipo HR',7)}
-          ${cardWithExpander(franc,'exp-franc',fantSub,'S. Fantuzzi',6)}
+          ${orgCard(franc)}
+          <div class="org-card-wrap">${orgCard(seb)}</div>
           ${cardWithExpander({nombre:'Benjamin Apt',cargo:'Head of Strategy',email:''},'exp-benja',(ORG_CENTRAL.find(c=>c.nombre==='Benjamin Apt')?.subs||[]).map(s=>subCard(s)).join(''),'Specialists',5)}
           <div class="org-card-wrap" style="z-index:4;display:flex;flex-direction:column;align-items:center;position:relative">
             <div class="org-card" style="border-top-color:${getColor(ignacioP.cargo)}" onclick="openOrgModal(${ignacioD})">
