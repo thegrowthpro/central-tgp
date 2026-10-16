@@ -1935,16 +1935,16 @@ const SDR_STEPS = [
     title:'Proceso de Agendamiento',
     keywords:'agendamiento agendar reunion app tgp horario ejecutivo prospecto esquema proceso',
     content: () => `
-      <p class="pt">El proceso de agendamiento arranca en el momento en que un prospecto muestra interés — ya sea respondiendo un correo de la bandeja, confirmando que quiere reunirse después de un llamado en tibio, o cualquier señal clara de que está dispuesto a verse con el ejecutivo.</p>
+      <p class="pt">El proceso de agendamiento arranca en el momento en que un prospecto muestra interés durante una llamada en frío — cuando confirma que quiere reunirse con el ejecutivo. Desde ese momento hay un procedimiento fijo que seguir.</p>
       <p class="pt">Desde ese momento, hay un procedimiento fijo de 9 pasos que hay que seguir en orden. No se puede saltar ninguno — cada paso depende del anterior. Este es el corazón de tu trabajo como SDR.</p>
       <div class="agend-steps">
         <div class="agend-step" onclick="this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">1</span><span class="agend-title">Encontrar horario disponible</span><span class="agend-arr">+</span></div>
           <div class="agend-detail">
-            <p style="margin-bottom:8px">Cada cliente tiene un calendario compartido con los horarios disponibles de su ejecutivo. Antes de proponer un horario al prospecto, siempre revisas ese calendario — así te aseguras de que el ejecutivo esté libre y de respetar sus franjas horarias.</p>
+            <p style="margin-bottom:8px">Cada cliente tiene un <strong>Google Calendar compartido</strong> con los horarios disponibles de su ejecutivo. Antes de proponer un horario al prospecto, siempre revisas ese calendario — así te aseguras de que el ejecutivo esté libre y de respetar sus franjas horarias.</p>
             <p style="margin-bottom:8px">También tienes que considerar la hora local del prospecto si está en otro país — la reunión tiene que ser en un horario razonable para él.</p>
             <p style="margin-bottom:10px"><strong>Importante:</strong> siempre eres tú quien propone los horarios — no esperes a que el prospecto sugiera uno. Si lo esperas, la probabilidad de que la reunión se concrete baja mucho.</p>
-            <div class="callout c-info" style="margin-bottom:10px"><span class="callout-i">ℹ️</span><div>El calendario de cada cliente lo recibirás de tu Manager el Día 2. Por ahora, aprende cómo funciona con el video.</div></div>
+            <div class="callout c-info" style="margin-bottom:10px"><span class="callout-i">📅</span><div><strong>¿Dónde está el calendario?</strong> El calendario de disponibilidad de cada ejecutivo está en el <strong>Google Calendar de la cuenta de correo que se te asignó para ese cliente</strong>. Tu Manager te dará acceso a esa cuenta el Día 2. Esa cuenta la usarás <em>únicamente</em> para revisar el calendario — no para responder correos ni ninguna otra acción.<br><br>⚡ <strong>Próximamente:</strong> Podrás ver todos los calendarios directamente desde la App TGP sin necesidad de entrar a cada cuenta.</div></div>
             <a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank" class="lbtn lbtn-vid" style="font-size:12px;padding:6px 12px" data-req="horario">▶ Video: Cómo revisar disponibilidad de ejecutivos</a>
           </div>
         </div>
@@ -1952,7 +1952,7 @@ const SDR_STEPS = [
           <div class="agend-step-head"><span class="agend-n">2</span><span class="agend-title">Validar al prospecto y la empresa</span><span class="agend-arr">+</span></div>
           <div class="agend-detail">
             <p style="margin-bottom:8px">No cualquier prospecto que responde sirve para agendar. Antes de proponer un horario, tienes que verificar que tanto el prospecto como su empresa cumplan los <strong>parámetros de validación</strong> de ese cliente.</p>
-            <p style="margin-bottom:8px">Cada cliente define sus propios criterios: tamaño de empresa, industria, país, cargo del prospecto, etc. Esos parámetros vienen en un documento llamado <strong>Hoja de Agendamiento</strong>, que es tu referencia obligatoria antes de agendar cualquier reunión. Una Hoja por cliente, una por bandeja.</p>
+            <p style="margin-bottom:8px">Cada cliente define sus propios criterios: tamaño de empresa, industria, país, cargo del prospecto, etc. Esos parámetros vienen en un documento llamado <strong>Hoja de Agendamiento</strong>, que es tu referencia obligatoria antes de agendar cualquier reunión. Una Hoja de Agendamiento por cliente.</p>
             <div class="callout c-info" style="margin-bottom:10px"><span class="callout-i">ℹ️</span><div>Tu Manager te entregará las Hojas de Agendamiento de tus clientes el Día 2. Por ahora, abre el ejemplo para ver cómo se ven y qué tipo de información contienen.</div></div>
             <a href="https://docs.google.com/spreadsheets/d/1evfXdkyAtUr6-3GuLOG3RPILOURBU7ob_b_D-gj6WVY/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px" data-req="validacion">📊 Ver ejemplo de Hoja de Agendamiento</a>
           </div>
@@ -2030,11 +2030,9 @@ const SDR_STEPS = [
           </div>
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">6</span><span class="agend-title">Confirmar reunión al prospecto</span><span class="agend-arr">+</span></div>
+          <div class="agend-step-head"><span class="agend-n">6</span><span class="agend-title">Confirmación automática al prospecto</span><span class="agend-arr">+</span></div>
           <div class="agend-detail">
-            <p style="margin-bottom:8px">Responde en el <strong>mismo hilo de correo</strong> confirmándole al prospecto que la reunión quedó agendada. El mensaje tiene que incluir: fecha, hora (en su hora local si está en otro país), link de Google Meet y nombre del ejecutivo con quien se reunirá.</p>
-            <p style="margin-bottom:8px">El objetivo es que el prospecto tenga todo claro de un solo correo — sin que tenga que preguntar nada. Si tiene dudas o no sabe cómo entrar, hay más chances de que no se presente.</p>
-            <div class="callout c-tip"><span class="callout-i">💡</span><div>La App TGP genera automáticamente el link de Meet al agendar — lo encuentras en el detalle de la reunión dentro de la App.</div></div>
+            <div class="callout c-ok"><span class="callout-i">🤖</span><div><strong>TGP lo hace automáticamente.</strong> Una vez aprobada la reunión por el Manager, el sistema envía al prospecto un <strong>mensaje de confirmación por WhatsApp</strong> con todos los detalles: fecha, hora, link de Google Meet y nombre del ejecutivo. No necesitas hacer nada.</div></div>
           </div>
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
@@ -2049,7 +2047,7 @@ const SDR_STEPS = [
           <div class="agend-detail">
             <p style="margin-bottom:8px">💡 <em>Llama al prospecto esa mañana para confirmar asistencia — es el mejor preventivo contra el No Show.</em></p>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-              <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:7px;padding:10px"><div style="font-size:11px;font-weight:700;color:#15803d;margin-bottom:4px">✅ YES SHOW</div><p style="font-size:12px;color:#166534;line-height:1.5">Mover correo y link a etiqueta "Agendado" → esperar validación en App TGP y revisar comentarios.</p></div>
+              <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:7px;padding:10px"><div style="font-size:11px;font-weight:700;color:#15803d;margin-bottom:4px">✅ YES SHOW</div><p style="font-size:12px;color:#166534;line-height:1.5">Esperar validación en App TGP y revisar comentarios del cliente.</p></div>
               <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:7px;padding:10px"><div style="font-size:11px;font-weight:700;color:#b91c1c;margin-bottom:4px">❌ NO SHOW</div><p style="font-size:12px;color:#991b1b;line-height:1.5">Etiqueta "Reagendar" → llamar al prospecto inmediatamente → avisar al cliente y reagendar en App TGP.</p></div>
             </div>
           </div>
@@ -2793,8 +2791,6 @@ const RES_GROUPS = [
 ];
 const RES_CATEGORIES = [
   { id:'kits',         label:'⚡ Apps y Kits',               group:'apps',    fullrow:true },
-  { id:'bandejas',     label:'📥 Bandejas de Correo',        group:'sdr' },
-  { id:'llamado',      label:'📞 Llamado',                   group:'sdr' },
   { id:'agendamiento', label:'📅 Agendamiento',              group:'sdr' },
   { id:'inicio',       label:'📄 Documentos de Onboarding',  group:'general' },
   { id:'oficina',      label:'🏢 Oficina',                   group:'general' },
@@ -2818,32 +2814,6 @@ const RES_DATA = [
         <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">⚠️ Sistema de Advertencias</a>
       </div>
     `
-  },
-  {
-    category:'bandejas',
-    direct: true,
-    icon:'🔧', title:'Herramientas de correo', sub:'',
-    keywords:'varita magica snov correos rebotes empleados extension ia herramientas bandejas',
-    body:`
-      <div class="link-row" style="flex-wrap:wrap">
-        <a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid">▶ Varita mágica Gmail</a>
-        <a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid">▶ Correos Snov</a>
-        <a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid">▶ Correos rebote</a>
-        <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid">▶ Empleados empresa</a>
-        <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid">▶ Empleados por país</a>
-      </div>`
-  },
-  {
-    category:'llamado',
-    direct: true,
-    icon:'📞', title:'Llamado', sub:'',
-    keywords:'llamado tibio apollo lusha contacto telefono prospecto',
-    body:`
-      <div class="link-row" style="flex-wrap:wrap">
-        <a href="https://www.loom.com/share/6863b17f349542e782f28b1d2ef81f14" target="_blank" class="lbtn lbtn-vid">▶ Llamada en tibio</a>
-        <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid">▶ Apollo — En Tibio</a>
-        <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid">▶ Lusha — En Tibio</a>
-      </div>`
   },
   {
     category:'oficina',
@@ -2882,63 +2852,14 @@ const RES_DATA = [
       </div>`
   },
   {
-    category:'bandejas',
-    icon:'📧', title:'Bandejas de Correo', sub:'Secuencias, etiquetas y movimiento',
-    keywords:'bandejas correo secuencias etiquetas movimiento archivar eliminar dominio cliente gmail',
-    body:`
-      <ul class="info-list"><li>Cuentas con nombres ficticios y dominios reales de los clientes.</li><li>El Manager envía las secuencias. El SDR actúa solo cuando hay respuesta.</li><li>Si el prospecto responde: la secuencia se corta. El SDR toma el hilo.</li></ul>
-      <h3 class="sh">Las 5 etiquetas</h3>
-      <div class="etiq-grid">
-        <div class="etiq" style="border-left:4px solid #eab308"><div class="etiq-name" style="color:#854d0e">Proceso</div><div class="etiq-desc">Conversación activa.</div></div>
-        <div class="etiq" style="border-left:4px solid #16a34a"><div class="etiq-name" style="color:#15803d">Agendado</div><div class="etiq-desc">Reunión confirmada.</div></div>
-        <div class="etiq" style="border-left:4px solid #dc2626"><div class="etiq-name" style="color:#b91c1c">No interesado</div><div class="etiq-desc">Rechazó la propuesta.</div></div>
-        <div class="etiq" style="border-left:4px solid #d97706"><div class="etiq-name" style="color:#92400e">No aplica</div><div class="etiq-desc">No cumple el ICP.</div></div>
-        <div class="etiq" style="border-left:4px solid #2563eb"><div class="etiq-name" style="color:#1d4ed8">Reagendar</div><div class="etiq-desc">No Show, nueva fecha.</div></div>
-        <div class="etiq" style="border-left:4px solid #7c3aed"><div class="etiq-name" style="color:#6d28d9">Llamar <span style="font-size:11px;font-weight:500;color:#8b5cf6;background:#f5f3ff;border-radius:4px;padding:1px 6px;margin-left:4px">Opcional</span></div><div class="etiq-desc">Teléfono en firma o muy interesado.</div></div>
-      </div>
-      <div class="link-row">
-        <a href="https://www.loom.com/share/99a9d029e8a6421dae5a7beac7882e1a" target="_blank" class="lbtn lbtn-vid">▶ Tour por bandeja</a>
-        <a href="https://www.loom.com/share/0ae18c83bb084ff89884a7c7fccd840c" target="_blank" class="lbtn lbtn-vid">▶ Movimiento de correos</a>
-        <a href="https://docs.google.com/document/d/1MPv57sOJvw9k4xfuWxoGpaXgNHW4kIFrP_I6SHofJ1E/edit" target="_blank" class="lbtn lbtn-doc">📄 Guía etiquetas</a>
-        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Esquema bandejas ⬇</a>
-      </div>`
-  },
-  {
-    category:'bandejas',
-    icon:'🛡️', title:'Manejo de Objeciones', sub:'Derivaciones, fuera de oficina, no interesado',
-    keywords:'objeciones derivaciones referidos fuera oficina vacaciones no interesado responder manejar',
-    body:`
-      <h3 class="sh">Derivaciones</h3>
-      <div class="link-row"><a href="https://www.loom.com/share/9b6b9a1cbb564e5b905039537d7e00a7" target="_blank" class="lbtn lbtn-vid">▶ Video: Derivaciones</a></div>
-      <h3 class="sh">Fuera de Oficina</h3>
-      <div class="link-row">
-        <a href="https://docs.google.com/document/d/1N7I8ZGjMJfvu5muqzZ11GLUz-1OYdABOhWcnUq2eeso/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Respuestas tipo (Seba)</a>
-        <a href="https://www.loom.com/share/4b9e4ecae20143c2a21a6a26fb1987f3" target="_blank" class="lbtn lbtn-vid">▶ Video: Fuera de oficina</a>
-      </div>
-      <h3 class="sh">No Interesado</h3>
-      <div class="link-row"><a href="https://www.loom.com/share/7d78d8afa42d478bbc6f9e0afb449644" target="_blank" class="lbtn lbtn-vid">▶ Video: "No interesado" — Tere</a></div>`
-  },
-  {
-    category:'bandejas',
-    icon:'📲', title:'Push y Llamado en Tibio', sub:'Estrategia más importante para agendar',
-    keywords:'push insistencia llamado tibio frio telefono seguimiento 2 veces semana frecuencia',
-    body:`
-      <div class="callout c-warn"><span class="callout-i">📌</span><div>Mínimo <strong>2 veces por semana</strong> a cada prospecto.</div></div>
-      <ul class="info-list"><li>Primer correo → buscar número → llamar en tibio.</li><li>Si no contesta → push escrito en el mismo hilo.</li><li>Cada push personalizado según la respuesta del prospecto.</li></ul>
-      <div class="link-row">
-        <a href="https://www.loom.com/share/9b6b9a1cbb564e5b905034671d1db2a8" target="_blank" class="lbtn lbtn-vid">▶ Push — Tere</a>
-        <a href="https://docs.google.com/document/d/1UzBrzY1Yrg5rNI8FkCasOeVe3X8GpV-gRf6smyf4Z7k/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Guía: push</a>
-        <a href="https://www.loom.com/share/6863b17f349542e782f28b1d2ef81f14" target="_blank" class="lbtn lbtn-vid">▶ Llamada exitosa — Juan</a>
-      </div>`
-  },
-  {
     category:'agendamiento',
     direct: true,
     icon:'📆', title:'Links de Agendamiento', sub:'',
-    keywords:'agendamiento disponibilidad ejecutivos instructivo app tgp agendamiento vivo',
+    keywords:'agendamiento disponibilidad ejecutivos instructivo app tgp agendamiento vivo calendario',
     body:`
+      <div class="callout c-info" style="margin-bottom:12px"><span class="callout-i">📅</span><div><strong>¿Cómo revisar la disponibilidad del ejecutivo?</strong> El calendario de cada ejecutivo está en el <strong>Google Calendar de la cuenta de correo asignada a ese cliente</strong>. Inicia sesión en esa cuenta y abre Google Calendar — ahí verás los horarios disponibles. Esa cuenta se usa <em>solo</em> para ver el calendario, ninguna otra acción.<br><br>⚡ <strong>Próximamente:</strong> Podrás ver todos los calendarios directamente desde la App TGP.</div></div>
       <div class="link-row" style="flex-wrap:wrap">
-        <a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank" class="lbtn lbtn-vid">▶ Disponibilidad ejecutivos</a>
+        <a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank" class="lbtn lbtn-vid">▶ Video: Disponibilidad ejecutivos</a>
         <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Instructivo App TGP</a>
         <a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank" class="lbtn lbtn-vid">▶ Agendamiento en vivo</a>
         <a href="https://internal.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ App TGP</a>
@@ -2971,19 +2892,15 @@ const RES_DATA = [
           <div class="agend-detail">Copia el mensaje resumen y envíalo por el grupo con el cliente, con el contexto de la reunión.</div>
         </div>
         <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">6</span><span class="agend-title">Confirmar reunión al prospecto</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Responde en el correo con fecha, hora y link de la reunión.</div>
+          <div class="agend-step-head"><span class="agend-n">6</span><span class="agend-title">Confirmación automática al prospecto</span><span class="agend-arr">+</span></div>
+          <div class="agend-detail">TGP envía automáticamente un mensaje de confirmación al prospecto por <strong>WhatsApp</strong> con fecha, hora, link de Meet y nombre del ejecutivo. No necesitas hacer nada.</div>
         </div>
         <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">7</span><span class="agend-title">Programar 2 recordatorios ⚠️</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail"><strong>Obligatorio.</strong> Uno el día antes y uno una hora antes — reduce el No Show.</div>
+          <div class="agend-step-head"><span class="agend-n">7</span><span class="agend-title">Recordatorio automático por WhatsApp</span><span class="agend-arr">+</span></div>
+          <div class="agend-detail">TGP envía automáticamente un recordatorio al prospecto <strong>1 hora antes</strong> de la reunión por WhatsApp. Si el prospecto responde, recibes notificación en tu canal de no-show en Slack.</div>
         </div>
         <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">8</span><span class="agend-title">Actualizar etiqueta a "Agendado"</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Cambia la etiqueta del correo de "Proceso" a "Agendado" y déjalo en recibidos.</div>
-        </div>
-        <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">9</span><span class="agend-title">Estar pendiente a la realización</span><span class="agend-arr">+</span></div>
+          <div class="agend-step-head"><span class="agend-n">8</span><span class="agend-title">Estar pendiente a la realización</span><span class="agend-arr">+</span></div>
           <div class="agend-detail">
             <p style="margin-bottom:8px">💡 <em>Llama al prospecto esa mañana para confirmar asistencia.</em></p>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
@@ -2997,11 +2914,10 @@ const RES_DATA = [
   {
     category:'agendamiento',
     icon:'🔔', title:'Recordatorios y No Show', sub:'WhatsApp automático y estrategias de realización',
-    keywords:'recordatorio no show whatsapp realizacion seguimiento programar correo alarma canal pod',
+    keywords:'recordatorio no show whatsapp realizacion seguimiento llamada canal pod confirmacion',
     body:`
-      <div class="callout c-info"><span class="callout-i">📱</span><div><b>🆕 WhatsApp automático</b>TGP envía recordatorio 1 hora antes. Si el prospecto responde → notificación en el canal de No Show del pod → respondés desde Slack.</div></div>
-      <ul class="info-list"><li>Programar 2 correos recordatorios — obligatorio.</li><li>Llamado preventivo 20 min antes para confirmar asistencia.</li><li>Si hay No Show: llamar inmediatamente y reagendar.</li></ul>
-      <div class="link-row"><a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank" class="lbtn lbtn-vid">▶ Video: Recordatorios</a></div>`
+      <div class="callout c-ok"><span class="callout-i">🤖</span><div><b>Sistema automático de TGP</b>Una vez aprobada la reunión, TGP envía al prospecto <strong>confirmación inmediata</strong> por WhatsApp. Y <strong>1 hora antes</strong> de cada reunión envía un recordatorio automático también por WhatsApp. Si el prospecto responde → recibes notificación en el canal de No Show del pod → puedes responderle directo desde Slack.</div></div>
+      <ul class="info-list"><li>Llamado preventivo el día anterior para confirmar asistencia — obligatorio.</li><li>Si hay No Show: llamar inmediatamente y reagendar en App TGP.</li></ul>`
   },
   {
     category:'kits',
@@ -3050,7 +2966,7 @@ const RES_DATA = [
         <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">🏖️ Ausencias, vacaciones, remoto</div><div style="font-size:12px;color:var(--gris2)">App TGP → Recursos Humanos</div></div>
         <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">🤒 Licencias médicas (FT)</div><div style="font-size:12px;color:var(--gris2)">BUK + avisar a RRHH por Slack</div></div>
         <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">🔑 Acceso a oficina / huella</div><div style="font-size:12px;color:var(--gris2)">RRHH (Belén) por Slack</div></div>
-        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">📧 Dudas de bandejas, clientes, rol</div><div style="font-size:12px;color:var(--gris2)">Manager o SDR Senior del pod</div></div>
+        <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">📞 Dudas de llamadas, clientes, rol</div><div style="font-size:12px;color:var(--gris2)">Manager o SDR Senior del pod</div></div>
         <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">🖥️ Acceso a plataformas (App, Drive, BUK)</div><div style="font-size:12px;color:var(--gris2)">Manager del pod</div></div>
         <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">💬 Feedback, sugerencias, reclamos</div><div style="font-size:12px;color:var(--gris2)">RRHH (Belén) por Slack</div></div>
         <div style="background:var(--gris5);border-radius:8px;padding:12px;border:1px solid var(--gris4)"><div style="font-size:12px;font-weight:700;color:var(--negro);margin-bottom:3px">❓ Dudas generales de RRHH</div><div style="font-size:12px;color:var(--gris2)">RRHH (Belén) por Slack</div></div>
