@@ -1604,7 +1604,7 @@ const ADMIN_STEPS = [
     content: () => `
       <p class="pt">En la oficina hay dos tipos de espacios: salas de reuniones que se reservan y salas individuales de uso libre.</p>
       <h3 class="sh">🚪 Salas de reuniones — requieren reserva</h3>
-      <p class="pt">Para usar una sala de reuniones tenés que reservarla en el calendario con anticipación. Las salas son compartidas por todo el equipo.</p>
+      <p class="pt">Para usar una sala de reuniones debes reservarla en el calendario con anticipación. Las salas son compartidas por todo el equipo.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:14px 0">
         <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
           <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--negro);margin-bottom:8px">Salas impares<br><span style="font-weight:600;color:var(--gris2)">(1, 3 y 5)</span></div>
@@ -1636,7 +1636,7 @@ const ADMIN_STEPS = [
       </div>
       <h3 class="sh">🎧 Salas individuales — sin reserva</h3>
       <p class="pt">Son espacios pequeños para llamados en frío o reuniones online individuales. No se reservan — se usan cuando están disponibles.</p>
-      <div class="callout c-warn"><span class="callout-i">⏱️</span><div><strong>Límite de uso continuo: 2 horas.</strong> Si alguien necesita la sala, tenés que cederla.</div></div>
+      <div class="callout c-warn"><span class="callout-i">⏱️</span><div><strong>Límite de uso continuo: 2 horas.</strong> Si alguien necesita la sala, debes cederla.</div></div>
     `
   },
   {
@@ -1669,7 +1669,8 @@ const ADMIN_STEPS = [
     keywords:'google calendar agenda disponibilidad reuniones app celular',
     content: () => `
       <p class="pt">El calendario dirige el día a día de todo el equipo. Cualquier persona puede ver tu disponibilidad para agendar reuniones — que son de asistencia obligatoria.</p>
-      <div class="callout c-warn" style="margin-bottom:4px"><span class="callout-i">⏱️</span><div><strong>Disponibilidad mínima diaria (part-time):</strong> debés reflejar en tu calendario al menos <strong>5 horas disponibles para TGP</strong> dentro de la ventana de 9:00 a 18:00, de lunes a viernes. El calendario es la evidencia formal de tu disponibilidad — si no está cargado, no está.</div></div>
+      <div class="callout c-warn" style="margin-bottom:4px"><span class="callout-i">⏱️</span><div><strong>Disponibilidad mínima diaria (part-time):</strong> debes reflejar en tu calendario al menos <strong>5 horas disponibles para TGP</strong> dentro de la ventana de 9:00 a 18:00, de lunes a viernes. El calendario es la evidencia formal de tu disponibilidad — si no está cargado, no está.</div></div>
+      <div class="callout c-info" style="margin-bottom:4px"><span class="callout-i">📌</span><div><strong>Durante tus bloques sin clases</strong>, dedica ese tiempo a TGP — llamadas, reuniones y tareas del pod. Los SDR part-time deben completar un mínimo de <strong>17 horas presenciales por semana</strong>, en días completos o bloques de al menos 4 horas. Los SDR full-time trabajan <strong>3 días completos fijos</strong> a la semana.</div></div>
       <h3 class="sh">1 — Mira el video primero</h3>
       <div class="link-row">
         <a href="https://www.loom.com/share/72be9e9b20e043dfb833308be04216d7" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Uso de Google Calendar</a>
@@ -1683,8 +1684,8 @@ const ADMIN_STEPS = [
       </div></div>
       <div class="callout c-info"><span class="callout-i">📌</span><div><b>Formato: "Fuera de oficina"</b>Al crear el evento elige el tipo <strong>"Fuera de oficina"</strong>, no "Evento". Así el equipo ve automáticamente que no estás disponible en ese horario.</div></div>
       <h3 class="sh">3 — Aceptar invitaciones a reuniones</h3>
-      <p class="pt">Cada vez que te llegue una invitación a una reunión en el calendario, tenés que aceptarla — no alcanza con que aparezca en tu agenda. Esto confirma tu asistencia y lo ve todo el equipo.</p>
-      <div class="callout c-warn"><span class="callout-i">✅</span><div><strong>Regla: aceptar siempre, apenas aparezca.</strong> Entrá a la cita, hacé clic en "Sí" (o "Asistir") y dejá todas tus próximas reuniones ya aceptadas. No esperes al día de la reunión para confirmar.</div></div>
+      <p class="pt">Cada vez que te llegue una invitación a una reunión en el calendario, debes aceptarla — no es suficiente con que aparezca en tu agenda. Esto confirma tu asistencia y lo ve todo el equipo.</p>
+      <div class="callout c-warn"><span class="callout-i">✅</span><div><strong>Regla: aceptar siempre, apenas aparezca.</strong> Entra a la cita, haz clic en "Sí" (o "Asistir") y deja todas tus próximas reuniones ya aceptadas. No esperes al día de la reunión para confirmar.</div></div>
       <h3 class="sh">4 — Ejecuta y marca cada ítem</h3>
       <div class="inline-check">
         <div class="ic-item"><input type="checkbox" id="cal1"><label for="cal1">Descargar la app de Google Calendar en mi celular e iniciar sesión con mi mail TGP</label></div>
@@ -1736,8 +1737,29 @@ const ADMIN_STEPS = [
         <li>Guardar.</li>
       </ol>
       <div class="link-row">
-        <a href="https://drive.google.com/file/d/1wjUMY7LnMlcDkTB3FWcy13VWJlg2EJS1/view?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="portada">⬇ Portada oficial TGP</a>
+        <a href="https://drive.google.com/file/d/1IbuiykyGTRKmtMYNT3hQH5nkMYB4l7p/view?usp=sharing" target="_blank" class="lbtn lbtn-drive" data-req="portada">⬇ Portada oficial TGP</a>
       </div>
+    `
+  },
+  {
+    id:'admin-calendario-presencial',
+    icon:'🏢',
+    badge:'Importante',
+    title:'Calendario Presencial en la App TGP',
+    keywords:'calendario presencial app tgp horas semana parttime fulltime bloques disponibilidad',
+    content: () => `
+      <p class="pt">Además de Google Calendar, debes marcar tus bloques presenciales en la App TGP. Esto permite que el equipo tenga visibilidad de tu disponibilidad.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0">
+        <div style="background:var(--gris5);border-radius:12px;padding:16px;border:1px solid var(--gris4)">
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:8px">Part-time</div>
+          <p style="font-size:13px;color:var(--negro);line-height:1.6;margin:0">Mínimo <strong>17 horas presenciales por semana</strong>, organizadas en días completos o bloques de al menos 4 horas.</p>
+        </div>
+        <div style="background:var(--gris5);border-radius:12px;padding:16px;border:1px solid var(--gris4)">
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gris2);margin-bottom:8px">Full-time</div>
+          <p style="font-size:13px;color:var(--negro);line-height:1.6;margin:0">Tres días completos fijos de presencialidad por semana.</p>
+        </div>
+      </div>
+      <div class="callout c-info"><span class="callout-i">📌</span><div>Consulta el WOW (Way of Work) para más detalles sobre las políticas de presencialidad.</div></div>
     `
   },
   {
@@ -1845,15 +1867,14 @@ const SDR_STEPS = [
     content: () => `
       <p class="pt">Ya leíste el Glosario TGP en la parte general. Ahora que empiezas la sección específica de tu cargo, repasa los conceptos que más vas a usar como SDR. Si alguno no te quedó claro, el botón del glosario está acá para volver cuando lo necesites.</p>
       <div class="gloss">
-        <div class="gloss-row"><div class="gloss-term">Push</div><div class="gloss-def">Correo o llamado de insistencia que envías a un prospecto para reactivar la conversación. Mínimo 2 veces por semana a cada uno.</div></div>
         <div class="gloss-row"><div class="gloss-term">Llamado en tibio</div><div class="gloss-def">Llamada a un prospecto con el que ya hubo contacto previo. Mucho más efectivo que el frío — el prospecto ya te conoce.</div></div>
         <div class="gloss-row"><div class="gloss-term">KDM</div><div class="gloss-def">Key Decision Maker — el tomador de decisiones. El objetivo siempre es hablar con él.</div></div>
         <div class="gloss-row"><div class="gloss-term">ICP</div><div class="gloss-def">Ideal Customer Profile — el perfil exacto del prospecto al que vale la pena contactar (sector, tamaño de empresa, cargo, país, etc.).</div></div>
         <div class="gloss-row"><div class="gloss-term">No Show</div><div class="gloss-def">Prospecto que no se presenta a la reunión. Hay que reagendarla de inmediato — si no se realiza, no es válida y no genera comisión.</div></div>
-        <div class="gloss-row"><div class="gloss-term">Derivación</div><div class="gloss-def">El prospecto te pasa el contacto del KDM real. Es una respuesta valiosa — actúa rápido.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Derivación</div><div class="gloss-def">Cuando llamas a un prospecto que no es el tomador de decisiones. Esa persona te deriva al contacto correcto — ya sea diciéndote quién es, o sin darte el nombre. El SDR debe llegar a ese nuevo contacto y agendar la reunión.</div></div>
         <div class="gloss-row"><div class="gloss-term">Weekly</div><div class="gloss-def">Reunión semanal del equipo. Presencial obligatoria, misma hora cada semana. Se revisan resultados y metas.</div></div>
         <div class="gloss-row"><div class="gloss-term">Pod / Célula</div><div class="gloss-def">Tu equipo de trabajo: Manager + SDR Senior + SDR Junior. Trabajan juntos para los mismos clientes.</div></div>
-        <div class="gloss-row"><div class="gloss-term">Call to action</div><div class="gloss-def">Frase al final del correo que indica el siguiente paso concreto — siempre proponer una reunión con horarios específicos.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Call to action</div><div class="gloss-def">La frase o pregunta que lleva la conversación al siguiente paso — ofrecer horarios, hacer la pregunta de cierre, lograr que el prospecto dé lo que necesitamos para avanzar hacia la reunión.</div></div>
       </div>
       <div class="link-row" style="margin-top:12px">
         <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc">📄 Volver al Glosario completo TGP</a>
@@ -1868,18 +1889,14 @@ const SDR_STEPS = [
     keywords:'proceso prospeccion herramientas bandejas telefono benjamin apt esmax sofia miranda ejemplo',
     content: () => `
       <p class="pt">Ahora que conoces los conceptos principales, podemos empezar a entender cómo funciona el proceso. Al principio suena complicado, pero es más simple de lo que crees.</p>
-      <h3 class="sh">Tus dos herramientas de trabajo</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 16px">
+      <h3 class="sh">Tu herramienta de trabajo</h3>
+      <div style="margin:10px 0 16px">
         <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:6px">1️⃣ Bandejas de correo electrónico</div>
-          <p style="font-size:13px;color:var(--gris2);line-height:1.5">Varias cuentas de mail de diferentes clientes de TGP, desde las que llegan respuestas de prospectos. Tu trabajo: responder y agendar reuniones.</p>
-        </div>
-        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:6px">2️⃣ Bases de datos telefónicas</div>
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:6px">📞 Bases de datos telefónicas</div>
           <p style="font-size:13px;color:var(--gris2);line-height:1.5">Listas con nombres, cargos, empresas y números de teléfono de miles de prospectos. Tu trabajo: llamar y agendar reuniones.</p>
         </div>
       </div>
-      <p class="pt">Día a día trabajas con ambas herramientas al mismo tiempo — respondes correos y llamas por teléfono. Trabajas para varios clientes de distintas industrias y países.</p>
+      <p class="pt">Día a día realizas llamadas en frío desde estas bases de datos. Trabajas para varios clientes de distintas industrias y países.</p>
       <h3 class="sh">Un ejemplo concreto — Benjamín Apt y Esmax</h3>
       <div class="callout c-tip"><span class="callout-i">💡</span><div>
         Benjamín Apt es uno de los más antiguos de TGP. Hoy lidera el canal de correos (Strategy Lead), pero en su momento fue SDR y tiene el podio histórico de TGP: <strong>1.825 reuniones agendadas</strong>.<br><br>
@@ -1887,121 +1904,6 @@ const SDR_STEPS = [
         El Manager programa correos automáticos que salen a miles de prospectos a nombre de Sofía. Benjamín se encarga de responder y agendar reuniones — pero no solo con las respuestas nuevas que van llegando. También trabaja con todas las conversaciones que ya están en la bandeja: prospectos que en algún momento respondieron pero que todavía no se convirtieron en una reunión. Los recontacta, les escribe de nuevo, los llama. Mientras más conversaciones activas tenga en la bandeja, más oportunidades tiene de agendar.<br><br>
         Apenas llega una respuesta nueva, lee, etiqueta y responde. Si el prospecto no vuelve a escribir, lo llama. Si no contesta, le manda WhatsApp. Y con los que ya están en conversación, hace exactamente lo mismo: insiste hasta que la reunión se agenda.
       </div></div>
-    `
-  },
-  {
-    id:'sdr-bandejas',
-    icon:'📧',
-    badge:'Bandejas y secuencias',
-    title:'Cómo funcionan las bandejas y las secuencias',
-    keywords:'bandejas correo mail gmail secuencias dominio cliente ficticias prospecto',
-    content: () => `
-      <p class="pt">El primer contacto con los prospectos se hace mediante correos masivos. TGP tiene bases de datos con miles de empresas y personas que podrían ser clientes potenciales de nuestros clientes — y el objetivo es contactarlas para lograr que acepten una reunión.</p>
-      <p class="pt">Para hacer ese primer contacto de forma eficiente, el Manager programa <strong>secuencias de correo automáticas</strong>: una serie de correos que salen desde las bandejas en diferentes horarios y días, de forma automática, a todos esos prospectos. Tú no las configuras ni las envías — eso lo hace el Manager. Las secuencias se envían solas todos los días, mientras tú te concentras en responder.</p>
-      <h3 class="sh">¿Qué haces tú cuando llega una respuesta?</h3>
-      <p class="pt">Cuando un prospecto responde, la secuencia se corta automáticamente. Desde ese momento, el correo es tuyo: debes leerlo, etiquetarlo y responder buscando agendar la reunión.</p>
-      <h3 class="sh">¿Y si el prospecto no responde?</h3>
-      <p class="pt">Si no hay respuesta, el Manager sigue enviando el resto de la secuencia — no es tu responsabilidad. Lo que debes hacer es <strong>archivar esos correos</strong> para mantener la bandeja limpia y enfocarte en los que sí respondieron.</p>
-      <div class="callout c-info"><span class="callout-i">💬</span><div><b>¿Quién envía las secuencias?</b> El Manager. El SDR solo trabaja en las conversaciones con los prospectos, siempre a partir de una respuesta.</div></div>
-      <h3 class="sh">Revisa estos recursos en orden</h3>
-      <div class="link-row">
-        <a href="https://docs.google.com/document/d/1dpwYb2PXCmTrLs7tklhjWIxubUvLekETOHbb9iu7m-4/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="secuencias">📄 Qué son las secuencias de correo</a>
-        <a href="https://docs.google.com/document/d/1ceNv1E0QNn5QKQcBi8ITaCirHAcTklv-V5RsNXN8ZTE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="ejemplo">📄 Ejemplo de secuencia (Esmax)</a>
-        <a href="https://www.loom.com/share/99a9d029e8a6421dae5a7beac7882e1a" target="_blank" class="lbtn lbtn-vid" data-req="tour">▶ Tour por una bandeja</a>
-        <a href="https://www.loom.com/share/0ae18c83bb084ff89884a7c7fccd840c" target="_blank" class="lbtn lbtn-vid" data-req="movimiento">▶ Movimiento de correos</a>
-      </div>
-    `
-  },
-  {
-    id:'sdr-etiquetas',
-    icon:'🏷️',
-    badge:'Técnico',
-    title:'Uso de Etiquetas',
-    keywords:'etiquetas estados correo proceso agendado no interesado no aplica reagendar categoria seguimiento',
-    content: () => `
-      <p class="pt">En las bandejas se acumulan decenas de conversaciones activas al mismo tiempo. Sin un sistema de categorización es imposible saber en qué estado está cada prospecto, qué tipo de respuesta dió, si hay que hacerle push, si ya está agendado o si simplemente no aplica.</p>
-      <p class="pt">El método que usa TGP es simple y efectivo: a cada conversación se le pone una <strong>etiqueta</strong> — un nombre que representa el estado actual. Eso permite leer la bandeja de un vistazo y saber exactamente qué hacer con cada correo.</p>
-      <p class="pt">Las etiquetas que se usan en TGP de forma obligatoria son las siguientes. Cada correo recibido <strong>debe ser etiquetado antes de responder</strong>:</p>
-      <div class="etiq-grid">
-        <div class="etiq" style="border-left:4px solid #eab308"><div class="etiq-name" style="color:#854d0e">Proceso</div><div class="etiq-desc">Conversación activa, se está trabajando para agendar.</div></div>
-        <div class="etiq" style="border-left:4px solid #16a34a"><div class="etiq-name" style="color:#15803d">Agendado</div><div class="etiq-desc">Reunión confirmada y agendada en la App TGP.</div></div>
-        <div class="etiq" style="border-left:4px solid #dc2626"><div class="etiq-name" style="color:#b91c1c">No interesado</div><div class="etiq-desc">Prospecto rechazó. Se intenta dar vuelta.</div></div>
-        <div class="etiq" style="border-left:4px solid #d97706"><div class="etiq-name" style="color:#92400e">No aplica</div><div class="etiq-desc">No cumple el perfil ICP o es irrelevante.</div></div>
-        <div class="etiq" style="border-left:4px solid #2563eb"><div class="etiq-name" style="color:#1d4ed8">Reagendar</div><div class="etiq-desc">La reunión no se realizó. Coordinar nueva fecha.</div></div>
-        <div class="etiq" style="border-left:4px solid #7c3aed"><div class="etiq-name" style="color:#6d28d9">Llamar <span style="font-size:11px;font-weight:500;color:#8b5cf6;background:#f5f3ff;border-radius:4px;padding:1px 6px;margin-left:4px">Opcional</span></div><div class="etiq-desc">Prospecto con teléfono en la firma o muy interesado — un llamado basta para agendar.</div></div>
-      </div>
-      <div class="callout c-warn"><span class="callout-i">⚠️</span><div>Solo se usan las etiquetas TGP. No crear nuevas. 1 etiqueta por correo. No duplicar. No responder sin etiquetar primero.</div></div>
-      <div class="link-row">
-        <a href="https://docs.google.com/document/d/1MPv57sOJvw9k4xfuWxoGpaXgNHW4kIFrP_I6SHofJ1E/edit" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía de etiquetas</a>
-        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="esquema">📄 Esquema manejo de bandejas ⬇</a>
-      </div>
-    `
-  },
-  {
-    id:'sdr-objeciones',
-    icon:'🛡️',
-    badge:'Estrategia',
-    title:'Manejo de Objeciones',
-    keywords:'objeciones derivaciones referidos fuera oficina no interesado responder manejar vacaciones rechazo',
-    content: () => `
-      <p class="pt">Las bandejas no son solo respuestas positivas. La mayoría de los correos que vas a recibir son <strong>objeciones</strong> — respuestas que, a primera vista, parecen cerrar la conversación.</p>
-      <p class="pt">Tu trabajo es saber leerlas y responder bien. Cada tipo de objeción tiene una forma de manejarse. Revisa cada una:</p>
-      <h3 class="sh">Derivaciones / Referidos</h3>
-      <p class="pt">El contacto que recibió el correo te deriva al KDM real — la persona que sí toma decisiones. Es una respuesta <strong>valiosa</strong>: no te rechazaron, te acercaron al objetivo. Hay que actuar rápido.</p>
-      <div class="link-row">
-        <a href="https://www.loom.com/share/9b6b9a1cbb564e5b905039537d7e00a7" target="_blank" class="lbtn lbtn-vid" data-req="derivaciones">▶ Video: Derivaciones y referidos</a>
-      </div>
-      <h3 class="sh">Fuera de la Oficina</h3>
-      <p class="pt">Respuesta automática: el prospecto está de vacaciones, con licencia o ausente. No es un rechazo — hay que volver a contactar cuando regrese. Para eso usamos plantillas del kit de ventas.</p>
-      <div class="link-row">
-        <a href="https://docs.google.com/document/d/1N7I8ZGjMJfvu5muqzZ11GLUz-1OYdABOhWcnUq2eeso/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="respuestas">📄 Respuestas tipo (Seba)</a>
-        <a href="https://www.loom.com/share/4b9e4ecae20143c2a21a6a26fb1987f3" target="_blank" class="lbtn lbtn-vid" data-req="fueraoficina">▶ Video: Cómo responder</a>
-      </div>
-      <h3 class="sh">No Interesado</h3>
-      <p class="pt">El prospecto rechaza la propuesta directamente. No significa que la conversación terminó — como SDR, el objetivo es dar vuelta esa situación y aun así agendar. Hay técnicas concretas para manejarlo.</p>
-      <div class="link-row">
-        <a href="https://www.loom.com/share/7d78d8afa42d478bbc6f9e0afb449644" target="_blank" class="lbtn lbtn-vid" data-req="nointeresado">▶ Video: "No interesado" — Tere, SDR Senior</a>
-      </div>
-    `
-  },
-  {
-    id:'sdr-push',
-    icon:'📲',
-    badge:'Responsabilidad clave',
-    title:'El Push — insistir para agendar',
-    keywords:'push insistencia seguimiento semanal frecuencia lunes miercoles viernes rutina programar',
-    content: () => `
-      <p class="pt">Cuando un prospecto no responde o todavía no se convirtió en una reunión, no lo abandonas — le vuelves a escribir. A eso se le llama <strong>push</strong>: un mensaje de seguimiento en el mismo hilo de conversación, personalizado, buscando reactivar el interés y agendar la reunión.</p>
-      <p class="pt">El push es <strong>la rutina más importante del SDR</strong>. Sin push, las conversaciones mueren. Con push constante, las reuniones se acumulan.</p>
-      <div class="callout c-warn"><span class="callout-i">📌</span><div><b>Regla fija: cada 2 días</b><br>El ritmo es <strong>Lunes → Miércoles → Viernes</strong>. Mantén ese ciclo con todas las conversaciones activas de tu bandeja.<br><br>Haz los push en la <strong>mañana</strong>. Si no puedes en ese horario, <strong>déjalos programados</strong> la noche anterior o el fin de semana.</div></div>
-      <div class="callout c-tip"><span class="callout-i">💡</span><div><b>Tip de los mejores SDRs</b>Varios dejan programados todos sus push del lunes el domingo en la tarde. Así el lunes lo usan para responder lo que llega y arrancar con llamados — sin perder tiempo buscando qué enviar.</div></div>
-      <h3 class="sh">¿Cómo es un buen push?</h3>
-      <ul class="info-list">
-        <li>Se envía en el mismo hilo de conversación — no un correo nuevo.</li>
-        <li>Es personalizado según lo que dijo o respondió el prospecto.</li>
-        <li>No es un copy-paste genérico — tiene que sonar humano.</li>
-      </ul>
-      <div class="link-row">
-        <a href="https://www.loom.com/share/9b6b9a1cbb564e5b905034671d1db2a8" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Push en acción — Tere, SDR Senior</a>
-        <a href="https://docs.google.com/document/d/1UzBrzY1Yrg5rNI8FkCasOeVe3X8GpV-gRf6smyf4Z7k/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía: Cómo hacer un push</a>
-      </div>
-    `
-  },
-  {
-    id:'sdr-llamado-tibio',
-    icon:'📞',
-    badge:'Responsabilidad clave',
-    title:'El Llamado en Tibio — la clave para agendar más',
-    keywords:'llamado tibio telefono llamar prospecto fundamental diferencia clave agendar',
-    content: () => `
-      <p class="pt">Un <strong>llamado en tibio</strong> es llamar por teléfono a un prospecto con el que ya hubo contacto previo — sea porque respondió un correo, porque le enviamos push, o porque ya está en una conversación activa en la bandeja.</p>
-      <p class="pt">Es tibio porque no es un llamado en frío (sin contexto previo) — el prospecto ya te conoce, aunque sea de manera indirecta. Eso lo hace mucho más efectivo.</p>
-      <div class="callout c-warn"><span class="callout-i">🔑</span><div><b>Regla fundamental: llamar siempre primero</b><br>Antes de enviar un push por correo, <strong>llama</strong>. Cuando llega una respuesta de un prospecto, <strong>llama</strong>. El correo es el respaldo — el teléfono es lo que cierra.<br><br>Los SDRs que más reuniones agendan no esperan respuestas. Apenas ven una oportunidad, buscan el número y llaman.</div></div>
-      <p class="pt">En TGP tenemos herramientas para encontrar el número de cualquier prospecto (Apollo y Lusha — las verás más adelante). No hay excusa para no llamar.</p>
-      <div class="callout c-tip"><span class="callout-i">🏆</span><div><b>Juan Aspillaga — SDR Specialist</b>En el siguiente video, Juan llama en tibio a un prospecto que rechazó la propuesta por correo. En menos de 4 minutos logra agendar la reunión. Así es como se diferencia un SDR promedio de uno que está siempre en el podio.</div></div>
-      <div class="link-row">
-        <a href="https://www.loom.com/share/6863b17f349542e782f28b1d2ef81f14" target="_blank" class="lbtn lbtn-vid" data-req="llamada">▶ Llamada en tibio exitosa — Juan Aspillaga</a>
-      </div>
     `
   },
   {
@@ -2059,10 +1961,10 @@ const SDR_STEPS = [
           <div class="agend-step-head"><span class="agend-n">3</span><span class="agend-title">Agendar en la App TGP</span><span class="agend-arr">+</span></div>
           <div class="agend-detail">
             <p style="margin-bottom:8px">Una vez que el prospecto confirma el horario <strong>y verificaste que tanto el prospecto como su empresa cumplen los parámetros de validación del cliente</strong>, tienes luz verde para agendar en la App TGP. La app envía automáticamente el mensaje resumen al canal de reuniones del pod en Slack.</p>
-            <div class="callout c-info" style="margin-bottom:10px"><span class="callout-i">ℹ️</span><div>Por ahora solo revisa el instructivo y el video — <strong>el acceso a la App TGP lo recibirás en tu reunión con el Manager el Día 2</strong>. Allí te darán tu usuario y contraseña.</div></div>
-            <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <div class="callout c-info" style="margin-bottom:10px"><span class="callout-i">ℹ️</span><div>Por ahora solo revisa el instructivo — <strong>el acceso a la App TGP lo recibirás en tu reunión con el Manager el Día 1 — continuación</strong>. Allí te darán tu usuario y contraseña.</div></div>
+            <div class="card warning"><p>⏳ <strong>Contenido pendiente:</strong> Martin Kolton preparará los videos de demostración de este paso. Se agregarán próximamente.</p></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
               <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px" data-req="instructivo">📄 Instructivo paso a paso</a>
-              <a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank" class="lbtn lbtn-vid" style="font-size:12px;padding:6px 12px" data-req="video-agend">▶ Video: Agendamiento en vivo — Nahuel</a>
             </div>
           </div>
         </div>
@@ -2136,18 +2038,14 @@ const SDR_STEPS = [
           </div>
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">7</span><span class="agend-title">Programar 2 recordatorios ⚠️</span><span class="agend-arr">+</span></div>
+          <div class="agend-step-head"><span class="agend-n">7</span><span class="agend-title">Confirmar la reunión por llamada el día anterior</span><span class="agend-arr">+</span></div>
           <div class="agend-detail">
-            <p style="margin-bottom:10px"><strong>Obligatorio para toda reunión.</strong> Uno el día anterior y otro una hora antes. Reduce significativamente el No Show.</p>
-            <a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank" class="lbtn lbtn-vid" style="font-size:12px;padding:6px 12px" data-req="recordatorios-agend">▶ Video: Cómo programar recordatorios</a>
+            <p style="margin-bottom:8px">El día anterior a la reunión, llama al prospecto para confirmar que asistirá. Es el mejor preventivo contra el No Show.</p>
+            <div class="callout c-warn"><span class="callout-i">📞</span><div><strong>Este llamado es obligatorio.</strong> No basta con haber agendado la reunión — confirma por teléfono el día antes para asegurar la asistencia.</div></div>
           </div>
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">8</span><span class="agend-title">Actualizar etiqueta a "Agendado"</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Cambia la etiqueta del correo de "Proceso" a "Agendado" y déjalo en recibidos. El correo debe quedar visible hasta que la reunión se realice.</div>
-        </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">9</span><span class="agend-title">Estar pendiente a la realización</span><span class="agend-arr">+</span></div>
+          <div class="agend-step-head"><span class="agend-n">8</span><span class="agend-title">Estar pendiente a la realización</span><span class="agend-arr">+</span></div>
           <div class="agend-detail">
             <p style="margin-bottom:8px">💡 <em>Llama al prospecto esa mañana para confirmar asistencia — es el mejor preventivo contra el No Show.</em></p>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
@@ -2167,23 +2065,18 @@ const SDR_STEPS = [
   {
     id:'sdr-recordatorios',
     icon:'🔔',
-    badge:'Obligatorio',
-    title:'Recordatorios y No Show',
+    badge:'Proceso',
+    title:'No Show',
     keywords:'recordatorio no show whatsapp realizacion seguimiento programar correo alarma bot testnoshow canal pod',
     content: () => `
       <div class="callout c-warn"><span class="callout-i">🔴</span><div>Si la reunión no se realiza = No Show = no es válida = no genera comisión. El SDR es responsable de que la reunión se haga.</div></div>
-      <h3 class="sh">Recordatorios — obligatorio</h3>
-      <p class="pt">Programar <strong>2 correos recordatorios</strong> (día antes y hora antes) es obligatorio para toda reunión agendada.</p>
-      <div class="link-row">
-        <a href="https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Programar recordatorios</a>
-      </div>
       <h3 class="sh">Sistema automático — Bot TestNoShow</h3>
       <div class="callout c-info"><span class="callout-i">🤖</span><div><b>Bot TestNoShow</b>Monitorea cada reunión automáticamente. A los +4, +8 y +15 minutos verifica quién está conectado en Google Meet y reporta en el canal <strong>pod-[nombre]-noshow</strong> de Slack: estado (YesShow / No-Show), presentes y ausentes. Si se confirma el No-Show, registra el veredicto en la base de datos.</div></div>
       <div class="callout c-ok"><span class="callout-i">📱</span><div><b>WhatsApp automático</b>TGP envía recordatorio por WhatsApp <strong>1 hora antes</strong> de la reunión. Si el prospecto responde, recibes notificación en tu canal de no-show y puedes responderle directo desde Slack.</div></div>
       <h3 class="sh">Tu responsabilidad ante un No-Show</h3>
       <ul class="info-list">
         <li>Revisar tu canal <strong>pod-[nombre]-noshow</strong> en Slack.</li>
-        <li>Contactar al prospecto inmediatamente (llamado, WhatsApp, correo).</li>
+        <li>Contactar al prospecto inmediatamente (llamado, WhatsApp).</li>
         <li>Reagendar la reunión en la App TGP y avisar al cliente.</li>
       </ul>
       <div class="callout c-tip"><span class="callout-i">💡</span><div><b>Tip preventivo</b>Llama al prospecto <strong>20 minutos antes</strong> de cada reunión para confirmar asistencia.</div></div>
@@ -2201,7 +2094,6 @@ const SDR_STEPS = [
       <div class="link-row">
         <a href="https://drive.google.com/drive/folders/1jvNA6adLXYv1mUXsw_52Bn1opGMuzG7w?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit del Colaborador</a>
         <a href="https://drive.google.com/file/d/1XcHm7OyhO2dgl40xiIXgZvn9drNgGmaD/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="esquema-agend">📄 Proceso de agendamiento</a>
-        <a href="https://drive.google.com/file/d/1K7G6jduRcJZuBYiiA3-nGPVo8gRFPjRu/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="correos">📄 Manejo de correos</a>
         <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive" data-req="kit-ventas">📁 Kit de ventas clientes</a>
         <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc" data-req="dashboard">📊 Dashboard reuniones</a>
       </div>
@@ -2216,8 +2108,8 @@ const SDR_STEPS = [
     content: () => `
       <p class="pt">Antes de avanzar, hay una reunión de repaso con Belén (RRHH) a las <strong>14:00 hrs</strong>. En esta reunión van a repasar todo lo que estudiaste en el onboarding, resolver dudas y aterrizar la información.</p>
       <div class="callout c-warn"><span class="callout-i">📩</span><div><strong>Avisale a Belén por Slack que ya terminaste el onboarding y que estás listo/a para la reunión.</strong><br>Ella coordina el horario y te manda el link o te avisa si es presencial.</div></div>
-      <div class="callout c-info"><span class="callout-i">💡</span><div>Mientras esperás, repasá los pasos que más te costaron y anotá todas las dudas que tengas. Es el momento ideal para resolverlas.</div></div>
-      <p class="pt" style="font-size:13px;color:var(--gris2)">Cuando termines la reunión, marcá este paso como completado y continuá con el quiz.</p>
+      <div class="callout c-info"><span class="callout-i">💡</span><div>Mientras esperas, repasa los pasos que más te costaron y anota todas las dudas que tengas. Es el momento ideal para resolverlas.</div></div>
+      <p class="pt" style="font-size:13px;color:var(--gris2)">Cuando termines la reunión, marca este paso como completado y continúa con el quiz.</p>
     `
   },
   {
@@ -2227,91 +2119,43 @@ const SDR_STEPS = [
     title:'Quiz de Onboarding',
     keywords:'quiz preguntas evaluacion conocimiento proceso sdr bandeja push llamado reunion valida',
     content: () => `
-      <p class="pt">Antes de que te asignen tus clientes, completá este quiz. No es una evaluación — es para ayudarte a identificar qué áreas te quedaron más claras y cuáles necesitan refuerzo. Los resultados llegan directo a RRHH para que tu Senior y Manager puedan acompañarte mejor desde el día uno.</p>
+      <p class="pt">Antes de que te asignen tus clientes, completa este quiz. No es una evaluación — es para ayudarte a identificar qué áreas te quedaron más claras y cuáles necesitan refuerzo. Los resultados llegan directo a RRHH para que tu Senior y Manager puedan acompañarte mejor desde el día uno.</p>
+      <div class="callout c-warn" style="margin-bottom:16px"><span class="callout-i">⏳</span><div><strong>Preguntas pendientes:</strong> Martin Kolton agregará preguntas sobre llamadas en frío, agendamiento telefónico y manejo de No Show.</div></div>
       <div id="sdr-quiz-form">
         <div class="quiz-block">
-          <div class="quiz-q">1. Tienes 40 prospectos en PROCESO que no han respondido ningún correo en los últimos 10 días. Tu bandeja de recibidos está vacía. ¿Qué deberías hacer?</div>
-          <label class="quiz-opt"><input type="radio" name="q1" value="a"> Nada: las secuencias siguen corriendo solas, solo actúas cuando un prospecto responde.</label>
-          <label class="quiz-opt"><input type="radio" name="q1" value="b"> Barres la bandeja y haces push a cada prospecto activo cada 2 días, llamando por teléfono antes de enviar correo.</label>
-          <label class="quiz-opt"><input type="radio" name="q1" value="c"> Envías un correo general a todos recordando que siguen en proceso.</label>
-          <label class="quiz-opt"><input type="radio" name="q1" value="d"> Archivas los que llevan más de 2 semanas sin respuesta para limpiar la bandeja.</label>
+          <div class="quiz-q">1. El prospecto aceptó reunirse y ya validaste todos los parámetros. ¿Cuál es el orden correcto de los pasos que siguen?</div>
+          <label class="quiz-opt"><input type="radio" name="q1" value="a"> Proponer horarios → App TGP → enviar detalle al cliente → aprobación Manager → confirmar prospecto → llamada de confirmación día anterior.</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="b"> Proponer horarios → App TGP → aprobación Manager → enviar detalle al cliente → confirmar prospecto → llamada de confirmación día anterior.</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="c"> Aprobación Manager → proponer horarios → App TGP → enviar detalle al cliente → confirmar prospecto.</label>
+          <label class="quiz-opt"><input type="radio" name="q1" value="d"> Proponer horarios → App TGP → confirmar prospecto → aprobación Manager → detalle al cliente.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">2. Un prospecto responde tu secuencia: <em>"Me interesa, pero estoy de vacaciones, escríbeme el 20 de agosto. Mi reemplazo es Andrea López."</em> Hoy es 5 de agosto. ¿Qué etiqueta usas y qué haces?</div>
-          <label class="quiz-opt"><input type="radio" name="q2" value="a"> PROCESO — programas un correo para el 23 de agosto y además contactas a Andrea López para no perder tiempo.</label>
-          <label class="quiz-opt"><input type="radio" name="q2" value="b"> REAGENDAR — coordinas con el ejecutivo una nueva fecha para después de las vacaciones.</label>
-          <label class="quiz-opt"><input type="radio" name="q2" value="c"> PROCESO — esperas al 20 de agosto y escribes solo al prospecto original.</label>
-          <label class="quiz-opt"><input type="radio" name="q2" value="d"> NO INTERESADO — si no puede reunirse ahora, no es un prospecto activo.</label>
+          <div class="quiz-q">2. Son las 15:12. El prospecto tenía reunión a las 15:00 y no apareció. El ejecutivo te escribe preguntando qué pasó. ¿Qué haces ahora?</div>
+          <label class="quiz-opt"><input type="radio" name="q2" value="a"> Esperar hasta las 15:30 antes de actuar: 12 minutos de retraso aún está dentro del margen.</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="b"> Llamar al prospecto, coordinar una nueva fecha y avisar al cliente.</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="c"> Llamar al prospecto de inmediato y coordinar nueva fecha con el cliente en App TGP.</label>
+          <label class="quiz-opt"><input type="radio" name="q2" value="d"> Esperar 30 minutos más por si el prospecto se retrasa.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">3. Un prospecto en PROCESO respondió tu correo hace 4 días con <em>"lo reviso y te escribo"</em> y no volvió a responder. Ya hiciste push ayer. ¿Cuál es el paso más efectivo ahora?</div>
-          <label class="quiz-opt"><input type="radio" name="q3" value="a"> Esperar 3 días más antes de insistir; el plazo de respuesta razonable es de una semana.</label>
-          <label class="quiz-opt"><input type="radio" name="q3" value="b"> Volver a hacer push hoy y en el correo proponer directamente una reunión para forzar una decisión.</label>
-          <label class="quiz-opt"><input type="radio" name="q3" value="c"> Llamar por teléfono: ya hay conversación iniciada y el teléfono es el canal más efectivo para retomar y agendar.</label>
-          <label class="quiz-opt"><input type="radio" name="q3" value="d"> Cambiar a NO INTERESADO: si dijo que escribía y no lo hizo, ya no hay interés real.</label>
+          <div class="quiz-q">3. Hoy a las 15:00 tienes una reunión agendada entre un prospecto y el ejecutivo. Son las 14:55. ¿Qué deberías estar haciendo?</div>
+          <label class="quiz-opt"><input type="radio" name="q3" value="a"> Nada especial: la reunión ya está confirmada, el prospecto sabe a qué hora es.</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="b"> Esperar hasta las 15:10 para ver si el prospecto entra; si no aparece, llamar y notificar al cliente.</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="c"> Estar en Meet desde antes de las 15:00 con el contacto del prospecto a mano: ante cualquier ausencia, notificar al cliente de inmediato y llamar al prospecto sin esperar.</label>
+          <label class="quiz-opt"><input type="radio" name="q3" value="d"> Llamar al prospecto a las 15:00 exactas para confirmar que va a entrar a la reunión.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">4. El prospecto aceptó reunirse y ya validaste todos los parámetros. ¿Cuál es el orden correcto de los pasos que siguen?</div>
-          <label class="quiz-opt"><input type="radio" name="q4" value="a"> Proponer horarios → App TGP → enviar detalle al cliente → aprobación Manager → confirmar prospecto → 2 recordatorios → actualizar etiqueta.</label>
-          <label class="quiz-opt"><input type="radio" name="q4" value="b"> Proponer horarios → App TGP → aprobación Manager → enviar detalle al cliente → confirmar prospecto → 2 recordatorios → actualizar etiqueta.</label>
-          <label class="quiz-opt"><input type="radio" name="q4" value="c"> Aprobación Manager → proponer horarios → App TGP → enviar detalle al cliente → confirmar prospecto → recordatorios.</label>
-          <label class="quiz-opt"><input type="radio" name="q4" value="d"> Proponer horarios → App TGP → confirmar prospecto → aprobación Manager → detalle al cliente → recordatorios → etiqueta.</label>
+          <div class="quiz-q">4. Estás gestionando un prospecto difícil que siempre pone obstáculos antes de aceptar reunirse. No sabes cómo manejar las objeciones telefónicas. ¿A quién acudes?</div>
+          <label class="quiz-opt"><input type="radio" name="q4" value="a"> Al SDR Manager: tiene visión de todos los prospectos del equipo y puede orientarte directamente.</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="b"> Al SDR Senior o Specialist de tu equipo: son tu primer punto de apoyo para casos del proceso de prospección.</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="c"> Al CSR: conoce a los clientes y puede darte contexto del servicio para responder las objeciones.</label>
+          <label class="quiz-opt"><input type="radio" name="q4" value="d"> Lo resuelves solo con el material del onboarding y escalarías solo si el prospecto se molesta.</label>
         </div>
         <div class="quiz-block">
-          <div class="quiz-q">5. Son las 15:12. El prospecto tenía reunión a las 15:00 y no apareció. El ejecutivo te escribe preguntando qué pasó. ¿Qué haces ahora?</div>
-          <label class="quiz-opt"><input type="radio" name="q5" value="a"> Esperar hasta las 15:30 antes de actuar: 12 minutos de retraso aún está dentro del margen.</label>
-          <label class="quiz-opt"><input type="radio" name="q5" value="b"> Llamar al prospecto, cambiar etiqueta de AGENDADO a PROCESO y coordinar una nueva fecha.</label>
-          <label class="quiz-opt"><input type="radio" name="q5" value="c"> Llamar al prospecto de inmediato, etiquetar REAGENDAR y coordinar nueva fecha con el cliente en App TGP.</label>
-          <label class="quiz-opt"><input type="radio" name="q5" value="d"> Etiquetar NO INTERESADO: un no-show es señal clara de que el prospecto no quiere continuar.</label>
-        </div>
-        <div class="quiz-block">
-          <div class="quiz-q">6. Hoy a las 15:00 tienes una reunión agendada entre un prospecto y el ejecutivo. Son las 14:55. ¿Qué deberías estar haciendo?</div>
-          <label class="quiz-opt"><input type="radio" name="q6" value="a"> Nada especial: la reunión ya está confirmada con 2 recordatorios, el prospecto sabe a qué hora es.</label>
-          <label class="quiz-opt"><input type="radio" name="q6" value="b"> Esperar hasta las 15:10 para ver si el prospecto entra; si no aparece, llamar y notificar al cliente.</label>
-          <label class="quiz-opt"><input type="radio" name="q6" value="c"> Estar en Meet desde antes de las 15:00 con el contacto del prospecto a mano: ante cualquier ausencia, notificar al cliente de inmediato y llamar al prospecto sin esperar.</label>
-          <label class="quiz-opt"><input type="radio" name="q6" value="d"> Llamar al prospecto a las 15:00 exactas para confirmar que va a entrar a la reunión.</label>
-        </div>
-        <div class="quiz-block">
-          <div class="quiz-q">7. Un prospecto de tu secuencia responde automáticamente: <em>"Estoy fuera hasta el 18 de agosto. Para urgencias, contactar a Jefa Torres: jefa@empresa.com."</em> ¿Qué haces?</div>
-          <label class="quiz-opt"><input type="radio" name="q7" value="a"> Escribir directamente a jefa@empresa.com: si está activa, es una oportunidad de avanzar sin esperar.</label>
-          <label class="quiz-opt"><input type="radio" name="q7" value="b"> Dejar que la secuencia siga corriendo; el sistema continuará contactando al prospecto cuando vuelva.</label>
-          <label class="quiz-opt"><input type="radio" name="q7" value="c"> Programar un correo para unos días después del 18 y además buscar el teléfono de Jefa Torres para contactarla: es un referido activo.</label>
-          <label class="quiz-opt"><input type="radio" name="q7" value="d"> Cambiar etiqueta a PROCESO y esperar que el prospecto escriba cuando vuelva.</label>
-        </div>
-        <div class="quiz-block">
-          <div class="quiz-q">8. Estás gestionando un prospecto difícil que responde pero siempre pone obstáculos antes de aceptar reunirse. No sabes cómo manejar las objeciones. ¿A quién acudes?</div>
-          <label class="quiz-opt"><input type="radio" name="q8" value="a"> Al SDR Manager: tiene visión de todos los prospectos del equipo y puede orientarte directamente.</label>
-          <label class="quiz-opt"><input type="radio" name="q8" value="b"> Al SDR Senior de tu equipo: es tu primer punto de apoyo para casos del proceso de prospección.</label>
-          <label class="quiz-opt"><input type="radio" name="q8" value="c"> Al CSR: conoce a los clientes y puede darte contexto del servicio para responder las objeciones.</label>
-          <label class="quiz-opt"><input type="radio" name="q8" value="d"> Lo resuelves solo con el material del onboarding y escalarías solo si el prospecto se molesta.</label>
-        </div>
-        <div class="quiz-block">
-          <div class="quiz-q">9. Tuviste una semana muy activa: agendaste 7 reuniones y gestionaste muchas respuestas. Pero hay un prospecto en PROCESO al que no le hiciste push en 7 días. ¿Qué pilar de tu rol fallaste?</div>
-          <label class="quiz-opt"><input type="radio" name="q9" value="a"> Organización: no lo registraste en tu calendario para hacer seguimiento.</label>
-          <label class="quiz-opt"><input type="radio" name="q9" value="b"> Constancia: el push mínimo es cada 2 días; 7 días sin contacto rompe el proceso aunque hayas tenido una semana muy activa.</label>
-          <label class="quiz-opt"><input type="radio" name="q9" value="c"> Responsabilidad: no cumpliste con lo que se pidió y no avisaste al Manager que ese prospecto quedó sin atención.</label>
-          <label class="quiz-opt"><input type="radio" name="q9" value="d"> Comunicación: el prospecto necesitaba más información del servicio para avanzar y no se la diste.</label>
-        </div>
-        <div class="quiz-block">
-          <div class="quiz-q">10. Tienes semana de pruebas en la universidad: 3 en 4 días. El lunes no hiciste el primer push y es martes, aún no empezaste con la meta de llamados. ¿Qué haces?</div>
-          <label class="quiz-opt"><input type="radio" name="q10" value="a"> Avisarle al Senior y al Manager que vas atrasado por las pruebas y que probablemente necesitas reducir la carga esa semana.</label>
-          <label class="quiz-opt"><input type="radio" name="q10" value="b"> Compensar la semana siguiente con los números y push que hayan faltado, una vez que pasen las pruebas.</label>
-          <label class="quiz-opt"><input type="radio" name="q10" value="c"> Reorganizas la semana, haces ahora el push del lunes, empiezas con los llamados, divides los pendientes por día que queda y le avisas al Senior cómo te organizaste para cumplir.</label>
-          <label class="quiz-opt"><input type="radio" name="q10" value="d"> Al final de la semana ves qué cosas faltaron y le avisas al Senior para que esté al tanto.</label>
-        </div>
-        <div class="quiz-block">
-          <div class="quiz-q">11. Hoy es jueves y llevas 70 llamados en la semana. Para llegar a los 150 mínimos necesitas 80 más. ¿Cuál es la actitud correcta?</div>
-          <label class="quiz-opt"><input type="radio" name="q11" value="a"> Avisarle al Manager que probablemente no vas a poder cumplir la meta y que la próxima semana harás los que falten.</label>
-          <label class="quiz-opt"><input type="radio" name="q11" value="b"> Priorizar calidad sobre cantidad: 70 llamados bien hechos valen más que 150 rápidos.</label>
-          <label class="quiz-opt"><input type="radio" name="q11" value="c"> Los 150 llamados son un mínimo sin excusas: hoy y mañana haces los 80 que faltan, no es opción no cumplir.</label>
-          <label class="quiz-opt"><input type="radio" name="q11" value="d"> Compensar la próxima semana haciendo el doble para promediar el objetivo.</label>
-        </div>
-        <div class="quiz-block">
-          <div class="quiz-q">12. Un prospecto te responde: <em>"Ya usamos un servicio similar y estamos conformes, gracias."</em> ¿Cuál es la acción correcta?</div>
-          <label class="quiz-opt"><input type="radio" name="q12" value="a"> Etiquetar PROCESO, llamar al prospecto y conversar con él para asegurarte de que realmente no le sirve el servicio antes de cerrar el caso.</label>
-          <label class="quiz-opt"><input type="radio" name="q12" value="b"> Insistir con un ángulo diferente del servicio, mencionando los recursos valiosos que podría ganar el cliente con el cambio.</label>
-          <label class="quiz-opt"><input type="radio" name="q12" value="c"> Hacer push insistiendo en la propuesta de valor del servicio para que reconsidere.</label>
-          <label class="quiz-opt"><input type="radio" name="q12" value="d"> Cerrar la conversación con un mensaje cordial, etiquetar NO INTERESADO y sacarlo de recibidos.</label>
+          <div class="quiz-q">5. Hoy es jueves y llevas 70 llamados en la semana. Para llegar a los 150 mínimos necesitas 80 más. ¿Cuál es la actitud correcta?</div>
+          <label class="quiz-opt"><input type="radio" name="q5" value="a"> Avisarle al Manager que probablemente no vas a poder cumplir la meta y que la próxima semana harás los que falten.</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="b"> Priorizar calidad sobre cantidad: 70 llamados bien hechos valen más que 150 rápidos.</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="c"> Los 150 llamados son un mínimo sin excusas: hoy y mañana haces los 80 que faltan, no es opción no cumplir.</label>
+          <label class="quiz-opt"><input type="radio" name="q5" value="d"> Compensar la próxima semana haciendo el doble para promediar el objetivo.</label>
         </div>
         <div id="quiz-msg" style="display:none;margin:12px 0;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:600"></div>
         <button class="complete-btn" style="margin-top:8px" onclick="enviarQuiz()">Enviar respuestas →</button>
@@ -2328,7 +2172,7 @@ const SDR_STEPS = [
     title:'Estudiar los Clientes Asignados',
     keywords:'tarea estudiar clientes kit ventas linkedin web onboarding secuencia',
     content: () => `
-      <p class="pt">Esta es la última tarea del Día 1. Antes de tu reunión con el Senior mañana y de recibir tus bandejas, tienes que conocer bien los clientes con los que vas a trabajar: propuesta de valor, servicio, diferenciadores, países, etc.</p>
+      <p class="pt">Esta es la última tarea del Día 1. Antes de tu reunión con el Senior y Specialist mañana, tienes que conocer bien los clientes con los que vas a trabajar: propuesta de valor, servicio, diferenciadores, países, etc.</p>
       <p class="pt">Para <strong>cada cliente asignado</strong>, haz esto en orden:</p>
       <ol class="steps-list">
         <li>Buscar y estudiar el perfil de LinkedIn de la empresa.</li>
@@ -2336,30 +2180,46 @@ const SDR_STEPS = [
         <li>Entrar al Kit de Ventas → carpeta del pod que RRHH te indicó → carpeta del cliente.</li>
         <li>Estudiar los PDF: one pager / brochure / presentación.</li>
         <li>Estudiar notas de onboarding del equipo.</li>
-        <li>Estudiar la secuencia de correo del cliente.</li>
-        <li>Estudiar las respuestas tipo del cliente.</li>
+        <li>⏳ <strong>Estudiar el pitch de llamada del cliente</strong> — Martin Kolton compartirá este material próximamente.</li>
       </ol>
       <div class="link-row">
         <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit de Ventas Clientes</a>
       </div>
-      <div class="callout c-ok"><span class="callout-i">🎉</span><div>Con esto cierras el Día 1. Llegaste preparado/a — mañana son las reuniones y las bandejas en vivo.</div></div>
+      <div class="callout c-ok"><span class="callout-i">🎉</span><div>Con esto cierras el Día 1. Llegaste preparado/a — mañana son las reuniones y el proceso de agendamiento en vivo.</div></div>
+    `
+  },
+  {
+    id:'sdr-wow',
+    icon:'📋',
+    badge:'Tarea',
+    title:'WOW — Way of Work',
+    keywords:'wow way of work documento normas expectativas compromisos buk firma',
+    content: () => `
+      <p class="pt">El WOW (Way of Work) es el documento que define la forma de trabajar en TGP: normas, expectativas y compromisos del equipo.</p>
+      <div class="callout c-info"><span class="callout-i">📌</span>
+        <div>
+          <h3 style="margin-bottom:8px">¿Qué debes hacer?</h3>
+          <ol class="steps-list">
+            <li>Leer el documento WOW completo.</li>
+            <li>Firmarlo a través de la plataforma <strong>BUK</strong> — lo encontrarás adjunto en tu perfil.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="callout c-tip"><span class="callout-i">📌</span><div>Si tienes dudas sobre algún punto del WOW, puedes consultarle a RRHH antes de firmarlo.</div></div>
     `
   },
   {
     id:'sdr-dia2',
     icon:'🌅',
-    badge:'Día 2',
+    badge:'Día 1 — continuación',
     title:'Bienvenido/a al segundo día',
     keywords:'segundo dia onboarding dia 2 clientes bandejas tarea estudiar',
     content: () => `
-      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 2</b><br>Empiézala el segundo día de onboarding, cuando llegues a la oficina con los clientes ya estudiados.</div></div>
-      <p class="pt">El proceso del Día 2 es:</p>
+      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del segundo bloque del Día 1</b><br>Empiézala cuando llegues a la oficina con los clientes ya estudiados.</div></div>
+      <p class="pt">El proceso del Día 1 — continuación es:</p>
       <ol class="steps-list">
-        <li><strong>Reunión con tu SDR Senior:</strong> resolver dudas sobre los clientes y recibir tus primeras bandejas.</li>
+        <li><strong>Reunión con tu SDR Senior y Specialist:</strong> resolver dudas sobre los clientes y el proceso de agendamiento.</li>
         <li><strong>Reunión con tu Manager:</strong> inducción oficial al pod, accesos y documentos.</li>
-        <li><strong>Apollo, Lusha y Gmail IA:</strong> instalar las extensiones que vas a usar día a día en las bandejas.</li>
-        <li><strong>Tarea 2:</strong> Ordenar las bandejas que recibiste.</li>
-        <li><strong>Tarea 3:</strong> Primer barrido de bandejas — llamar y hacer push.</li>
         <li><strong>Weekly y Metas Semanales:</strong> reunión fija de equipo, metas y estándares.</li>
       </ol>
     `
@@ -2371,13 +2231,13 @@ const SDR_STEPS = [
     title:'Reunión con tu SDR Senior',
     keywords:'reunion senior capacitacion clientes bandejas correo',
     content: () => `
-      <p class="pt">Si ya estudiaste todos los clientes asignados, estás listo para esta reunión. Tu SDR Senior te va a:</p>
+      <p class="pt">Si ya estudiaste todos los clientes asignados, estás listo para esta reunión. Es una reunión conjunta con tu SDR Senior y el Specialist donde van a repasar el proceso de agendamiento y todo lo visto el primer día.</p>
       <ul class="info-list">
-        <li>Resolver dudas sobre los clientes.</li>
-        <li>Profundizar el conocimiento de cada cliente.</li>
-        <li>Entregar tus primeras bandejas de correo.</li>
+        <li>Resolver dudas sobre los clientes asignados.</li>
+        <li>Revisar el proceso de agendamiento en detalle.</li>
+        <li>Repasar conceptos clave del Día 1 y aclarar dudas pendientes.</li>
       </ul>
-      <div class="callout c-info"><span class="callout-i">💬</span><div>Una vez que termines la reunión con tu Senior, marca este paso como completado y continúa.</div></div>
+      <div class="callout c-info"><span class="callout-i">💬</span><div>Una vez que termines la reunión, marca este paso como completado y continúa.</div></div>
     `
   },
   {
@@ -2392,66 +2252,11 @@ const SDR_STEPS = [
         <li>Toda la información del equipo y del pod.</li>
         <li>Los accesos y documentos que faltan.</li>
         <li>Las <strong>Reglas de Agendamiento</strong> de cada cliente (Google Sheets): parámetros de validación e información del ejecutivo.</li>
-        <li>La <strong>Distribución de Bandejas</strong> con contraseñas de acceso (Google Sheets).</li>
       </ul>
       <div class="callout c-info"><span class="callout-i">⚡</span><div><b>Acceso a la App TGP</b>Revisa tu correo TGP — debes tener un mail con asunto <strong>"Welcome to TGP"</strong>. Ahí están tu usuario y contraseña de la App. Son distintos a los de tu correo de Google TGP. Entra en <a href="https://internal.tgp.cl/" target="_blank" style="color:var(--azul);font-weight:600">internal.tgp.cl</a> y configura tu acceso antes o durante esta reunión.</div></div>
       <div class="link-row">
         <a href="https://www.loom.com/share/b2264e12fcd94eaf9bc4090efe36c0f4" target="_blank" class="lbtn lbtn-vid" data-req="reglas">▶ Video: Reglas de agendamiento</a>
-        <a href="https://www.loom.com/share/fe5331f4c1b64911b558e57e48f4f9bc" target="_blank" class="lbtn lbtn-vid" data-req="bandejas">▶ Video: Distribución de bandejas</a>
       </div>
-    `
-  },
-  {
-    id:'sdr-herramientas',
-    icon:'🔧',
-    badge:'Herramientas — Día 2',
-    title:'Apollo, Lusha y Gmail IA',
-    keywords:'snov wsn rebotes varita magica apollo lusha scraping empleados herramientas instalar extension',
-    content: () => `
-      <h3 class="sh">Correos Snov (wsn / snv / snw)</h3>
-      <p class="pt">Correos en inglés con "wsn" en el asunto. Son muchos — puedes archivarlos o eliminarlos directamente.</p>
-      <div class="link-row"><a href="https://drive.google.com/file/d/1wiPY4Ns_FPIiSaO3hXFHWpx1jOzyWNXZ/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid" data-req="snov">▶ Video: Correos Snov</a></div>
-      <h3 class="sh">Correos que Rebotan</h3>
-      <p class="pt">Correos con mensajes de error — archivar directamente.</p>
-      <div class="link-row"><a href="https://www.loom.com/share/94d5c25e70dc4c738865ce6b13b4f373" target="_blank" class="lbtn lbtn-vid" data-req="rebotes">▶ Video: Correos rebote</a></div>
-      <h3 class="sh">✨ Varita Mágica (IA en Gmail)</h3>
-      <p class="pt">IA para redactar mejores correos. Siempre revisa el resultado antes de enviar.</p>
-      <div class="link-row"><a href="https://www.loom.com/share/5457ebfd145a4bf7bd4c75a41714d3eb" target="_blank" class="lbtn lbtn-vid" data-req="varita">▶ Video: Varita mágica</a></div>
-      <h3 class="sh">Apollo y Lusha — Scraping</h3>
-      <p class="pt">Para encontrar teléfonos y correos de prospectos. Instala las extensiones mientras ves los videos.</p>
-      <div class="link-row">
-        <a href="https://www.loom.com/share/97f96636cea24cd0bdd0d34d10fc24b3" target="_blank" class="lbtn lbtn-vid" data-req="apollo">▶ Apollo — instalación</a>
-        <a href="https://www.loom.com/share/a0f825fe6b7a4a058e5d1b5b127d682d" target="_blank" class="lbtn lbtn-vid" data-req="lusha">▶ Lusha — instalación</a>
-        <a href="https://www.loom.com/share/c1270030a07c4fd58cf0856e0bc7f00a" target="_blank" class="lbtn lbtn-vid" data-req="empleados">▶ Empleados de empresa</a>
-        <a href="https://www.loom.com/share/7e78893b531949249879876c672f0f70" target="_blank" class="lbtn lbtn-vid" data-req="empleados-pais">▶ Empleados por país</a>
-      </div>
-    `
-  },
-  {
-    id:'sdr-tareas',
-    icon:'📝',
-    badge:'Tareas 2 y 3',
-    title:'Ordenar y Barrer las Bandejas',
-    keywords:'tarea ordenar bandejas barrido push correos limpiar archivar',
-    content: () => `
-      <h3 class="sh">Tarea 2 — Ordenar las Bandejas</h3>
-      <p class="pt">Las bandejas que recibiste tienen trayectoria previa. Ahora son tu responsabilidad.</p>
-      <ul class="info-list">
-        <li>Revisa cada correo en recibidos.</li>
-        <li>Aplica la etiqueta que corresponde.</li>
-        <li>Mueve, archiva o elimina según el estado.</li>
-      </ul>
-      <div class="link-row">
-        <a href="https://docs.google.com/document/d/1CR322lgWchHj82KZvCQRCf5gnd8xEj4XsdWQ0vnpmhE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía: Ordenar las bandejas</a>
-      </div>
-      <h3 class="sh">Tarea 3 — Barrido de Bandejas</h3>
-      <p class="pt">Sacar de recibidos lo que no sirve <strong>Y</strong> hacerle push a cada correo.</p>
-      <ol class="steps-list">
-        <li>Ir al primer correo → leer la conversación completa.</li>
-        <li>Llamar en tibio y/o redactar mensaje personalizado en el mismo hilo.</li>
-        <li>Enviar (o programar si no es buen horario).</li>
-        <li>Repetir con el resto de correos y bandejas.</li>
-      </ol>
     `
   },
   {
@@ -2479,19 +2284,8 @@ const SDR_STEPS = [
           <div style="font-size:22px;font-weight:900;color:var(--negro)">150</div>
           <div style="font-size:12px;color:var(--gris2);font-weight:600">llamadas mínimas por semana</div>
         </div>
-        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:22px;font-weight:900;color:var(--negro)">2×</div>
-          <div style="font-size:12px;color:var(--gris2);font-weight:600">push por semana por bandeja activa</div>
-        </div>
-        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:22px;font-weight:900;color:var(--negro)">2×</div>
-          <div style="font-size:12px;color:var(--gris2);font-weight:600">revisión de bandeja por día</div>
-        </div>
-        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:22px;font-weight:900;color:var(--negro)">4 hrs</div>
-          <div style="font-size:12px;color:var(--gris2);font-weight:600">tiempo máx. de respuesta a mensajes</div>
-        </div>
       </div>
+      <div class="callout c-warn"><span class="callout-i">⏳</span><div><strong>Metas pendientes:</strong> Martin Kolton definirá los estándares de llamadas diarias, metas semanales y meta de reuniones.</div></div>
       <div class="callout c-tip"><span class="callout-i">🏆</span><div>Más allá de los mínimos, lo que te posiciona en el equipo es <strong>estar en el top 3 de tu pod</strong> de forma consistente.</div></div>
     `
   },
@@ -2552,16 +2346,20 @@ const SDR_STEPS = [
       <p class="pt">Ya conoces el proceso y el equipo. Acá va la guía de a quién ir según el tema:</p>
       <div style="display:flex;flex-direction:column;gap:10px;margin:14px 0">
         <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">🎯 SDR Senior</div>
-          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Cualquier cosa de bandejas — correos, respuestas, objeciones, cómo manejar una conversación específica.</div>
-        </div>
-        <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">📞 SDR Specialist</div>
-          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Cualquier cosa de llamados — técnica, manejo de conversación telefónica, dudas de bases de datos.</div>
-        </div>
-        <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
           <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">👔 Manager</div>
-          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Dudas específicas de clientes, validaciones, aprobación de reuniones, dinámicas del equipo, ausencias y temas del pod.</div>
+          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Procesos de agendamiento, bases de datos, clientes — dudas específicas, validaciones, aprobación de reuniones, dinámicas del equipo, ausencias y temas del pod.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">📞 SDR Specialist o Martin Kolton</div>
+          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Tips y técnicas de llamadas en frío — manejo de conversación telefónica, objeciones, cómo mejorar el pitch.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">⚡ Martin Kolton</div>
+          <div style="font-size:13px;color:var(--gris2);line-height:1.5">App TGP, llamadas, números — cualquier duda técnica sobre la plataforma o el proceso de llamadas.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">💰 Finanzas</div>
+          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Pagos y boleta de honorarios — <a href="mailto:finanzas@thegrowth.pro" style="color:var(--azul)">finanzas@thegrowth.pro</a></div>
         </div>
         <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
           <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">🧑‍💼 RRHH — Belén Forti</div>
