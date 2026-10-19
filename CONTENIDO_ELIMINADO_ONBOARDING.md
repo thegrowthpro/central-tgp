@@ -326,3 +326,65 @@ Reemplazado por: "Esperar validación en App TGP y revisar comentarios del clien
 
 - Ítem lista: "Programar 2 correos recordatorios — obligatorio."
 - ▶ Video: Recordatorios: https://www.loom.com/share/d0fadd9a75394a63921c784e37396aaf (tutorial de programar recordatorios de correo)
+
+---
+
+## Quiz SDR eliminado temporalmente (2026-10-19)
+Martin Kolton preparará nuevas preguntas sobre llamadas en frío, agendamiento y manejo de No Show.
+La infraestructura JS (función `enviarQuiz()`, Firebase, overlay de resultados admin) se mantiene intacta.
+
+### Preguntas eliminadas:
+
+**q1 — Orden de pasos post-confirmación:**
+- a) Proponer horarios → App TGP → enviar detalle al cliente → aprobación Manager → confirmar prospecto → llamada de confirmación día anterior.
+- b) Proponer horarios → App TGP → aprobación Manager → enviar detalle al cliente → confirmar prospecto → llamada de confirmación día anterior. *(correcta)*
+- c) Aprobación Manager → proponer horarios → App TGP → enviar detalle al cliente → confirmar prospecto.
+- d) Proponer horarios → App TGP → confirmar prospecto → aprobación Manager → detalle al cliente.
+
+**q2 — No Show a las 15:12 (reunión era 15:00):**
+- a) Esperar hasta las 15:30 antes de actuar: 12 minutos de retraso aún está dentro del margen.
+- b) Llamar al prospecto, coordinar una nueva fecha y avisar al cliente.
+- c) Llamar al prospecto de inmediato y coordinar nueva fecha con el cliente en App TGP. *(correcta)*
+- d) Esperar 30 minutos más por si el prospecto se retrasa.
+
+**q3 — Qué hacer a las 14:55 con reunión a las 15:00:**
+- a) Nada especial.
+- b) Esperar hasta las 15:10.
+- c) Estar en Meet desde antes de las 15:00 con el contacto a mano. *(correcta)*
+- d) Llamar al prospecto a las 15:00 exactas.
+
+**q4 — Prospecto difícil, objeciones telefónicas (ELIMINADA — respuesta correcta incorrecta, mencionaba SDR Senior):**
+- a) Al SDR Manager.
+- b) Al SDR Senior o Specialist. *(marcada como correcta pero es incorrecta)*
+- c) Al CSR.
+- d) Lo resuelves solo.
+
+**q5 — 70 de 150 llamados, jueves:**
+- a) Avisar al Manager que no vas a cumplir.
+- b) Priorizar calidad sobre cantidad.
+- c) Los 150 son un mínimo sin excusas: hoy y mañana haces los 80 que faltan. *(correcta)*
+- d) Compensar la próxima semana.
+
+---
+
+## Pasos de agendamiento reemplazados (2026-10-19)
+Estructura anterior de 8 pasos (intro decía "9 pasos"):
+1. Encontrar horario disponible
+2. Validar al prospecto y la empresa
+3. Agendar en la App TGP *(incorrecto — debía ser App de Llamados)*
+4. Esperar aprobación del Manager (bot "Avisos Reuniones")
+5. Mandar detalle al cliente
+6. Confirmación automática al prospecto *(era paso numerado, pasó a nota automática)*
+7. Confirmar la reunión por llamada el día anterior
+8. Estar pendiente a la realización
+
+Nueva estructura con one-pager oficial (Proceso-de-Agendamiento.pdf):
+1. Tener información a mano
+2. Llamar y concretar horario
+3. Validar parámetros
+4. Agendar en la App de Llamados
+5. Esperar aprobación del Manager (bot "Brad Meet")
+6. Enviar información al cliente
+7. Confirmar asistencia — día anterior (OBLIGATORIO)
+8. Seguimiento de la reunión
+Automático: TGP envía confirmación y recordatorio al prospecto (no es paso numerado)
