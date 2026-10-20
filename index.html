@@ -2026,8 +2026,8 @@ const SDR_STEPS = [
     content: () => `
       <p class="pt">El proceso de agendamiento arranca antes de la llamada en frío — cuando ya tienes todo listo para actuar — y termina con la realización de la reunión. Son 8 pasos en orden fijo. No se puede saltar ninguno. Este es el corazón de tu trabajo como SDR.</p>
       <div class="agend-steps">
-        <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">1</span><span class="agend-title">Tener información a mano</span><span class="agend-arr">+</span></div>
+        <div class="agend-step agend-open" id="agend-s1">
+          <div class="agend-step-head"><span class="agend-n">1</span><span class="agend-title">Tener información a mano</span></div>
           <div class="agend-detail">
             <p style="margin-bottom:8px">Antes de hacer una llamada, prepara todo lo que vas a necesitar para poder agendar en el momento si el prospecto acepta.</p>
             <ul class="info-list" style="margin-bottom:10px">
@@ -2038,10 +2038,11 @@ const SDR_STEPS = [
             </ul>
             <div class="callout c-info"><span class="callout-i">📅</span><div><strong>¿Dónde está el calendario?</strong> El calendario de cada ejecutivo está en el <strong>Google Calendar de la cuenta de correo que se te asignó para ese cliente</strong>. Tu Manager te dará acceso el Día 2. Esa cuenta es solo para revisar disponibilidad — no la uses para responder correos ni ninguna otra acción.</div></div>
             <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: Hoja de Agendamiento · Kit de Ventas · Google Calendar · LlamadosTGP</p>
+            <button id="agend-btn-1" onclick="agendNext(1)" style="margin-top:14px;padding:8px 18px;background:var(--azul);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Entendido, continuar →</button>
           </div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">2</span><span class="agend-title">Llamar y concretar horario</span><span class="agend-arr">+</span></div>
+        <div class="agend-step agend-open" id="agend-s2" style="display:none">
+          <div class="agend-step-head"><span class="agend-n">2</span><span class="agend-title">Llamar y concretar horario</span></div>
           <div class="agend-detail">
             <p style="margin-bottom:8px">Haces la llamada desde la <strong>LlamadosTGP</strong>. Si el prospecto muestra interés en reunirse, propones opciones de horario — siempre eres tú quien propone, no el prospecto.</p>
             <p style="margin-bottom:10px">Acuerdan fecha, hora y el nombre del ejecutivo que lo va a atender. No pases al siguiente paso sin tener eso confirmado.</p>
@@ -2055,27 +2056,28 @@ const SDR_STEPS = [
             </ul>
             <div class="callout c-info" style="margin-bottom:10px"><span class="callout-i">📋</span><div><strong>Al cortar, registra el resultado.</strong> Se abre <em>Resultado de la Llamada</em>: elige la opción que corresponde (Rechazo, Derivó, Llamar más tarde, No contesta, No es KDM…) y pulsa <strong>Confirmar Resultado</strong>. Si el prospecto aceptó la reunión, valida los parámetros (paso 3) antes de elegir <strong>Éxito</strong> — esa opción abre el formulario de agendamiento del paso 4.</div></div>
             <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
-              <a href="https://drive.google.com/file/d/1JZHCVoLCbL8epO5la-MZqOtcqV8Dgh36/view?usp=sharing" target="_blank" class="lbtn lbtn-vid" style="font-size:12px;padding:6px 12px" data-req="video-llamar">▶ Video: Llamar desde la LlamadosTGP</a>
+              <a href="https://drive.google.com/file/d/1LZSIYKcAozy0Z1LvrRgGGQaJobA1SZl3/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid" style="font-size:12px;padding:6px 12px" data-req="video-llamar">▶ Video: Llamar desde la LlamadosTGP</a>
             </div>
             <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: LlamadosTGP</p>
+            <button id="agend-btn-2" onclick="agendNext(2)" style="margin-top:14px;padding:8px 18px;background:var(--azul);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Entendido, continuar →</button>
           </div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">3</span><span class="agend-title">Validar parámetros</span><span class="agend-arr">+</span></div>
+        <div class="agend-step agend-open" id="agend-s3" style="display:none">
+          <div class="agend-step-head"><span class="agend-n">3</span><span class="agend-title">Validar parámetros</span></div>
           <div class="agend-detail">
             <p style="margin-bottom:8px">Antes de registrar la reunión, confirma que el prospecto y su empresa cumplen los <strong>parámetros de validación</strong> del cliente: cargo, tamaño de empresa, industria, país, contexto, etc.</p>
             <p style="margin-bottom:10px">Esos parámetros están en la <strong>Hoja de Agendamiento</strong> de cada cliente. Si el prospecto no cumple, no se agenda — aunque haya aceptado reunirse.</p>
             <div class="callout c-info" style="margin-bottom:10px"><span class="callout-i">ℹ️</span><div>Tu Manager te entregará las Hojas de Agendamiento de tus clientes el Día 2. Por ahora, abre el ejemplo para ver cómo se ven.</div></div>
             <a href="https://docs.google.com/spreadsheets/d/1evfXdkyAtUr6-3GuLOG3RPILOURBU7ob_b_D-gj6WVY/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px" data-req="validacion">📊 Ver ejemplo de Hoja de Agendamiento</a>
             <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: Hoja de Agendamiento</p>
+            <button id="agend-btn-3" onclick="agendNext(3)" style="margin-top:14px;padding:8px 18px;background:var(--azul);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Entendido, continuar →</button>
           </div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">4</span><span class="agend-title">Agendar en la LlamadosTGP</span><span class="agend-arr">+</span></div>
+        <div class="agend-step agend-open" id="agend-s4" style="display:none">
+          <div class="agend-step-head"><span class="agend-n">4</span><span class="agend-title">Agendar en la LlamadosTGP</span></div>
           <div class="agend-detail">
-            <p style="margin-bottom:8px">Una vez que el prospecto confirmó horario y validaste que cumple los parámetros, registras la reunión directamente en la <strong>LlamadosTGP</strong> — no en la App TGP. Completa todos los datos: empresa, contacto, cargo, teléfono, fecha y hora, ejecutivo asignado y contexto.</p>
+            <p style="margin-bottom:8px">Una vez que el prospecto confirmó horario y validaste que cumple los parámetros, registras la reunión directamente en la <strong>LlamadosTGP</strong>. Completa todos los datos: empresa, contacto, cargo, teléfono, fecha y hora, ejecutivo asignado y contexto.</p>
             <p style="margin-bottom:10px">Al agendar, crea también una tarea de recordatorio para llamar al prospecto el día anterior a la reunión — es el paso 7 y es obligatorio.</p>
-            <div class="callout c-info" style="margin-bottom:10px"><span class="callout-i">ℹ️</span><div>El acceso a la LlamadosTGP lo recibirás en tu reunión con el Manager el Día 1 — continuación.</div></div>
             <p style="margin:10px 0 6px"><strong>Cómo agendar desde la LlamadosTGP</strong></p>
             <ul class="info-list" style="margin-bottom:10px">
               <li>Registra el resultado <strong>Éxito</strong>. Se abre el panel <strong>Agendar la reunión</strong>.</li>
@@ -2091,13 +2093,14 @@ const SDR_STEPS = [
             <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
               <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px" data-req="instructivo">📄 Instructivo paso a paso</a>
               <a href="https://drive.google.com/file/d/1C7IhtCao-m2n9EKqJf62i90z0g3UzsTl/view?usp=sharing" target="_blank" class="lbtn lbtn-vid" style="font-size:12px;padding:6px 12px" data-req="video-agendar">▶ Video: Agendar desde la LlamadosTGP</a>
-              <a href="https://drive.google.com/file/d/1JZHCVoLCbL8epO5la-MZqOtcqV8Dgh36/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px">📄 Guía LlamadosTGP</a>
+              <a href="https://drive.google.com/file/d/1LZSIYKcAozy0Z1LvrRgGGQaJobA1SZl3/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px" data-req="guia-llamados">📄 Guía LlamadosTGP</a>
             </div>
             <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: LlamadosTGP</p>
+            <button id="agend-btn-4" onclick="agendNext(4)" style="margin-top:14px;padding:8px 18px;background:var(--azul);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Entendido, continuar →</button>
           </div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">5</span><span class="agend-title">Esperar aprobación del Manager</span><span class="agend-arr">+</span></div>
+        <div class="agend-step agend-open" id="agend-s5" style="display:none">
+          <div class="agend-step-head"><span class="agend-n">5</span><span class="agend-title">Esperar aprobación del Manager</span></div>
           <div class="agend-detail">
             <p style="margin-bottom:8px">Cuando registras la reunión en la LlamadosTGP, el bot <strong>Brad Meet</strong> publica automáticamente un resumen en el canal <strong>pod-[nombre]-reuniones</strong> de Slack con todos los detalles.</p>
             <p style="margin-bottom:10px">El Manager revisa ese mensaje y <strong>reacciona con un emoji</strong> para aprobarla. Esa reacción es la señal para avanzar. Si hay correcciones, el Manager te lo indica y lo ajustas antes de continuar.</p>
@@ -2124,10 +2127,11 @@ const SDR_STEPS = [
             </div>
             <div class="callout c-warn"><span class="callout-i">⚠️</span><div>No avances al paso 6 hasta que el Manager haya reaccionado al mensaje. La reunión no es válida sin esa aprobación.</div></div>
             <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: Slack · canal reuniones del pod</p>
+            <button id="agend-btn-5" onclick="agendNext(5)" style="margin-top:14px;padding:8px 18px;background:var(--azul);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Entendido, continuar →</button>
           </div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">6</span><span class="agend-title">Enviar información al cliente</span><span class="agend-arr">+</span></div>
+        <div class="agend-step agend-open" id="agend-s6" style="display:none">
+          <div class="agend-step-head"><span class="agend-n">6</span><span class="agend-title">Enviar información al cliente</span></div>
           <div class="agend-detail">
             <p style="margin-bottom:8px">Una vez aprobada la reunión, avisas al cliente por WhatsApp o el canal de comunicación que corresponda. Copia el mensaje que publicó Brad Meet y agrégale contexto tuyo sobre el prospecto.</p>
             <p style="margin-bottom:8px">Antes de enviar, revisa los mensajes anteriores del equipo para mantener el mismo formato que ya usa el pod con ese cliente.</p>
@@ -2150,18 +2154,20 @@ const SDR_STEPS = [
               <div style="text-align:right;font-size:11px;color:#6b7280;margin-top:6px">4:19 p.m.</div>
             </div>
             <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: WhatsApp o Slack del cliente</p>
+            <button id="agend-btn-6" onclick="agendNext(6)" style="margin-top:14px;padding:8px 18px;background:var(--azul);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Entendido, continuar →</button>
           </div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">7</span><span class="agend-title">Confirmar asistencia — día anterior</span><span class="agend-arr">+</span></div>
+        <div class="agend-step agend-open" id="agend-s7" style="display:none">
+          <div class="agend-step-head"><span class="agend-n">7</span><span class="agend-title">Confirmar asistencia — día anterior</span></div>
           <div class="agend-detail">
             <p style="margin-bottom:8px">El día anterior a la reunión, llamas al prospecto para confirmar que asistirá. Esta tarea la dejaste pendiente cuando agendaste en el paso 4.</p>
             <div class="callout c-warn"><span class="callout-i">📞</span><div><strong>Obligatorio.</strong> No basta con haber agendado — confirma por teléfono el día antes. Es el preventivo más efectivo contra el No Show.</div></div>
             <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: Teléfono</p>
+            <button id="agend-btn-7" onclick="agendNext(7)" style="margin-top:14px;padding:8px 18px;background:var(--azul);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Entendido, continuar →</button>
           </div>
         </div>
-        <div class="agend-step" onclick="this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">8</span><span class="agend-title">Seguimiento de la reunión</span><span class="agend-arr">+</span></div>
+        <div class="agend-step agend-open" id="agend-s8" style="display:none">
+          <div class="agend-step-head"><span class="agend-n">8</span><span class="agend-title">Seguimiento de la reunión</span></div>
           <div class="agend-detail">
             <p style="margin-bottom:8px">El día de la reunión tienes una alarma puesta. Minutos antes verificas que todo esté en orden. Durante la reunión te mantienes pendiente.</p>
             <p style="margin-bottom:10px">Si el prospecto no se conecta, llamas de inmediato y mantienes al cliente informado en todo momento.</p>
@@ -3680,6 +3686,12 @@ const QUIZ_OPCIONES = {
   q12:{a:'Etiquetar PROCESO, llamar al prospecto y conversar para asegurarte de que realmente no le sirve el servicio antes de cerrar el caso',b:'Insistir con un ángulo diferente del servicio, mencionando los recursos valiosos que podría ganar el cliente con el cambio',c:'Hacer push insistiendo en la propuesta de valor del servicio para que reconsidere',d:'Cerrar la conversación con un mensaje cordial, etiquetar NO INTERESADO y sacarlo de recibidos'}
 };
 
+function agendNext(n){
+  const cur=document.getElementById('agend-btn-'+n);
+  if(cur){cur.disabled=true;cur.textContent='✓ Entendido';}
+  const next=document.getElementById('agend-s'+(n+1));
+  if(next){next.style.display='';setTimeout(()=>{next.scrollIntoView({behavior:'smooth',block:'start'});},80);}
+}
 function enviarQuiz(){
   if(!db||!currentUser){alert('Debes estar conectado/a para enviar el quiz.');return;}
   const isAdmin = adminMode || (currentUser && currentUser.email===ADMIN_EMAIL);
