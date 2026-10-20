@@ -1947,7 +1947,7 @@ const SDR_STEPS = [
     icon:'📖',
     badge:'Conceptos del cargo',
     title:'Conceptos Clave del SDR Junior',
-    keywords:'glosario terminos cliente prospecto kdm icp b2b push no show weekly bandeja etiqueta llamado tibio derivacion',
+    keywords:'glosario terminos cliente prospecto kdm icp b2b push no show weekly bandeja etiqueta llamado tibio derivacion segmento resultado luigi llamadostgp',
     content: () => `
       <p class="pt">Ya leíste el Glosario TGP en la parte general. Ahora que empiezas la sección específica de tu cargo, repasa los conceptos que más vas a usar como SDR. Si alguno no te quedó claro, el botón del glosario está acá para volver cuando lo necesites.</p>
       <div class="gloss">
@@ -1959,6 +1959,10 @@ const SDR_STEPS = [
         <div class="gloss-row"><div class="gloss-term">Weekly</div><div class="gloss-def">Reunión semanal del equipo. Presencial obligatoria, misma hora cada semana. Se revisan resultados y metas.</div></div>
         <div class="gloss-row"><div class="gloss-term">Pod / Célula</div><div class="gloss-def">Tu equipo de trabajo: Manager + SDR Senior + SDR Junior. Trabajan juntos para los mismos clientes.</div></div>
         <div class="gloss-row"><div class="gloss-term">Call to action</div><div class="gloss-def">La frase o pregunta que lleva la conversación al siguiente paso — ofrecer horarios, hacer la pregunta de cierre, lograr que el prospecto dé lo que necesitamos para avanzar hacia la reunión.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Bandeja</div><div class="gloss-def">Cuenta de correo del cliente que se te asigna. Al agendar en la LlamadosTGP eliges desde qué bandeja sale la reunión.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Segmento</div><div class="gloss-def">La lista de prospectos de un cliente que trabajas en la LlamadosTGP — por ejemplo, CFOs de empresas de +200 empleados. Lo eliges arriba a la derecha, junto al cliente.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Resultado de llamada</div><div class="gloss-def">Lo que registras en la LlamadosTGP al terminar cada llamada: Éxito, Rechazo, Derivó, No contesta, No es KDM, etc. Al cortar se abre el formulario para elegirlo.</div></div>
+        <div class="gloss-row"><div class="gloss-term">Luigi</div><div class="gloss-def">El bot de la LlamadosTGP. Te avisa en pantalla cuando se envía tu solicitud de números, cuando registras un Éxito y cuando se acaba tu lista.</div></div>
       </div>
       <div class="link-row" style="margin-top:12px">
         <a href="https://docs.google.com/document/d/1oBMpW0gDp1gaTqyQzatPa4wFOjroa2gczMy-lrfooyQ/edit" target="_blank" class="lbtn lbtn-doc">📄 Volver al Glosario completo TGP</a>
@@ -1984,7 +1988,7 @@ const SDR_STEPS = [
       <h3 class="sh">Un ejemplo concreto — Valentina y Xclusive</h3>
       <div class="callout c-tip"><span class="callout-i">💡</span><div>
         Valentina trabaja para <strong>Xclusive</strong>, empresa que vende regalos corporativos B2B. Su Manager le asignó una base de datos con hoteles y empresas de eventos en Chile.<br><br>
-        Antes de empezar a llamar, Valentina abre la Hoja de Agendamiento de Xclusive para repasar el pitch, los parámetros de validación y los horarios disponibles del ejecutivo. Todo listo — entra a la <strong>LlamadosTGP</strong> y marca el número del Radisson de Curicó.<br><br>
+        Antes de empezar a llamar, Valentina abre la Hoja de Agendamiento de Xclusive para repasar el pitch, los parámetros de validación y los horarios disponibles del ejecutivo. Todo listo — entra a la <strong>Zona de Llamadas</strong> de la LlamadosTGP, abre la ficha del Radisson de Curicó y marca el teléfono disponible.<br><br>
         Le habla a Ariel Naranjo, el HR Manager. Se presenta, pide 30 segundos para explicar por qué llama, maneja una objeción de "ya tenemos proveedor" y logra que Ariel acepte conocer el producto. Le ofrece dos opciones de horario, Ariel elige el jueves a las 11:00. Valentina verifica en el calendario que el ejecutivo tiene esa franja libre, confirma que Ariel cumple los parámetros de validación y <strong>agenda la reunión en la LlamadosTGP</strong>.<br><br>
         Le avisa al cliente por WhatsApp copiando el mensaje de Brad Meet. El resto lo hace TGP: confirmación automática al prospecto, recordatorio por WhatsApp y seguimiento del bot. Valentina anota el llamado de confirmación para el día anterior — y el jueves a la hora exacta, está atenta.
       </div></div>
@@ -2005,7 +2009,7 @@ const SDR_STEPS = [
         <li><strong>No Shows</strong> — también quedan registrados para el seguimiento.</li>
         <li><strong>Resultados del equipo</strong> — tus números y los del pod en un solo lugar.</li>
       </ul>
-      <p class="pt">En la práctica, cuando agendas una reunión en el paso 3 del proceso de agendamiento, es acá donde la registras. La App manda automáticamente el resumen al canal de Slack del pod.</p>
+      <p class="pt">En la práctica, la reunión la agendas desde la <strong>LlamadosTGP</strong> (paso 4 del proceso de agendamiento) y el resumen llega automáticamente al canal de Slack del pod. Después la ves acá, en <strong>Reuniones → Listado</strong>, con tres estados: <strong>Estado</strong>, <strong>Válida</strong> y <strong>Confirmada</strong>. Desde la App también puedes crear una reunión a mano si lo necesitas.</p>
       <div class="callout c-info"><span class="callout-i">🔑</span><div>Tu usuario y contraseña de la App los recibirás de tu Manager el Día 2. Son <strong>distintos</strong> a los de tu cuenta de Google TGP. Por ahora, familiarízate con qué hace antes de usarla.</div></div>
       <div class="link-row">
         <a href="https://internal.tgp.cl/" target="_blank" class="lbtn lbtn-app" data-req="app-preview">⚡ Ver App TGP</a>
@@ -2017,7 +2021,7 @@ const SDR_STEPS = [
     icon:'📆',
     badge:'Proceso completo',
     title:'Proceso de Agendamiento',
-    keywords:'agendamiento agendar reunion app tgp horario ejecutivo prospecto esquema proceso',
+    keywords:'agendamiento agendar reunion app tgp horario ejecutivo prospecto esquema proceso llamadostgp dialer exito resultado pedir numeros contexto ia nota',
     content: () => `
       <p class="pt">El proceso de agendamiento arranca antes de la llamada en frío — cuando ya tienes todo listo para actuar — y termina con la realización de la reunión. Son 8 pasos en orden fijo. No se puede saltar ninguno. Este es el corazón de tu trabajo como SDR.</p>
       <div class="agend-steps">
@@ -2029,9 +2033,10 @@ const SDR_STEPS = [
               <li><strong>Google Calendar del ejecutivo</strong> — para conocer sus franjas disponibles y proponer horarios sin tener que pausar la llamada.</li>
               <li><strong>Hoja de Agendamiento</strong> — parámetros de validación, pitch del cliente y información del servicio.</li>
               <li><strong>Kit de Ventas</strong> — material de apoyo para el manejo de objeciones.</li>
+              <li><strong>Tu lista en la LlamadosTGP</strong> — revisa que tengas seleccionados el cliente y el segmento correctos. Si Luigi te avisa <em>"Fin de la lista"</em>, usa <strong>Pedir Números</strong>: la solicitud les llega por Slack a los operadores.</li>
             </ul>
             <div class="callout c-info"><span class="callout-i">📅</span><div><strong>¿Dónde está el calendario?</strong> El calendario de cada ejecutivo está en el <strong>Google Calendar de la cuenta de correo que se te asignó para ese cliente</strong>. Tu Manager te dará acceso el Día 2. Esa cuenta es solo para revisar disponibilidad — no la uses para responder correos ni ninguna otra acción.</div></div>
-            <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: Hoja de Agendamiento · Kit de Ventas · Google Calendar</p>
+            <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: Hoja de Agendamiento · Kit de Ventas · Google Calendar · LlamadosTGP</p>
           </div>
         </div>
         <div class="agend-step" onclick="this.classList.toggle('open')">
@@ -2040,6 +2045,17 @@ const SDR_STEPS = [
             <p style="margin-bottom:8px">Haces la llamada desde la <strong>LlamadosTGP</strong>. Si el prospecto muestra interés en reunirse, propones opciones de horario — siempre eres tú quien propone, no el prospecto.</p>
             <p style="margin-bottom:10px">Acuerdan fecha, hora y el nombre del ejecutivo que lo va a atender. No pases al siguiente paso sin tener eso confirmado.</p>
             <div class="callout c-tip"><span class="callout-i">💡</span><div>Propone siempre dos opciones de horario — le das al prospecto control sin dejar la decisión abierta.</div></div>
+            <p style="margin:10px 0 6px"><strong>Cómo se ve la llamada en la LlamadosTGP</strong></p>
+            <ul class="info-list" style="margin-bottom:10px">
+              <li><strong>Dialer conectado</strong> — arriba del panel izquierdo debe decir <em>Conectado</em>. Si no, pulsa <strong>Lanzar Dialer</strong>.</li>
+              <li><strong>Ficha del prospecto</strong> — nombre, cargo, empresa, tamaño y tecnologías que usa. Revísala antes de marcar.</li>
+              <li><strong>Teléfonos disponibles</strong> — elige uno y pulsa <strong>Llamar</strong>. Verás <em>Timbrando</em> y luego <em>Conectada</em>.</li>
+              <li><strong>Notas de la llamada</strong> — anota los puntos clave mientras hablas.</li>
+            </ul>
+            <div class="callout c-info" style="margin-bottom:10px"><span class="callout-i">📋</span><div><strong>Al cortar, registra el resultado.</strong> Se abre <em>Resultado de la Llamada</em>: elige la opción que corresponde (Rechazo, Derivó, Llamar más tarde, No contesta, No es KDM…) y pulsa <strong>Confirmar Resultado</strong>. Si el prospecto aceptó la reunión, valida los parámetros (paso 3) antes de elegir <strong>Éxito</strong> — esa opción abre el formulario de agendamiento del paso 4.</div></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+              <a href="[LINK_VIDEO_LLAMAR]" target="_blank" class="lbtn lbtn-vid" style="font-size:12px;padding:6px 12px" data-req="video-llamar">▶ Video: Llamar desde la LlamadosTGP</a>
+            </div>
             <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: LlamadosTGP</p>
           </div>
         </div>
@@ -2059,9 +2075,22 @@ const SDR_STEPS = [
             <p style="margin-bottom:8px">Una vez que el prospecto confirmó horario y validaste que cumple los parámetros, registras la reunión directamente en la <strong>LlamadosTGP</strong> — no en la App TGP. Completa todos los datos: empresa, contacto, cargo, teléfono, fecha y hora, ejecutivo asignado y contexto.</p>
             <p style="margin-bottom:10px">Al agendar, crea también una tarea de recordatorio para llamar al prospecto el día anterior a la reunión — es el paso 7 y es obligatorio.</p>
             <div class="callout c-info" style="margin-bottom:10px"><span class="callout-i">ℹ️</span><div>El acceso a la LlamadosTGP lo recibirás en tu reunión con el Manager el Día 1 — continuación.</div></div>
-            <div class="card warning"><p>⏳ <strong>Contenido pendiente:</strong> Martin Kolton preparará los videos de demostración de este paso. Se agregarán próximamente.</p></div>
+            <p style="margin:10px 0 6px"><strong>Cómo agendar desde la LlamadosTGP</strong></p>
+            <ul class="info-list" style="margin-bottom:10px">
+              <li>Registra el resultado <strong>Éxito</strong>. Se abre el panel <strong>Agendar la reunión</strong>.</li>
+              <li><strong>Formato</strong> — Meet TGP, Presencial o Link externo. Con Meet TGP, el link de Google Meet se genera solo.</li>
+              <li><strong>Fecha, hora y ejecutivo</strong> — lo que acordaste en la llamada. Si va más de un ejecutivo, súmalo en <em>Ejecutivos adicionales</em>.</li>
+              <li><strong>Agendar desde (bandeja)</strong> — elige la bandeja del cliente.</li>
+              <li><strong>Datos del prospecto</strong> — vienen precargados. Revisa que correo, cargo y teléfono estén bien.</li>
+              <li><strong>Preguntas de este cliente</strong> — algunos clientes piden información extra, como la página web. Las que tienen * son obligatorias.</li>
+              <li><strong>Contexto de la reunión</strong> — la IA lo arma a partir de la llamada. Puedes escucharla o regenerar el texto.</li>
+              <li>Ponle nota de 1 a 7 al contexto y pulsa <strong>Confirmar y Agendar Reunión</strong>.</li>
+            </ul>
+            <div class="callout c-warn" style="margin-bottom:10px"><span class="callout-i">⚠️</span><div><strong>Con nota bajo 4, el contexto de la IA no se envía.</strong> Tienes que escribirlo tú: qué hace la empresa, cómo lo resuelve hoy, qué le interesó y si quedó algo pendiente. Sin nota no puedes agendar.</div></div>
             <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
               <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px" data-req="instructivo">📄 Instructivo paso a paso</a>
+              <a href="[LINK_VIDEO_AGENDAR]" target="_blank" class="lbtn lbtn-vid" style="font-size:12px;padding:6px 12px" data-req="video-agendar">▶ Video: Agendar desde la LlamadosTGP</a>
+              <a href="[LINK_GUIA]" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px">📄 Guía LlamadosTGP</a>
             </div>
             <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: LlamadosTGP</p>
           </div>
@@ -2136,10 +2165,10 @@ const SDR_STEPS = [
             <p style="margin-bottom:8px">El día de la reunión tienes una alarma puesta. Minutos antes verificas que todo esté en orden. Durante la reunión te mantienes pendiente.</p>
             <p style="margin-bottom:10px">Si el prospecto no se conecta, llamas de inmediato y mantienes al cliente informado en todo momento.</p>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
-              <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:7px;padding:10px"><div style="font-size:11px;font-weight:700;color:#15803d;margin-bottom:4px">✅ YES SHOW</div><p style="font-size:12px;color:#166534;line-height:1.5">Esperar validación en la LlamadosTGP y revisar comentarios del cliente.</p></div>
-              <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:7px;padding:10px"><div style="font-size:11px;font-weight:700;color:#b91c1c;margin-bottom:4px">❌ NO SHOW</div><p style="font-size:12px;color:#991b1b;line-height:1.5">Llamar al prospecto de inmediato → avisar al cliente → reagendar en LlamadosTGP.</p></div>
+              <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:7px;padding:10px"><div style="font-size:11px;font-weight:700;color:#15803d;margin-bottom:4px">✅ YES SHOW</div><p style="font-size:12px;color:#166534;line-height:1.5">Esperar validación en la App TGP y revisar comentarios del cliente.</p></div>
+              <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:7px;padding:10px"><div style="font-size:11px;font-weight:700;color:#b91c1c;margin-bottom:4px">❌ NO SHOW</div><p style="font-size:12px;color:#991b1b;line-height:1.5">Llamar al prospecto de inmediato → avisar al cliente → reagendar en la App TGP.</p></div>
             </div>
-            <p style="font-size:11px;color:var(--gris2)">📍 Dónde: Teléfono · chat del cliente · LlamadosTGP</p>
+            <p style="font-size:11px;color:var(--gris2)">📍 Dónde: Teléfono · chat del cliente · App TGP</p>
           </div>
         </div>
       </div>
@@ -2166,7 +2195,7 @@ const SDR_STEPS = [
       <ul class="info-list">
         <li>Revisar tu canal <strong>pod-[nombre]-noshow</strong> en Slack.</li>
         <li>Contactar al prospecto inmediatamente (llamado, WhatsApp).</li>
-        <li>Reagendar la reunión en la LlamadosTGP y avisar al cliente.</li>
+        <li>Reagendar la reunión en la App TGP y avisar al cliente.</li>
       </ul>
       <div class="callout c-tip"><span class="callout-i">💡</span><div><b>Tip preventivo</b>Llama al prospecto <strong>20 minutos antes</strong> de cada reunión para confirmar asistencia.</div></div>
     `
@@ -2185,6 +2214,8 @@ const SDR_STEPS = [
         <a href="https://drive.google.com/file/d/1hTUwG5YX9p9fKiYWBjLReIzt0hF3pB81/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="esquema-agend">📄 Proceso de agendamiento</a>
         <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive" data-req="kit-ventas">📁 Kit de ventas clientes</a>
         <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc" data-req="dashboard">📊 Dashboard reuniones</a>
+        <a href="https://tgp-llamados.web.app/" target="_blank" class="lbtn lbtn-app" data-req="llamadostgp">📞 LlamadosTGP</a>
+        <a href="[LINK_GUIA]" target="_blank" class="lbtn lbtn-doc" data-req="guia-llamados">📄 Guía LlamadosTGP</a>
       </div>
     `
   },
@@ -2307,9 +2338,36 @@ const SDR_STEPS = [
         <li>Las <strong>Reglas de Agendamiento</strong> de cada cliente (Google Sheets): parámetros de validación e información del ejecutivo.</li>
       </ul>
       <div class="callout c-info"><span class="callout-i">⚡</span><div><b>Acceso a la App TGP</b>Revisa tu correo TGP — debes tener un mail con asunto <strong>"Welcome to TGP"</strong>. Ahí están tu usuario y contraseña de la App. Son distintos a los de tu correo de Google TGP. Entra en <a href="https://internal.tgp.cl/" target="_blank" style="color:var(--azul);font-weight:600">internal.tgp.cl</a> y configura tu acceso antes o durante esta reunión.</div></div>
+      <div class="callout c-info"><span class="callout-i">📞</span><div><b>Acceso a la LlamadosTGP</b>Tu Manager te dará tu acceso a la <a href="https://tgp-llamados.web.app/" target="_blank" style="color:var(--azul);font-weight:600">LlamadosTGP</a> y te dirá qué clientes y segmentos vas a trabajar. En el paso siguiente haces tu primera sesión con la herramienta.</div></div>
       <div class="link-row">
         <a href="https://www.loom.com/share/b2264e12fcd94eaf9bc4090efe36c0f4" target="_blank" class="lbtn lbtn-vid" data-req="reglas">▶ Video: Reglas de agendamiento</a>
       </div>
+    `
+  },
+  {
+    id:'sdr-llamadostgp',
+    icon:'📞',
+    badge:'Día 2',
+    title:'Tu primera sesión en la LlamadosTGP',
+    keywords:'llamadostgp dialer llamar pedir numeros resultado luigi segmento cliente primera sesion',
+    content: () => `
+      <p class="pt">Ya tienes tu acceso. Antes de tu primera llamada real, recorre la LlamadosTGP con calma — es la herramienta que vas a usar todo el día. Acá pones en práctica lo que viste en el Proceso de Agendamiento.</p>
+      <h3 class="sh">1 — Revisa estos recursos primero</h3>
+      <div class="link-row">
+        <a href="[LINK_GUIA]" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía LlamadosTGP</a>
+        <a href="[LINK_VIDEO_LLAMAR]" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Pedir números y llamar</a>
+      </div>
+      <h3 class="sh">2 — Ejecuta y marca cada ítem</h3>
+      <div class="inline-check" id="llamados-checks">
+        <div class="ic-item"><input type="checkbox" id="lc1"><label for="lc1">Entrar a la LlamadosTGP con mi acceso</label></div>
+        <div class="ic-item"><input type="checkbox" id="lc2"><label for="lc2">Pulsar Lanzar Dialer y ver que diga Conectado</label></div>
+        <div class="ic-item"><input type="checkbox" id="lc3"><label for="lc3">Elegir mi cliente y mi segmento en la Zona de Llamadas</label></div>
+        <div class="ic-item"><input type="checkbox" id="lc4"><label for="lc4">Revisar la ficha completa de un prospecto</label></div>
+        <div class="ic-item"><input type="checkbox" id="lc5"><label for="lc5">Leer en la guía todas las opciones de resultado de llamada</label></div>
+        <div class="ic-item"><input type="checkbox" id="lc6"><label for="lc6">Guardar la LlamadosTGP en mis Favoritos de Chrome</label></div>
+      </div>
+      <div class="callout c-tip"><span class="callout-i">💡</span><div>Si Luigi te avisa <em>"Fin de la lista"</em>, no te quedes esperando: usa <strong>Pedir Números</strong> y la solicitud les llega por Slack a los operadores.</div></div>
+      <div class="callout c-info"><span class="callout-i">⚡</span><div>¿Algo no funciona o no ves tus clientes? Escríbele a <strong>Martin Kolton</strong> por Slack.</div></div>
     `
   },
   {
@@ -2338,6 +2396,7 @@ const SDR_STEPS = [
           <div style="font-size:12px;color:var(--gris2);font-weight:600">llamadas mínimas por semana</div>
         </div>
       </div>
+      <p class="pt">Puedes seguir tu avance día a día en el contador de llamadas de la LlamadosTGP y en el <a href="https://dashboard-llamados.thegrowth.pro/" target="_blank" style="color:var(--azul);font-weight:600">Dashboard Llamados</a>.</p>
       <div class="callout c-warn"><span class="callout-i">⏳</span><div><strong>Metas pendientes:</strong> Martin Kolton definirá los estándares de llamadas diarias, metas semanales y meta de reuniones.</div></div>
       <div class="callout c-tip"><span class="callout-i">🏆</span><div>Más allá de los mínimos, lo que te posiciona en el equipo es <strong>estar en el top 3 de tu pod</strong> de forma consistente.</div></div>
     `
@@ -2408,7 +2467,7 @@ const SDR_STEPS = [
         </div>
         <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
           <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">⚡ Martin Kolton</div>
-          <div style="font-size:13px;color:var(--gris2);line-height:1.5">App TGP, llamadas, números — cualquier duda técnica sobre la plataforma o el proceso de llamadas.</div>
+          <div style="font-size:13px;color:var(--gris2);line-height:1.5">App TGP, LlamadosTGP, llamadas, números — cualquier duda técnica sobre la plataforma o el proceso de llamadas. Para pedir números no necesitas escribirle: usa <strong>Pedir Números</strong> en la LlamadosTGP.</div>
         </div>
         <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
           <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">💰 Finanzas</div>
@@ -2575,7 +2634,7 @@ function renderOnboarding() {
 }
 
 function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
-  const SDR_DAY2_START = 15;
+  const SDR_DAY2_START = 16;
   const SDR_DAY3_START = 21;
 
   const sb = document.getElementById('sidebar');
@@ -2646,7 +2705,7 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
 }
 
 function jumpTo(track, idx) {
-  const SDR_DAY2_START = 15;
+  const SDR_DAY2_START = 16;
   const SDR_DAY3_START = 21;
   if (!adminMode) {
     if (track === 'sdr') {
@@ -2917,6 +2976,8 @@ const RES_DATA = [
         <a href="https://www.loom.com/share/09a97d5f102e4794827834ed068c7c8b" target="_blank" class="lbtn lbtn-vid">▶ Video: Disponibilidad ejecutivos</a>
         <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Instructivo App TGP</a>
         <a href="https://drive.google.com/file/d/1vBCd8xre01Pu4DnmmnJPoWN_kTlr0gM2/view?usp=sharing" target="_blank" class="lbtn lbtn-vid">▶ Agendamiento en vivo</a>
+        <a href="[LINK_GUIA]" target="_blank" class="lbtn lbtn-doc">📄 Guía LlamadosTGP</a>
+        <a href="[LINK_VIDEO_AGENDAR]" target="_blank" class="lbtn lbtn-vid">▶ Video: Agendar desde la LlamadosTGP</a>
         <a href="https://internal.tgp.cl/" target="_blank" class="lbtn lbtn-app">⚡ App TGP</a>
       </div>`
   },
@@ -2935,8 +2996,8 @@ const RES_DATA = [
           <div class="agend-detail">Revisa los parámetros en el Excel de Reglas de Agendamiento. El prospecto <strong>debe cumplir los criterios de validación</strong> antes de continuar.</div>
         </div>
         <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
-          <div class="agend-step-head"><span class="agend-n">3</span><span class="agend-title">Agendar en la App TGP</span><span class="agend-arr">+</span></div>
-          <div class="agend-detail">Una vez que el prospecto confirma, agenda en la App. La app manda automáticamente el mensaje resumen al canal de Slack del pod.</div>
+          <div class="agend-step-head"><span class="agend-n">3</span><span class="agend-title">Agendar en la LlamadosTGP</span><span class="agend-arr">+</span></div>
+          <div class="agend-detail">Una vez que el prospecto confirma, registra el resultado <strong>Éxito</strong> en la LlamadosTGP y completa el formulario de agendamiento. El resumen llega automáticamente al canal de Slack del pod.</div>
         </div>
         <div class="agend-step" onclick="event.stopPropagation();this.classList.toggle('open')">
           <div class="agend-step-head"><span class="agend-n">4</span><span class="agend-title">Esperar aprobación del Manager</span><span class="agend-arr">+</span></div>
@@ -2986,6 +3047,9 @@ const RES_DATA = [
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px">
             <a href="https://internal.tgp.cl/" target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;background:var(--brand);color:#fff;border-radius:12px;text-decoration:none;gap:8px;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
               <span style="font-size:24px">⚡</span><span style="font-size:13px;font-weight:700;text-align:center">App TGP</span>
+            </a>
+            <a href="https://tgp-llamados.web.app/" target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;background:#0f172a;color:#fff;border-radius:12px;text-decoration:none;gap:8px;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+              <span style="font-size:24px">🎧</span><span style="font-size:13px;font-weight:700;text-align:center">LlamadosTGP</span>
             </a>
             <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 12px;background:var(--azul);color:#fff;border-radius:12px;text-decoration:none;gap:8px;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
               <span style="font-size:24px">📊</span><span style="font-size:13px;font-weight:700;text-align:center">Dashboard General</span>
