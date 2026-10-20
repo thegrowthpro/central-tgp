@@ -2215,8 +2215,28 @@ const SDR_STEPS = [
         <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=sharing" target="_blank" class="lbtn lbtn-drive" data-req="kit-ventas">📁 Kit de ventas clientes</a>
         <a href="https://lookerstudio.google.com/embed/u/0/reporting/5ba1d230-95ad-4dc3-b132-a5a215391192/page/p_f3ffxi1pdd" target="_blank" class="lbtn lbtn-doc" data-req="dashboard">📊 Dashboard reuniones</a>
         <a href="https://tgp-llamados.web.app/" target="_blank" class="lbtn lbtn-app" data-req="llamadostgp">📞 LlamadosTGP</a>
-        <a href="https://drive.google.com/file/d/1JZHCVoLCbL8epO5la-MZqOtcqV8Dgh36/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="guia-llamados">📄 Guía LlamadosTGP</a>
+        <a href="https://drive.google.com/file/d/1LZSIYKcAozy0Z1LvrRgGGQaJobA1SZl3/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="guia-llamados">📄 Guía LlamadosTGP</a>
       </div>
+    `
+  },
+  {
+    id:'sdr-wow',
+    icon:'📋',
+    badge:'Tarea',
+    title:'WOW — Way of Work',
+    keywords:'wow way of work documento normas expectativas compromisos buk firma',
+    content: () => `
+      <p class="pt">El WOW (Way of Work) es el documento que define la forma de trabajar en TGP: normas, expectativas y compromisos del equipo.</p>
+      <div class="callout c-info"><span class="callout-i">📌</span>
+        <div>
+          <h3 style="margin-bottom:8px">¿Qué debes hacer?</h3>
+          <ol class="steps-list">
+            <li>Leer el documento WOW completo.</li>
+            <li>Firmarlo a través de la plataforma <strong>BUK</strong> — lo encontrarás adjunto en tu perfil.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="callout c-tip"><span class="callout-i">📌</span><div>Si tienes dudas sobre algún punto del WOW, puedes consultarle a RRHH antes de firmarlo.</div></div>
     `
   },
   {
@@ -2229,6 +2249,30 @@ const SDR_STEPS = [
       <p class="pt">Antes de avanzar, hay una reunión de repaso con Belén (RRHH) a las <strong>14:00 hrs</strong>. En esta reunión van a repasar todo lo que estudiaste en el onboarding, resolver dudas y aterrizar la información.</p>
       <div class="callout c-warn"><span class="callout-i">📩</span><div><strong>Avisale a Belén por Slack que ya terminaste el onboarding y que estás listo/a para la reunión.</strong><br>Ella coordina el horario y te manda el link o te avisa si es presencial.</div></div>
       <div class="callout c-info"><span class="callout-i">💡</span><div>Mientras esperas, repasa los pasos que más te costaron y anota todas las dudas que tengas. Es el momento ideal para resolverlas.</div></div>
+      <p class="pt" style="font-size:13px;color:var(--gris2)">Cuando termines la reunión, marca este paso como completado y continúa.</p>
+    `
+  },
+  {
+    id:'sdr-onb-llamados',
+    icon:'📞',
+    badge:'Día 1 — Onboarding',
+    title:'Onboarding LlamadosTGP con Martin Kolton',
+    keywords:'onboarding llamadostgp martin kolton reunion plataforma llamadas primera sesion induccion',
+    content: () => `
+      <p class="pt">Después de la reunión con RRHH, tienes una reunión de onboarding de LlamadosTGP con <strong>Martin Kolton</strong>. En esta reunión Martin te explica cómo funciona la plataforma de llamadas y cómo vas a trabajar con ella.</p>
+      <div class="callout c-info"><span class="callout-i">📌</span>
+        <div>
+          <h3 style="margin-bottom:8px">¿Qué se ve en esta reunión?</h3>
+          <ul class="info-list">
+            <li>Funcionamiento general de la LlamadosTGP.</li>
+            <li>Cómo pedir números y lanzar el dialer.</li>
+            <li>Cómo registrar resultados de llamada correctamente.</li>
+            <li>Cómo agendar desde la plataforma cuando hay éxito.</li>
+            <li>Cómo verificar en la Intranet TGP (App TGP).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout c-warn"><span class="callout-i">📩</span><div><strong>Coordina el horario directamente con Martin Kolton por Slack.</strong> Esta reunión puede ser el mismo Día 1 o al inicio del Día 2.</div></div>
       <p class="pt" style="font-size:13px;color:var(--gris2)">Cuando termines la reunión, marca este paso como completado y continúa.</p>
     `
   },
@@ -2256,7 +2300,7 @@ const SDR_STEPS = [
     title:'Estudiar los Clientes Asignados',
     keywords:'tarea estudiar clientes kit ventas linkedin web onboarding secuencia',
     content: () => `
-      <p class="pt">Esta es la última tarea del Día 1. Antes de tu reunión con el Senior y Specialist mañana, tienes que conocer bien los clientes con los que vas a trabajar: propuesta de valor, servicio, diferenciadores, países, etc.</p>
+      <p class="pt">Antes de la reunión de equipo mañana, tienes que conocer bien los clientes con los que vas a trabajar: propuesta de valor, servicio, diferenciadores, países, etc.</p>
       <p class="pt">Para <strong>cada cliente asignado</strong>, haz esto en orden:</p>
       <ol class="steps-list">
         <li>Buscar y estudiar el perfil de LinkedIn de la empresa.</li>
@@ -2269,79 +2313,68 @@ const SDR_STEPS = [
       <div class="link-row">
         <a href="https://drive.google.com/drive/folders/1teYovVWhumhsf_5A6cdeAmGPx991Se0z?usp=drive_link" target="_blank" class="lbtn lbtn-drive" data-req="kit">📁 Kit de Ventas Clientes</a>
       </div>
-      <div class="callout c-ok"><span class="callout-i">🎉</span><div>Con esto cierras el Día 1. Llegaste preparado/a — mañana son las reuniones y el proceso de agendamiento en vivo.</div></div>
+      <div class="callout c-ok"><span class="callout-i">✅</span><div>Cuando hayas estudiado todos tus clientes, marca esta tarea como completada y continúa.</div></div>
     `
   },
   {
-    id:'sdr-wow',
-    icon:'📋',
-    badge:'Tarea',
-    title:'WOW — Way of Work',
-    keywords:'wow way of work documento normas expectativas compromisos buk firma',
+    id:'sdr-weekly',
+    icon:'📊',
+    badge:'Día 1',
+    title:'Weekly y Meta de Llamados',
+    keywords:'weekly reunion semanal equipo manager senior csr metas resultados reporte presencial obligatorio marcaciones',
     content: () => `
-      <p class="pt">El WOW (Way of Work) es el documento que define la forma de trabajar en TGP: normas, expectativas y compromisos del equipo.</p>
-      <div class="callout c-info"><span class="callout-i">📌</span>
-        <div>
-          <h3 style="margin-bottom:8px">¿Qué debes hacer?</h3>
-          <ol class="steps-list">
-            <li>Leer el documento WOW completo.</li>
-            <li>Firmarlo a través de la plataforma <strong>BUK</strong> — lo encontrarás adjunto en tu perfil.</li>
-          </ol>
-        </div>
-      </div>
-      <div class="callout c-tip"><span class="callout-i">📌</span><div>Si tienes dudas sobre algún punto del WOW, puedes consultarle a RRHH antes de firmarlo.</div></div>
+      <h3 class="sh">La reunión Weekly</h3>
+      <p class="pt">El equipo tiene una reunión semanal fija llamada <strong>Weekly</strong>. Misma hora, mismo día, todas las semanas. La lidera el Manager junto al CSR y el Senior.</p>
+      <p class="pt">En cada Weekly se revisan:</p>
+      <ul class="info-list">
+        <li>Resultados de la semana anterior.</li>
+        <li>Metas y desafíos de la semana que empieza.</li>
+        <li>Anuncios y novedades del equipo.</li>
+      </ul>
+      <div class="callout c-warn"><span class="callout-i">📍</span><div><b>Presencial obligatoria, sin excepciones.</b> La Weekly es el espacio de sincronización del equipo — no hay forma de participar de forma remota ni de recuperarla después.</div></div>
+      <p class="pt">Mañana en la reunión de equipo agendarán tu primera Weekly.</p>
+      <h3 class="sh">Tu meta de marcaciones</h3>
+      <div class="callout c-warn" style="border-left:4px solid #e53935"><span class="callout-i">🎯</span><div><b>Mínimo 250 marcaciones por semana — OBLIGATORIO</b><br>Esta meta se cumple siempre, independiente de responsabilidades universitarias o actividades personales. No es negociable.</div></div>
+      <p class="pt">Distribuye tus llamadas a lo largo de toda la semana, realizando llamados todos los días de lunes a viernes. No dejes todo para el final.</p>
+      <p class="pt">Puedes seguir tu avance día a día en el contador de llamadas de la LlamadosTGP y en el <a href="https://dashboard-llamados.thegrowth.pro/" target="_blank" style="color:var(--azul);font-weight:600">Dashboard Llamados</a>.</p>
     `
   },
   {
-    id:'sdr-dia2',
-    icon:'🌅',
-    badge:'Día 1 — continuación',
-    title:'Bienvenido/a al segundo día',
-    keywords:'segundo dia onboarding dia 2 clientes bandejas tarea estudiar',
+    id:'sdr-fin-dia1',
+    icon:'🌙',
+    badge:'Día 1 — Cierre',
+    title:'¡Terminaste el Día 1!',
+    keywords:'fin dia 1 terminar completar dia dos iniciar manana volver',
     content: () => `
-      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del segundo bloque del Día 1</b><br>Empiézala cuando llegues a la oficina con los clientes ya estudiados.</div></div>
-      <p class="pt">El proceso del Día 1 — continuación es:</p>
-      <ol class="steps-list">
-        <li><strong>Reunión con tu SDR Senior y Specialist:</strong> resolver dudas sobre los clientes y el proceso de agendamiento.</li>
-        <li><strong>Reunión con tu Manager:</strong> inducción oficial al pod, accesos y documentos.</li>
-        <li><strong>Weekly y Metas Semanales:</strong> reunión fija de equipo, metas y estándares.</li>
-      </ol>
+      <div class="callout c-ok"><span class="callout-i">🎉</span><div><strong>¡Completaste el Día 1!</strong> Estudiaste el proceso, conociste las herramientas, tuviste la reunión de repaso con RRHH, el onboarding de LlamadosTGP con Martin y estudiaste a tus clientes. Llegaste preparado/a.</div></div>
+      <p class="pt">Mañana a primera hora vuelve al onboarding para iniciar el Día 2. Tu primer paso será la reunión de equipo donde conocerás al Senior, al Manager y arrancarán juntos.</p>
+      <div class="callout c-info"><span class="callout-i">📅</span><div>Cuando llegues mañana y estés listo/a para comenzar, presiona el botón de abajo para iniciar el Día 2.</div></div>
     `
   },
   {
-    id:'sdr-reunion-senior',
+    id:'sdr-reunion-equipo',
     icon:'🤝',
-    badge:'Día 2',
-    title:'Reunión con tu SDR Senior',
-    keywords:'reunion senior capacitacion clientes bandejas correo',
+    badge:'Día 2 — Primera reunión',
+    title:'Reunión de Equipo',
+    keywords:'reunion equipo senior specialist manager induccion pod accesos documentos reglas agendamiento',
     content: () => `
-      <p class="pt">Si ya estudiaste todos los clientes asignados, estás listo para esta reunión. Es una reunión conjunta con tu SDR Senior y el Specialist donde van a repasar el proceso de agendamiento y todo lo visto el primer día.</p>
+      <p class="pt">Bienvenido/a al Día 2. Tu primera reunión del día es con todo el equipo: tu SDR Senior, el Specialist y tu Manager.</p>
+      <h3 class="sh">¿Qué se ve en esta reunión?</h3>
       <ul class="info-list">
         <li>Resolver dudas sobre los clientes asignados.</li>
         <li>Revisar el proceso de agendamiento en detalle.</li>
         <li>Repasar conceptos clave del Día 1 y aclarar dudas pendientes.</li>
+        <li>Inducción oficial al pod: información del equipo, reglas y dinámica.</li>
+        <li>Entrega de accesos y documentos pendientes.</li>
+        <li><strong>Reglas de Agendamiento</strong> de cada cliente: parámetros de validación e información del ejecutivo.</li>
+        <li>Agendamiento de la Weekly y compromisos de la semana.</li>
       </ul>
-      <div class="callout c-info"><span class="callout-i">💬</span><div>Una vez que termines la reunión, marca este paso como completado y continúa.</div></div>
-    `
-  },
-  {
-    id:'sdr-reunion-manager',
-    icon:'👔',
-    badge:'Día 2',
-    title:'Reunión con tu Manager',
-    keywords:'reunion manager induccion pod accesos documentos reglas agendamiento distribucion bandejas',
-    content: () => `
-      <p class="pt">La inducción oficial al equipo. Tu Manager te va a dar:</p>
-      <ul class="info-list">
-        <li>Toda la información del equipo y del pod.</li>
-        <li>Los accesos y documentos que faltan.</li>
-        <li>Las <strong>Reglas de Agendamiento</strong> de cada cliente (Google Sheets): parámetros de validación e información del ejecutivo.</li>
-      </ul>
-      <div class="callout c-info"><span class="callout-i">⚡</span><div><b>Acceso a la App TGP</b>Revisa tu correo TGP — debes tener un mail con asunto <strong>"Welcome to TGP"</strong>. Ahí están tu usuario y contraseña de la App. Son distintos a los de tu correo de Google TGP. Entra en <a href="https://internal.tgp.cl/" target="_blank" style="color:var(--azul);font-weight:600">internal.tgp.cl</a> y configura tu acceso antes o durante esta reunión.</div></div>
-      <div class="callout c-info"><span class="callout-i">📞</span><div><b>Acceso a la LlamadosTGP</b>Tu Manager te dará tu acceso a la <a href="https://tgp-llamados.web.app/" target="_blank" style="color:var(--azul);font-weight:600">LlamadosTGP</a> y te dirá qué clientes y segmentos vas a trabajar. En el paso siguiente haces tu primera sesión con la herramienta.</div></div>
       <div class="link-row">
         <a href="https://www.loom.com/share/b2264e12fcd94eaf9bc4090efe36c0f4" target="_blank" class="lbtn lbtn-vid" data-req="reglas">▶ Video: Reglas de agendamiento</a>
       </div>
+      <div class="callout c-info"><span class="callout-i">⚡</span><div><b>Acceso a la App TGP</b>Revisa tu correo TGP — debes tener un mail con asunto <strong>"Welcome to TGP"</strong>. Ahí están tu usuario y contraseña de la App. Son distintos a los de tu correo de Google TGP. Entra en <a href="https://internal.tgp.cl/" target="_blank" style="color:var(--azul);font-weight:600">internal.tgp.cl</a> y configura tu acceso antes o durante esta reunión.</div></div>
+      <div class="callout c-info"><span class="callout-i">📞</span><div><b>Acceso a la LlamadosTGP</b>Tu Manager te dará tu acceso a la <a href="https://tgp-llamados.web.app/" target="_blank" style="color:var(--azul);font-weight:600">LlamadosTGP</a> y te dirá qué clientes y segmentos vas a trabajar. En el paso siguiente haces tu primera sesión con la herramienta.</div></div>
+      <div class="callout c-info"><span class="callout-i">💬</span><div>Una vez que termines la reunión, marca este paso como completado y continúa.</div></div>
     `
   },
   {
@@ -2354,8 +2387,9 @@ const SDR_STEPS = [
       <p class="pt">Ya tienes tu acceso. Antes de tu primera llamada real, recorre la LlamadosTGP con calma — es la herramienta que vas a usar todo el día. Acá pones en práctica lo que viste en el Proceso de Agendamiento.</p>
       <h3 class="sh">1 — Revisa estos recursos primero</h3>
       <div class="link-row">
-        <a href="https://drive.google.com/file/d/1JZHCVoLCbL8epO5la-MZqOtcqV8Dgh36/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía LlamadosTGP</a>
-        <a href="https://drive.google.com/file/d/1JZHCVoLCbL8epO5la-MZqOtcqV8Dgh36/view?usp=sharing" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Pedir números y llamar</a>
+        <a href="https://drive.google.com/file/d/1LZSIYKcAozy0Z1LvrRgGGQaJobA1SZl3/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía LlamadosTGP</a>
+        <a href="https://drive.google.com/file/d/1C7IhtCao-m2n9EKqJf62i90z0g3UzsTl/view?usp=sharing" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Pedir números y llamar</a>
+        <a href="https://drive.google.com/file/d/1hDGT-zfDtoNGaP_6B-4Gse-b43TRTaTW/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="etiquetas">🏷️ Guía de Etiquetas de Resultado</a>
       </div>
       <h3 class="sh">2 — Ejecuta y marca cada ítem</h3>
       <div class="inline-check" id="llamados-checks">
@@ -2371,66 +2405,39 @@ const SDR_STEPS = [
     `
   },
   {
-    id:'sdr-weekly',
-    icon:'📊',
-    badge:'Equipo — Día 2',
-    title:'Weekly y Metas Semanales',
-    keywords:'weekly reunion semanal equipo manager senior csr metas resultados reporte presencial obligatorio',
-    content: () => `
-      <h3 class="sh">La Weekly</h3>
-      <p class="pt">Cada semana el equipo tiene una reunión fija llamada <strong>Weekly</strong>. Misma hora, mismo día, todas las semanas. La lidera el Manager junto al CSR y el Senior.</p>
-      <p class="pt">En cada Weekly se revisan:</p>
-      <ul class="info-list">
-        <li>Resultados de la semana anterior.</li>
-        <li>Metas y desafíos de la semana que empieza.</li>
-        <li>Anuncios y novedades del equipo.</li>
-      </ul>
-      <div class="callout c-warn"><span class="callout-i">📍</span><div><b>Presencial obligatoria, sin excepciones.</b> La Weekly es el espacio de sincronización del equipo — no hay forma de participar de forma remota ni de recuperarla después.</div></div>
-      <h3 class="sh">Metas semanales y reporte</h3>
-      <p class="pt">Cada SDR tiene metas semanales propias. Al final de la semana, le reportas los resultados a tu Manager. El Senior los analiza y los presenta en la siguiente Weekly.</p>
-      <h3 class="sh">Estándares mínimos de desempeño</h3>
-      <p class="pt">Estos son los mínimos no negociables que aplican a todos los SDR, siempre:</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0">
-        <div style="background:var(--gris5);border-radius:10px;padding:14px;border:1px solid var(--gris4)">
-          <div style="font-size:22px;font-weight:900;color:var(--negro)">150</div>
-          <div style="font-size:12px;color:var(--gris2);font-weight:600">llamadas mínimas por semana</div>
-        </div>
-      </div>
-      <p class="pt">Puedes seguir tu avance día a día en el contador de llamadas de la LlamadosTGP y en el <a href="https://dashboard-llamados.thegrowth.pro/" target="_blank" style="color:var(--azul);font-weight:600">Dashboard Llamados</a>.</p>
-      <div class="callout c-warn"><span class="callout-i">⏳</span><div><strong>Metas pendientes:</strong> Martin Kolton definirá los estándares de llamadas diarias, metas semanales y meta de reuniones.</div></div>
-      <div class="callout c-tip"><span class="callout-i">🏆</span><div>Más allá de los mínimos, lo que te posiciona en el equipo es <strong>estar en el top 3 de tu pod</strong> de forma consistente.</div></div>
-    `
-  },
-  {
     id:'sdr-honorarios',
     icon:'🧾',
     badge:'Día 2',
     title:'Boleta de Honorarios',
     keywords:'boleta honorarios sii factura pago mensual emitir inicio actividades calculadora formulario proporcional',
     content: () => `
-      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 2</b><br>Complétala durante tu primera semana, cuando ya tengas las bandejas en mano y puedas concentrarte.</div></div>
-      <p class="pt">Como colaborador de TGP, emites <strong>boleta de honorarios</strong> cada mes. Es tu responsabilidad emitirla y subirla al formulario correspondiente. Acá tienes todo lo que necesitas para hacerlo.</p>
-      <h3 class="sh">¿Primera vez emitiendo boleta en tu vida?</h3>
-      <p class="pt">Antes de emitir tu primera boleta, necesitas iniciar actividades en el SII. Es un trámite de 10 minutos que solo se hace una vez.</p>
+      <p class="pt">Como colaborador/a de TGP, emites <strong>boleta de honorarios</strong> cada mes. Es tu responsabilidad emitirla y subirla al formulario. Acá tienes todo lo que necesitas para cuando llegue ese momento.</p>
+      <div class="callout c-info"><span class="callout-i">📥</span><div><b>Descarga y guarda esta guía ahora</b> — tiene todo lo que necesitas saber para emitir tu boleta cada mes.</div></div>
+      <div class="link-row">
+        <a href="informacion-pago-tgp.pdf" target="_blank" class="lbtn lbtn-doc" data-req="info-pago">📄 Información de Pago TGP — guía completa</a>
+      </div>
+      <h3 class="sh">Cuándo emitir</h3>
+      <ul class="info-list">
+        <li><strong>Monto fijo:</strong> emites el primer día del mes.</li>
+        <li><strong>Monto variable:</strong> emites en la segunda semana del mes, cuando los clientes ya validaron las reuniones.</li>
+      </ul>
+      <h3 class="sh">¿Primera vez emitiendo boleta?</h3>
+      <p class="pt">Antes de tu primera boleta, necesitas iniciar actividades en el SII. Es un trámite de 10 minutos que solo se hace una vez.</p>
       <div class="link-row">
         <a href="https://drive.google.com/file/d/1fZjpndZiuYuLxtnurMGWaG1LBPleba91/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="inicio">📄 Guía: Inicio de actividades en SII</a>
       </div>
       <h3 class="sh">El proceso cada mes</h3>
       <ol class="steps-list">
-        <li>Calcular el monto de tu boleta con la calculadora.</li>
+        <li>Calcular el monto de tu boleta (primer mes: proporcional a los días trabajados).</li>
         <li>Emitir la boleta en el portal del SII.</li>
-        <li>Subir la boleta al formulario de TGP.</li>
+        <li>Subir la boleta al formulario de TGP con tus datos bancarios.</li>
       </ol>
       <div class="link-row">
         <a href="https://patrimore.com/herramientas/calcular-boleta-de-honorarios" target="_blank" class="lbtn lbtn-doc" data-req="calc">🧮 Calculadora de boleta</a>
         <a href="https://drive.google.com/file/d/1Qbg6gKgXeJtOrsdR44UMTJJYyBeW3Ny8/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="guia-boleta">📄 Guía: Cómo hacer la boleta en SII</a>
         <a href="https://forms.gle/StmtkADtXgj3RF8G6" target="_blank" class="lbtn lbtn-form" data-req="formulario">📋 Formulario subir boleta</a>
       </div>
-      <div class="callout c-info"><span class="callout-i">📌</span><div><b>Datos de TGP para tu boleta</b><br>Razón Social: TGP SpA · RUT: 77.628.885-3 · Mail: ariel@thegrowth.pro · Dirección: Hermanos Cabot 6777, depto 87</div></div>
-      <div class="link-row">
-        <a href="informacion-pago-tgp.pdf" target="_blank" class="lbtn lbtn-doc" data-req="info-pago">📄 Información de Pago TGP — guía completa</a>
-      </div>
-      <div class="callout c-tip"><span class="callout-i">💡</span><div>Toda la guía completa de pagos (cuándo emitir, cálculo proporcional para el primer mes, etc.) está en la sección <strong>RRHH → Pagos y Boletas</strong>.</div></div>
+      <div class="callout c-info"><span class="callout-i">📌</span><div><b>Datos de TGP para tu boleta</b><br>Razón Social: TGP SpA · RUT: 77.628.885-3 · Mail: ariel@thegrowth.pro · Dirección: Hermanos Cabot 6777, depto 87<br>Contacto finanzas: <a href="mailto:finanzas@thegrowth.pro" style="color:var(--azul)">finanzas@thegrowth.pro</a></div></div>
     `
   },
   {
@@ -2438,12 +2445,24 @@ const SDR_STEPS = [
     icon:'⚠️',
     badge:'Día 2',
     title:'Sistema de Advertencias',
-    keywords:'advertencias sistema faltas descanso puntualidad acumulacion suspension',
+    keywords:'advertencias sistema faltas puntualidad pre aviso advertencia formal ficha personal registro app',
     content: () => `
-      <div class="callout c-warn"><span class="callout-i">📅</span><div><b>Esta sección es del Día 2</b><br>Complétala durante tu primera semana, junto con la boleta de honorarios.</div></div>
-      <p class="pt">TGP tiene un sistema formal de advertencias para mantener la convivencia y el estándar del equipo. Es importante que lo conozcas desde el inicio.</p>
+      <p class="pt">TGP tiene un sistema formal de advertencias para mantener el estándar y la convivencia del equipo. Es importante que lo conozcas desde el inicio.</p>
+      <h3 class="sh">¿Cómo funciona?</h3>
+      <p class="pt">El sistema tiene dos niveles en orden de gravedad:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin:14px 0">
+        <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">1️⃣ Pre-aviso</div>
+          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Primera instancia. Es un llamado de atención formal que queda registrado en tu ficha personal dentro de la App TGP.</div>
+        </div>
+        <div style="background:var(--gris5);border-radius:12px;padding:14px;border:1px solid var(--gris4)">
+          <div style="font-size:13px;font-weight:700;color:var(--negro);margin-bottom:4px">2️⃣ Advertencia formal</div>
+          <div style="font-size:13px;color:var(--gris2);line-height:1.5">Segunda instancia. Se emite si el comportamiento que generó el pre-aviso se repite o no se corrige. También queda registrada en tu ficha personal.</div>
+        </div>
+      </div>
+      <div class="callout c-warn"><span class="callout-i">📌</span><div><b>Ambas instancias quedan registradas en la App TGP y guardadas en tu ficha personal.</b> No pueden ser eliminadas una vez emitidas.</div></div>
       <div class="link-row">
-        <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="advertencias-doc">📄 Sistema de Advertencias</a>
+        <a href="https://docs.google.com/document/d/123SAMMrlxLpT8ZrbpYUs8e4Xytgm-oZT16ByP4vh-8Q/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" data-req="advertencias-doc">📄 Sistema de Advertencias — documento completo</a>
       </div>
     `
   },
@@ -2634,7 +2653,7 @@ function renderOnboarding() {
 }
 
 function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
-  const SDR_DAY2_START = 16;
+  const SDR_DAY2_START = 14;
   const SDR_DAY3_START = 21;
 
   const sb = document.getElementById('sidebar');
@@ -2705,7 +2724,7 @@ function renderSidebar(steps, currentIdx, done, track, isSDR, adminDone) {
 }
 
 function jumpTo(track, idx) {
-  const SDR_DAY2_START = 16;
+  const SDR_DAY2_START = 14;
   const SDR_DAY3_START = 21;
   if (!adminMode) {
     if (track === 'sdr') {
