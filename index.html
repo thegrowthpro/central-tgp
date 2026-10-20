@@ -2288,16 +2288,27 @@ const SDR_STEPS = [
     badge:'Día 1 — Post reunión',
     title:'Quiz de Onboarding',
     keywords:'quiz preguntas evaluacion conocimiento proceso sdr llamado reunion valida',
-    content: () => `
-      <div class="callout c-warn"><span class="callout-i">⏳</span><div><strong>Quiz próximamente disponible.</strong> Martin Kolton está preparando las preguntas sobre llamadas en frío, proceso de agendamiento y manejo de No Show. Se activará aquí cuando esté listo — por ahora, marca este paso como completado y continúa.</div></div>
-      <div id="sdr-quiz-form" style="display:none">
+    content: () => {
+      const letras = ['a','b','c','d'];
+      let qs = '';
+      for(let i=1;i<=13;i++){
+        const k=`q${i}`;
+        let opts='';
+        letras.forEach(l=>{
+          opts+=`<label class="quiz-opt" onclick="this.classList.add('selected');this.closest('.quiz-block').querySelectorAll('.quiz-opt').forEach(o=>{if(o!==this)o.classList.remove('selected')})"><input type="radio" name="${k}" value="${l}"> ${QUIZ_OPCIONES[k][l]}</label>`;
+        });
+        qs+=`<div class="quiz-block" style="margin-bottom:20px"><p class="quiz-q"><span style="color:var(--azul)">${i}.</span> ${QUIZ_PREGUNTAS[k]}</p>${opts}</div>`;
+      }
+      return `
+      <p class="pt">Responde las 13 preguntas. Puedes cometer hasta <strong>2 errores</strong> — con 3 o más debes repetir el quiz completo.</p>
+      <div id="sdr-quiz-form">
+        ${qs}
         <div id="quiz-msg" style="display:none;margin:12px 0;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:600"></div>
-        <button class="complete-btn" style="margin-top:8px" onclick="enviarQuiz()">Enviar respuestas →</button>
+        <button class="complete-btn" style="margin-top:4px" onclick="enviarQuiz()">Enviar respuestas →</button>
       </div>
-      <div id="sdr-quiz-done" style="display:none">
-        <div class="callout c-ok"><span class="callout-i">✅</span><div><strong>¡Respuestas enviadas!</strong> RRHH ya tiene tus resultados. Puedes continuar al siguiente paso.</div></div>
-      </div>
-    `
+      <div id="sdr-quiz-fail" style="display:none"></div>
+      <div id="sdr-quiz-done" style="display:none"></div>
+    `;}
   },
   {
     id:'sdr-tarea1',
@@ -3656,34 +3667,36 @@ const ADMIN_EMAIL = 'belen@thegrowth.pro';
 const TEAM_TOTAL = 99;
 
 // ── QUIZ ONBOARDING SDR ──
-const QUIZ_CORRECTAS = {q1:'b',q2:'a',q3:'c',q4:'b',q5:'c',q6:'c',q7:'c',q8:'b',q9:'b',q10:'c',q11:'c',q12:'a'};
+const QUIZ_CORRECTAS = {q1:'a',q2:'b',q3:'c',q4:'a',q5:'a',q6:'b',q7:'c',q8:'a',q9:'a',q10:'c',q11:'c',q12:'c',q13:'d'};
 const QUIZ_PREGUNTAS = {
-  q1:'40 prospectos en PROCESO sin respuesta en 10 días. Bandeja vacía. ¿Qué haces?',
-  q2:'Prospecto de vacaciones hasta el 20 de agosto, indica reemplazo Andrea López. Hoy es 5 de agosto. ¿Etiqueta y acción?',
-  q3:'Prospecto respondió hace 4 días "lo reviso y te escribo". Ya hiciste push ayer. ¿Paso más efectivo ahora?',
-  q4:'Prospecto aceptó reunirse, parámetros validados. ¿Orden correcto del agendamiento?',
-  q5:'15:12, reunión era a las 15:00, prospecto no apareció. ¿Qué haces?',
-  q6:'Reunión agendada a las 15:00. Son las 14:55. ¿Qué deberías estar haciendo?',
-  q7:'Correo automático: prospecto fuera hasta el 18, deja contacto de reemplazo. ¿Qué haces?',
-  q8:'No sabes manejar objeciones de un prospecto difícil. ¿A quién acudes?',
-  q9:'Agendaste 7 reuniones esta semana pero un prospecto lleva 7 días sin push. ¿Qué pilar fallaste?',
-  q10:'Semana de pruebas universitarias, lunes sin push ni llamados, es martes. ¿Qué haces?',
-  q11:'Jueves, llevas 70 de 150 llamados mínimos. ¿Actitud correcta?',
-  q12:'Prospecto dice "ya usamos un servicio similar y estamos conformes". ¿Acción correcta?'
+  q1:'Luigi te avisa «Fin de la lista». ¿Qué haces?',
+  q2:'Cerraste una reunión exitosa. ¿Dónde se agenda?',
+  q3:'El prospecto pide cambiar la fecha de la reunión. ¿Dónde la reagendas?',
+  q4:'La persona que te contesta no es quien decide. ¿Qué resultado registras?',
+  q5:'¿Quién es responsable de asegurarse de que la reunión agendada se realice?',
+  q6:'El Bot TestNoShow reporta un No Show. ¿Cuál es tu primer paso?',
+  q7:'¿Cómo se define si una reunión es válida y genera comisión?',
+  q8:'Le pones nota 3 al contexto que armó la IA. ¿Qué pasa?',
+  q9:'¿Dónde compruebas que tu reunión quedó registrada?',
+  q10:'Esta semana tienes exámenes y solo tienes tiempo para 150 llamadas. ¿Qué debes hacer?',
+  q11:'¿Qué pasa si no cumples alguna de las responsabilidades de tu acuerdo?',
+  q12:'Recibiste un pre-aviso y la misma falta se repite. ¿Qué ocurre?',
+  q13:'¿Cómo debes organizar tu semana como SDR en TGP?'
 };
 const QUIZ_OPCIONES = {
-  q1:{a:'Nada: las secuencias siguen corriendo solas, solo actúas cuando un prospecto responde',b:'Barres la bandeja y haces push a cada prospecto activo cada 2 días, llamando por teléfono antes de enviar correo',c:'Envías un correo general a todos recordando que siguen en proceso',d:'Archivas los que llevan más de 2 semanas sin respuesta para limpiar la bandeja'},
-  q2:{a:'PROCESO — programas correo para el 23 de agosto y contactas a Andrea López',b:'REAGENDAR — coordinas nueva fecha con el ejecutivo para después de las vacaciones',c:'PROCESO — esperas al 20 de agosto y escribes solo al prospecto original',d:'NO INTERESADO — si no puede reunirse ahora, no es un prospecto activo'},
-  q3:{a:'Esperar 3 días más; el plazo razonable de respuesta es una semana',b:'Volver a hacer push hoy y proponer reunión directamente en el correo',c:'Llamar por teléfono: ya hay conversación iniciada y es el canal más efectivo para retomar y agendar',d:'Cambiar a NO INTERESADO: si dijo que escribía y no lo hizo, ya no hay interés real'},
-  q4:{a:'Proponer horarios → App TGP → detalle al cliente → aprobación Manager → confirmar prospecto → 2 recordatorios → etiqueta',b:'Proponer horarios → App TGP → aprobación Manager → detalle al cliente → confirmar prospecto → 2 recordatorios → etiqueta',c:'Aprobación Manager → proponer horarios → App TGP → detalle al cliente → confirmar prospecto → recordatorios',d:'Proponer horarios → App TGP → confirmar prospecto → aprobación Manager → detalle al cliente → recordatorios → etiqueta'},
-  q5:{a:'Esperar hasta las 15:30: 12 minutos de retraso aún está dentro del margen',b:'Llamar al prospecto, cambiar etiqueta de AGENDADO a PROCESO y coordinar nueva fecha',c:'Llamar al prospecto de inmediato, etiquetar REAGENDAR y coordinar nueva fecha con el cliente en App TGP',d:'Etiquetar NO INTERESADO: un no-show es señal de que el prospecto no quiere continuar'},
-  q6:{a:'Nada especial: la reunión está confirmada con 2 recordatorios, el prospecto sabe el horario',b:'Esperar hasta las 15:10 para ver si entra; si no aparece, llamar y notificar al cliente',c:'Estar en Meet desde antes de las 15:00 con el contacto del prospecto a mano: ante cualquier ausencia, notificar al cliente de inmediato y llamar sin esperar',d:'Llamar al prospecto a las 15:00 exactas para confirmar que va a entrar'},
-  q7:{a:'Escribir directamente a jefa@empresa.com: si está activa, es una oportunidad de avanzar',b:'Dejar que la secuencia siga corriendo; el sistema contactará al prospecto cuando vuelva',c:'Programar correo para días después del 18 y además buscar el teléfono de Jefa Torres para contactarla: es un referido activo',d:'Cambiar etiqueta a PROCESO y esperar que el prospecto escriba cuando vuelva'},
-  q8:{a:'Al SDR Manager: tiene visión de todos los prospectos y puede orientarte directamente',b:'Al SDR Senior: es tu primer punto de apoyo para casos del proceso de prospección',c:'Al CSR: conoce a los clientes y puede darte contexto del servicio',d:'Lo resuelves solo con el material del onboarding y escalarías solo si el prospecto se molesta'},
-  q9:{a:'Organización: no lo registraste en el calendario para hacer seguimiento',b:'Constancia: el push mínimo es cada 2 días; 7 días sin contacto rompe el proceso aunque la semana haya sido muy activa',c:'Responsabilidad: no cumpliste lo que se pidió y no avisaste al Manager que ese prospecto quedó sin atención',d:'Comunicación: el prospecto necesitaba más información del servicio para avanzar'},
-  q10:{a:'Avisarle al Senior y al Manager que vas atrasado por las pruebas y que probablemente necesitas reducir la carga esa semana',b:'Compensar la semana siguiente con los números y push que hayan faltado una vez que pasen las pruebas',c:'Reorganizas la semana, haces ahora el push del lunes, empiezas con los llamados, divides los pendientes por día que queda y le avisas al Senior cómo te organizaste para cumplir',d:'Al final de la semana ves qué cosas faltaron y le avisas al Senior para que esté al tanto'},
-  q11:{a:'Avisarle al Manager que probablemente no vas a poder cumplir la meta y que la próxima semana harás los que falten',b:'Priorizar calidad sobre cantidad: 70 llamados bien hechos valen más que 150 rápidos',c:'Los 150 llamados son un mínimo sin excusas: hoy y mañana haces los 80 que faltan, no es opción no cumplir',d:'Compensar la próxima semana haciendo el doble para promediar el objetivo'},
-  q12:{a:'Etiquetar PROCESO, llamar al prospecto y conversar para asegurarte de que realmente no le sirve el servicio antes de cerrar el caso',b:'Insistir con un ángulo diferente del servicio, mencionando los recursos valiosos que podría ganar el cliente con el cambio',c:'Hacer push insistiendo en la propuesta de valor del servicio para que reconsidere',d:'Cerrar la conversación con un mensaje cordial, etiquetar NO INTERESADO y sacarlo de recibidos'}
+  q1:{a:'Uso Pedir Números en la plataforma LlamadosTGP; la solicitud les llega por Slack a los operadores',b:'Espero a que la lista se recargue sola al día siguiente',c:'Le escribo por WhatsApp a mi Manager para que me mande una base nueva',d:'Vuelvo a llamar a los prospectos que marqué como No contesta'},
+  q2:{a:'En el Google Calendar del cliente, manualmente',b:'Desde la pantalla de Éxito en la plataforma LlamadosTGP — el bot Brad Meet la agenda solo',c:'En la App TGP, sección Reuniones → Nueva',d:'Le aviso al Manager y él la agenda'},
+  q3:{a:'En la plataforma LlamadosTGP, desde el historial del prospecto',b:'En Google Calendar directamente',c:'En la App TGP (internal.tgp.cl)',d:'Le pido al Manager que lo haga él'},
+  q4:{a:'No es KDM. Si me deriva a otra persona, Derivó',b:'Rechazo, porque no puede aceptar la reunión',c:'No aplica, porque no es el contacto correcto',d:'Equivocado, porque el número no es del tomador de decisiones'},
+  q5:{a:'El SDR — debe confirmar asistencia el día anterior y mantenerse atento el día de la reunión',b:'La IA, que envía reportes automáticos al canal de no-show del pod',c:'El Manager, que coordina directamente con el cliente',d:'El sistema de WhatsApp de TGP, que avisa al prospecto una hora antes'},
+  q6:{a:'Esperar si el prospecto entra tarde — el bot puede equivocarse',b:'Contactar al prospecto de inmediato y reagendar en la App TGP',c:'Notificar al Manager para que lo registre en el sistema',d:'Marcar la reunión como No Show en la plataforma LlamadosTGP'},
+  q7:{a:'El SDR la marca como Éxito en la plataforma LlamadosTGP',b:'El Manager la aprueba en el canal de Slack del pod',c:'El cliente define qué reuniones son válidas según los parámetros de validación y lo registra en la App TGP',d:'El bot TestNoShow la valida automáticamente si confirma que hubo YesShow'},
+  q8:{a:'El contexto de la IA no se envía y tengo que escribirlo yo',b:'La reunión se agenda igual, con el contexto de la IA',c:'La IA regenera el contexto automáticamente hasta que le pongas una nota mayor',d:'La reunión queda bloqueada hasta que la apruebe el Manager'},
+  q9:{a:'En la App TGP, Reuniones → Listado',b:'En la tabla de leads de la plataforma LlamadosTGP, en la columna Tags',c:'En el Google Calendar de mi cuenta TGP personal',d:'En el Dashboard Llamados'},
+  q10:{a:'Avisar al Manager y acordar un plan para la semana siguiente',b:'Hacer las 150 llamadas disponibles y compensar la semana siguiente',c:'Cumplir la meta de 250 marcaciones igual — los compromisos universitarios no modifican la meta',d:'Distribuir las llamadas en los días libres y descansar los días de examen'},
+  q11:{a:'El Manager lo anota internamente y lo conversa en la próxima Weekly',b:'Se genera automáticamente una advertencia formal en mi ficha',c:'Mi Manager habla conmigo y registra un pre-aviso formal en la App TGP',d:'RRHH me notifica por correo con un plazo para corregirlo'},
+  q12:{a:'Se registra un segundo pre-aviso con plazo adicional',b:'El Manager decide según la gravedad si aplica suspensión',c:'Se registra una advertencia formal en la App TGP — es la última oportunidad antes de la desvinculación',d:'RRHH evalúa el caso y define los pasos'},
+  q13:{a:'Puedo dedicar ciertos días a la universidad y otros días completos a TGP',b:'Puedo distribuir mis horas libremente siempre que llegue a las 250 marcaciones',c:'Los días de universidad puedo hacer menos llamadas y compensar otro día',d:'Debo trabajar todos los días de lunes a viernes, con al menos 40 llamadas diarias para cumplir la meta'}
 };
 
 function agendNext(n){
@@ -3692,45 +3705,63 @@ function agendNext(n){
   const next=document.getElementById('agend-s'+(n+1));
   if(next){next.style.display='';setTimeout(()=>{next.scrollIntoView({behavior:'smooth',block:'start'});},80);}
 }
+function reiniciarQuiz(){
+  const form=document.getElementById('sdr-quiz-form');
+  const fail=document.getElementById('sdr-quiz-fail');
+  form.querySelectorAll('input[type=radio]').forEach(r=>{r.checked=false;});
+  form.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('selected'));
+  form.style.display='';
+  if(fail)fail.style.display='none';
+  const msg=document.getElementById('quiz-msg');
+  if(msg)msg.style.display='none';
+  setTimeout(()=>{form.scrollIntoView({behavior:'smooth',block:'start'});},80);
+}
 function enviarQuiz(){
   if(!db||!currentUser){alert('Debes estar conectado/a para enviar el quiz.');return;}
   const isAdmin = adminMode || (currentUser && currentUser.email===ADMIN_EMAIL);
   const form=document.getElementById('sdr-quiz-form');
   const msg=document.getElementById('quiz-msg');
-  // Recolectar respuestas MC
+  const TOTAL=13;
   const resp={};
-  for(let i=1;i<=12;i++){
+  for(let i=1;i<=TOTAL;i++){
     const key=`q${i}`;
     const sel=form.querySelector(`input[name="${key}"]:checked`);
     if(!sel){
-      if(isAdmin){resp[key]='a';continue;} // admin: rellenar con 'a' si falta
+      if(isAdmin){resp[key]='a';continue;}
       msg.style.display='block';msg.style.background='#fef2f2';msg.style.color='#991b1b';
       msg.textContent=`Responde todas las preguntas antes de enviar (falta pregunta ${i}).`;
       return;
     }
     resp[key]=sel.value;
   }
-  // Calcular puntaje
   let correctas=0;
   Object.keys(QUIZ_CORRECTAS).forEach(k=>{if(resp[k]===QUIZ_CORRECTAS[k])correctas++;});
+  const incorrectas=Object.keys(QUIZ_CORRECTAS).filter(k=>resp[k]!==QUIZ_CORRECTAS[k]);
+  const aprobado=incorrectas.length<3;
   const resultado={
     nombre:currentUser.displayName||currentUser.email,
     email:currentUser.email,
     fecha:Date.now(),
-    puntaje:`${correctas}/12`,
+    puntaje:`${correctas}/${TOTAL}`,
+    aprobado,
     respuestas:resp
   };
-  // Admin: mostrar resultados sin guardar en Firebase
   if(isAdmin){
-    document.getElementById('sdr-quiz-form').style.display='none';
-    mostrarResultadosQuiz(resp, correctas, resultado.nombre);
+    form.style.display='none';
+    mostrarResultadosQuiz(resp, correctas, resultado.nombre, aprobado);
+    return;
+  }
+  // Solo guardar en Firebase si aprobó
+  if(!aprobado){
+    form.style.display='none';
+    mostrarResultadosQuiz(resp, correctas, resultado.nombre, false);
     return;
   }
   const userKey=currentUser.email.replace(/\./g,'_');
   db.ref(`quiz_onboarding/${userKey}`).set(resultado)
   .then(()=>{
-    document.getElementById('sdr-quiz-form').style.display='none';
-    mostrarResultadosQuiz(resp, correctas, resultado.nombre);
+    form.style.display='none';
+    mostrarResultadosQuiz(resp, correctas, resultado.nombre, true);
     notificarQuiz(resultado, resp, correctas);
   })
   .catch(err=>{
@@ -3739,13 +3770,51 @@ function enviarQuiz(){
   });
 }
 
-function mostrarResultadosQuiz(resp, correctas, nombre){
-  const total=12;
+function mostrarResultadosQuiz(resp, correctas, nombre, aprobado){
+  const total=13;
+  const incorrectas=Object.keys(QUIZ_CORRECTAS).filter(k=>resp[k]!==QUIZ_CORRECTAS[k]);
+  if(!aprobado){
+    const fail=document.getElementById('sdr-quiz-fail');
+    fail.style.display='block';
+    let qHtmlFail='';
+    incorrectas.forEach(k=>{
+      const i=parseInt(k.slice(1));
+      const corr=QUIZ_CORRECTAS[k];
+      const opts=QUIZ_OPCIONES[k];
+      let optsHtml='';
+      ['a','b','c','d'].forEach(l=>{
+        const isChosen=resp[k]===l,isCorr=corr===l;
+        let bg='',border='',badge='',txtCol='';
+        if(isCorr){bg='#f0fdf4';border='1.5px solid #86efac';txtCol='#166534';}
+        else if(isChosen&&!isCorr){bg='#fef2f2';border='1.5px solid #fecaca';txtCol='#991b1b';}
+        else{bg='transparent';border='1px solid #e2e8f0';txtCol='inherit';}
+        if(isCorr)badge='<span style="font-size:10px;font-weight:700;color:#16a34a;background:#dcfce7;padding:2px 7px;border-radius:99px;margin-left:6px">✓ Correcta</span>';
+        else if(isChosen&&!isCorr)badge='<span style="font-size:10px;font-weight:700;color:#dc2626;background:#fee2e2;padding:2px 7px;border-radius:99px;margin-left:6px">Tu respuesta</span>';
+        optsHtml+=`<div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:7px;background:${bg};border:${border};margin-bottom:6px"><span style="width:20px;height:20px;border-radius:50%;background:${isCorr?'#16a34a':isChosen&&!isCorr?'#dc2626':'#e2e8f0'};color:${isCorr||isChosen&&!isCorr?'#fff':'#6b7280'};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;margin-top:1px">${l.toUpperCase()}</span><span style="font-size:12.5px;color:${txtCol};flex:1;line-height:1.45">${opts[l]}</span>${badge}</div>`;
+      });
+      qHtmlFail+=`<div style="background:#fff;border:1.5px solid #fecaca;border-radius:10px;margin-bottom:12px;overflow:hidden"><div style="padding:10px 14px;background:#fff8f8;border-bottom:1px solid #fecaca;display:flex;gap:10px;align-items:flex-start"><span style="font-size:15px;flex-shrink:0;margin-top:1px">❌</span><div><div style="font-size:11px;font-weight:700;color:#dc2626;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px">Pregunta ${i} — Incorrecta</div><div style="font-size:13px;font-weight:600;color:#1e293b;line-height:1.45">${QUIZ_PREGUNTAS[k]}</div></div></div><div style="padding:12px 14px">${optsHtml}</div></div>`;
+    });
+    fail.innerHTML=`
+      <div style="background:#fef2f2;border:1.5px solid #fecaca;border-radius:12px;padding:18px 20px;margin-bottom:20px;display:flex;gap:16px;align-items:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:#dc2626;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0">
+          <span style="font-size:22px;font-weight:800;color:#fff;line-height:1">${incorrectas.length}</span>
+          <span style="font-size:11px;color:rgba(255,255,255,.8)">errores</span>
+        </div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:#dc2626">No aprobaste el quiz</div>
+          <div style="font-size:13px;color:#64748b;margin-top:2px">Necesitas máximo 2 errores para continuar. Revisa las respuestas incorrectas y vuelve a intentarlo.</div>
+        </div>
+      </div>
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;margin-bottom:14px">Preguntas incorrectas — revísalas antes de reintentar</div>
+      ${qHtmlFail}
+      <button onclick="reiniciarQuiz()" style="margin-top:8px;padding:10px 22px;background:var(--azul);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer">Intentar de nuevo →</button>
+    `;
+    return;
+  }
   const done=document.getElementById('sdr-quiz-done');
   done.style.display='block';
-  const col=correctas>=10?'#16a34a':correctas>=7?'#d97706':'#dc2626';
-  const saludo=correctas>=10?'¡Muy bien!':correctas>=7?'Hay temas para repasar con tu Senior.':'Repasa los temas marcados con tu Senior antes de seguir.';
-  const incorrectas=Object.keys(QUIZ_CORRECTAS).filter(k=>resp[k]!==QUIZ_CORRECTAS[k]);
+  const col=correctas===13?'#16a34a':correctas>=12?'#16a34a':'#d97706';
+  const saludo=correctas===13?'¡Perfecto! Todo correcto.':correctas>=12?'¡Aprobado! Bien hecho.':'¡Aprobado!';
   let qHtml='';
   for(let i=1;i<=total;i++){
     const k=`q${i}`;
