@@ -3776,38 +3776,16 @@ function mostrarResultadosQuiz(resp, correctas, nombre, aprobado){
   if(!aprobado){
     const fail=document.getElementById('sdr-quiz-fail');
     fail.style.display='block';
-    let qHtmlFail='';
-    incorrectas.forEach(k=>{
-      const i=parseInt(k.slice(1));
-      const corr=QUIZ_CORRECTAS[k];
-      const opts=QUIZ_OPCIONES[k];
-      let optsHtml='';
-      ['a','b','c','d'].forEach(l=>{
-        const isChosen=resp[k]===l,isCorr=corr===l;
-        let bg='',border='',badge='',txtCol='';
-        if(isCorr){bg='#f0fdf4';border='1.5px solid #86efac';txtCol='#166534';}
-        else if(isChosen&&!isCorr){bg='#fef2f2';border='1.5px solid #fecaca';txtCol='#991b1b';}
-        else{bg='transparent';border='1px solid #e2e8f0';txtCol='inherit';}
-        if(isCorr)badge='<span style="font-size:10px;font-weight:700;color:#16a34a;background:#dcfce7;padding:2px 7px;border-radius:99px;margin-left:6px">✓ Correcta</span>';
-        else if(isChosen&&!isCorr)badge='<span style="font-size:10px;font-weight:700;color:#dc2626;background:#fee2e2;padding:2px 7px;border-radius:99px;margin-left:6px">Tu respuesta</span>';
-        optsHtml+=`<div style="display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:7px;background:${bg};border:${border};margin-bottom:6px"><span style="width:20px;height:20px;border-radius:50%;background:${isCorr?'#16a34a':isChosen&&!isCorr?'#dc2626':'#e2e8f0'};color:${isCorr||isChosen&&!isCorr?'#fff':'#6b7280'};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;margin-top:1px">${l.toUpperCase()}</span><span style="font-size:12.5px;color:${txtCol};flex:1;line-height:1.45">${opts[l]}</span>${badge}</div>`;
-      });
-      qHtmlFail+=`<div style="background:#fff;border:1.5px solid #fecaca;border-radius:10px;margin-bottom:12px;overflow:hidden"><div style="padding:10px 14px;background:#fff8f8;border-bottom:1px solid #fecaca;display:flex;gap:10px;align-items:flex-start"><span style="font-size:15px;flex-shrink:0;margin-top:1px">❌</span><div><div style="font-size:11px;font-weight:700;color:#dc2626;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px">Pregunta ${i} — Incorrecta</div><div style="font-size:13px;font-weight:600;color:#1e293b;line-height:1.45">${QUIZ_PREGUNTAS[k]}</div></div></div><div style="padding:12px 14px">${optsHtml}</div></div>`;
-    });
     fail.innerHTML=`
-      <div style="background:#fef2f2;border:1.5px solid #fecaca;border-radius:12px;padding:18px 20px;margin-bottom:20px;display:flex;gap:16px;align-items:center">
-        <div style="width:64px;height:64px;border-radius:50%;background:#dc2626;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0">
-          <span style="font-size:22px;font-weight:800;color:#fff;line-height:1">${incorrectas.length}</span>
+      <div style="background:#fef2f2;border:1.5px solid #fecaca;border-radius:12px;padding:24px 20px;margin-bottom:20px;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:#dc2626;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 16px">
+          <span style="font-size:26px;font-weight:800;color:#fff;line-height:1">${incorrectas.length}</span>
           <span style="font-size:11px;color:rgba(255,255,255,.8)">errores</span>
         </div>
-        <div>
-          <div style="font-size:16px;font-weight:700;color:#dc2626">No aprobaste el quiz</div>
-          <div style="font-size:13px;color:#64748b;margin-top:2px">Necesitas máximo 2 errores para continuar. Revisa las respuestas incorrectas y vuelve a intentarlo.</div>
-        </div>
+        <div style="font-size:18px;font-weight:700;color:#dc2626;margin-bottom:8px">No aprobaste el quiz</div>
+        <div style="font-size:13px;color:#64748b;line-height:1.6;max-width:400px;margin:0 auto">Tuviste <strong>${incorrectas.length} respuestas incorrectas</strong>. Para aprobar necesitas máximo 2 errores.<br>Repasa el material y vuelve a intentarlo — las respuestas correctas solo se muestran al aprobar.</div>
       </div>
-      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;margin-bottom:14px">Preguntas incorrectas — revísalas antes de reintentar</div>
-      ${qHtmlFail}
-      <button onclick="reiniciarQuiz()" style="margin-top:8px;padding:10px 22px;background:var(--azul);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer">Intentar de nuevo →</button>
+      <button onclick="reiniciarQuiz()" style="display:block;width:100%;padding:12px 22px;background:var(--azul);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer">Intentar de nuevo →</button>
     `;
     return;
   }
