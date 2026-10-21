@@ -2056,7 +2056,7 @@ const SDR_STEPS = [
             </ul>
             <div class="callout c-info" style="margin-bottom:10px"><span class="callout-i">📋</span><div><strong>Al cortar, registra el resultado.</strong> Se abre <em>Resultado de la Llamada</em>: elige la opción que corresponde (Rechazo, Derivó, Llamar más tarde, No contesta, No es KDM…) y pulsa <strong>Confirmar Resultado</strong>. Si el prospecto aceptó la reunión, valida los parámetros (paso 3) antes de elegir <strong>Éxito</strong> — esa opción abre el formulario de agendamiento del paso 4.</div></div>
             <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
-              <a href="https://drive.google.com/file/d/1LZSIYKcAozy0Z1LvrRgGGQaJobA1SZl3/view?usp=drive_link" target="_blank" class="lbtn lbtn-vid" style="font-size:12px;padding:6px 12px" data-req="video-llamar">▶ Video: Llamar desde la plataforma LlamadosTGP</a>
+              <a href="https://drive.google.com/file/d/1LZSIYKcAozy0Z1LvrRgGGQaJobA1SZl3/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px">📄 Guía: Llamar desde la plataforma LlamadosTGP</a>
             </div>
             <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: LlamadosTGP</p>
             <button id="agend-btn-2" onclick="agendNext(2)" style="margin-top:14px;padding:8px 18px;background:var(--azul);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Entendido, continuar →</button>
@@ -2092,7 +2092,7 @@ const SDR_STEPS = [
             <div class="callout c-warn" style="margin-bottom:10px"><span class="callout-i">⚠️</span><div><strong>Con nota bajo 4, el contexto de la IA no se envía.</strong> Tienes que escribirlo tú: qué hace la empresa, cómo lo resuelve hoy, qué le interesó y si quedó algo pendiente. Sin nota no puedes agendar.</div></div>
             <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
               <a href="https://docs.google.com/document/d/1LvrQeOkQZUlfpuwqgWrEhgfLnuivZG-Obr_nCsAZxbE/edit?usp=sharing" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px" data-req="instructivo">📄 Instructivo paso a paso</a>
-              <a href="https://drive.google.com/file/d/1C7IhtCao-m2n9EKqJf62i90z0g3UzsTl/view?usp=sharing" target="_blank" class="lbtn lbtn-vid" style="font-size:12px;padding:6px 12px" data-req="video-agendar">▶ Video: Agendar desde la plataforma LlamadosTGP</a>
+              <a href="https://drive.google.com/file/d/1C7IhtCao-m2n9EKqJf62i90z0g3UzsTl/view?usp=sharing" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px">📄 Guía: Agendar desde la plataforma LlamadosTGP</a>
               <a href="https://drive.google.com/file/d/1LZSIYKcAozy0Z1LvrRgGGQaJobA1SZl3/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" style="font-size:12px;padding:6px 12px" data-req="guia-llamados">📄 Guía LlamadosTGP</a>
             </div>
             <p style="font-size:11px;color:var(--gris2);margin-top:8px">📍 Dónde: LlamadosTGP</p>
@@ -2543,6 +2543,10 @@ const STATE = {
   hasLink(k){return !!this.visitedLinks[k]},
   reset(){['tgp_name','tgp_role','tgp_admin_step','tgp_sdr_step','tgp_admin_done','tgp_sdr_done','tgp_track','tgp_mode','tgp_links'].forEach(k=>localStorage.removeItem(k))}
 };
+
+// Migración: desbloquear paso agendamiento para SDRs ya atascados por data-req de video
+// (los videos fueron reemplazados por guías PDF — se marcan como visitados automáticamente)
+['sdr_4_video-llamar','sdr_4_video-agendar'].forEach(k=>STATE.markLink(k));
 
 let selectedRole = '';
 
