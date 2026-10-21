@@ -2405,7 +2405,7 @@ const SDR_STEPS = [
       <h3 class="sh">1 — Revisa estos recursos primero</h3>
       <div class="link-row">
         <a href="https://drive.google.com/file/d/1LZSIYKcAozy0Z1LvrRgGGQaJobA1SZl3/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="guia">📄 Guía LlamadosTGP</a>
-        <a href="https://drive.google.com/file/d/1C7IhtCao-m2n9EKqJf62i90z0g3UzsTl/view?usp=sharing" target="_blank" class="lbtn lbtn-vid" data-req="video">▶ Video: Pedir números y llamar</a>
+        <a href="https://drive.google.com/file/d/1C7IhtCao-m2n9EKqJf62i90z0g3UzsTl/view?usp=sharing" target="_blank" class="lbtn lbtn-doc">📄 Guía: Pedir números y llamar</a>
         <a href="https://drive.google.com/file/d/1hDGT-zfDtoNGaP_6B-4Gse-b43TRTaTW/view?usp=drive_link" target="_blank" class="lbtn lbtn-doc" data-req="etiquetas">🏷️ Guía de Etiquetas de Resultado</a>
       </div>
       <h3 class="sh">2 — Ejecuta y marca cada ítem</h3>
@@ -2544,9 +2544,9 @@ const STATE = {
   reset(){['tgp_name','tgp_role','tgp_admin_step','tgp_sdr_step','tgp_admin_done','tgp_sdr_done','tgp_track','tgp_mode','tgp_links'].forEach(k=>localStorage.removeItem(k))}
 };
 
-// Migración: desbloquear paso agendamiento para SDRs ya atascados por data-req de video
-// (los videos fueron reemplazados por guías PDF — se marcan como visitados automáticamente)
-['sdr_4_video-llamar','sdr_4_video-agendar'].forEach(k=>STATE.markLink(k));
+// Migración: desbloquear pasos con data-req de videos inexistentes
+// Los links de video fueron reemplazados por guías PDF — se marcan visitados automáticamente
+['sdr_4_video-llamar','sdr_4_video-agendar','sdr_15_video'].forEach(k=>STATE.markLink(k));
 
 let selectedRole = '';
 
