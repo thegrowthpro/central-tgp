@@ -2238,10 +2238,13 @@ const SDR_STEPS = [
         <div>
           <h3 style="margin-bottom:8px">¿Qué debes hacer?</h3>
           <ol class="steps-list">
-            <li>Leer el documento WOW completo.</li>
+            <li>Leer el documento WOW completo (link abajo).</li>
             <li>Firmarlo a través de la plataforma <strong>BUK</strong> — lo encontrarás adjunto en tu perfil.</li>
           </ol>
         </div>
+      </div>
+      <div class="link-row">
+        <a href="wow-tgp.pdf" target="_blank" class="lbtn lbtn-doc">📄 Way of Work TGP — leer documento</a>
       </div>
       <div class="callout c-tip"><span class="callout-i">📌</span><div>Si tienes dudas sobre algún punto del WOW, puedes consultarle a RRHH antes de firmarlo.</div></div>
     `
@@ -2551,6 +2554,7 @@ const STATE = {
   'sdr_4_validacion','sdr_4_instructivo','sdr_4_guia-llamados','sdr_4_diagrama', // agendamiento — links en reveal secuencial
   'sdr_6_kit','sdr_6_esquema-agend','sdr_6_kit-ventas','sdr_6_dashboard','sdr_6_llamadostgp','sdr_6_guia-llamados', // favoritos — 6 bookmarks
   'sdr_15_video' // llamadostgp — video reemplazado por PDF
+  // Nota: sdr-wow (idx 7) usa inline-check — no se puede pre-marcar por JS desde aquí
 ].forEach(k=>STATE.markLink(k));
 
 let selectedRole = '';
